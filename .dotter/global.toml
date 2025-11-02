@@ -1,0 +1,20 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+"vim.vim" = "~/.vimrc"
+"zsh.sh" = "~/.zshrc"
+"bash.sh" = "~/.bashrc"
+"ble.sh" = "~/.blerc"
+"conda.yaml" = "~/.condarc"
+"mise.toml" = "~/.config/mise/config.toml"
+"fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
+"fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
+"starship.toml" = "~/.config/starship.toml"
+
+[default.variables]
+
+[settings]
+default_target_type = "automatic"
