@@ -18,7 +18,7 @@
 简单地说，本仓库的使用法方法如下
 
 ```sh
-# 克隆本仓库。Windows 用户请在 C 盘进行克隆，因为符号链接无法跨磁盘
+# 克隆本仓库
 git clone https://github.com/Juemuren/.dotfiles
 # 进入目录
 cd .dotfiles
