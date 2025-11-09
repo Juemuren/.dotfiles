@@ -16,13 +16,18 @@ $cpp\
 $dotnet\
 $rust\
 $golang\
+$vlang\
+$zig\
 $java\
+$haskell\
 $lua\
 $ruby\
 $julia\
+$rlang\
 $nodejs\
 $python\
 [](fg:green bg:cyan)\
+$container\
 $docker_context\
 $conda\
 $mise\
@@ -109,8 +114,23 @@ symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )]($style)'
 
+[vlang]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[zig]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
 [java]
 symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[haskell]
+symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )]($style)'
 
@@ -129,6 +149,11 @@ symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )]($style)'
 
+[rlang]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
 [nodejs]
 symbol = ""
 style = "bg:green fg:crust"
@@ -138,6 +163,11 @@ format = '[ $symbol ($version )]($style)'
 symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )(\(#$virtualenv\))]($style)'
+
+[container]
+symbol = ""
+style = "bg:cyan fg:crust"
+format = '[ $symbol ($name )]($style)'
 
 [docker_context]
 symbol = ""
