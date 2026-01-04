@@ -22,6 +22,10 @@
 git clone https://github.com/Juemuren/.dotfiles
 # 进入目录
 cd .dotfiles
+# 复制示例模板，生成本地配置文件
+cp .dotter/local.sample.toml .dotter/local.toml
+# 使用你最喜欢的编辑器修改变量
+vim .dotter/local.toml
 # 只查看运行结果，不实际修改
 dotter deploy --dry-run -f
 # 删除原文件，创建符号链接，并显示详细日志
