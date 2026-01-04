@@ -1,10 +1,18 @@
 [tools]
 go = "latest"
+java = "latest"
 node = "latest"
 python = "latest"
+ruby = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python", "node"]
 
 [settings.python]
 uv_venv_auto = true
+
+[settings.pipx]
+uvx = true
+
+[settings.npm]
+package_manager = "pnpm"
