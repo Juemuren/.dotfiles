@@ -9,6 +9,7 @@
 - mise
 - starship
 - vim
+- zsh
 
 ## 使用方法
 

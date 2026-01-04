@@ -12,6 +12,7 @@ depends = []
 "mise.toml" = "~/.config/mise/config.toml"
 "starship.toml" = "~/.config/starship.toml"
 "vim.vim" = "~/.vimrc"
+"zsh.sh" = "~/.zshrc"
 
 [default.variables]
 
