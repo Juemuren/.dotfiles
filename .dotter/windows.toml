@@ -3,3 +3,9 @@ depends = []
 
 [default.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
+
+[windows.files]
+"scoop.json" = "~/.config/scoop/config.json"
+
+[windows.variables]
+scoop_root = "~/scoop"
