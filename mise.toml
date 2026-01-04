@@ -1,0 +1,11 @@
+[tools]
+go = "latest"
+java = "17"
+node = "latest"
+python = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python", "node"]
+
+[settings.python]
+uv_venv_auto = true
