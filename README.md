@@ -4,6 +4,7 @@
 
 - bash
 - ble
+- conda
 - starship
 - vim
 
