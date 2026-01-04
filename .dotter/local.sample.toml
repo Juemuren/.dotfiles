@@ -1,5 +1,5 @@
-includes = []
-packages = ["default"]
+includes = [".dotter/windows.toml"]
+packages = ["default", "windows"]
 
 [files]
 
