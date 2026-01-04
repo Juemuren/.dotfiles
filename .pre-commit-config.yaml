@@ -1,0 +1,16 @@
+repos:
+  - repo: local
+    hooks:
+      - id: lint-sh
+        name: Shell Lint
+        entry: just lint-sh
+        language: system
+        pass_filenames: false
+        priority: 0
+  - repo: local
+    hooks:
+      - id: update-docs
+        name: Docs Update
+        entry: just update-docs
+        language: system
+        pass_filenames: false
