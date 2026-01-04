@@ -5,6 +5,7 @@
 - bash
 - conda
 - fastfetch
+- git
 - mise
 - starship
 - vim
