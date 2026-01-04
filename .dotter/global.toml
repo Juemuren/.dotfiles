@@ -8,6 +8,7 @@ depends = []
 "conda.yaml" = "~/.condarc"
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
 "fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
+"git.ini" = "~/.gitconfig"
 "mise/mise.toml" = "~/.config/mise/config.toml"
 "mise/python-clis.txt" = "~/.default-python-packages"
 "mise/javascript-clis.txt" = "~/.default-npm-packages"
