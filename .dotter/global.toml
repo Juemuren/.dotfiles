@@ -4,6 +4,7 @@
 depends = []
 
 [default.files]
+"vim.vim" = "~/.vimrc"
 
 [default.variables]
 
