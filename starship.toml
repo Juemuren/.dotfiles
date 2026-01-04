@@ -1,0 +1,233 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](red)\
+$os\
+$username\
+$shell\
+[](fg:red bg:orange)\
+$directory\
+[](fg:orange bg:yellow)\
+$git_branch\
+$git_status\
+[](fg:yellow bg:green)\
+$c\
+$cpp\
+$dotnet\
+$rust\
+$golang\
+$java\
+$lua\
+$ruby\
+$julia\
+$nodejs\
+$python\
+[](fg:green bg:cyan)\
+$docker_context\
+$conda\
+$mise\
+${env_var.MSYSTEM}\
+${env_var.VisualStudioVersion}\
+[](fg:cyan bg:blue)\
+$time\
+[](fg:blue bg:purple)\
+$cmd_duration\
+$status\
+[](purple)\
+$line_break\
+$shlvl\
+$character\
+"""
+
+palette = 'rainbow_light'
+
+[os]
+disabled = false
+style = "bg:red fg:crust"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Windows = ""
+Ubuntu = "󰕈"
+Arch = "󰣇"
+Macos = ""
+Android = ""
+
+[username]
+disabled = false
+show_always = true
+style_user = "bg:red fg:crust"
+style_root = "bg:red fg:crust"
+format = '[ $user ]($style)'
+
+[shell]
+disabled = false
+bash_indicator = ""
+powershell_indicator = ""
+zsh_indicator = "󰬇"
+style = "bg:red fg:crust"
+format = '[ $indicator ]($style)'
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bg:orange fg:crust"
+format = "[ $path ]($style)"
+
+[git_branch]
+symbol = ""
+style = "bg:yellow fg:crust"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:yellow fg:crust"
+format = '[($all_status$ahead_behind )]($style)'
+
+[c]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version-$name )]($style)'
+
+[cpp]
+disabled = false
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version-$name )]($style)'
+
+[dotnet]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[rust]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[golang]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[java]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[lua]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[ruby]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[julia]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[python]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )(\(#$virtualenv\))]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:cyan fg:crust"
+format = '[ $symbol ($context )]($style)'
+
+[conda]
+ignore_base = false
+symbol = ""
+style = "bg:cyan fg:crust"
+format = '[ $symbol ($environment )]($style)'
+
+[mise]
+disabled = true
+symbol = ""
+style = "bg:cyan fg:crust"
+format = "[ $symbol $health ]($style)"
+
+[env_var.MSYSTEM]
+disabled = false
+description = "The current MSYS environment"
+symbol = "󰫺"
+style = "bg:cyan fg:crust"
+format = '[ $symbol ($env_value )]($style)'
+
+[env_var.VisualStudioVersion]
+disabled = false
+description = "The current VS version"
+symbol = ""
+style = "bg:cyan fg:crust"
+format = '[ $symbol ($env_value )]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:blue fg:crust"
+format = '[  $time ]($style)'
+
+[cmd_duration]
+disabled = false
+show_milliseconds = true
+min_time = 100
+style = "bg:purple fg:crust"
+format = '[ 󰔟 $duration ]($style)'
+
+[status]
+disabled = true
+symbol = ""
+success_symbol = ""
+not_executable_symbol = ""
+not_found_symbol = ""
+sigint_symbol = ""
+signal_symbol = "󰉁"
+map_symbol = true
+style = "bg:purple fg:crust"
+format = '[ $symbol $status ]($style)'
+
+[line_break]
+disabled = false
+
+[shlvl]
+disabled = true
+threshold = 0
+symbol = "❯"
+style = "bold fg:yellow"
+format = "[$symbol]($style)"
+repeat = true
+repeat_offset = 1
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+
+[palettes.rainbow_light]
+red = "#f38ba8"
+orange = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+cyan = "#74c7ec"
+blue = "#89b4fa"
+purple = "#b4befe"
+crust = "#11111b"
+
+[palettes.rainbow_dark]
+red = '#cc241d'
+orange = '#d65d0e'
+yellow = '#d79921'
+green = '#98971a'
+cyan = '#689d6a'
+blue = '#458588'
+purple = '#6286b1'
+crust = '#fbf1c7'

@@ -4,9 +4,10 @@
 depends = []
 
 [default.files]
-"vim.vim" = "~/.vimrc"
 "bash.sh" = "~/.bashrc"
 "ble.sh" = "~/.blerc"
+"starship.toml" = "~/.config/starship.toml"
+"vim.vim" = "~/.vimrc"
 
 [default.variables]
 

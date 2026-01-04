@@ -4,6 +4,7 @@
 
 - bash
 - ble
+- starship
 - vim
 
 ## 使用方法
