@@ -7,6 +7,7 @@ depends = []
 "bash.sh" = "~/.bashrc"
 "ble.sh" = "~/.blerc"
 "conda.yaml" = "~/.condarc"
+"mise.toml" = "~/.config/mise/config.toml"
 "starship.toml" = "~/.config/starship.toml"
 "vim.vim" = "~/.vimrc"
 
