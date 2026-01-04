@@ -1,0 +1,5 @@
+[windows]
+depends = []
+
+[default.files]
+"uv.toml" = "~/AppData/Roaming/uv/uv.toml"
