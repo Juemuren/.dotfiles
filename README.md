@@ -6,15 +6,17 @@
 
 目前包含这些配置
 
-- bash
-- conda
-- fastfetch
-- git
-- mise
-- starship
-- uv
-- vim
-- zsh
+<!-- TOOL-LIST:START -->
+* bash
+* conda
+* fastfetch
+* git
+* mise
+* starship
+* uv
+* vim
+* zsh
+<!-- TOOL-LIST:END -->
 
 ## 使用方法
 
