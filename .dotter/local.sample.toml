@@ -6,3 +6,4 @@ packages = ["default", "windows"]
 [variables]
 git_name = "Your git name"
 git_email = "Your git email"
+scoop_root = "path/to/scoop"

@@ -12,6 +12,7 @@
 * fastfetch
 * git
 * mise
+* scoop
 * starship
 * uv
 * vim
