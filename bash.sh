@@ -1,9 +1,6 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-# # Write the following line near the top of .bashrc
-# [[ $- == *i* ]] && source ~/blesh/ble.sh --noattach
-
 # Integration
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
@@ -27,6 +24,3 @@ export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 #     ssh-add
 # fi
 # unset env
-
-# # Write the following line at the bottom of .bashrc
-# [[ ! ${BLE_VERSION-} ]] || ble-attach
