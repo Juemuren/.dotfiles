@@ -3,7 +3,6 @@
 这个仓库保存了我所使用的点文件，包含这些工具的配置
 
 - bash
-- ble
 - conda
 - fastfetch
 - mise

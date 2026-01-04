@@ -5,7 +5,6 @@ depends = []
 
 [default.files]
 "bash.sh" = "~/.bashrc"
-"ble.sh" = "~/.blerc"
 "conda.yaml" = "~/.condarc"
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
 "fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
