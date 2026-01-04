@@ -18,8 +18,12 @@ $rust\
 $golang\
 $vlang\
 $zig\
+$swift\
 $java\
+$kotlin\
 $haskell\
+$erlang\
+$elixir\
 $lua\
 $ruby\
 $julia\
@@ -124,13 +128,33 @@ symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )]($style)'
 
+[swift]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
 [java]
 symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )]($style)'
 
+[kotlin]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
 [haskell]
 symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[erlang]
+symbol = ""
+style = "bg:green fg:crust"
+format = '[ $symbol ($version )]($style)'
+
+[elixir]
+symbol = ""
 style = "bg:green fg:crust"
 format = '[ $symbol ($version )]($style)'
 
@@ -253,11 +277,11 @@ purple = "#b4befe"
 crust = "#11111b"
 
 [palettes.rainbow_dark]
-red = '#cc241d'
-orange = '#d65d0e'
-yellow = '#d79921'
-green = '#98971a'
-cyan = '#689d6a'
-blue = '#458588'
-purple = '#6286b1'
-crust = '#fbf1c7'
+red = "#d20f39"
+orange = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+cyan = "#179299"
+blue = "#1e66f5"
+purple = "#8839ef"
+crust = "#dce0e8"
