@@ -1,6 +1,5 @@
 {
   "root_path": "{{scoop_root}}",
-  "last_update": "2026-01-04T15:40:58.4341719+08:00",
   "scoop_repo": "https://github.com/ScoopInstaller/Scoop",
   "scoop_branch": "master",
   "use_isolated_path": true,
