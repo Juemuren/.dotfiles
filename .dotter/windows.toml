@@ -5,8 +5,8 @@ depends = []
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
 [windows.files]
-"scoop.json" = "~/.config/scoop/config.json"
 "pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+"scoop.json" = "~/.config/scoop/config.json"
 "wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 [windows.variables]
