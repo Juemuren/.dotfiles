@@ -7,6 +7,8 @@ depends = []
 [windows.files]
 "scoop.json" = "~/.config/scoop/config.json"
 "pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+"wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 [windows.variables]
 scoop_root = "~/scoop"
+msys_root = "C:/msys64"
