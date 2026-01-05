@@ -1,0 +1,200 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.auto"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollToMark",
+                "direction": "previous"
+            },
+            "id": "User.preMark"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollToMark",
+                "direction": "next"
+            },
+            "id": "User.nextMark"
+        }
+    ],
+    "alwaysShowTabs": true,
+    "centerOnLaunch": true,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultInputScope": "alphanumericHalfWidth",
+    "defaultProfile": "{b6d28cf0-b245-59cb-a780-b728ed6c082e}",
+    "keybindings": 
+    [
+        {
+            "id": "User.find",
+            "keys": "ctrl+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.copy",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.splitPane.auto",
+            "keys": "ctrl+shift+s"
+        },
+        {
+            "id": "User.preMark",
+            "keys": "ctrl+up"
+        },
+        {
+            "id": "User.nextMark",
+            "keys": "ctrl+down"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        },
+        {
+            "type": "separator"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "backgroundImageOpacity": 0.2,
+            "bellStyle": "taskbar",
+            "closeOnExit": "never",
+            "colorScheme": "Dark+",
+            "cursorShape": "filledBox",
+            "font": 
+            {
+                "face": "Maple Mono NF CN",
+                "size": 16
+            },
+            "showMarksOnScrollbar": true
+        },
+        "list": 
+        [
+            {
+                "commandline": "%ProgramFiles%/PowerShell/7/pwsh.exe -NoLogo",
+                "guid": "{b6d28cf0-b245-59cb-a780-b728ed6c082e}",
+                "hidden": false,
+                "icon": "%ProgramFiles%/PowerShell/7/assets/Powershell_black.ico",
+                "name": "Pwsh",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{f7f869cb-d50d-5d61-bddf-6ab37815caff}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "commandline": "{{scoop_root}}/apps/git/current/bin/bash.exe --login -i",
+                "guid": "{a3464014-7f9f-5763-ace4-e15905a9d7ee}",
+                "hidden": false,
+                "icon": "{{scoop_root}}/apps/git/current/usr/share/git/git.ico",
+                "name": "Git Bash",
+                "pathTranslationStyle": "msys2",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "{{msys_root}}/msys2_shell.cmd -defterm -no-start -here -full-path -ucrt64 -shell zsh",
+                "guid": "{eebf208d-c959-5729-8feb-3721eb87667b}",
+                "hidden": false,
+                "icon": "{{msys_root}}/ucrt64.ico",
+                "name": "MSYS UCRT",
+                "pathTranslationStyle": "msys2",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "{{msys_root}}/msys2_shell.cmd -defterm -no-start -here -full-path -mingw64 -shell zsh",
+                "guid": "{e3bb1826-d364-5a28-a8c5-729c7cadec36}",
+                "hidden": false,
+                "icon": "{{msys_root}}/mingw64.ico",
+                "name": "MSYS MINGW",
+                "pathTranslationStyle": "msys2",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "{{msys_root}}/msys2_shell.cmd -defterm -no-start -here -full-path -clang64 -shell zsh",
+                "guid": "{5bb9a396-cf85-5a5f-a539-91ce99a3ea38}",
+                "hidden": false,
+                "icon": "{{msys_root}}/clang64.ico",
+                "name": "MSYS CLANG",
+                "pathTranslationStyle": "msys2",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{6289d6d1-8600-50b3-8128-b60cd63fa4f6}",
+                "hidden": false,
+                "name": "Podman Machine",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "commandline": "%SystemRoot%/System32/WindowsPowerShell/v1.0/powershell.exe -NoLogo",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%/System32/cmd.exe /k",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{919c9a29-be1a-5f99-b60a-0e617913b227}",
+                "hidden": false,
+                "name": "VS Command Prompt",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c039fe6d-d80d-5c09-a307-b6ee77648689}",
+                "hidden": false,
+                "name": "VS PowerShell",
+                "source": "Windows.Terminal.VisualStudio"
+            }
+        ]
+    },
+    "schemes": [],
+    "showTabsInTitlebar": true,
+    "themes": [],
+    "useAcrylicInTabRow": false
+}

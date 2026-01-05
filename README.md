@@ -17,6 +17,7 @@
 * starship
 * uv
 * vim
+* wt
 * zsh
 <!-- TOOL-LIST:END -->
 

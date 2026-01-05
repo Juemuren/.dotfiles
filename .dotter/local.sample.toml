@@ -7,3 +7,4 @@ packages = ["default", "windows"]
 git_name = "Your git name"
 git_email = "Your git email"
 scoop_root = "path/to/scoop"
+msys_root = "path/to/msys"
