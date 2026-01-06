@@ -120,10 +120,10 @@
                 "source": "Microsoft.WSL"
             },
             {
-                "commandline": "{{scoop_root}}/apps/git/current/bin/bash.exe --login -i",
+                "commandline": "{{git_root}}/bin/bash.exe --login -i",
                 "guid": "{a3464014-7f9f-5763-ace4-e15905a9d7ee}",
                 "hidden": false,
-                "icon": "{{scoop_root}}/apps/git/current/usr/share/git/git.ico",
+                "icon": "{{git_root}}/usr/share/git/git.ico",
                 "name": "Git Bash",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
