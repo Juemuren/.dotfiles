@@ -17,6 +17,7 @@
 * starship
 * uv
 * vim
+* vscode
 * wt
 * zsh
 <!-- TOOL-LIST:END -->

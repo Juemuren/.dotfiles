@@ -1,7 +1,10 @@
 [helpers]
 
+[settings]
+default_target_type = "automatic"
+
 [default]
-depends = []
+depends = ["vscode"]
 
 [default.files]
 "bash.sh" = "~/.bashrc"
@@ -19,5 +22,5 @@ depends = []
 
 [default.variables]
 
-[settings]
-default_target_type = "automatic"
+[vscode.files]
+"vscode/default/settings.jsonc" = "~/.config/Code/User/settings.json"

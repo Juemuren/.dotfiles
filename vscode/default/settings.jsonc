@@ -1,0 +1,166 @@
+{
+    "workbench.settings.applyToAllProfiles": [
+        "workbench.iconTheme",
+        "workbench.productIconTheme",
+        "workbench.colorTheme",
+        "editor.fontSize",
+        "editor.fontFamily",
+        "editor.fontLigatures",
+        "terminal.integrated.fontSize",
+        "terminal.integrated.fontFamily",
+        "terminal.integrated.fontLigatures.enabled",
+        "workbench.layoutControl.enabled",
+        "workbench.navigationControl.enabled",
+        "workbench.editor.enablePreview",
+        "workbench.startupEditor",
+        "workbench.editor.empty.hint",
+        "terminal.integrated.profiles.windows",
+        "terminal.integrated.defaultProfile.windows",
+        "terminal.integrated.shellIntegration.enabled",
+        "todo-tree.tree.showCurrentScanMode",
+        "todo-tree.highlights.defaultHighlight",
+        "todo-tree.general.tags",
+        "todo-tree.highlights.customHighlight",
+        "github.copilot.enable"
+    ],
+
+    /********** 自动同步配置/插件无关 **********/
+    // 通知
+    "update.showReleaseNotes": false,
+    // 更新
+    "update.mode": "manual",
+    "extensions.autoUpdate": false,
+    // 安全
+    "security.workspace.trust.untrustedFiles": "open",
+    // 菜单栏
+    "window.menuBarVisibility": "compact",
+
+    /********** 手动同步配置/插件无关 **********/
+    // 主题
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    // 字体
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'Sarasa Mono SC', 'Symbols Nerd Font Mono'",
+    "editor.fontLigatures": false,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "'Maple Mono NF CN'",
+    "terminal.integrated.fontLigatures.enabled": true,
+    // 布局
+    "workbench.layoutControl.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    // 预览
+    "workbench.editor.enablePreview": false,
+    // 开始界面
+    "workbench.startupEditor": "none",
+    "workbench.editor.empty.hint": "hidden",
+    // 集成终端
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "args": [
+                "-NoLogo"
+            ],
+            "icon": "terminal-powershell",
+            "color": "terminal.ansiBlue"
+        },
+        "Ubuntu (WSL)": {
+            "path": "${env:SystemRoot}/System32/wsl.exe",
+            "args": [
+                "-d",
+                "Ubuntu-24.04"
+            ],
+            "icon": "terminal-ubuntu",
+            "color": "terminal.ansiYellow"
+        },
+        "Bash (Git)": {
+            "path": "{{git_root}}/bin/bash.exe",
+            "args": [
+                "--login",
+                "-i"
+            ],
+            "icon": "source-control",
+            "color": "terminal.ansiRed"
+        },
+        "MSYS UCRT": {
+            "path": "{{msys_root}}/usr/bin/zsh.exe",
+            "args": [
+                "--login",
+                "-i"
+            ],
+            "env": {
+                "CHERE_INVOKING": "1",
+                "MSYSTEM": "UCRT64",
+                "MSYS2_PATH_TYPE": "inherit"
+            },
+            "icon": "terminal-bash",
+            "color": "terminal.ansiYellow"
+        },
+        "MSYS MINGW": {
+            "path": "{{msys_root}}/usr/bin/zsh.exe",
+            "args": [
+                "--login",
+                "-i"
+            ],
+            "env": {
+                "CHERE_INVOKING": "1",
+                "MSYSTEM": "MINGW64",
+                "MSYS2_PATH_TYPE": "inherit"
+            },
+            "icon": "terminal-bash",
+            "color": "terminal.ansiBlue"
+        },
+        "MSYS CLANG": {
+            "path": "{{msys_root}}/usr/bin/zsh.exe",
+            "args": [
+                "--login",
+                "-i"
+            ],
+            "env": {
+                "CHERE_INVOKING": "1",
+                "MSYSTEM": "CLANG64",
+                "MSYS2_PATH_TYPE": "inherit"
+            },
+            "icon": "terminal-bash",
+            "color": "terminal.ansiRed"
+        },
+        "Command Prompt": null,
+        "Windows PowerShell": null,
+        "Ubuntu-24.04 (WSL)": null,
+        "podman-machine-default (WSL)": null
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.shellIntegration.enabled": false,
+
+    /********** 同步配置/插件相关 **********/
+
+    // todo-tree
+    "todo-tree.tree.showCurrentScanMode": false,
+    "todo-tree.highlights.defaultHighlight": {
+        "type": "text-and-comment"
+    },
+    "todo-tree.general.tags": [
+        "FIXME",
+        "HACK",
+        "TODO"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "FIXME": {
+            "icon": "flame",
+            "foreground": "#ff2d00"
+        },
+        "HACK": {
+            "icon": "thumbsdown",
+            "foreground": "#ab9b9b"
+        },
+        "TODO": {
+            "icon": "checklist",
+            "foreground": "#e2e210"
+        }
+    },
+    // copilot
+    "github.copilot.enable": {
+        "*": false
+    }
+}
