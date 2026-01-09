@@ -1,0 +1,8 @@
+checkexec
+graphviz
+juliaup
+lazygit
+miktex
+mise
+quarto
+Sarasa-Mono-SC
