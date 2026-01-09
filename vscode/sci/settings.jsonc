@@ -1,0 +1,21 @@
+{
+    // python
+    "python.condaPath": "{{conda_root}}/condabin/conda.bat",
+    "python.terminal.activateEnvironment": false,
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.fixAll": ["source.unusedImports"],  
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true
+    },
+
+    // jupyter
+    "notebook.lineNumbers": "on",
+    "notebook.output.scrolling": true,
+    "jupyter.widgetScriptSources": [
+        "unpkg.com",
+        "jsdelivr.com"
+    ]
+}
