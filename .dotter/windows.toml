@@ -15,7 +15,7 @@ depends = ["scoop"]
 msys_root = "C:/msys64"
 git_root = "C:/Program Files/Git"
 
-[scoop.file]
+[scoop.files]
 "scoop/scoop.json" = "~/.config/scoop/config.json"
 
 [scoop.variables]
