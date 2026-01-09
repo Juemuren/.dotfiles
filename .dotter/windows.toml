@@ -1,5 +1,5 @@
 [windows]
-depends = []
+depends = ["scoop"]
 
 [default.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
@@ -9,9 +9,15 @@ depends = []
 
 [windows.files]
 "pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
-"scoop.json" = "~/.config/scoop/config.json"
 "wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 [windows.variables]
-scoop_root = "~/scoop"
 msys_root = "C:/msys64"
+git_root = "C:/Program Files/Git"
+
+[scoop.file]
+"scoop/scoop.json" = "~/.config/scoop/config.json"
+
+[scoop.variables]
+scoop_root = "~/scoop"
+
