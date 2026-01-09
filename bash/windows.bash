@@ -1,15 +1,10 @@
-# If not running interactively, don't do anything
+# No interactively
 [[ "$-" != *i* ]] && return
-
-# Integration
-eval "$(fzf --bash)"
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
 
 # https://code.visualstudio.com/docs/terminal/profiles#_git-bash
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
-# # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows
 # env=~/.ssh/agent.env
 # agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
 # agent_start () {
@@ -24,3 +19,9 @@ export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 #     ssh-add
 # fi
 # unset env
+
+# Integration
+eval "$(thefuck --alias)"
+eval "$(fzf --bash)"
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
