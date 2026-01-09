@@ -4,10 +4,9 @@
 default_target_type = "automatic"
 
 [default]
-depends = ["fastfetch", "git", "mise", "vscode"]
+depends = ["bash", "fastfetch", "git", "mise", "vscode"]
 
 [default.files]
-"bash.sh" = "~/.bashrc"
 "conda.yaml" = "~/.condarc"
 "starship.toml" = "~/.config/starship.toml"
 "uv.toml" = "~/.config/uv/uv.toml"
@@ -15,6 +14,12 @@ depends = ["fastfetch", "git", "mise", "vscode"]
 "zsh.sh" = "~/.zshrc"
 
 [default.variables]
+
+[bash.files]
+"bash/ibat.sh" = "~/.local/bin/ibat.sh"
+"bash/ijq.sh" = "~/.local/bin/ijq.sh"
+"bash/irg.sh" = "~/.local/bin/irg.sh"
+"bash/isd.sh" = "~/.local/bin/isd.sh"
 
 [fastfetch.files]
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"

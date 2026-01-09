@@ -1,6 +1,9 @@
 [default.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
+[bash.files]
+"bash/windows.bash" = "~/.bashrc"
+
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
 "vscode/Find-VscodeDuplicateExtensions.ps1" = "~/.local/bin/Find-VscodeDuplicateExtensions.ps1"
