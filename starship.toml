@@ -74,6 +74,8 @@ disabled = false
 bash_indicator = ""
 powershell_indicator = ""
 zsh_indicator = "󰬇"
+fish_indicator = ""
+nu_indicator = "󰫻"
 style = "bg:red fg:crust"
 format = '[ $indicator ]($style)'
 
