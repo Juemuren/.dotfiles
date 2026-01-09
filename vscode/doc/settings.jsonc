@@ -1,0 +1,42 @@
+{
+    // 通用
+    "editor.tabSize": 2,
+
+    // markdown
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": true,
+    "markdown.updateLinksOnFileMove.enabled": "prompt",
+    "markdown.validate.enabled": true,
+    "markdown.extension.completion.enabled": true,
+    "[markdown]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.formatOnSave": false,
+        "cSpell.fixSpellingWithRenameProvider": true,
+        "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+        "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+    },
+
+    // mermaid
+    "mermaidChart.baseUrl": "https://www.mermaidchart.com",
+    "mermaid.vscode.aiExportName": false,
+
+    // latex
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.formatting.latex": "latexindent",
+    "latex-workshop.bibtex-format.tab": "4 spaces",
+    "[latex]": {
+        "editor.suggestSelection": "recentlyUsedByPrefix"
+    }
+}

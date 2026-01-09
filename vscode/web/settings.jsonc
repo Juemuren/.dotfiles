@@ -1,0 +1,37 @@
+{
+    // 通用
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    // css
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+
+    // html
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+
+    // js/ts
+    "javascript.autoClosingTags": true,
+    "javascript.suggest.autoImports": false,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+}
