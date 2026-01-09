@@ -3,13 +3,13 @@ default:
     just --list
 
 watch:
-    dotter watch --dry-run -f
+    ./bin/dotter watch --dry-run -f
 
 preview:
-    dotter deploy --dry-run -f
+    ./bin/dotter deploy --dry-run -f
 
 deploy:
-    dotter deploy -v -f
+    ./bin/dotter deploy -v -f
 
 lint-sh:
     shellcheck scripts/*.sh
