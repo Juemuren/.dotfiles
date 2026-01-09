@@ -1,5 +1,5 @@
 [windows]
-depends = ["scoop"]
+depends = ["scoop", "pwsh"]
 
 [default.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
@@ -7,8 +7,10 @@ depends = ["scoop"]
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
 
+[pwsh.files]
+"pwsh/pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+
 [windows.files]
-"pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
 "wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 [windows.variables]
