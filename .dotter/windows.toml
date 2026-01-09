@@ -1,25 +1,33 @@
-[windows]
-depends = ["scoop", "pwsh"]
-
 [default.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
+"vscode/Find-VscodeDuplicateExtensions.ps1" = "~/.local/bin/Find-VscodeDuplicateExtensions.ps1"
 
-[pwsh.files]
-"pwsh/pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+[windows]
+depends = ["pwsh", "scoop"]
 
 [windows.files]
 "wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 [windows.variables]
 conda_root = "~/miniforge3"
-msys_root = "C:/msys64"
 git_root = "C:/Program Files/Git"
+msys_root = "C:/msys64"
+
+[pwsh.files]
+"pwsh/pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+"pwsh/Get-CommandContent.ps1" = "~/.local/bin/Get-CommandContent.ps1"
+"pwsh/Get-CommandPath.ps1" = "~/.local/bin/Get-CommandPath.ps1"
+"pwsh/Get-HistoryFile.ps1" = "~/.local/bin/Get-HistoryFile.ps1"
 
 [scoop.files]
 "scoop/scoop.json" = "~/.config/scoop/config.json"
+"scoop/Count-ScoopShims.ps1" = "~/.local/bin/Count-ScoopShims.ps1"
+"scoop/Find-ScoopHiddenShims.ps1" = "~/.local/bin/Find-ScoopHiddenShims.ps1"
+"scoop/Get-ScoopApps.ps1" = "~/.local/bin/Get-ScoopApps.ps1"
+"scoop/Get-ScoopBuckets.ps1" = "~/.local/bin/Get-ScoopBuckets.ps1"
 
 [scoop.variables]
 scoop_root = "~/scoop"

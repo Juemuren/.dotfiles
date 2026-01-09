@@ -6,6 +6,8 @@ packages = ["default", "windows"]
 [variables]
 git_name = "Your git name"
 git_email = "Your git email"
-scoop_root = "path/to/scoop"
-msys_root = "path/to/msys"
+
+conda_root = "path/to/conda"
 git_root = "path/to/git"
+msys_root = "path/to/msys"
+scoop_root = "path/to/scoop"
