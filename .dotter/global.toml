@@ -4,23 +4,33 @@
 default_target_type = "automatic"
 
 [default]
-depends = ["vscode"]
+depends = ["fastfetch", "git", "mise", "vscode"]
 
 [default.files]
 "bash.sh" = "~/.bashrc"
 "conda.yaml" = "~/.condarc"
-"fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
-"fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
-"git.ini" = "~/.gitconfig"
-"mise/mise.toml" = "~/.config/mise/config.toml"
-"mise/python-clis.txt" = "~/.default-python-packages"
-"mise/javascript-clis.txt" = "~/.default-npm-packages"
 "starship.toml" = "~/.config/starship.toml"
 "uv.toml" = "~/.config/uv/uv.toml"
 "vim.vim" = "~/.vimrc"
 "zsh.sh" = "~/.zshrc"
 
 [default.variables]
+
+[fastfetch.files]
+"fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
+"fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
+
+[git.files]
+"git.ini" = "~/.gitconfig"
+
+[git.variables]
+git_name = ""
+git_email = ""
+
+[mise.files]
+"mise/mise.toml" = "~/.config/mise/config.toml"
+"mise/python-clis.txt" = "~/.default-python-packages"
+"mise/javascript-clis.txt" = "~/.default-npm-packages"
 
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/.config/Code/User/settings.json"
