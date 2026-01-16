@@ -21,7 +21,8 @@ export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # unset env
 
 # Integration
-eval "$(thefuck --alias)"
+# export PYTHONIOENCODING="utf-8"
+# eval "$(thefuck --alias)"
 eval "$(fzf --bash)"
-eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(starship init bash)"
