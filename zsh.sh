@@ -1,3 +1,4 @@
+# shellcheck shell=bash disable=SC2034 disable=SC1091
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -17,6 +18,9 @@ zstyle ':omz:update' mode disabled
 # Disable processing pasted characters
 DISABLE_MAGIC_FUNCTIONS="true"
 
+# Disable auto-setting terminal title
+DISABLE_AUTO_TITLE="true"
+
 # Disable marking untracked files under VCS as dirty
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -34,19 +38,10 @@ plugins=(
 # Disable all aliases
 zstyle ':omz:*' aliases no
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # export LANG=zh_CN.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
+# export EDITOR='code'
