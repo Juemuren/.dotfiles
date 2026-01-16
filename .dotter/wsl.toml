@@ -1,0 +1,2 @@
+[bash.files]
+"bash/wsl.bash" = "~/.bashrc"
