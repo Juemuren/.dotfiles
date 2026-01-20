@@ -44,11 +44,6 @@
       "keyColor": "green"
     },
     {
-      "type": "theme",
-      "key": " ├ 󰀻 ",
-      "keyColor": "green"
-    },
-    {
       "type": "wmtheme",
       "key": " ├ 󰉼 ",
       "keyColor": "green"
@@ -69,8 +64,8 @@
       "keyColor": "green"
     },
     {
-      "type": "locale",
-      "key": " └ 󰍎 ",
+      "type": "editor",
+      "key": " └  ",
       "keyColor": "green"
     },
     "break",
