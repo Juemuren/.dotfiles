@@ -23,6 +23,7 @@ msys_root = "C:/msys64"
 "pwsh/Get-CommandContent.ps1" = "~/.local/bin/Get-CommandContent.ps1"
 "pwsh/Get-CommandPath.ps1" = "~/.local/bin/Get-CommandPath.ps1"
 "pwsh/Get-HistoryFile.ps1" = "~/.local/bin/Get-HistoryFile.ps1"
+"pwsh/Run-Sh.ps1" = "~/.local/bin/Run-Sh.ps1"
 
 [scoop.files]
 "scoop/scoop.json" = "~/.config/scoop/config.json"
