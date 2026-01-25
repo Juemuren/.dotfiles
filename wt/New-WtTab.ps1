@@ -1,0 +1,1 @@
+wt -w 0 new-tab -d .
