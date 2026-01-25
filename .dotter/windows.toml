@@ -9,10 +9,9 @@
 "vscode/Find-VscodeDuplicateExtensions.ps1" = "~/.local/bin/Find-VscodeDuplicateExtensions.ps1"
 
 [windows]
-depends = ["pwsh", "scoop"]
+depends = ["pwsh", "scoop", "wt"]
 
 [windows.files]
-"wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
 [windows.variables]
 conda_root = "~/miniforge3"
@@ -35,3 +34,7 @@ msys_root = "C:/msys64"
 [scoop.variables]
 scoop_root = "~/scoop"
 
+[wt.files]
+"wt/wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+"wt/New-WtTab.ps1" = "~/.local/bin/New-WtTab.ps1"
+"wt/Split-WtPane.ps1" = "~/.local/bin/Split-WtPane.ps1"
