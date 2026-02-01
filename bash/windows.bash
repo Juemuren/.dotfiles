@@ -2,11 +2,9 @@
 [[ "$-" != *i* ]] && return
 
 # History
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a"
 
 # Integration
-# export PYTHONIOENCODING="utf-8"
-# eval "$(thefuck --alias)"
 eval "$(fzf --bash)"
-eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"
