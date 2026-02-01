@@ -1,40 +1,36 @@
-" Comments in Vimscript start with a `"`.
-
-" If you open this file in Vim, it'll be syntax highlighted for you.
-
-" Turn on syntax highlighting.
+" Turn on syntax highlighting
 syntax on
 
-" Disable the default Vim startup message.
+" Disable the default startup message
 set shortmess+=I
 
-" Show line numbers and relative line numbers.
+" Show line numbers and relative line numbers
 set number
 set relativenumber
 
-" Always show the status line at the bottom, even if you only have one window open.
+" Always show the status line at the bottom
 set laststatus=2
 
-" Make backspace behave more reasonably, in that you can backspace over anything.
+" Make backspace behave more reasonably
 set backspace=indent,eol,start
 
-" Allow you hide a buffer that has unsaved changes. See `:help hidden` for more information.
+" Hide a buffer that has unsaved changes
 set hidden
 
-" Make search case-insensitive when all characters in the string being searched are lowercase.
+" Make search case-insensitive when all characters are lowercase
 set ignorecase
 set smartcase
 
-" Enable searching as you type, rather than waiting till you press enter.
+" Enable searching when typing
 set incsearch
 
-" Disable audible bell because it's annoying.
+" Disable audible bell
 set noerrorbells visualbell t_vb=
 
-" Enable mouse support.
+" Enable mouse support
 set mouse+=a
 
-" Sets how many lines of history VIM has to remember
+" Sets how many lines of history
 set history=1024
 
 " Line break
@@ -51,7 +47,7 @@ set wildmode=longest,list
 set wildmenu
 
 " Show matching braces when text indicator is over them
-set showmatch 
+set showmatch
 
 " Highlight search
 set hlsearch
@@ -64,10 +60,6 @@ set cmdheight=1
 
 " Be smart when using tabs
 set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
 
 " Enable system chipboard
 set clipboard=unnamed
