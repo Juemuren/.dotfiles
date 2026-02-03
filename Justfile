@@ -19,5 +19,5 @@ update-docs:
 
 [windows]
 [script("pwsh")]
-update-scoop bucket:
-    ./scoop/Get-ScoopApps {{bucket}} > "scoop/{{bucket}}.txt"
+update-scoop:
+    ./scoop/Get-ScoopBuckets | ForEach-Object { ./scoop/Get-ScoopApps "$_" > "scoop/$_.txt" }

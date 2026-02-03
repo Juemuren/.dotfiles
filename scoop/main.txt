@@ -9,6 +9,7 @@ busybox-lean
 caddy
 chafa
 charm-gum
+chezmoi
 chroma
 cmake
 codex
@@ -20,12 +21,14 @@ docker
 docker-compose
 dotter
 doxygen
+duckdb
 duf
 dust
 exiftool
 eza
 fastfetch
 fd
+ffmpeg
 fq
 fzf
 genact
