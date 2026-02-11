@@ -1,8 +1,8 @@
 param(
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string]$ScriptPath,
 
-    [Parameter(ValueFromRemainingArguments=$true)]
+    [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$Arguments
 )
 
@@ -14,5 +14,5 @@ if ($IsWindows) {
     & $ShellPath $ScriptPath $Arguments
 }
 else {
-    bash $ScriptPath $Arguments
+    sh $ScriptPath $Arguments
 }
