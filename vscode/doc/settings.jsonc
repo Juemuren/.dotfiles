@@ -1,6 +1,7 @@
 {
     // 通用
     "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
 
     // markdown
     "markdown.preview.scrollEditorWithPreview": false,

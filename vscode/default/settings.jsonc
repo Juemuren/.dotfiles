@@ -17,10 +17,6 @@
         "terminal.integrated.profiles.windows",
         "terminal.integrated.defaultProfile.windows",
         "terminal.integrated.shellIntegration.enabled",
-        "todo-tree.tree.showCurrentScanMode",
-        "todo-tree.highlights.defaultHighlight",
-        "todo-tree.general.tags",
-        "todo-tree.highlights.customHighlight",
         "github.copilot.enable"
     ],
 
@@ -134,31 +130,6 @@
     "terminal.integrated.shellIntegration.enabled": false,
 
     /********** 同步配置/插件相关 **********/
-
-    // todo-tree
-    "todo-tree.tree.showCurrentScanMode": false,
-    "todo-tree.highlights.defaultHighlight": {
-        "type": "text-and-comment"
-    },
-    "todo-tree.general.tags": [
-        "FIXME",
-        "HACK",
-        "TODO"
-    ],
-    "todo-tree.highlights.customHighlight": {
-        "FIXME": {
-            "icon": "flame",
-            "foreground": "#ff2d00"
-        },
-        "HACK": {
-            "icon": "thumbsdown",
-            "foreground": "#ab9b9b"
-        },
-        "TODO": {
-            "icon": "checklist",
-            "foreground": "#e2e210"
-        }
-    },
     // copilot
     "github.copilot.enable": {
         "*": false
