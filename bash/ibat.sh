@@ -3,6 +3,6 @@
 BAT="bat --color=always --style=full {}"
 
 fzf \
-    --preview "$BAT" \
     --bind "enter:become:$BAT -P" \
+    --preview "$BAT" \
     --preview-window 'wrap,up,80%'

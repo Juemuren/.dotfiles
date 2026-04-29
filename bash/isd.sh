@@ -5,6 +5,6 @@ SD="sd {q:1} {q:2} {+}"
 
 fzf --disabled --ansi --multi \
     --bind "change:reload:$RG" \
-    --preview "$SD --preview" \
     --bind "enter:execute:$SD" \
-    --bind "enter:+reload:$RG"
+    --bind "enter:+reload:$RG" \
+    --preview "$SD --preview"

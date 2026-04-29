@@ -17,9 +17,10 @@ depends = ["bash", "fastfetch", "git", "mise", "vscode"]
 
 [bash.files]
 "bash/ibat.sh" = "~/.local/bin/ibat.sh"
-"bash/ijq.sh" = "~/.local/bin/ijq.sh"
 "bash/irg.sh" = "~/.local/bin/irg.sh"
 "bash/isd.sh" = "~/.local/bin/isd.sh"
+"bash/jq-path.sh" = "~/.local/bin/jq-path.sh"
+"bash/jq-content.sh" = "~/.local/bin/jq-content.sh"
 
 [fastfetch.files]
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
