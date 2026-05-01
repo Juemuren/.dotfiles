@@ -37,12 +37,12 @@ $conda\
 $mise\
 ${env_var.MSYSTEM}\
 ${env_var.VisualStudioVersion}\
-[](fg:env bg:time)\
-$time\
-[](fg:time bg:cmd)\
+[](fg:env bg:cmd)\
 $cmd_duration\
 $status\
-[](cmd)\
+[](fg:cmd bg:time)\
+$time\
+[](time)\
 $line_break\
 $shlvl\
 $character\
@@ -257,7 +257,7 @@ disabled = false
 [shlvl]
 disabled = true
 threshold = 0
-symbol = "❯"
+symbol = ""
 style = "bold fg:yellow"
 format = "[$symbol]($style)"
 repeat = true
@@ -265,8 +265,8 @@ repeat_offset = 1
 
 [character]
 disabled = false
-success_symbol = '[❯](bold fg:green)'
-error_symbol = '[❯](bold fg:red)'
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
 
 [palettes.rainbow]
 os = "#f38ba8"
@@ -274,8 +274,8 @@ dir = "#fab387"
 git = "#f9e2af"
 tech = "#a6e3a1"
 env = "#74c7ec"
-time = "#89b4fa"
-cmd = "#b4befe"
+cmd = "#89b4fa"
+time = "#b4befe"
 text = "#11111b"
 
 [palettes.morandi]
@@ -284,8 +284,8 @@ dir  = "#d8a657"
 git  = "#a3be8c"
 tech = "#88c0d0"
 env  = "#81a1c1"
-time = "#b48ead"
-cmd  = "#a7adba"
+cmd = "#b48ead"
+time  = "#a7adba"
 text = "#2e3440"
 
 [palettes.tokyo_night]
@@ -294,8 +294,8 @@ dir  = "#c97d8f"
 git  = "#aa809f"
 tech = "#8b86af"
 env  = "#6e8eb5"
-time = "#5497b8"
-cmd  = "#3ba0c0"
+cmd = "#5497b8"
+time  = "#3ba0c0"
 text = "#e8e9ed"
 
 [palettes.desert_dusk]
@@ -304,6 +304,6 @@ dir  = "#b8854a"
 git  = "#a69954"
 tech = "#7e9f6e"
 env  = "#5d9b8c"
-time = "#4a8bb0"
-cmd  = "#6477b3"
+cmd = "#4a8bb0"
+time  = "#6477b3"
 text = "#ece3d0"
