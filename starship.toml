@@ -1,16 +1,16 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](red)\
+[](os)\
 $os\
 $username\
 $shell\
-[](fg:red bg:orange)\
+[](fg:os bg:dir)\
 $directory\
-[](fg:orange bg:yellow)\
+[](fg:dir bg:git)\
 $git_branch\
 $git_status\
-[](fg:yellow bg:green)\
+[](fg:git bg:tech)\
 $c\
 $cpp\
 $dotnet\
@@ -30,29 +30,29 @@ $julia\
 $rlang\
 $nodejs\
 $python\
-[](fg:green bg:cyan)\
+[](fg:tech bg:env)\
 $container\
 $docker_context\
 $conda\
 $mise\
 ${env_var.MSYSTEM}\
 ${env_var.VisualStudioVersion}\
-[](fg:cyan bg:blue)\
+[](fg:env bg:time)\
 $time\
-[](fg:blue bg:purple)\
+[](fg:time bg:cmd)\
 $cmd_duration\
 $status\
-[](purple)\
+[](cmd)\
 $line_break\
 $shlvl\
 $character\
 """
 
-palette = 'rainbow_light'
+palette = 'morandi'
 
 [os]
 disabled = false
-style = "bg:red fg:crust"
+style = "bg:os fg:text"
 format = "[ $symbol ]($style)"
 
 [os.symbols]
@@ -65,8 +65,8 @@ Android = ""
 [username]
 disabled = false
 show_always = true
-style_user = "bg:red fg:crust"
-style_root = "bg:red fg:crust"
+style_user = "bg:os fg:text"
+style_root = "bg:os fg:text"
 format = '[ $user ]($style)'
 
 [shell]
@@ -76,167 +76,167 @@ powershell_indicator = ""
 zsh_indicator = "󰬇"
 fish_indicator = ""
 nu_indicator = "󰫻"
-style = "bg:red fg:crust"
+style = "bg:os fg:text"
 format = '[ $indicator ]($style)'
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-style = "bg:orange fg:crust"
+style = "bg:dir fg:text"
 format = "[ $path ]($style)"
 
 [git_branch]
 symbol = ""
-style = "bg:yellow fg:crust"
+style = "bg:git fg:text"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:yellow fg:crust"
+style = "bg:git fg:text"
 format = '[($all_status$ahead_behind )]($style)'
 
 [c]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version-$name )]($style)'
 
 [cpp]
 disabled = false
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version-$name )]($style)'
 
 [dotnet]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [golang]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [vlang]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [zig]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [swift]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [java]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [erlang]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [elixir]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [lua]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [ruby]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [julia]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [rlang]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )]($style)'
 
 [python]
 symbol = ""
-style = "bg:green fg:crust"
+style = "bg:tech fg:text"
 format = '[ $symbol ($version )(\(#$virtualenv\))]($style)'
 
 [container]
 symbol = ""
-style = "bg:cyan fg:crust"
+style = "bg:env fg:text"
 format = '[ $symbol ($name )]($style)'
 
 [docker_context]
 symbol = ""
-style = "bg:cyan fg:crust"
+style = "bg:env fg:text"
 format = '[ $symbol ($context )]($style)'
 
 [conda]
 ignore_base = false
 symbol = ""
-style = "bg:cyan fg:crust"
+style = "bg:env fg:text"
 format = '[ $symbol ($environment )]($style)'
 
 [mise]
 disabled = true
 symbol = ""
-style = "bg:cyan fg:crust"
+style = "bg:env fg:text"
 format = "[ $symbol $health ]($style)"
 
 [env_var.MSYSTEM]
 disabled = false
 description = "The current MSYS environment"
 symbol = "󰫺"
-style = "bg:cyan fg:crust"
+style = "bg:env fg:text"
 format = '[ $symbol ($env_value )]($style)'
 
 [env_var.VisualStudioVersion]
 disabled = false
 description = "The current VS version"
 symbol = ""
-style = "bg:cyan fg:crust"
+style = "bg:env fg:text"
 format = '[ $symbol ($env_value )]($style)'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:blue fg:crust"
+style = "bg:time fg:text"
 format = '[  $time ]($style)'
 
 [cmd_duration]
 disabled = false
 show_milliseconds = true
 min_time = 100
-style = "bg:purple fg:crust"
+style = "bg:cmd fg:text"
 format = '[ 󰔟 $duration ]($style)'
 
 [status]
@@ -248,7 +248,7 @@ not_found_symbol = ""
 sigint_symbol = ""
 signal_symbol = "󰉁"
 map_symbol = true
-style = "bg:purple fg:crust"
+style = "bg:cmd fg:text"
 format = '[ $symbol $status ]($style)'
 
 [line_break]
@@ -268,22 +268,42 @@ disabled = false
 success_symbol = '[❯](bold fg:green)'
 error_symbol = '[❯](bold fg:red)'
 
-[palettes.rainbow_light]
-red = "#f38ba8"
-orange = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-cyan = "#74c7ec"
-blue = "#89b4fa"
-purple = "#b4befe"
-crust = "#11111b"
+[palettes.rainbow]
+os = "#f38ba8"
+dir = "#fab387"
+git = "#f9e2af"
+tech = "#a6e3a1"
+env = "#74c7ec"
+time = "#89b4fa"
+cmd = "#b4befe"
+text = "#11111b"
 
-[palettes.rainbow_dark]
-red = "#d20f39"
-orange = "#fe640b"
-yellow = "#df8e1d"
-green = "#40a02b"
-cyan = "#179299"
-blue = "#1e66f5"
-purple = "#8839ef"
-crust = "#dce0e8"
+[palettes.morandi]
+os   = "#d08770"
+dir  = "#d8a657"
+git  = "#a3be8c"
+tech = "#88c0d0"
+env  = "#81a1c1"
+time = "#b48ead"
+cmd  = "#a7adba"
+text = "#2e3440"
+
+[palettes.tokyo_night]
+os   = "#e27c7c"
+dir  = "#c97d8f"
+git  = "#aa809f"
+tech = "#8b86af"
+env  = "#6e8eb5"
+time = "#5497b8"
+cmd  = "#3ba0c0"
+text = "#e8e9ed"
+
+[palettes.desert_dusk]
+os   = "#c97142"
+dir  = "#b8854a"
+git  = "#a69954"
+tech = "#7e9f6e"
+env  = "#5d9b8c"
+time = "#4a8bb0"
+cmd  = "#6477b3"
+text = "#ece3d0"
