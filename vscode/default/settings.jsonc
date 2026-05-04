@@ -17,7 +17,8 @@
         "terminal.integrated.profiles.windows",
         "terminal.integrated.defaultProfile.windows",
         "terminal.integrated.shellIntegration.enabled",
-        "github.copilot.enable"
+        "github.copilot.enable",
+        "git.addAICoAuthor"
     ],
 
     /********** 自动同步配置/插件无关 **********/
@@ -131,5 +132,7 @@
     // copilot
     "github.copilot.enable": {
         "*": false
-    }
+    },
+    // git
+    "git.addAICoAuthor": "off"
 }
