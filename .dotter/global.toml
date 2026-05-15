@@ -35,8 +35,6 @@ git_email = ""
 
 [mise.files]
 "mise/mise.toml" = "~/.config/mise/config.toml"
-"mise/python-clis.txt" = "~/.default-python-packages"
-"mise/javascript-clis.txt" = "~/.default-npm-packages"
 
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/.config/Code/User/settings.json"

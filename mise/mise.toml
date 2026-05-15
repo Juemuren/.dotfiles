@@ -1,18 +1,22 @@
 [tools]
+aube = "latest"
 go = "latest"
-java = "latest"
 node = "latest"
+"npm:@mermaid-js/mermaid-cli" = "latest"
+"pipx:argostranslate" = "latest"
+"pipx:markitdown" = { version = "latest", extras = "all" }
+pnpm = "latest"
 python = "latest"
-ruby = "latest"
+uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python", "node"]
 
 [settings.python]
-uv_venv_auto = true
+uv_venv_auto = "source"
 
 [settings.pipx]
 uvx = true
 
 [settings.npm]
-package_manager = "pnpm"
+package_manager = "aube"
