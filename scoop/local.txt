@@ -1,7 +1,5 @@
-checkexec
 graphviz
 juliaup
-lazygit
 miktex
 mise
 quarto
