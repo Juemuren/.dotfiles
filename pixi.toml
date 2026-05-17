@@ -1,0 +1,6 @@
+version = 1
+
+[envs.jupyter]
+channels = ["conda-forge"]
+dependencies = { nbconvert = "*" }
+exposed = { jupyter = "jupyter" }

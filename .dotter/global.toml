@@ -4,7 +4,7 @@
 default_target_type = "automatic"
 
 [default]
-depends = ["bash", "fastfetch", "git", "mise", "vscode"]
+depends = ["bash", "fastfetch", "git", "mise", "pixi", "vscode"]
 
 [default.files]
 "conda.yaml" = "~/.condarc"
@@ -35,6 +35,9 @@ git_email = ""
 
 [mise.files]
 "mise/mise.toml" = "~/.config/mise/config.toml"
+
+[pixi.files]
+"pixi.toml" = "~/.pixi/manifests/pixi-global.toml"
 
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/.config/Code/User/settings.json"

@@ -12,6 +12,7 @@
 * fastfetch
 * git
 * mise
+* pixi
 * pwsh
 * scoop
 * starship
