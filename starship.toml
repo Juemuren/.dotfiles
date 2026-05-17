@@ -34,6 +34,7 @@ $python\
 $container\
 $docker_context\
 $conda\
+$pixi\
 $mise\
 ${env_var.MSYSTEM}\
 ${env_var.VisualStudioVersion}\
@@ -188,7 +189,7 @@ format = '[ $symbol ($version )]($style)'
 [python]
 symbol = ""
 style = "bg:tech fg:text"
-format = '[ $symbol ($version )(\(#$virtualenv\))]($style)'
+format = '[ $symbol ($version )(\(#$virtualenv\) )]($style)'
 
 [container]
 symbol = ""
@@ -203,6 +204,11 @@ format = '[ $symbol ($context )]($style)'
 [conda]
 ignore_base = false
 symbol = ""
+style = "bg:env fg:text"
+format = '[ $symbol ($environment )]($style)'
+
+[pixi]
+symbol = ""
 style = "bg:env fg:text"
 format = '[ $symbol ($environment )]($style)'
 
