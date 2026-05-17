@@ -1,8 +1,8 @@
-[default.files]
-"uv.toml" = "~/AppData/Roaming/uv/uv.toml"
-
 [bash.files]
 "bash/windows.bash" = "~/.bashrc"
+
+[uv.files]
+"uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
@@ -10,8 +10,6 @@
 
 [windows]
 depends = ["pwsh", "scoop", "wt"]
-
-[windows.files]
 
 [windows.variables]
 conda_root = "~/miniforge3"

@@ -4,16 +4,22 @@
 default_target_type = "automatic"
 
 [default]
-depends = ["bash", "fastfetch", "git", "mise", "pixi", "vscode"]
+depends = [
+    "bash",
+    "conda",
+    "fastfetch",
+    "git",
+    "mise",
+    "pixi",
+    "starship",
+    "uv",
+    "vim",
+    "vscode",
+    "zsh",
+]
 
-[default.files]
+[conda.files]
 "conda.yaml" = "~/.condarc"
-"starship.toml" = "~/.config/starship.toml"
-"uv.toml" = "~/.config/uv/uv.toml"
-"vim.vim" = "~/.vimrc"
-"zsh.sh" = "~/.zshrc"
-
-[default.variables]
 
 [bash.files]
 "bash/ibat.sh" = "~/.local/bin/ibat.sh"
@@ -39,5 +45,17 @@ git_email = ""
 [pixi.files]
 "pixi.toml" = "~/.pixi/manifests/pixi-global.toml"
 
+[starship.files]
+"starship.toml" = "~/.config/starship.toml"
+
+[uv.files]
+"uv.toml" = "~/.config/uv/uv.toml"
+
+[vim.files]
+"vim.vim" = "~/.vimrc"
+
 [vscode.files]
 "vscode/default/settings.jsonc" = "~/.config/Code/User/settings.json"
+
+[zsh.files]
+"zsh.sh" = "~/.zshrc"
