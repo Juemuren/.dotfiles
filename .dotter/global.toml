@@ -43,7 +43,8 @@ git_email = ""
 "mise/mise.toml" = "~/.config/mise/config.toml"
 
 [pixi.files]
-"pixi.toml" = "~/.pixi/manifests/pixi-global.toml"
+"pixi/pixi.toml" = "~/.pixi/config.toml"
+"pixi/global.toml" = "~/.pixi/manifests/pixi-global.toml"
 
 [starship.files]
 "starship.toml" = "~/.config/starship.toml"
