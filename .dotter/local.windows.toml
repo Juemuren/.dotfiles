@@ -1,5 +1,18 @@
 includes = [".dotter/windows.toml"]
-packages = ["default", "windows"]
+packages = [
+    "bash",
+    "conda",
+    "fastfetch",
+    "git",
+    "mise",
+    "pixi",
+    "starship",
+    "uv",
+    "vim",
+    "vscode",
+    "zsh",
+    "windows",
+]
 
 [files]
 
