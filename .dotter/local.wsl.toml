@@ -1,0 +1,8 @@
+includes = [".dotter/wsl.toml"]
+packages = ["bash", "conda", "fastfetch", "git", "starship", "vim", "zsh"]
+
+[files]
+
+[variables]
+git_name = "Your git name"
+git_email = "Your git email"

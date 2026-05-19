@@ -1,2 +1,5 @@
 [bash.files]
 "bash/wsl.bash" = "~/.bashrc"
+
+[zsh.files]
+"zsh/wsl.sh" = "~/.zshrc"

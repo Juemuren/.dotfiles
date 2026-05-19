@@ -10,12 +10,12 @@ shopt -s histappend
 # Window
 shopt -s checkwinsize
 
+# Path
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Editor
 export EDITOR="code"
-export VISUAL="$EDITOR"
-
-# Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Integration
 eval "$(fzf --bash)"

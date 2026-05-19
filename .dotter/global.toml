@@ -3,15 +3,15 @@
 [settings]
 default_target_type = "automatic"
 
-[conda.files]
-"conda.yaml" = "~/.condarc"
-
 [bash.files]
 "bash/ibat.sh" = "~/.local/bin/ibat.sh"
 "bash/irg.sh" = "~/.local/bin/irg.sh"
 "bash/isd.sh" = "~/.local/bin/isd.sh"
 "bash/jq-path.sh" = "~/.local/bin/jq-path.sh"
 "bash/jq-content.sh" = "~/.local/bin/jq-content.sh"
+
+[conda.files]
+"conda.yaml" = "~/.condarc"
 
 [fastfetch.files]
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
