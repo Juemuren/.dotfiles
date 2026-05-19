@@ -1,6 +1,9 @@
 [bash.files]
 "bash/windows.bash" = "~/.bashrc"
 
+[git.files]
+"git/windows.ini" = "~/.gitconfig"
+
 [uv.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 

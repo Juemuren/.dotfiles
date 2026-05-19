@@ -17,9 +17,6 @@ default_target_type = "automatic"
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
 "fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
 
-[git.files]
-"git.ini" = "~/.gitconfig"
-
 [git.variables]
 git_name = ""
 git_email = ""

@@ -1,5 +1,8 @@
 [bash.files]
 "bash/wsl.bash" = "~/.bashrc"
 
+[git.files]
+"git/wsl.ini" = "~/.gitconfig"
+
 [zsh.files]
 "zsh/wsl.sh" = "~/.zshrc"
