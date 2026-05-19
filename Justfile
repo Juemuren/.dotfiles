@@ -6,8 +6,14 @@ default:
 install:
     wget https://github.com/SuperCuber/dotter/releases/latest/download/dotter-linux-x64-musl
     chmod +x dotter-linux-x64-musl
-    mkdir bin
+    mkdir -p bin
     mv dotter-linux-x64-musl ./bin/dotter
+
+[windows]
+install:
+    wget https://github.com/SuperCuber/dotter/releases/latest/download/dotter-windows-x64-msvc.exe
+    mkdir -p bin
+    mv dotter-windows-x64-msvc.exe ./bin/dotter.exe
 
 watch:
     ./bin/dotter watch --dry-run -f
