@@ -1,5 +1,14 @@
 includes = [".dotter/wsl.toml"]
-packages = ["bash", "conda", "fastfetch", "git", "starship", "vim", "zsh"]
+packages = [
+    "bash",
+    "conda",
+    "fastfetch",
+    "git",
+    "mise",
+    "starship",
+    "vim",
+    "zsh",
+]
 
 [files]
 

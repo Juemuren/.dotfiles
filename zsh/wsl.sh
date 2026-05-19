@@ -20,6 +20,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 plugins=(
     aliases
     fzf
+    mise
     tldr
     starship
     zoxide

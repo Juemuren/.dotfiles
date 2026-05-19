@@ -21,9 +21,6 @@ default_target_type = "automatic"
 git_name = ""
 git_email = ""
 
-[mise.files]
-"mise/mise.toml" = "~/.config/mise/config.toml"
-
 [pixi.files]
 "pixi/pixi.toml" = "~/.pixi/config.toml"
 "pixi/global.toml" = "~/.pixi/manifests/pixi-global.toml"

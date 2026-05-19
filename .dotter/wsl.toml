@@ -4,5 +4,8 @@
 [git.files]
 "git/wsl.ini" = "~/.gitconfig"
 
+[mise.files]
+"mise/wsl.toml" = "~/.config/mise/config.toml"
+
 [zsh.files]
 "zsh/wsl.sh" = "~/.zshrc"
