@@ -3,22 +3,15 @@
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# >>> oh my zsh >>>
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load
 ZSH_THEME=""
-
-# Set auto-update behavior
 zstyle ':omz:update' mode reminder
-
-# Disable processing pasted characters
 DISABLE_MAGIC_FUNCTIONS="true"
-
-# Load plugins
 plugins=(
     aliases
+    brew
     fzf
     mise
     tldr
@@ -27,14 +20,10 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
-
-# Disable all aliases
 zstyle ':omz:*' aliases no
-
 source "$ZSH/oh-my-zsh.sh"
+# <<< oh my zsh <<<
 
 # User configuration
-
 export EDITOR="code"
 export MANPATH="/usr/local/man:$MANPATH"
-# export LANG=zh_CN.UTF-8
