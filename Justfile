@@ -29,6 +29,10 @@ deploy:
 update-scoop:
     ./scoop/Get-ScoopBuckets | ForEach-Object { ./scoop/Get-ScoopApps "$_" > "scoop/$_.txt" }
 
+[linux]
+update-brew os:
+    brew list --installed-on-request > "brew/{{os}}.txt"
+
 lint-sh:
     shellcheck scripts/*.sh
 
