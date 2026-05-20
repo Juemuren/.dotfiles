@@ -6,5 +6,9 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[wt/wt.json]
+trim_trailing_whitespace = false
+insert_final_newline = false
+
 [fastfetch/sakiko.txt]
 insert_final_newline = false
