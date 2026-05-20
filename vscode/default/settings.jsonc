@@ -35,7 +35,7 @@
     // 主题
     "workbench.iconTheme": "material-icon-theme",
     "workbench.productIconTheme": "material-product-icons",
-    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.colorTheme": "Catppuccin Mocha",
     // 字体
     "editor.fontSize": 16,
     "editor.fontFamily": "'Sarasa Mono SC', 'Symbols Nerd Font Mono'",
