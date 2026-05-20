@@ -49,7 +49,7 @@ $shlvl\
 $character\
 """
 
-palette = 'tokyo_night'
+palette = 'blueblack'
 
 [os]
 disabled = false
@@ -274,27 +274,27 @@ disabled = false
 success_symbol = '[](bold fg:green)'
 error_symbol = '[](bold fg:red)'
 
-[palettes.rainbow]
+[palettes.catppuccin]
 os   = "#f38ba8"
 dir  = "#fab387"
 git  = "#f9e2af"
 tech = "#a6e3a1"
-env  = "#74c7ec"
+env  = "#89dceb"
 cmd  = "#89b4fa"
 time = "#b4befe"
 text = "#11111b"
 
-[palettes.morandi]
-os   = "#d08770"
-dir  = "#d8a657"
-git  = "#a3be8c"
-tech = "#88c0d0"
-env  = "#81a1c1"
-cmd  = "#b48ead"
-time = "#a7adba"
-text = "#2e3440"
+[palettes.tokyonight]
+os   = "#f7768e"
+dir  = "#ff9e64"
+git  = "#e0af68"
+tech = "#73daca"
+env  = "#7dcfff"
+cmd  = "#7aa2f7"
+time = "#bb9af7"
+text = "#414868"
 
-[palettes.tokyo_night]
+[palettes.blueblack]
 os   = "#5e7ab5"
 dir  = "#5568a3"
 git  = "#4e6082"
@@ -303,13 +303,3 @@ env  = "#394260"
 cmd  = "#212736"
 time = "#1d2230"
 text = "#e6edff"
-
-[palettes.desert_dusk]
-os   = "#c97142"
-dir  = "#b8854a"
-git  = "#a69954"
-tech = "#7e9f6e"
-env  = "#5d9b8c"
-cmd  = "#4a8bb0"
-time = "#6477b3"
-text = "#ece3d0"
