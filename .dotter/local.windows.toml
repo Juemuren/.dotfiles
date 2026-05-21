@@ -20,7 +20,6 @@ packages = [
 git_name = "Your git name"
 git_email = "Your git email"
 
-conda_root = "path/to/conda"
 git_root = "path/to/git"
 msys_root = "path/to/msys"
 scoop_root = "path/to/scoop"

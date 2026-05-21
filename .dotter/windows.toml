@@ -21,7 +21,6 @@
 depends = ["pwsh", "scoop", "wt"]
 
 [windows.variables]
-conda_root = "~/miniforge3"
 git_root = "C:/Program Files/Git"
 msys_root = "C:/msys64"
 
