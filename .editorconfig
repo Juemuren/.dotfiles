@@ -5,10 +5,12 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+indent_size = 2
 
 [wt/wt.json]
 trim_trailing_whitespace = false
 insert_final_newline = false
+indent_size = 4
 
 [fastfetch/sakiko.txt]
 insert_final_newline = false
