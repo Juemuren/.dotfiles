@@ -2,5 +2,5 @@ version = 1
 
 [envs.jupyter]
 channels = ["conda-forge"]
-dependencies = { nbconvert = "*" , jupytext = "*" }
-exposed = { jupyter = "jupyter" , jupytext = "jupytext" }
+dependencies = { nbconvert = "*", jupytext = "*" }
+exposed = { jupyter = "jupyter", jupytext = "jupytext" }

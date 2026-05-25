@@ -8,5 +8,9 @@
   },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  // just
+  "[just]": {
+    "editor.defaultFormatter": "nefrob.vscode-just-syntax"
   }
 }

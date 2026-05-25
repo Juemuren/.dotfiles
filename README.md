@@ -46,16 +46,17 @@
 git clone https://github.com/Juemuren/.dotfiles
 # 进入目录
 cd .dotfiles
-# 复制示例模板，生成本地配置文件
-cp .dotter/local.sample.toml .dotter/local.toml
-# 使用你最喜欢的编辑器修改变量
+# 复制示例
+cp .dotter/local.windows.toml .dotter/local.toml
+# 修改本地配置文件
 vim .dotter/local.toml
-# 只查看运行结果，不实际修改
+# 预览结果
 dotter deploy --dry-run -f
-# 删除原文件，创建符号链接，并显示详细日志
+# 一键部署
 dotter deploy -v -f
 ```
 
-在进行最后一步之前，最好先备份一下原本已存在的文件。因为添加了 `-f` 参数，这会删除该位置原先的文件再创建符号链接。
+> [!Warning]
+> 在进行最后一步之前，最好备份一下原位置的文件。因为添加了 `-f` 参数，这会导致该文件被删除。
 
 如果你不想使用 `dotter`，那么也可以对照着 `.dotter\global.toml` 手动复制文件到对应的位置。
