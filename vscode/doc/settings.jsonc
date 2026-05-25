@@ -1,6 +1,4 @@
 {
-  // 通用
-  "editor.tabSize": 2,
   "editor.minimap.enabled": false,
   // markdown
   "markdown.preview.scrollEditorWithPreview": false,
@@ -25,7 +23,6 @@
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
   },
   // mermaid
-  "mermaidChart.baseUrl": "https://www.mermaidchart.com",
   "mermaid.vscode.aiExportName": false,
   // latex
   "workbench.editorAssociations": {
