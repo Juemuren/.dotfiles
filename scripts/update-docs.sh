@@ -4,8 +4,8 @@ update_section() {
     file=$1
     marker=$2
     content=$3
-    
-    sd -f s \
+
+    sd -A -f s \
         "<!-- $marker:START -->.*<!-- $marker:END -->" \
         "<!-- $marker:START -->\n$content\n<!-- $marker:END -->" \
         "$file"
@@ -13,3 +13,6 @@ update_section() {
 
 TOOL_LIST="$(fd -d 1 --format '* {/.}')"
 update_section README.md TOOL-LIST "$TOOL_LIST"
+
+VSCODE_PROFILE_LIST="$(fd -d 1 -t dir --search-path vscode --format '* {/.}')"
+update_section README.md VSCODE-PROFILE-LIST "$VSCODE_PROFILE_LIST"

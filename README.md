@@ -8,6 +8,7 @@
 
 <!-- TOOL-LIST:START -->
 * bash
+* brew
 * conda
 * fastfetch
 * git
@@ -22,6 +23,17 @@
 * wt
 * zsh
 <!-- TOOL-LIST:END -->
+
+其中 VSCode 包含以下配置
+
+<!-- VSCODE-PROFILE-LIST:START -->
+* conf
+* default
+* doc
+* sci
+* sys
+* web
+<!-- VSCODE-PROFILE-LIST:END -->
 
 ## 使用方法
 
