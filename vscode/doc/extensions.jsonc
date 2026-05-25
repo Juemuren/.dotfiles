@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "adpyke.codesnap",
+    "alensiljak.abcjs-vscode",
+    "bierner.markdown-footnotes",
+    "curlybrackets.markdown-word-count",
+    "davidanson.vscode-markdownlint",
+    "foam.foam-vscode",
+    "huacnlee.autocorrect",
+    "james-yu.latex-workshop",
+    "kevinyuan.vscode-tikzjax",
+    "marp-team.marp-vscode",
+    "mermaidchart.vscode-mermaid-chart",
+    "myriad-dreamin.tinymist",
+    "nefrob.vscode-just-syntax",
+    "redhat.vscode-yaml",
+    "streetsidesoftware.code-spell-checker",
+    "takumii.markdowntable",
+    "tamasfe.even-better-toml",
+    "tekumara.typos-vscode",
+    "tomoki1207.pdf",
+    "yzhang.markdown-all-in-one"
+  ]
+}

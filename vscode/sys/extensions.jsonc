@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "cschlosser.doxdocgen",
+    "daohong-emilio.yash",
+    "golang.go",
+    "ms-dotnettools.csdevkit",
+    "ms-dotnettools.csharp",
+    "ms-dotnettools.vscode-dotnet-runtime",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools",
+    "ms-vscode.hexeditor",
+    "ms-vscode.makefile-tools",
+    "redhat.vscode-yaml",
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+    "tboox.xmake-vscode"
+  ]
+}

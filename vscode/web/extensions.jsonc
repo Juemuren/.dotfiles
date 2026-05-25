@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "funkyremi.vscode-google-translate",
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
+    "humao.rest-client",
+    "jock.svg",
+    "lokalise.i18n-ally",
+    "ms-vscode.extension-test-runner",
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+    "tauri-apps.tauri-vscode",
+    "vitest.explorer"
+  ]
+}

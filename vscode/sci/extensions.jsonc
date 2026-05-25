@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "julialang.language-julia",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.datawrangler",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-renderers",
+    "ms-vscode.cpptools",
+    "nefrob.vscode-just-syntax",
+    "njpwerner.autodocstring",
+    "nvidia.nsight-vscode-edition",
+    "quarto.quarto",
+    "tamasfe.even-better-toml",
+    "tomoki1207.pdf",
+    "yzhang.markdown-all-in-one"
+  ]
+}

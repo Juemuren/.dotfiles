@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
+    "ms-azuretools.vscode-containers",
+    "ms-python.python",
+    "ms-vscode.powershell",
+    "nefrob.vscode-just-syntax",
+    "redhat.vscode-yaml",
+    "sumneko.lua",
+    "tamasfe.even-better-toml",
+    "timonwong.shellcheck",
+    "xadillax.viml"
+  ]
+}

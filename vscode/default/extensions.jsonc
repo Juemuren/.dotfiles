@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "activitywatch.aw-watcher-vscode",
+    "catppuccin.catppuccin-vsc",
+    "editorconfig.editorconfig",
+    "gruntfuggly.todo-tree",
+    "ms-ceintl.vscode-language-pack-zh-hans",
+    "ms-vscode-remote.remote-wsl",
+    "oderwat.indent-rainbow",
+    "openai.chatgpt",
+    "pkief.material-icon-theme",
+    "pkief.material-product-icons",
+    "usernamehw.errorlens"
+  ]
+}

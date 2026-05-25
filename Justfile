@@ -24,14 +24,17 @@ preview:
 deploy:
     ./bin/dotter deploy -v -f
 
-[windows]
 [script("pwsh")]
+[windows]
 update-scoop:
     ./scoop/Get-ScoopBuckets | ForEach-Object { ./scoop/Get-ScoopApps "$_" > "scoop/$_.txt" }
 
 [linux]
 update-brew os:
-    brew list --installed-on-request > "brew/{{os}}.txt"
+    brew list --installed-on-request > "brew/{{ os }}.txt"
+
+update-vscode profile:
+    ./scripts/update-vscode.sh "{{ profile }}"
 
 lint-sh:
     shellcheck scripts/*.sh
