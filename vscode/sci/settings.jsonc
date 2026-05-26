@@ -1,8 +1,9 @@
 {
+  "editor.tabSize": 4,
   // python
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": false,
-  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.typeCheckingMode": "off",
   "python.analysis.fixAll": [
     "source.unusedImports"
   ],

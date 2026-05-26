@@ -2,7 +2,7 @@
   // js/ts
   "js/ts.autoClosingTags.enabled": true,
   "js/ts.suggest.autoImports": false,
-  "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
+  "js/ts.inlayHints.functionLikeReturnTypes.enabled": false,
   // emmet
   "emmet.showSuggestionsAsSnippets": true,
   // i18n

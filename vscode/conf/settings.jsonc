@@ -9,6 +9,9 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  // pwsh
+  "powershell.integratedConsole.startInBackground": true,
+  "powershell.integratedConsole.showOnStartup": false,
   // just
   "[just]": {
     "editor.defaultFormatter": "nefrob.vscode-just-syntax"
