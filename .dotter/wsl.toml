@@ -5,4 +5,4 @@
 "mise/wsl.toml" = "~/.config/mise/config.toml"
 
 [zsh.files]
-"zsh/wsl.sh" = "~/.zshrc"
+"zsh/wsl.zsh" = "~/.zshrc"

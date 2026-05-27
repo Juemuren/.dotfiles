@@ -13,7 +13,7 @@
 "vscode/Find-VscodeDuplicateExtensions.ps1" = "~/.local/bin/Find-VscodeDuplicateExtensions.ps1"
 
 [zsh.files]
-"zsh/windows.sh" = "~/.zshrc"
+"zsh/windows.zsh" = "~/.zshrc"
 
 [windows]
 depends = ["pwsh", "scoop", "wt"]
