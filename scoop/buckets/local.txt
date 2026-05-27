@@ -2,5 +2,7 @@ graphviz
 juliaup
 miktex
 mise
+pixi
 quarto
 Sarasa-Mono-SC
+Sarasa-Term-SC

@@ -27,7 +27,7 @@ deploy:
 [script("pwsh")]
 [windows]
 update-scoop:
-    ./scoop/Get-ScoopBuckets | ForEach-Object { ./scoop/Get-ScoopApps "$_" > "scoop/$_.txt" }
+    ./scripts/update-scoop.ps1
 
 [linux]
 update-brew os:

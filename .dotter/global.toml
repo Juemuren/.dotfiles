@@ -4,11 +4,7 @@
 default_target_type = "automatic"
 
 [bash.files]
-"bash/ibat.sh" = "~/.local/bin/ibat.sh"
-"bash/irg.sh" = "~/.local/bin/irg.sh"
-"bash/isd.sh" = "~/.local/bin/isd.sh"
-"bash/jq-path.sh" = "~/.local/bin/jq-path.sh"
-"bash/jq-content.sh" = "~/.local/bin/jq-content.sh"
+"bash/scripts" = "~/.local/bin"
 
 [conda.files]
 "conda.yaml" = "~/.condarc"
@@ -36,3 +32,4 @@ git_email = ""
 
 [vscode.files]
 "vscode/global/settings.jsonc" = "~/.config/Code/User/settings.json"
+"vscode/global/snippets" = "~/.config/Code/User/snippets"

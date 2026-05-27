@@ -7,7 +7,6 @@ bat
 busybox-lean
 chafa
 charm-gum
-chezmoi
 cmake
 codex
 dark
@@ -15,8 +14,8 @@ delta
 devd
 docker
 docker-compose
-dotter
 doxygen
+dprint
 duckdb
 eza
 fastfetch
