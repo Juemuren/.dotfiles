@@ -16,7 +16,7 @@ extract_settings() {
 
 profile=$1
 
-if [ "$profile" = "default" ]; then
+if [ "$profile" = "global" ]; then
     extract_extensions "$profile" scripts/extract-extensions-global.jq
 else
     extract_extensions "$profile" scripts/extract-extensions.jq

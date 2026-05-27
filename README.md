@@ -28,8 +28,8 @@
 
 <!-- VSCODE-PROFILE-LIST:START -->
 * conf
-* default
 * doc
+* global
 * sci
 * sys
 * web
