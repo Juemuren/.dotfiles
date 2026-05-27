@@ -4,21 +4,21 @@ extract_extensions() {
     profile=$1
     script=$2
 
-    jq -f "$script" "vscode/$profile/$profile.code-profile" > "vscode/$profile/extensions.jsonc"
+    jq -f "$script" "vscode/temp/$profile.code-profile" > "vscode/profiles/$profile/extensions.jsonc"
 }
 
 extract_settings() {
     profile=$1
     script=$2
 
-    jq -r -f "$script" "vscode/$profile/$profile.code-profile" > "vscode/$profile/settings.jsonc"
+    jq -r -f "$script" "vscode/temp/$profile.code-profile" > "vscode/profiles/$profile/settings.jsonc"
 }
 
 profile=$1
 
 if [ "$profile" = "global" ]; then
-    extract_extensions "$profile" scripts/extract-extensions-global.jq
+    extract_extensions "$profile" scripts/extract-vscode-extensions-global.jq
 else
-    extract_extensions "$profile" scripts/extract-extensions.jq
-    extract_settings "$profile" scripts/extract-settings.jq
+    extract_extensions "$profile" scripts/extract-vscode-extensions.jq
+    extract_settings "$profile" scripts/extract-vscode-settings.jq
 fi

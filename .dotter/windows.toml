@@ -8,9 +8,9 @@
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
 [vscode.files]
-"vscode/global/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
-"vscode/global/snippets" = "~/AppData/Roaming/Code/User/snippets"
-"vscode/Find-VscodeDuplicateExtensions.ps1" = "~/.local/bin/Find-VscodeDuplicateExtensions.ps1"
+"vscode/profiles/global/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
+"vscode/profiles/global/snippets" = "~/AppData/Roaming/Code/User/snippets"
+"vscode/scripts" = "~/.local/bin"
 
 [zsh.files]
 "zsh/windows.zsh" = "~/.zshrc"

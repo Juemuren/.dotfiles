@@ -34,5 +34,5 @@ git_email = ""
 "vim.vim" = "~/.vimrc"
 
 [vscode.files]
-"vscode/global/settings.jsonc" = "~/.config/Code/User/settings.json"
-"vscode/global/snippets" = "~/.config/Code/User/snippets"
+"vscode/profiles/global/settings.jsonc" = "~/.config/Code/User/settings.json"
+"vscode/profiles/global/snippets" = "~/.config/Code/User/snippets"

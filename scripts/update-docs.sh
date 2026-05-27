@@ -14,5 +14,5 @@ update_section() {
 TOOL_LIST="$(fd -d 1 --format '* {/.}')"
 update_section README.md TOOL-LIST "$TOOL_LIST"
 
-VSCODE_PROFILE_LIST="$(fd -d 1 -t dir --search-path vscode --format '* {/.}')"
+VSCODE_PROFILE_LIST="$(fd -d 1 -t dir --search-path vscode/profiles --format '* {/.}')"
 update_section README.md VSCODE-PROFILE-LIST "$VSCODE_PROFILE_LIST"
