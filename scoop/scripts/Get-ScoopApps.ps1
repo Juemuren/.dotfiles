@@ -3,6 +3,6 @@ param(
     [string]$BucketName
 )
 
-scoop list |
+scoop list 6>$null |
 Where-Object Source -EQ $BucketName |
 Select-Object -ExpandProperty Name
