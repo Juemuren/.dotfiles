@@ -1,9 +1,6 @@
 [bash.files]
 "bash/windows.bash" = "~/.bashrc"
 
-[git.files]
-"git/windows.ini" = "~/.gitconfig"
-
 [mise.files]
 "mise/windows.toml" = "~/.config/mise/config.toml"
 
