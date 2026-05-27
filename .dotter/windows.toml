@@ -10,16 +10,20 @@
 [vscode.files]
 "vscode/profiles/global/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
 "vscode/profiles/global/snippets" = "~/AppData/Roaming/Code/User/snippets"
-"vscode/scripts" = "~/.local/bin"
 
 [zsh.files]
 "zsh/windows.zsh" = "~/.zshrc"
 
 [windows]
-depends = ["pwsh", "scoop", "wt"]
+depends = ["msys", "pwsh", "scoop", "wt"]
 
 [windows.variables]
 git_root = "C:/Program Files/Git"
+
+[msys.files]
+"msys/nsswitch.conf" = "C:/msys64/etc/nsswitch.conf"
+
+[msys.variables]
 msys_root = "C:/msys64"
 
 [pwsh.files]

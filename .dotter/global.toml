@@ -36,3 +36,4 @@ git_email = ""
 [vscode.files]
 "vscode/profiles/global/settings.jsonc" = "~/.config/Code/User/settings.json"
 "vscode/profiles/global/snippets" = "~/.config/Code/User/snippets"
+"vscode/scripts" = "~/.local/bin"

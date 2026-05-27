@@ -29,6 +29,10 @@ deploy:
 update-scoop:
     ./scripts/update-scoop.ps1
 
+[windows]
+update-pacman os:
+    pacman -Qe | cut -d " " -f 1 > "pacman/{{ os }}.txt"
+
 [linux]
 update-brew os:
     brew list --installed-on-request > "brew/{{ os }}.txt"
