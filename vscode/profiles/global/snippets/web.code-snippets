@@ -1,0 +1,16 @@
+{
+  "functional-component": {
+    "scope": "typescriptreact",
+    "prefix": "fc",
+    "body": [
+      "function ${1:name}(${2:params}: ${3:type}) {",
+      "  $6",
+      "  return (",
+      "    <${4:Element}>",
+      "      ${5}",
+      "    </${4}>",
+      "  )",
+      "}",
+    ]
+  }
+}

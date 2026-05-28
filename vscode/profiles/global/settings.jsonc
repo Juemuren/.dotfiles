@@ -21,10 +21,14 @@
     "workbench.editor.enablePreview",
     "diffEditor.ignoreTrimWhitespace",
     "editor.find.addExtraSpaceOnTop",
-    "editor.suggestSelection",
     "editor.tabSize",
     "files.eol",
     "files.insertFinalNewline",
+    "editor.quickSuggestions",
+    "editor.tabCompletion",
+    "editor.suggest.localityBonus",
+    "editor.suggestSelection",
+    "editor.snippetSuggestions",
     "workbench.browser.openLocalhostLinks",
     "terminal.integrated.cursorBlinking",
     "terminal.integrated.shellIntegration.enabled",
@@ -77,10 +81,20 @@
   "workbench.editor.enablePreview": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.find.addExtraSpaceOnTop": false,
-  "editor.suggestSelection": "recentlyUsed",
+  // 文件
   "editor.tabSize": 2,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
+  // 建议
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "offWhenInlineCompletions"
+  },
+  "editor.tabCompletion": "onlySnippets",
+  "editor.suggest.localityBonus": true,
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.snippetSuggestions": "top",
   // 集成浏览器
   "workbench.browser.openLocalhostLinks": false,
   // 集成终端
@@ -162,22 +176,23 @@
     "podman-machine-default (WSL)": null
   },
   "terminal.integrated.defaultProfile.windows": "PowerShell",
-  // 文件嵌套
+  // 资源管理器
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     ".env": ".env.*",
     ".gitignore": ".gitattributes",
+    ".prettierrc": ".prettierignore",
     "Cargo.toml": "Cargo.lock",
     "CMakeLists.txt": "*.cmake, CMakePresets.json, CMakeUserPresets.json",
     "Dockerfile": "docker-compose.*",
     "Makefile": "*.make",
-    "package.json": "package-lock.json, pnpm-lock.yaml",
-    "pyproject.toml": "uv.lock, pixi.lock",
+    "package.json": "package-lock.json, pnpm-lock.yaml, .node-version, .nvmrc",
+    "pyproject.toml": "uv.lock, pixi.lock, .python-version",
     "pixi.toml": "pixi.lock",
-    "README.md": "README*, CHANGELOG*, LICENSE*",
+    "README.md": "README*, CHANGELOG*, LICENSE*, TODO*",
     "tsconfig.json": "tsconfig.*.json",
-    "vite.config.*": "vitest.config",
+    "vite.config.*": "vitest.config, tsconfig.json",
     "*.c": "$(capture).h",
     "*.cpp": "$(capture).hpp, $(capture).h",
     "*.md": "$(capture).*.md",

@@ -1,0 +1,35 @@
+{
+  "markdown-table-pipe": {
+    "scope": "markdown",
+    "prefix": ["table", "||"],
+    "body": [
+      "| $1 | $2 |",
+      "|----|----|",
+      "| $3 | $4 |",
+      "$0"
+    ],
+    "description": "Insert markdown pipe table"
+  },
+  "markdown-math-block": {
+    "scope": "markdown",
+    "prefix": ["math", "$$"],
+    "body": [
+      "$$",
+      "$1",
+      "$$",
+      "$0"
+    ],
+    "description": "Insert markdown math block"
+  },
+  "markdown-code-block": {
+    "scope": "markdown",
+    "prefix": ["code", "``"],
+    "body": [
+      "```${1:language}",
+      "$2",
+      "```",
+      "$0"
+    ],
+    "description": "Insert markdown code block"
+  }
+}
