@@ -4,16 +4,16 @@
     "actions": 
     [
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": "paste",
@@ -32,17 +32,17 @@
             "command": 
             {
                 "action": "scrollToMark",
-                "direction": "previous"
+                "direction": "next"
             },
-            "id": "User.preMark"
+            "id": "User.nextMark"
         },
         {
             "command": 
             {
                 "action": "scrollToMark",
-                "direction": "next"
+                "direction": "previous"
             },
-            "id": "User.nextMark"
+            "id": "User.preMark"
         }
     ],
     "alwaysShowTabs": true,
@@ -54,24 +54,24 @@
     "keybindings": 
     [
         {
-            "id": "User.find",
-            "keys": "ctrl+f"
-        },
-        {
             "id": "User.paste",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+f"
         },
         {
             "id": "User.copy",
             "keys": "ctrl+c"
         },
         {
-            "id": "User.splitPane.auto",
-            "keys": "ctrl+shift+s"
-        },
-        {
             "id": "User.preMark",
             "keys": "ctrl+up"
+        },
+        {
+            "id": "User.splitPane.auto",
+            "keys": "ctrl+shift+s"
         },
         {
             "id": "User.nextMark",
