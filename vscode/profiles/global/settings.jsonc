@@ -21,7 +21,6 @@
     "workbench.editor.enablePreview",
     "diffEditor.ignoreTrimWhitespace",
     "editor.find.addExtraSpaceOnTop",
-    "editor.tabSize",
     "files.eol",
     "files.insertFinalNewline",
     "editor.quickSuggestions",
@@ -82,7 +81,6 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.find.addExtraSpaceOnTop": false,
   // 文件
-  "editor.tabSize": 2,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   // 建议

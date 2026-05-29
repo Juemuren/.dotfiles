@@ -14,6 +14,7 @@
   "powershell.integratedConsole.showOnStartup": false,
   // just
   "[just]": {
+    "editor.tabSize": 4,
     "editor.defaultFormatter": "nefrob.vscode-just-syntax"
   }
 }

@@ -1,4 +1,5 @@
 {
+  "editor.tabSize": 2,
   // js/ts
   "js/ts.autoClosingTags.enabled": true,
   "js/ts.suggest.autoImports": false,
