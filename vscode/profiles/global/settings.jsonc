@@ -20,6 +20,7 @@
     "files.simpleDialog.enable",
     "workbench.editor.enablePreview",
     "diffEditor.ignoreTrimWhitespace",
+    "diffEditor.hideUnchangedRegions.enabled",
     "editor.find.addExtraSpaceOnTop",
     "files.eol",
     "files.insertFinalNewline",
@@ -79,6 +80,7 @@
   // 编辑
   "workbench.editor.enablePreview": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   "editor.find.addExtraSpaceOnTop": false,
   // 文件
   "files.eol": "\n",

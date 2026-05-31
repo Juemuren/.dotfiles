@@ -1,5 +1,14 @@
 {
   "editor.tabSize": 2,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/patches": true
+  },
+  // todo-tree
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/*/**",
+    "**/*.patch"
+  ],
   // js/ts
   "js/ts.autoClosingTags.enabled": true,
   "js/ts.suggest.autoImports": false,

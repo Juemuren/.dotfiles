@@ -3,6 +3,7 @@
   // python
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": false,
+  "python.terminal.shellIntegration.enabled": false,
   "python.analysis.typeCheckingMode": "off",
   "python.analysis.fixAll": [
     "source.unusedImports"
@@ -18,5 +19,9 @@
   "jupyter.widgetScriptSources": [
     "unpkg.com",
     "jsdelivr.com"
+  ],
+  // julia
+  "terminal.integrated.commandsToSkipShell": [
+    "language-julia.interrupt"
   ]
 }
