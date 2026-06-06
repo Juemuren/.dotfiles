@@ -129,7 +129,7 @@
         "--login",
         "-i"
       ],
-      "icon": "source-control",
+      "icon": "terminal-git-bash",
       "color": "terminal.ansiRed"
     },
     "MSYS UCRT": {
