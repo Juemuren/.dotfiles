@@ -5,6 +5,7 @@ packages = [
   "fastfetch",
   "git",
   "mise",
+  "npm",
   "pixi",
   "starship",
   "uv",
