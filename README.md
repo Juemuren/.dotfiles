@@ -13,7 +13,11 @@
 * fastfetch
 * git
 * mise
+* msys
+* npm
+* pacman
 * pixi
+* pnpm
 * pwsh
 * scoop
 * starship
