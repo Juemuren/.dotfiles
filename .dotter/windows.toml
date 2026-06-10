@@ -4,6 +4,9 @@
 [mise.files]
 "mise/windows.toml" = "~/.config/mise/config.toml"
 
+[pnpm.files]
+"pnpm.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
+
 [uv.files]
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
