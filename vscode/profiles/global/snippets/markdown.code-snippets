@@ -8,7 +8,7 @@
       "| $3 | $4 |",
       "$0"
     ],
-    "description": "Insert markdown pipe table"
+    "description": "Markdown pipe table"
   },
   "markdown-math-block": {
     "scope": "markdown",
@@ -19,7 +19,7 @@
       "$$",
       "$0"
     ],
-    "description": "Insert markdown math block"
+    "description": "Markdown math block"
   },
   "markdown-code-block": {
     "scope": "markdown",
@@ -30,6 +30,54 @@
       "```",
       "$0"
     ],
-    "description": "Insert markdown code block"
+    "description": "Markdown code block"
+  },
+  "latex-derivative": {
+    "scope": "latex",
+    "prefix": "\\derivative",
+    "body": "\\frac{\\mathrm{d}${1:y}}{\\mathrm{d}${2:x}} $0",
+    "description": "LaTeX derivative"
+  },
+  "latex-partial-derivative": {
+    "scope": "latex",
+    "prefix": "\\partial-derivative",
+    "body": "\\frac{\\partial ${1:y}}{\\partial ${2:x}} $0",
+    "description": "LaTeX partial derivative"
+  },
+  "latex-integration": {
+    "scope": "latex",
+    "prefix": "\\integration",
+    "body": "\\int_{${1:a}}^{${2:b}} ${4:f} \\mathrm{d}${3:x} $0",
+    "description": "LaTeX integration"
+  },
+  "latex-differentiation": {
+    "scope": "latex",
+    "prefix": "\\differentiation",
+    "body": "\\mathrm{d}${1:y} = ${3:f} \\mathrm{d}${2:x} $0",
+    "description": "LaTeX differentiation"
+  },
+  "latex-jacobian-matrix": {
+    "scope": "latex",
+    "prefix": "\\jacobian-matrix",
+    "body": [
+      "\\begin{bmatrix}",
+      "  \\frac{\\partial ${1:x}}{\\partial ${3:u}} & \\frac{\\partial ${1:x}}{\\partial ${4:v}} \\\\\\",
+      "  \\frac{\\partial ${2:y}}{\\partial ${3:u}} & \\frac{\\partial ${2:y}}{\\partial ${4:v}}",
+      "\\end{bmatrix}",
+      "$0"
+    ],
+    "description": "LaTeX jacobian matrix"
+  },
+  "latex-jacobian-determinant": {
+    "scope": "latex",
+    "prefix": "\\jacobian-determinant",
+    "body": [
+      "\\begin{vmatrix}",
+      "  \\frac{\\partial ${1:x}}{\\partial ${3:u}} & \\frac{\\partial ${1:x}}{\\partial ${4:v}} \\\\\\",
+      "  \\frac{\\partial ${2:y}}{\\partial ${3:u}} & \\frac{\\partial ${2:y}}{\\partial ${4:v}}",
+      "\\end{vmatrix}",
+      "$0"
+    ],
+    "description": "LaTeX jacobian determinant"
   }
 }
