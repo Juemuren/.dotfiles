@@ -79,5 +79,29 @@
       "$0"
     ],
     "description": "LaTeX jacobian determinant"
+  },
+  "latex-hessian-matrix": {
+    "scope": "latex",
+    "prefix": "\\hessian-matrix",
+    "body": [
+      "\\begin{bmatrix}",
+      "  \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}^2} & \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}\\partial ${3:y}} \\\\\\",
+      "  \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}\\partial ${2:x}} & \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}^2}",
+      "\\end{bmatrix}",
+      "$0"
+    ],
+    "description": "LaTeX hessian matrix"
+  },
+  "latex-hessian-determinant": {
+    "scope": "latex",
+    "prefix": "\\hessian-determinant",
+    "body": [
+      "\\begin{vmatrix}",
+      "  \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}^2} & \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}\\partial ${3:y}} \\\\\\",
+      "  \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}\\partial ${2:x}} & \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}^2}",
+      "\\end{vmatrix}",
+      "$0"
+    ],
+    "description": "LaTeX hessian determinant"
   }
 }
