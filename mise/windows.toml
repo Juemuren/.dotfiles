@@ -4,6 +4,7 @@ go = "latest"
 node = "latest"
 "npm:@mermaid-js/mermaid-cli" = "latest"
 "pipx:argostranslate" = "latest"
+"pipx:fonttools" = "latest"
 "pipx:markitdown" = { version = "latest", extras = "all", uvx_args = "-w markitdown-ocr -w openai" }
 pnpm = "latest"
 python = "latest"
