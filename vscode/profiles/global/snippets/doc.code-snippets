@@ -34,31 +34,31 @@
   },
   "latex-derivative": {
     "scope": "latex",
-    "prefix": "\\derivative",
+    "prefix": "derivative",
     "body": "\\frac{\\mathrm{d}${1:y}}{\\mathrm{d}${2:x}} $0",
     "description": "LaTeX derivative"
   },
   "latex-partial-derivative": {
     "scope": "latex",
-    "prefix": "\\partial-derivative",
+    "prefix": "partial-derivative",
     "body": "\\frac{\\partial ${1:y}}{\\partial ${2:x}} $0",
     "description": "LaTeX partial derivative"
   },
   "latex-integration": {
     "scope": "latex",
-    "prefix": "\\integration",
+    "prefix": "integration",
     "body": "\\int_{${1:a}}^{${2:b}} ${4:f} \\mathrm{d}${3:x} $0",
     "description": "LaTeX integration"
   },
   "latex-differentiation": {
     "scope": "latex",
-    "prefix": "\\differentiation",
+    "prefix": "differentiation",
     "body": "\\mathrm{d}${1:y} = ${3:f} \\mathrm{d}${2:x} $0",
     "description": "LaTeX differentiation"
   },
   "latex-jacobian-matrix": {
     "scope": "latex",
-    "prefix": "\\jacobian-matrix",
+    "prefix": "jacobian-matrix",
     "body": [
       "\\begin{bmatrix}",
       "  \\frac{\\partial ${1:x}}{\\partial ${3:u}} & \\frac{\\partial ${1:x}}{\\partial ${4:v}} \\\\\\",
@@ -70,7 +70,7 @@
   },
   "latex-jacobian-determinant": {
     "scope": "latex",
-    "prefix": "\\jacobian-determinant",
+    "prefix": "jacobian-determinant",
     "body": [
       "\\begin{vmatrix}",
       "  \\frac{\\partial ${1:x}}{\\partial ${3:u}} & \\frac{\\partial ${1:x}}{\\partial ${4:v}} \\\\\\",
@@ -82,7 +82,7 @@
   },
   "latex-hessian-matrix": {
     "scope": "latex",
-    "prefix": "\\hessian-matrix",
+    "prefix": "hessian-matrix",
     "body": [
       "\\begin{bmatrix}",
       "  \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}^2} & \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}\\partial ${3:y}} \\\\\\",
@@ -94,7 +94,7 @@
   },
   "latex-hessian-determinant": {
     "scope": "latex",
-    "prefix": "\\hessian-determinant",
+    "prefix": "hessian-determinant",
     "body": [
       "\\begin{vmatrix}",
       "  \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}^2} & \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}\\partial ${3:y}} \\\\\\",

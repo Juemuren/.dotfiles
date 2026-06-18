@@ -1,0 +1,12 @@
+[
+    {
+        "key": "ctrl+k ctrl+t",
+        "command": "openInIntegratedTerminal",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+s",
+        "command": "editor.action.insertSnippet",
+        "when": "!editorReadonly"
+    }
+]

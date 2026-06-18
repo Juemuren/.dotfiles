@@ -11,6 +11,7 @@
 "uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
 [vscode.files]
+"vscode/profiles/global/keybindings.jsonc" = "~/AppData/Roaming/Code/User/keybindings.json"
 "vscode/profiles/global/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
 "vscode/profiles/global/snippets" = "~/AppData/Roaming/Code/User/snippets"
 
