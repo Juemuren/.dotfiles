@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "esbenp.prettier-vscode",
     "github.vscode-github-actions",
     "github.vscode-pull-request-github",
     "ms-azuretools.vscode-containers",

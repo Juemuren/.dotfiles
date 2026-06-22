@@ -12,6 +12,7 @@ extract_settings() {
     script=$2
 
     jq -r -f "$script" "vscode/temp/$profile.code-profile" > "vscode/profiles/$profile/settings.jsonc"
+    dprint fmt "vscode/profiles/$profile/settings.jsonc"
 }
 
 profile=$1

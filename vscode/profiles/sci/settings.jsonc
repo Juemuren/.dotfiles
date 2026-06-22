@@ -1,5 +1,9 @@
 {
   "editor.tabSize": 4,
+  // mermaid
+  "mermaid.vscode.aiExportName": false,
+  "mermaidChart.showGenerateDiagramCodeLens": false,
+  "mermaidChart.preCommitSync.enabled": false,
   // python
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": false,

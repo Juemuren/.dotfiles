@@ -3,7 +3,7 @@
     .extensions |
     fromjson |
     .[] |
-    select(.applicationScoped == false) |
+    select(.applicationScoped == false and .identifier.id != "github.copilot-chat") |
     .identifier.id
   ]
 }

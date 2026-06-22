@@ -19,6 +19,7 @@
     "editor.guides.bracketPairs",
     "editor.lineNumbers",
     "editor.renderWhitespace",
+    "editor.unicodeHighlight.allowedLocales",
     "workbench.editor.enablePreview",
     "diffEditor.ignoreTrimWhitespace",
     "diffEditor.hideUnchangedRegions.enabled",
@@ -80,6 +81,9 @@
   "editor.guides.bracketPairs": "active",
   "editor.lineNumbers": "relative",
   "editor.renderWhitespace": "boundary",
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hans": true
+  },
   // 编辑
   "workbench.editor.enablePreview": false,
   "diffEditor.ignoreTrimWhitespace": false,

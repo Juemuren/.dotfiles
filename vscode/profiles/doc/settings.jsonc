@@ -5,7 +5,7 @@
   "editor.glyphMargin": false,
   "files.autoSave": "afterDelay",
   // markdown
-  "markdown.preview.scrollEditorWithPreview": false,
+  "markdown.preview.scrollEditorWithPreview": true,
   "markdown.preview.scrollPreviewWithEditor": true,
   "markdown.updateLinksOnFileMove.enabled": "prompt",
   "markdown.validate.enabled": true,
@@ -18,8 +18,13 @@
   },
   // mermaid
   "mermaid.vscode.aiExportName": false,
+  "mermaidChart.showGenerateDiagramCodeLens": false,
+  "mermaidChart.preCommitSync.enabled": false,
   // latex
   "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.formatting.latex": "latexindent",
-  "latex-workshop.bibtex-format.tab": "4 spaces"
+  "latex-workshop.bibtex-format.tab": "4 spaces",
+  // abc
+  "abcjs-vscode.dragToEdit.enabled": true,
+  "abcjs-vscode.audio.enabled": false
 }

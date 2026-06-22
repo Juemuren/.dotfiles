@@ -40,6 +40,9 @@ update-brew os:
 update-vscode profile:
     ./scripts/update-vscode.sh "{{ profile }}"
 
+fmt-json:
+    dprint fmt "**/*.json"
+
 lint-sh:
     shellcheck scripts/*.sh
 

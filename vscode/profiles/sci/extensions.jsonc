@@ -1,7 +1,9 @@
 {
   "recommendations": [
+    "astral-sh.ty",
     "charliermarsh.ruff",
     "julialang.language-julia",
+    "mermaidchart.vscode-mermaid-chart",
     "ms-python.debugpy",
     "ms-python.python",
     "ms-python.vscode-pylance",

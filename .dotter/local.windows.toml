@@ -17,6 +17,13 @@ packages = [
 ]
 
 [files]
+"vscode/profiles/conf/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/conf_hash/settings.json"
+"vscode/profiles/doc/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/doc_hash/settings.json"
+"vscode/profiles/emb/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/emb_hash/settings.json"
+"vscode/profiles/game/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/game_hash/settings.json"
+"vscode/profiles/sci/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/sci_hash/settings.json"
+"vscode/profiles/sys/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/sys_hash/settings.json"
+"vscode/profiles/web/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/web_hash/settings.json"
 
 [variables]
 git_name = "Your git name"
