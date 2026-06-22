@@ -33,6 +33,8 @@
 <!-- VSCODE-PROFILE-LIST:START -->
 * conf
 * doc
+* emb
+* game
 * global
 * sci
 * sys
