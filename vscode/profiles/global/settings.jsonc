@@ -15,15 +15,13 @@
     "workbench.navigationControl.enabled",
     "workbench.startupEditor",
     "workbench.editor.empty.hint",
+    "workbench.editor.enablePreview",
     "workbench.editor.highlightModifiedTabs",
     "editor.guides.bracketPairs",
     "editor.lineNumbers",
     "editor.renderWhitespace",
-    "editor.unicodeHighlight.allowedLocales",
-    "workbench.editor.enablePreview",
-    "diffEditor.ignoreTrimWhitespace",
-    "diffEditor.hideUnchangedRegions.enabled",
     "editor.find.addExtraSpaceOnTop",
+    "editor.unicodeHighlight.allowedLocales",
     "files.eol",
     "files.insertFinalNewline",
     "editor.quickSuggestions",
@@ -31,6 +29,8 @@
     "editor.suggest.localityBonus",
     "editor.suggestSelection",
     "editor.snippetSuggestions",
+    "diffEditor.ignoreTrimWhitespace",
+    "diffEditor.hideUnchangedRegions.enabled",
     "workbench.browser.openLocalhostLinks",
     "terminal.integrated.minimumContrastRatio",
     "terminal.integrated.cursorBlinking",
@@ -41,8 +41,9 @@
     "explorer.fileNesting.enabled",
     "explorer.fileNesting.expand",
     "explorer.fileNesting.patterns",
-    "github.copilot.enable",
+    "scm.repositories.selectionMode",
     "chat.disableAIFeatures",
+    "github.copilot.enable",
     "git.addAICoAuthor",
     "git.untrackedChanges"
   ],
@@ -74,21 +75,20 @@
   // 布局
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
-  // 视觉
+  // 启动
   "workbench.startupEditor": "none",
   "workbench.editor.empty.hint": "hidden",
+  // 预览
+  "workbench.editor.enablePreview": true,
   "workbench.editor.highlightModifiedTabs": true,
+  // 视觉
   "editor.guides.bracketPairs": "active",
   "editor.lineNumbers": "relative",
   "editor.renderWhitespace": "boundary",
+  "editor.find.addExtraSpaceOnTop": false,
   "editor.unicodeHighlight.allowedLocales": {
     "zh-hans": true
   },
-  // 编辑
-  "workbench.editor.enablePreview": false,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "editor.find.addExtraSpaceOnTop": false,
   // 文件
   "files.eol": "\n",
   "files.insertFinalNewline": true,
@@ -102,6 +102,9 @@
   "editor.suggest.localityBonus": true,
   "editor.suggestSelection": "recentlyUsed",
   "editor.snippetSuggestions": "top",
+  // 差异编辑器
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   // 集成浏览器
   "workbench.browser.openLocalhostLinks": false,
   // 集成终端
@@ -207,12 +210,15 @@
     "*.mmd": "$(capture).png, $(capture).svg",
     "*.tex": "$(capture).aux, $(capture).log, $(capture).out"
   },
+  // 源代码管理器
+  "scm.repositories.selectionMode": "single",
+  // 聊天
+  "chat.disableAIFeatures": true,
   /********** 手动同步/插件相关 **********/
   // copilot
   "github.copilot.enable": {
     "*": false
   },
-  "chat.disableAIFeatures": true,
   // git
   "git.addAICoAuthor": "off",
   "git.untrackedChanges": "separate"
