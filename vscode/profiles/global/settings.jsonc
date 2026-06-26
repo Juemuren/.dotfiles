@@ -67,7 +67,7 @@
   "files.simpleDialog.enable": true,
   // 字体
   "editor.fontSize": 16,
-  "editor.fontFamily": "'Sarasa Term SC', 'Symbols Nerd Font Mono'",
+  "editor.fontFamily": "'Sarasa Mono SC', 'Symbols Nerd Font Mono'",
   "editor.fontLigatures": false,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontFamily": "'Maple Mono NF CN'",

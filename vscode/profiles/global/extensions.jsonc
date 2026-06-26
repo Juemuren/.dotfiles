@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "activitywatch.aw-watcher-vscode",
+    "anthropic.claude-code",
     "catppuccin.catppuccin-vsc",
     "editorconfig.editorconfig",
     "gruntfuggly.todo-tree",

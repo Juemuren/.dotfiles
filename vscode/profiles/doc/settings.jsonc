@@ -3,6 +3,8 @@
   "breadcrumbs.enabled": false,
   "editor.minimap.enabled": false,
   "editor.glyphMargin": false,
+  "editor.wrappingStrategy": "advanced",
+  "editor.wordWrap": "on",
   "files.autoSave": "afterDelay",
   // markdown
   "markdown.preview.scrollEditorWithPreview": true,
@@ -12,11 +14,12 @@
   "markdown.extension.completion.enabled": true,
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.wordWrap": "on",
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   // mermaid
+  "mermaid.vscode.light": "neutral",
+  "mermaid.vscode.dark": "dark",
   "mermaid.vscode.aiExportName": false,
   "mermaidChart.showGenerateDiagramCodeLens": false,
   "mermaidChart.preCommitSync.enabled": false,
