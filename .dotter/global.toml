@@ -15,7 +15,6 @@ default_target_type = "automatic"
 
 [git.files]
 "git/git.ini" = "~/.gitconfig"
-
 [git.variables]
 git_name = ""
 git_email = ""
@@ -29,7 +28,6 @@ git_email = ""
 
 [pnpm.files]
 "pnpm.yaml" = "~/.config/pnpm/config.yaml"
-
 [pnpm.variables]
 pnpm_store = "~/AppData/Local/pnpm/store"
 
