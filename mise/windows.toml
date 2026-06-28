@@ -3,6 +3,7 @@ aube = "latest"
 go = "latest"
 node = "latest"
 "npm:@mermaid-js/mermaid-cli" = "latest"
+"npm:cspell" = "latest"
 "pipx:argostranslate" = "latest"
 "pipx:fonttools" = "latest"
 "pipx:markitdown" = { version = "latest", extras = "all", uvx_args = "-w markitdown-ocr -w openai" }
