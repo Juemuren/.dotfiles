@@ -1,5 +1,9 @@
+checkexec
 graphviz
+jq-lsp
 juliaup
+just-lsp
+ltex
 miktex
 mise
 pixi
