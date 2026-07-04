@@ -4,16 +4,12 @@ default:
 
 [linux]
 install:
-    wget https://github.com/SuperCuber/dotter/releases/latest/download/dotter-linux-x64-musl
-    chmod +x dotter-linux-x64-musl
-    mkdir -p bin
-    mv dotter-linux-x64-musl ./bin/dotter
+    ./scripts/install.sh
 
+[script("pwsh")]
 [windows]
 install:
-    wget https://github.com/SuperCuber/dotter/releases/latest/download/dotter-windows-x64-msvc.exe
-    mkdir -p bin
-    mv dotter-windows-x64-msvc.exe ./bin/dotter.exe
+    ./scripts/install.ps1
 
 watch:
     ./bin/dotter watch --dry-run -f
@@ -29,19 +25,18 @@ deploy:
 update-scoop:
     ./scripts/update-scoop.ps1
 
-[windows]
-update-pacman os:
-    pacman -Qe | cut -d " " -f 1 > "pacman/{{ os }}.txt"
-
 [linux]
 update-brew os:
     brew list --installed-on-request > "brew/{{ os }}.txt"
 
+update-pacman os:
+    pacman -Qeq > "pacman/{{ os }}.txt"
+
 update-vscode profile:
     ./scripts/update-vscode.sh "{{ profile }}"
 
-fmt-json:
-    dprint fmt "**/*.json"
+format:
+    dprint fmt
 
 lint-sh:
     shellcheck scripts/*.sh
