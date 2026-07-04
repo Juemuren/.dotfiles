@@ -10,8 +10,9 @@
   "markdown.preview.scrollEditorWithPreview": true,
   "markdown.preview.scrollPreviewWithEditor": true,
   "markdown.updateLinksOnFileMove.enabled": "prompt",
-  "markdown.validate.enabled": true,
+  "markdown.validate.enabled": false,
   "markdown.extension.completion.enabled": true,
+  "markdownExtended.disabledPlugins": "kbd, footnote, toc",
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",

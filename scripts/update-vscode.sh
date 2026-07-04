@@ -4,14 +4,14 @@ extract_extensions() {
     profile=$1
     script=$2
 
-    jq -f "$script" "vscode/temp/$profile.code-profile" > "vscode/profiles/$profile/extensions.jsonc"
+    jq -f "$script" "vscode/profiles/$profile/$profile.code-profile" > "vscode/profiles/$profile/extensions.jsonc"
 }
 
 extract_settings() {
     profile=$1
     script=$2
 
-    jq -r -f "$script" "vscode/temp/$profile.code-profile" > "vscode/profiles/$profile/settings.jsonc"
+    jq -r -f "$script" "vscode/profiles/$profile/$profile.code-profile" > "vscode/profiles/$profile/settings.jsonc"
     dprint fmt "vscode/profiles/$profile/settings.jsonc"
 }
 
