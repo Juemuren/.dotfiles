@@ -7,6 +7,7 @@ node = "latest"
 "pipx:argostranslate" = "latest"
 "pipx:fonttools" = "latest"
 "pipx:markitdown" = { version = "latest", extras = "all", uvx_args = "-w markitdown-ocr -w openai" }
+"pipx:sqlfluff" = "latest"
 pnpm = "latest"
 python = "latest"
 uv = "latest"
