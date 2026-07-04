@@ -31,6 +31,8 @@ msys_root = "C:/msys64"
 [pwsh.files]
 "pwsh/pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
 "pwsh/scripts" = "~/.local/bin"
+[pwsh.variables]
+pwsh_root = "C:/Program Files/PowerShell/7"
 
 [scoop.files]
 "scoop/scoop.json" = "~/.config/scoop/config.json"
@@ -40,4 +42,5 @@ scoop_root = "~/scoop"
 
 [wt.files]
 "wt/wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+"wt/icos" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
 "wt/scripts" = "~/.local/bin"

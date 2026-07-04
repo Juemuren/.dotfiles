@@ -106,10 +106,10 @@
         "list": 
         [
             {
-                "commandline": "%ProgramFiles%/PowerShell/7/pwsh.exe -NoLogo",
+                "commandline": "{{pwsh_root}}\\pwsh.exe -NoLogo",
                 "guid": "{b6d28cf0-b245-59cb-a780-b728ed6c082e}",
                 "hidden": false,
-                "icon": "%ProgramFiles%/PowerShell/7/assets/Powershell_black.ico",
+                "icon": "pwsh.ico",
                 "name": "Pwsh",
                 "startingDirectory": "%USERPROFILE%"
             },
@@ -120,37 +120,37 @@
                 "source": "Microsoft.WSL"
             },
             {
-                "commandline": "{{git_root}}/bin/bash.exe --login -i",
+                "commandline": "{{git_root}}\\bin\\bash.exe --login -i",
                 "guid": "{a3464014-7f9f-5763-ace4-e15905a9d7ee}",
                 "hidden": false,
-                "icon": "{{git_root}}/usr/share/git/git.ico",
+                "icon": "{{git_root}}\\usr\\share\\git\\git.ico",
                 "name": "Git Bash",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "{{msys_root}}/msys2_shell.cmd -defterm -no-start -here -full-path -ucrt64 -shell zsh",
+                "commandline": "{{msys_root}}\\msys2_shell.cmd -defterm -no-start -here -full-path -ucrt64 -shell zsh",
                 "guid": "{eebf208d-c959-5729-8feb-3721eb87667b}",
                 "hidden": false,
-                "icon": "{{msys_root}}/ucrt64.ico",
+                "icon": "{{msys_root}}\\ucrt64.ico",
                 "name": "MSYS UCRT",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "{{msys_root}}/msys2_shell.cmd -defterm -no-start -here -full-path -mingw64 -shell zsh",
+                "commandline": "{{msys_root}}\\msys2_shell.cmd -defterm -no-start -here -full-path -mingw64 -shell zsh",
                 "guid": "{e3bb1826-d364-5a28-a8c5-729c7cadec36}",
                 "hidden": false,
-                "icon": "{{msys_root}}/mingw64.ico",
+                "icon": "{{msys_root}}\\mingw64.ico",
                 "name": "MSYS MINGW",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "{{msys_root}}/msys2_shell.cmd -defterm -no-start -here -full-path -clang64 -shell zsh",
+                "commandline": "{{msys_root}}\\msys2_shell.cmd -defterm -no-start -here -full-path -clang64 -shell zsh",
                 "guid": "{5bb9a396-cf85-5a5f-a539-91ce99a3ea38}",
                 "hidden": false,
-                "icon": "{{msys_root}}/clang64.ico",
+                "icon": "{{msys_root}}\\clang64.ico",
                 "name": "MSYS CLANG",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
@@ -196,52 +196,6 @@
     "schemes": 
     [
         {
-            "background": "#1E1E2E",
-            "black": "#45475A",
-            "blue": "#89B4FA",
-            "brightBlack": "#585B70",
-            "brightBlue": "#89B4FA",
-            "brightCyan": "#94E2D5",
-            "brightGreen": "#A6E3A1",
-            "brightPurple": "#F5C2E7",
-            "brightRed": "#F38BA8",
-            "brightWhite": "#A6ADC8",
-            "brightYellow": "#F9E2AF",
-            "cursorColor": "#F5E0DC",
-            "cyan": "#94E2D5",
-            "foreground": "#CDD6F4",
-            "green": "#A6E3A1",
-            "name": "Catppuccin Mocha",
-            "purple": "#F5C2E7",
-            "red": "#F38BA8",
-            "selectionBackground": "#585B70",
-            "white": "#BAC2DE",
-            "yellow": "#F9E2AF"
-        },
-        {
-            "background": "#1A1B26",
-            "black": "#15161E",
-            "blue": "#7AA2F7",
-            "brightBlack": "#414868",
-            "brightBlue": "#7AA2F7",
-            "brightCyan": "#7DCFFF",
-            "brightGreen": "#9ECE6A",
-            "brightPurple": "#9D7CD8",
-            "brightRed": "#F7768E",
-            "brightWhite": "#C0CAF5",
-            "brightYellow": "#E0AF68",
-            "cursorColor": "#C0CAF5",
-            "cyan": "#7DCFFF",
-            "foreground": "#C0CAF5",
-            "green": "#9ECE6A",
-            "name": "Tokyo Night",
-            "purple": "#BB9AF7",
-            "red": "#F7768E",
-            "selectionBackground": "#283457",
-            "white": "#A9B1D6",
-            "yellow": "#E0AF68"
-        },
-        {
             "background": "#222436",
             "black": "#1B1D2B",
             "blue": "#82AAFF",
@@ -263,29 +217,6 @@
             "selectionBackground": "#2D3F76",
             "white": "#828BB8",
             "yellow": "#FFC777"
-        },
-        {
-            "background": "#24283B",
-            "black": "#1D202F",
-            "blue": "#7AA2F7",
-            "brightBlack": "#414868",
-            "brightBlue": "#7AA2F7",
-            "brightCyan": "#7DCFFF",
-            "brightGreen": "#9ECE6A",
-            "brightPurple": "#9D7CD8",
-            "brightRed": "#F7768E",
-            "brightWhite": "#C0CAF5",
-            "brightYellow": "#E0AF68",
-            "cursorColor": "#C0CAF5",
-            "cyan": "#7DCFFF",
-            "foreground": "#C0CAF5",
-            "green": "#9ECE6A",
-            "name": "Tokyo Night Storm",
-            "purple": "#BB9AF7",
-            "red": "#F7768E",
-            "selectionBackground": "#2E3C64",
-            "white": "#A9B1D6",
-            "yellow": "#E0AF68"
         }
     ],
     "showTabsInTitlebar": true,

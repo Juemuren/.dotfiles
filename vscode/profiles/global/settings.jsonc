@@ -22,8 +22,6 @@
     "editor.renderWhitespace",
     "editor.find.addExtraSpaceOnTop",
     "editor.unicodeHighlight.allowedLocales",
-    "files.eol",
-    "files.insertFinalNewline",
     "editor.quickSuggestions",
     "editor.tabCompletion",
     "editor.suggest.localityBonus",
@@ -89,9 +87,6 @@
   "editor.unicodeHighlight.allowedLocales": {
     "zh-hans": true
   },
-  // 文件
-  "files.eol": "\n",
-  "files.insertFinalNewline": true,
   // 建议
   "editor.quickSuggestions": {
     "other": "on",
@@ -113,8 +108,8 @@
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "PowerShell",
+    "Pwsh": {
+      "path": "{{pwsh_root}}/pwsh.exe",
       "args": [
         "-NoLogo"
       ],
@@ -182,11 +177,12 @@
       "color": "terminal.ansiRed"
     },
     "Command Prompt": null,
+    "PowerShell": null,
     "Windows PowerShell": null,
     "Ubuntu-24.04 (WSL)": null,
     "podman-machine-default (WSL)": null
   },
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.windows": "Pwsh",
   // 资源管理器
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
