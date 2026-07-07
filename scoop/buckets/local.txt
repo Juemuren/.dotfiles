@@ -10,3 +10,4 @@ pixi
 quarto
 Sarasa-Mono-SC
 Sarasa-Term-SC
+trans
