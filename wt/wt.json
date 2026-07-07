@@ -106,7 +106,7 @@
         "list": 
         [
             {
-                "commandline": "{{pwsh_root}}\\pwsh.exe -NoLogo",
+                "commandline": "pwsh.exe -NoLogo",
                 "guid": "{b6d28cf0-b245-59cb-a780-b728ed6c082e}",
                 "hidden": false,
                 "icon": "pwsh.ico",

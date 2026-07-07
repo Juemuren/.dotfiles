@@ -38,7 +38,6 @@
     "terminal.integrated.defaultProfile.windows",
     "explorer.fileNesting.enabled",
     "explorer.fileNesting.expand",
-    "explorer.fileNesting.patterns",
     "scm.repositories.selectionMode",
     "chat.disableAIFeatures",
     "github.copilot.enable",
@@ -109,7 +108,7 @@
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.profiles.windows": {
     "Pwsh": {
-      "path": "{{pwsh_root}}/pwsh.exe",
+      "path": "pwsh.exe",
       "args": [
         "-NoLogo"
       ],
@@ -186,26 +185,6 @@
   // 资源管理器
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.patterns": {
-    ".env": ".env.*",
-    ".gitignore": ".git*",
-    ".prettierrc": ".prettierignore",
-    "Cargo.toml": "Cargo.lock",
-    "CMakeLists.txt": "*.cmake, CMakePresets.json, CMakeUserPresets.json",
-    "Dockerfile": "docker-compose.*",
-    "Makefile": "*.make",
-    "package.json": "package-lock.json, pnpm-lock.yaml",
-    "pyproject.toml": "uv.lock, pixi.lock",
-    "pixi.toml": "pixi.lock",
-    "README.md": "README*, CHANGELOG*, LICENSE*, TODO*",
-    "tsconfig.json": "tsconfig.*.json",
-    "vite.config.*": "vitest.config, tsconfig.json",
-    "*.c": "$(capture).h",
-    "*.cpp": "$(capture).hpp, $(capture).h",
-    "*.md": "$(capture).*.md",
-    "*.mmd": "$(capture).png, $(capture).svg",
-    "*.tex": "$(capture).aux, $(capture).log, $(capture).out"
-  },
   // 源代码管理器
   "scm.repositories.selectionMode": "single",
   // 聊天

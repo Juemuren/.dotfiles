@@ -33,5 +33,4 @@ pnpm_store = "path/to/pnpm-store"
 
 git_root = "path/to/git"
 msys_root = "path/to/msys"
-pwsh_root = "path/to/pwsh"
 scoop_root = "path/to/scoop"
