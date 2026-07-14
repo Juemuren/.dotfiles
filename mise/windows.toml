@@ -1,9 +1,10 @@
 [tools]
 aube = "latest"
 go = "latest"
-node = "latest"
+node = "lts"
 "npm:@mermaid-js/mermaid-cli" = "latest"
 "npm:cspell" = "latest"
+"pipx:docx2pdf" = "latest"
 "pipx:fonttools" = "latest"
 "pipx:markitdown" = { version = "latest", extras = "all", uvx_args = "-w markitdown-ocr -w openai" }
 "pipx:sqlfluff" = "latest"
