@@ -38,6 +38,7 @@ marp
 mdq
 miller
 miniserve
+mmdr
 neovim
 pandoc
 pdfcpu
