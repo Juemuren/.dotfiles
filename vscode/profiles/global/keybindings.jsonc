@@ -8,5 +8,15 @@
     "key": "ctrl+k ctrl+s",
     "command": "editor.action.insertSnippet",
     "when": "!editorReadonly"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "-editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
   }
 ]
