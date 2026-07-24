@@ -12,7 +12,6 @@
   "markdown.updateLinksOnFileMove.enabled": "prompt",
   "markdown.validate.enabled": false,
   "markdown.extension.completion.enabled": true,
-  "markdownExtended.disabledPlugins": "kbd, footnote, toc",
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -29,6 +28,7 @@
   "latex-workshop.formatting.latex": "latexindent",
   "latex-workshop.bibtex-format.tab": "4 spaces",
   // abc
-  "abcjs-vscode.dragToEdit.enabled": true,
-  "abcjs-vscode.audio.enabled": false
+  "abcjs-vscode.audio.enabled": false,
+  // excalidraw
+  "excalidraw.theme": "auto"
 }

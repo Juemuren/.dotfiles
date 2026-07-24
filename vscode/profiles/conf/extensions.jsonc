@@ -3,6 +3,7 @@
     "esbenp.prettier-vscode",
     "github.vscode-github-actions",
     "github.vscode-pull-request-github",
+    "mechatroner.rainbow-csv",
     "ms-azuretools.vscode-containers",
     "ms-python.python",
     "ms-vscode.powershell",
