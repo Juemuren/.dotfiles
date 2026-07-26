@@ -13,8 +13,6 @@ codex
 dark
 delta
 devd
-docker
-docker-compose
 dprint
 duckdb
 eza
@@ -42,7 +40,6 @@ mmdr
 neovim
 pandoc
 pdfcpu
-podman
 prek
 qpdf
 rcedit
