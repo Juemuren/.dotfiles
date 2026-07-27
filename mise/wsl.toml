@@ -1,13 +1,19 @@
 [tools]
 node = "latest"
+pnpm = "latest"
 python = "latest"
 uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python", "node"]
+auto_install = false
+not_found_auto_install = false
 
 [settings.python]
 uv_venv_auto = "source"
 
 [settings.pipx]
 uvx = true
+
+[settings.npm]
+package_manager = "pnpm"

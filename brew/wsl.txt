@@ -12,8 +12,7 @@ pandoc
 pixi
 ripgrep
 shellcheck
+shfmt
 starship
-thefuck
 tlrc
-valgrind
 zoxide
