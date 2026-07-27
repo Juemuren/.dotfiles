@@ -48,6 +48,7 @@ rumdl
 rustup
 sd
 shellcheck
+shfmt
 sqlite
 sqruff
 starship
