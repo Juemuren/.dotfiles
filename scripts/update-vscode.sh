@@ -21,5 +21,5 @@ if [ "$profile" = "global" ]; then
     extract_extensions "$profile" scripts/extract-vscode-extensions-global.jq
 else
     extract_extensions "$profile" scripts/extract-vscode-extensions.jq
-    extract_settings "$profile" scripts/extract-vscode-settings.jq
+    # extract_settings "$profile" scripts/extract-vscode-settings.jq
 fi

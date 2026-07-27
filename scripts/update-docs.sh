@@ -11,7 +11,7 @@ update_section() {
         "$file"
 }
 
-TOOL_LIST="$(fd -d 1 --format '* {/.}')"
+TOOL_LIST="$(fd --exclude 'scripts' -d 1 -t dir --format '* {/.}')"
 update_section README.md TOOL-LIST "$TOOL_LIST"
 
 VSCODE_PROFILE_LIST="$(fd -d 1 -t dir --search-path vscode/profiles --format '* {/.}')"

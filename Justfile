@@ -39,7 +39,12 @@ format:
     dprint fmt
 
 lint-sh:
-    shellcheck scripts/*.sh
+    fd -e sh -e bash -e zsh -x \
+        shellcheck
+
+fmt-sh:
+    fd -e sh -e bash -e zsh -x \
+        shfmt --indent 4 --space-redirects --binary-next-line --write
 
 update-docs:
     ./scripts/update-docs.sh
