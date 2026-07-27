@@ -7,11 +7,11 @@ default_target_type = "automatic"
 "bash/scripts" = "~/.local/bin"
 
 [conda.files]
-"conda.yaml" = "~/.condarc"
+"conda/conda.yaml" = "~/.condarc"
 
 [fastfetch.files]
 "fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
-"fastfetch/sakiko.txt" = "~/.local/share/fastfetch/sakiko.txt"
+"fastfetch/logos" = "~/.local/share/fastfetch"
 
 [git.files]
 "git/git.ini" = "~/.gitconfig"
@@ -20,25 +20,25 @@ git_name = ""
 git_email = ""
 
 [npm.files]
-"npm.ini" = "~/.npmrc"
+"npm/npm.ini" = "~/.npmrc"
 
 [pixi.files]
 "pixi/pixi.toml" = "~/.pixi/config.toml"
 "pixi/global.toml" = "~/.pixi/manifests/pixi-global.toml"
 
 [pnpm.files]
-"pnpm.yaml" = "~/.config/pnpm/config.yaml"
+"pnpm/pnpm.yaml" = "~/.config/pnpm/config.yaml"
 [pnpm.variables]
 pnpm_store = "~/AppData/Local/pnpm/store"
 
 [starship.files]
-"starship.toml" = "~/.config/starship.toml"
+"starship/starship.toml" = "~/.config/starship.toml"
 
 [uv.files]
-"uv.toml" = "~/.config/uv/uv.toml"
+"uv/uv.toml" = "~/.config/uv/uv.toml"
 
 [vim.files]
-"vim.vim" = "~/.vimrc"
+"vim/vim.vim" = "~/.vimrc"
 
 [vscode.files]
 "vscode/profiles/global/keybindings.jsonc" = "~/.config/Code/User/keybindings.json"

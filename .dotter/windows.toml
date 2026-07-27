@@ -5,10 +5,10 @@
 "mise/windows.toml" = "~/.config/mise/config.toml"
 
 [pnpm.files]
-"pnpm.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
+"pnpm/pnpm.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
 
 [uv.files]
-"uv.toml" = "~/AppData/Roaming/uv/uv.toml"
+"uv/uv.toml" = "~/AppData/Roaming/uv/uv.toml"
 
 [vscode.files]
 "vscode/profiles/global/keybindings.jsonc" = "~/AppData/Roaming/Code/User/keybindings.json"
@@ -40,5 +40,5 @@ scoop_root = "~/scoop"
 
 [wt.files]
 "wt/wt.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-"wt/icos" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
+"wt/icons" = { target = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState", type = "symbolic" }
 "wt/scripts" = "~/.local/bin"
