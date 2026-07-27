@@ -123,7 +123,7 @@
                 "commandline": "{{git_root}}\\bin\\bash.exe --login -i",
                 "guid": "{a3464014-7f9f-5763-ace4-e15905a9d7ee}",
                 "hidden": false,
-                "icon": "{{git_root}}\\usr\\share\\git\\git.ico",
+                "icon": "{{git_root}}\\usr\\share\\git\\git-for-windows.ico",
                 "name": "Git Bash",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
@@ -154,12 +154,6 @@
                 "name": "MSYS CLANG",
                 "pathTranslationStyle": "msys2",
                 "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "guid": "{6289d6d1-8600-50b3-8128-b60cd63fa4f6}",
-                "hidden": false,
-                "name": "Podman Machine",
-                "source": "Microsoft.WSL"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoLogo",

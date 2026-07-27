@@ -35,7 +35,7 @@
     "terminal.integrated.shellIntegration.enabled",
     "terminal.integrated.persistentSessionReviveProcess",
     "terminal.integrated.profiles.windows",
-    "terminal.integrated.defaultProfile.windows",
+    "terminal.integrated.profiles.linux",
     "explorer.fileNesting.enabled",
     "explorer.fileNesting.expand",
     "scm.repositories.selectionMode",
@@ -49,7 +49,7 @@
   "update.showReleaseNotes": false,
   // 更新
   "update.mode": "manual",
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   // 安全
   "security.workspace.trust.untrustedFiles": "open",
   // 窗口
@@ -107,22 +107,20 @@
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.profiles.windows": {
-    "Pwsh": {
+    "PowerShell": {
       "path": "pwsh.exe",
       "args": [
         "-NoLogo"
       ],
-      "icon": "terminal-powershell",
-      "color": "terminal.ansiBlue"
+      "icon": "terminal-powershell"
     },
-    "Ubuntu (WSL)": {
+    "Ubuntu-24.04 (WSL)": {
       "path": "${env:SystemRoot}/System32/wsl.exe",
       "args": [
         "-d",
         "Ubuntu-24.04"
       ],
-      "icon": "terminal-ubuntu",
-      "color": "terminal.ansiYellow"
+      "icon": "terminal-ubuntu"
     },
     "Bash (Git)": {
       "path": "{{git_root}}/bin/bash.exe",
@@ -130,8 +128,7 @@
         "--login",
         "-i"
       ],
-      "icon": "terminal-git-bash",
-      "color": "terminal.ansiRed"
+      "icon": "terminal-git-bash"
     },
     "MSYS UCRT": {
       "path": "{{msys_root}}/usr/bin/zsh.exe",
@@ -143,9 +140,7 @@
         "CHERE_INVOKING": "1",
         "MSYSTEM": "UCRT64",
         "MSYS2_PATH_TYPE": "inherit"
-      },
-      "icon": "terminal-bash",
-      "color": "terminal.ansiYellow"
+      }
     },
     "MSYS MINGW": {
       "path": "{{msys_root}}/usr/bin/zsh.exe",
@@ -157,9 +152,7 @@
         "CHERE_INVOKING": "1",
         "MSYSTEM": "MINGW64",
         "MSYS2_PATH_TYPE": "inherit"
-      },
-      "icon": "terminal-bash",
-      "color": "terminal.ansiBlue"
+      }
     },
     "MSYS CLANG": {
       "path": "{{msys_root}}/usr/bin/zsh.exe",
@@ -171,17 +164,26 @@
         "CHERE_INVOKING": "1",
         "MSYSTEM": "CLANG64",
         "MSYS2_PATH_TYPE": "inherit"
-      },
-      "icon": "terminal-bash",
-      "color": "terminal.ansiRed"
+      }
     },
     "Command Prompt": null,
-    "PowerShell": null,
-    "Windows PowerShell": null,
-    "Ubuntu-24.04 (WSL)": null,
-    "podman-machine-default (WSL)": null
+    "Windows PowerShell": null
   },
-  "terminal.integrated.defaultProfile.windows": "Pwsh",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "fish": null,
+    "pwsh": null
+  },
   // 资源管理器
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
