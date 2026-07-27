@@ -2,6 +2,7 @@
   "recommendations": [
     "adpyke.codesnap",
     "alensiljak.abcjs-vscode",
+    "astro-build.astro-vscode",
     "budparr.language-hugo-vscode",
     "curlybrackets.markdown-word-count",
     "davidanson.vscode-markdownlint",
@@ -20,6 +21,7 @@
     "streetsidesoftware.code-spell-checker",
     "tamasfe.even-better-toml",
     "tekumara.typos-vscode",
+    "unifiedjs.vscode-mdx",
     "yzhang.markdown-all-in-one"
   ]
 }

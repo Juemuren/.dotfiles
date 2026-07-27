@@ -5,7 +5,7 @@
     "**/patches": true
   },
   // todo-tree
-  "todo-tree.filtering.excludeGlobs": [
+  "better-todo-tree.filtering.excludeGlobs": [
     "**/node_modules/*/**",
     "**/*.patch"
   ],

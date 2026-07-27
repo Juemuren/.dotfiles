@@ -9,6 +9,12 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  // shell
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
+  },
   // pwsh
   "powershell.integratedConsole.startInBackground": true,
   "powershell.integratedConsole.showOnStartup": false,
