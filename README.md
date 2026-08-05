@@ -9,6 +9,7 @@
 <!-- TOOL-LIST:START -->
 * bash
 * brew
+* codex
 * conda
 * fastfetch
 * git
@@ -28,7 +29,7 @@
 * zsh
 <!-- TOOL-LIST:END -->
 
-其中 VSCode 包含以下配置
+VSCode 包含以下 Profile
 
 <!-- VSCODE-PROFILE-LIST:START -->
 * conf
@@ -40,6 +41,12 @@
 * sys
 * web
 <!-- VSCODE-PROFILE-LIST:END -->
+
+Codex 包含以下 Skill
+
+<!-- CODEX-SKILL-LIST:START -->
+* benchmark-with-hyperfine
+<!-- CODEX-SKILL-LIST:END -->
 
 ## 使用方法
 

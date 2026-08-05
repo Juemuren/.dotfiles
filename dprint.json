@@ -2,9 +2,7 @@
   "json": {
     "trailingCommas": "never"
   },
-  "markdown": {
-    "unorderedListKind": "asterisks"
-  },
+  "markdown": {},
   "toml": {},
   "excludes": [
     "wt/*.json",
