@@ -70,6 +70,6 @@ dotter deploy -v -f
 ```
 
 > [!Warning]
-> 在进行最后一步之前，最好备份一下原位置的文件。因为添加了 `-f` 参数，这会导致该文件被删除。
+> 在进行最后一步之前，最好备份一下原位置的文件。因为命令中添加了 `-f` 参数，这会导致原文件被删除。
 
-如果你不想使用 `dotter`，那么也可以对照着 `.dotter\global.toml` 手动复制文件到对应的位置。
+如果你不想使用 `dotter`，那么也可以对照着 [.dotter/global.toml](.dotter/global.toml) / [.dotter/windows.toml](.dotter/windows.toml) 等文件手动将配置复制到对应的位置。
