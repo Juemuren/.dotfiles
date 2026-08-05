@@ -1,0 +1,11 @@
+prefix_rule(
+    pattern = ["git", ["diff", "log", "status", "show"]],
+    decision = "allow",
+    match = [
+        "git diff",
+        "git diff --cached",
+        "git log --oneline -10",
+        "git status --short",
+        "git show HEAD",
+    ]
+)

@@ -1,0 +1,8 @@
+prefix_rule(
+    pattern = ["gh", ["issue", "pr"], "view"],
+    decision = "allow",
+    match = [
+        "gh issue view 123",
+        "gh pr view 456 --json title,state",
+    ]
+)

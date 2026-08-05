@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["hyperfine"],
+    decision = "prompt",
+    justification = "hyperfine executes arbitrary benchmark commands; approve out-of-sandbox use case by case",
+    match = ["hyperfine 'command-a' 'command-b'"],
+)

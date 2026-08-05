@@ -1,0 +1,37 @@
+prefix_rule(
+    pattern = ["Get-Content"],
+    decision = "allow",
+    match = ["Get-Content README.md", "Get-Content -Raw config.toml"],
+)
+
+prefix_rule(
+    pattern = ["Get-ChildItem"],
+    decision = "allow",
+    match = ["Get-ChildItem", "Get-ChildItem -Force src"],
+)
+
+prefix_rule(
+    pattern = ["bat"],
+    decision = "allow",
+    match = ["bat package.json", "bat README.md --pager never"],
+)
+
+prefix_rule(
+    pattern = ["eza"],
+    decision = "allow",
+    match = ["eza", "eza --all --long src"],
+)
+
+prefix_rule(
+    pattern = ["rg"],
+    decision = "prompt",
+    justification = "rg supports command execution through --pre; approve out-of-sandbox use case by case",
+    match = ["rg TODO src", "rg --pre formatter pattern files"],
+)
+
+prefix_rule(
+    pattern = ["fd"],
+    decision = "prompt",
+    justification = "fd supports command execution through --exec/-x; approve out-of-sandbox use case by case",
+    match = ["fd package.json", "fd rs src --exec rustfmt"],
+)

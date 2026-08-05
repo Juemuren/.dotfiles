@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = [["pixi", "uv"], "run"],
+    decision = "prompt",
+    justification = "environment runners execute arbitrary commands or project-defined tasks; approve out-of-sandbox use case by case",
+    match = ["pixi run test", "uv run pytest"],
+)

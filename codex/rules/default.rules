@@ -1,27 +1,2 @@
-# Files
-prefix_rule(pattern=["Get-Content"], decision="allow")
-prefix_rule(pattern=["Get-ChildItem"], decision="allow")
-prefix_rule(pattern=["rg"], decision="allow")
-prefix_rule(pattern=["fd"], decision="allow")
-prefix_rule(pattern=["eza"], decision="allow")
-
-# Utils
-prefix_rule(pattern=["pandoc"], decision="allow")
-prefix_rule(pattern=["hyperfine"], decision="allow")
-
-# Git
-prefix_rule(pattern=["git", "diff"], decision="allow")
-prefix_rule(pattern=["git", "log"], decision="allow")
-prefix_rule(pattern=["git", "status"], decision="allow")
-
-# GitHub
-prefix_rule(pattern=["gh", "issue", "view"], decision="allow")
-prefix_rule(pattern=["gh", "pr", "view"], decision="allow")
-
-# Web
-prefix_rule(pattern=["npm", "run"], decision="allow")
-prefix_rule(pattern=["pnpm", "run"], decision="allow")
-
-# Python
-prefix_rule(pattern=["pixi", "run"], decision="allow")
-prefix_rule(pattern=["uv", "run"], decision="allow")
+# Codex will append newly approved prefixes to this file.
+# Review them and move stable rules into a specific file.

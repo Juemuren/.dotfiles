@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["pandoc"],
+    decision = "prompt",
+    justification = "pandoc can write files and execute filters; approve out-of-sandbox use case by case",
+    match = ["pandoc input.md -o output.pdf", "pandoc input.md --filter tool"],
+)
