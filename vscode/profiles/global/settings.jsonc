@@ -130,42 +130,6 @@
       ],
       "icon": "terminal-git-bash"
     },
-    "MSYS UCRT": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
-      "args": [
-        "--login",
-        "-i"
-      ],
-      "env": {
-        "CHERE_INVOKING": "1",
-        "MSYSTEM": "UCRT64",
-        "MSYS2_PATH_TYPE": "inherit"
-      }
-    },
-    "MSYS MINGW": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
-      "args": [
-        "--login",
-        "-i"
-      ],
-      "env": {
-        "CHERE_INVOKING": "1",
-        "MSYSTEM": "MINGW64",
-        "MSYS2_PATH_TYPE": "inherit"
-      }
-    },
-    "MSYS CLANG": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
-      "args": [
-        "--login",
-        "-i"
-      ],
-      "env": {
-        "CHERE_INVOKING": "1",
-        "MSYSTEM": "CLANG64",
-        "MSYS2_PATH_TYPE": "inherit"
-      }
-    },
     "Command Prompt": null,
     "Windows PowerShell": null
   },
