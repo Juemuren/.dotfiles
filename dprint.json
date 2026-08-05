@@ -7,9 +7,9 @@
   },
   "toml": {},
   "excludes": [
-    "wt/wt.json",
-    "scoop/scoop.json",
-    "starship.toml",
+    "wt/*.json",
+    "starship/*.toml",
+    "codex/*/config.toml",
     "README.md"
   ],
   "plugins": [

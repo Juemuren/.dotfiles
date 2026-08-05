@@ -1,6 +1,10 @@
 [bash.files]
 "bash/windows.bash" = "~/.bashrc"
 
+[codex.files]
+"codex/windows/config.toml" = "~/.codex/config.toml"
+"codex/windows/AGENTS.md" = "~/.codex/AGENTS.md"
+
 [mise.files]
 "mise/windows.toml" = "~/.config/mise/config.toml"
 

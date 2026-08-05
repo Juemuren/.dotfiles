@@ -1,0 +1,22 @@
+model = "gpt-5.6-sol"
+personality = "pragmatic"
+model_reasoning_effort = "medium"
+
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+allow_login_shell = false
+
+[windows]
+sandbox = "elevated"
+
+[sandbox_workspace_write]
+writable_roots = [
+    "~/AppData/Local/uv/cache",
+    "~/AppData/Local/npm-cache",
+    "~/AppData/Local/pnpm-cache",
+]
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false

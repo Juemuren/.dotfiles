@@ -6,6 +6,9 @@ default_target_type = "automatic"
 [bash.files]
 "bash/scripts" = "~/.local/bin"
 
+[codex.files]
+"codex/rules" = "~/.codex/rules"
+
 [conda.files]
 "conda/conda.yaml" = "~/.condarc"
 
