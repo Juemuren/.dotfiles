@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark with hyperfine"
+  short_description: "Run reliable command benchmarks with hyperfine"
+  default_prompt: "Use $benchmark-with-hyperfine to compare the performance of these commands."

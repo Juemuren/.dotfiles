@@ -8,6 +8,7 @@ default_target_type = "automatic"
 
 [codex.files]
 "codex/rules" = "~/.codex/rules"
+"codex/skills" = "~/.agents/skills"
 
 [conda.files]
 "conda/conda.yaml" = "~/.condarc"
