@@ -11,18 +11,6 @@ prefix_rule(
 )
 
 prefix_rule(
-    pattern = ["bat"],
-    decision = "allow",
-    match = ["bat package.json", "bat README.md --pager never"],
-)
-
-prefix_rule(
-    pattern = ["eza"],
-    decision = "allow",
-    match = ["eza", "eza --all --long src"],
-)
-
-prefix_rule(
     pattern = ["rg"],
     decision = "prompt",
     justification = "rg supports command execution through --pre; approve out-of-sandbox use case by case",
