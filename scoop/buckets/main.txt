@@ -16,6 +16,7 @@ devd
 dprint
 duckdb
 eza
+f2
 fastfetch
 fd
 ffmpeg
