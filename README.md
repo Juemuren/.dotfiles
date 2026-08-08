@@ -46,6 +46,7 @@ Codex 包含以下 Skill
 
 <!-- CODEX-SKILL-LIST:START -->
 * benchmark-with-hyperfine
+* develop-shell-scripts
 <!-- CODEX-SKILL-LIST:END -->
 
 ## 使用方法

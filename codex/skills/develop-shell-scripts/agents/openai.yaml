@@ -1,0 +1,4 @@
+interface:
+  display_name: "Develop Shell Scripts"
+  short_description: "Create reusable Shell scripts and validate every change"
+  default_prompt: "Use $develop-shell-scripts to complete this task and persist its reusable command-line workflow as a validated Shell script."
