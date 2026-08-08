@@ -37,6 +37,7 @@ just
 just-lsp
 marp
 mdq
+microsoft-coreutils
 miller
 miniserve
 mmdr
@@ -64,6 +65,7 @@ tokei
 typos
 typst
 watchexec
+which
 yq
 yt-dlp
 zoxide

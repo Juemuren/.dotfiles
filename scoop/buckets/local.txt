@@ -3,6 +3,7 @@ jq-lsp
 juliaup
 ltex
 mise
+msys2
 pixi
 Sarasa-Mono-SC
 Sarasa-Term-SC
