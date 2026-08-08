@@ -29,8 +29,10 @@ update-scoop:
 update-brew os:
     brew list --installed-on-request > "brew/{{ os }}.txt"
 
-update-pacman os:
-    pacman -Qeq > "pacman/{{ os }}.txt"
+[script("msys2")]
+[windows]
+update-pacman:
+    pacman -Qeq > "pacman/msys.txt"
 
 [script("pwsh")]
 [windows]

@@ -1,10 +1,5 @@
 base
 filesystem
-make
-man-db
 mingw-w64-ucrt-x86_64-ansifilter
-mingw-w64-ucrt-x86_64-gcc
-mingw-w64-ucrt-x86_64-gdb
-mingw-w64-ucrt-x86_64-qrencode
 msys2-runtime
 zsh

@@ -1,4 +1,5 @@
 checkexec
+git
 jq-lsp
 juliaup
 ltex
