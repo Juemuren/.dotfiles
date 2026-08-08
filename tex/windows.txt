@@ -1,4 +1,6 @@
 cm
+dvisvgm
+dvisvgm.windows
 etex
 hyph-utf8
 hyphen-base

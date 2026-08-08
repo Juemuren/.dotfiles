@@ -1,12 +1,9 @@
 checkexec
-graphviz
 jq-lsp
 juliaup
-just-lsp
 ltex
 mise
 pixi
-quarto
 Sarasa-Mono-SC
 Sarasa-Term-SC
 tinytex

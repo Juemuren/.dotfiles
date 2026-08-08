@@ -27,12 +27,14 @@ gh
 ghostscript
 git
 gopass
+graphviz
 hugo-extended
 hyperfine
 imagemagick
 innounp
 jq
 just
+just-lsp
 marp
 mdq
 miller
