@@ -22,6 +22,7 @@
 * pwsh
 * scoop
 * starship
+* tex
 * uv
 * vim
 * vscode

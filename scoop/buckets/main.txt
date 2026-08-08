@@ -41,9 +41,11 @@ mmdr
 neovim
 pandoc
 pdfcpu
+poppler
 prek
 qpdf
 rcedit
+rga
 ripgrep
 rumdl
 rustup

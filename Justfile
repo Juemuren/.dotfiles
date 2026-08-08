@@ -32,6 +32,11 @@ update-brew os:
 update-pacman os:
     pacman -Qeq > "pacman/{{ os }}.txt"
 
+[script("pwsh")]
+[windows]
+update-tex:
+    tlmgr info --list --only-installed --data name > "tex/windows.txt"
+
 update-vscode profile:
     ./scripts/update-vscode.sh "{{ profile }}"
 

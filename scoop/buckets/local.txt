@@ -4,10 +4,10 @@ jq-lsp
 juliaup
 just-lsp
 ltex
-miktex
 mise
 pixi
 quarto
 Sarasa-Mono-SC
 Sarasa-Term-SC
+tinytex
 trans
