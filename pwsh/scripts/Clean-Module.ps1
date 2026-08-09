@@ -3,19 +3,20 @@ param(
     [string]$ModuleName
 )
 
-$versions = Get-Module -All -Name $ModuleName |
-ForEach-Object {
-    $_.Version
-}
+$versions = @(
+    Get-InstalledModule -AllVersions -Name $ModuleName | ForEach-Object {
+        $_.Version
+    } | Sort-Object -Descending
+)
 if (-not $versions) {
     Write-Host "$ModuleName has not been installed"
     exit
 }
 
-$latestVersion = $versions[0]
-$oldVersions = $versions[1..$versions.Count]
+$latestVersion = $versions | Select-Object -First 1
+$oldVersions = @($versions | Select-Object -Skip 1)
 if (-not $oldVersions) {
-    Write-Host "$ModuleName only has $latestVersion installed"
+    Write-Host "$ModuleName only installed $latestVersion"
     exit
 }
 
