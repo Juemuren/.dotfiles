@@ -39,6 +39,11 @@ update-pacman:
 update-tex:
     tlmgr info --list --only-installed --data name > "tex/windows.txt"
 
+[script("pwsh")]
+[windows]
+update-pwsh:
+    ./scripts/update-pwsh.ps1
+
 update-vscode profile:
     ./scripts/update-vscode.sh "{{ profile }}"
 

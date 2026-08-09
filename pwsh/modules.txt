@@ -1,0 +1,3 @@
+PSCompletions
+PSFzf
+PSReadLine
