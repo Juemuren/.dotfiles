@@ -17,14 +17,14 @@ if ($modules.Count -eq 0) {
 $latestModule = $modules | Select-Object -First 1
 $oldModules = @($modules | Select-Object -Skip 1)
 if ($oldModules.Count -eq 0) {
-    Write-Host "'$ModuleName' only has version $($latestModule.Version) installed."
+    Write-Output "'$ModuleName' only installed version $($latestModule.Version)."
     return
 }
 
-Write-Host "Latest version: $($latestModule.Version)"
-Write-Host 'The following versions will be uninstalled:'
+Write-Output "Latest version: $($latestModule.Version)"
+Write-Output 'The following versions will be uninstalled:'
 $oldModules.Version | ForEach-Object {
-    Write-Host "  - $_"
+    Write-Output "  - $_"
 }
 
 if (-not $PSCmdlet.ShouldProcess($ModuleName, 'Uninstall the versions listed above')) {

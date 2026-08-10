@@ -10,7 +10,7 @@ $ScriptPath = '~/.local/bin/' + $ScriptPath
 $ShellPath = 'sh'
 
 if ($IsWindows) {
-    Write-Host "Command: $ShellPath $ScriptPath $Arguments"
+    Write-Information "Command: $ShellPath $ScriptPath $Arguments"
     & $ShellPath $ScriptPath $Arguments
 }
 else {

@@ -5,7 +5,7 @@ param(
 
 $cmd = Get-Command $CommandName
 if (-not $cmd.Source) {
-    Write-Host "$CommandName has no source file" -ForegroundColor Red
+    Write-Error "$CommandName has no source file"
     exit 1
 }
 

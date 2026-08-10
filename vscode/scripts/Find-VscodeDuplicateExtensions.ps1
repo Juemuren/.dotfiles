@@ -1,6 +1,6 @@
-$extensionsPath = "~/.vscode/extensions"
+$ExtensionsPath = "~/.vscode/extensions"
 
-Get-ChildItem $extensionsPath -Directory
+Get-ChildItem $ExtensionsPath -Directory
 | Group-Object -Property {
     if ($_.Name -match '^(.+?)-\d') {
         $matches[1]
@@ -11,7 +11,11 @@ Get-ChildItem $extensionsPath -Directory
 }
 | Where-Object Count -GT 1
 | ForEach-Object {
-    Write-Host "[$($_.Count)] $($_.Name)" -ForegroundColor Cyan
-    $_.Group.Name | ForEach-Object { "  - $_" }
+    $count = $_.Count
+    $name = $_.Name
+    $versions = $_.Group.Name
+
+    "$($PSStyle.Foreground.Cyan)[$count] $name$($PSStyle.Reset)"
+    $versions | ForEach-Object { "  - $_" }
     ""
 }
