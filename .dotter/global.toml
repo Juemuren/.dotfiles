@@ -8,7 +8,7 @@ default_target_type = "automatic"
 
 [codex.files]
 "codex/rules" = "~/.codex/rules"
-"codex/skills" = { target = "~/.agents/skills", type = "template" }
+"codex/skills" = { target = "~/.agents/skills", type = "symbolic", recurse = false }
 
 [conda.files]
 "conda/conda.yaml" = "~/.condarc"
