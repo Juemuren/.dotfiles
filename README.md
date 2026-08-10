@@ -14,7 +14,6 @@
 * fastfetch
 * git
 * mise
-* msys
 * npm
 * pacman
 * pixi
@@ -47,6 +46,7 @@ Codex 包含以下 Skill
 
 <!-- CODEX-SKILL-LIST:START -->
 * benchmark-with-hyperfine
+* capture-tool-problems
 * develop-shell-scripts
 <!-- CODEX-SKILL-LIST:END -->
 
