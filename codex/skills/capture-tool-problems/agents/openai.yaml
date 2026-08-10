@@ -1,0 +1,4 @@
+interface:
+  display_name: "收集工具问题"
+  short_description: "记录开发环境中的问题，便于后续修复"
+  default_prompt: "使用 $capture-tool-problems 在完成此任务，记录开发环境问题并给出修复建议。"
