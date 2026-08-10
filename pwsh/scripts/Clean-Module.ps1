@@ -1,37 +1,34 @@
+[CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
 param(
-    [Parameter(Mandatory = $true, Position = 0)]
+    [Parameter(Mandatory, Position = 0)]
+    [ValidateNotNullOrEmpty()]
     [string]$ModuleName
 )
 
-$versions = @(
-    Get-InstalledModule -AllVersions -Name $ModuleName | ForEach-Object {
-        $_.Version
-    } | Sort-Object -Descending
+$modules = @(
+    Get-InstalledModule -Name $ModuleName -AllVersions -ErrorAction SilentlyContinue |
+    Sort-Object Version -Descending
 )
-if (-not $versions) {
-    Write-Host "$ModuleName has not been installed"
-    exit
+if ($modules.Count -eq 0) {
+    Write-Error "'$ModuleName' is not installed."
+    return
 }
 
-$latestVersion = $versions | Select-Object -First 1
-$oldVersions = @($versions | Select-Object -Skip 1)
-if (-not $oldVersions) {
-    Write-Host "$ModuleName only installed $latestVersion"
-    exit
+$latestModule = $modules | Select-Object -First 1
+$oldModules = @($modules | Select-Object -Skip 1)
+if ($oldModules.Count -eq 0) {
+    Write-Host "'$ModuleName' only has version $($latestModule.Version) installed."
+    return
 }
 
-Write-Host "latest version: $latestVersion"
-Write-Host "the following version will be deleted:"
-$oldVersions | ForEach-Object {
+Write-Host "Latest version: $($latestModule.Version)"
+Write-Host 'The following versions will be uninstalled:'
+$oldModules.Version | ForEach-Object {
     Write-Host "  - $_"
 }
-$confirm = Read-Host "Confirm deleting (y/N)"
-if ($confirm -ne 'y' -and $confirm -ne 'Y') {
-    Write-Host "Cancelled"
-    exit
+
+if (-not $PSCmdlet.ShouldProcess($ModuleName, 'Uninstall the versions listed above')) {
+    return
 }
 
-$oldVersions | ForEach-Object {
-    Write-Host "Deleting $ModuleName $_"
-    Uninstall-Module -Name $ModuleName -RequiredVersion $_
-}
+$oldModules | Uninstall-Module -Confirm:$false
