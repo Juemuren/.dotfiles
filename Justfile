@@ -12,13 +12,13 @@ install:
     ./scripts/install.ps1
 
 watch:
-    ./bin/dotter watch --dry-run -f
+    ./bin/dotter watch --dry-run --force
 
 preview:
-    ./bin/dotter deploy --dry-run -f
+    ./bin/dotter deploy --dry-run --force
 
 deploy:
-    ./bin/dotter deploy -v -f
+    ./bin/dotter deploy --verbose --force --noconfirm
 
 [script("pwsh")]
 [windows]
