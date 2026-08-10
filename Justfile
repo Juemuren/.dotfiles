@@ -63,5 +63,10 @@ fmt-sh:
 lint-pwsh:
     fd -e ps1 | foreach { ./pwsh/scripts/Run-Lint.ps1 $_ }
 
+[script("pwsh")]
+[windows]
+fmt-pwsh:
+    fd -e ps1 | foreach { ./pwsh/scripts/Run-Format.ps1 $_ }
+
 update-docs:
     ./scripts/update-docs.sh
