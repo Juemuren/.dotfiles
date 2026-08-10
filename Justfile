@@ -58,5 +58,10 @@ fmt-sh:
     fd -e sh -e bash -e zsh -x \
         shfmt --indent 4 --space-redirects --binary-next-line --write
 
+[script("pwsh")]
+[windows]
+lint-pwsh:
+    fd -e ps1 | foreach { ./pwsh/scripts/Run-Lint.ps1 $_ }
+
 update-docs:
     ./scripts/update-docs.sh

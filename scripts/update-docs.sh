@@ -30,4 +30,3 @@ update_section README.md VSCODE-PROFILE-LIST "$VSCODE_PROFILE_LIST"
 
 CODEX_SKILL_LIST="$(get_dirs codex/skills)"
 update_section README.md CODEX-SKILL-LIST "$CODEX_SKILL_LIST"
-
