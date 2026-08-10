@@ -1,4 +1,4 @@
 interface:
-  display_name: "Benchmark with hyperfine"
-  short_description: "Run reliable command benchmarks with hyperfine"
-  default_prompt: "Use $benchmark-with-hyperfine to compare the performance of these commands."
+  display_name: "使用 hyperfine 进行基准测试"
+  short_description: "使用 hyperfine 运行可靠的命令基准测试"
+  default_prompt: "使用 $benchmark-with-hyperfine 比较这些命令的性能。"

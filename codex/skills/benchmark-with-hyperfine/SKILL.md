@@ -1,39 +1,39 @@
 ---
 name: benchmark-with-hyperfine
-description: Design and run repeatable command-line benchmarks with hyperfine. Use when comparing command or implementation performance, establishing a timing baseline, investigating a performance regression, or validating an optimization.
+description: 使用 hyperfine 设计并运行可重复的命令行基准测试。比较命令或实现的性能、建立耗时基线、调查性能回退或验证优化效果时使用。
 ---
 
-# Benchmark With Hyperfine
+# 使用 Hyperfine 进行基准测试
 
-## Prepare the comparison
+## 准备比较
 
-- Define the performance question and whether to measure steady-state, cold-start, build, or end-to-end time.
-- Confirm that compared commands perform equivalent work and produce equivalent results before measuring them.
-- Build artifacts before benchmarking unless build time is the intended measurement.
-- Fix relevant inputs, working directory, environment variables, and background workload where practical.
-- Treat every command passed to `hyperfine` as executable code subject to the normal sandbox and approval policy.
+- 明确要回答的性能问题，并确定测量稳态、冷启动、构建还是端到端耗时。
+- 测量前确认参与比较的命令完成等价工作并产生等价结果。
+- 除非目标就是测量构建耗时，否则在基准测试前构建好产物。
+- 在可行范围内固定相关输入、工作目录、环境变量和后台负载。
+- 将传给 `hyperfine` 的每条命令都视为可执行代码，并遵守常规的沙箱和审批策略。
 
-## Run the benchmark
+## 运行基准测试
 
-- Check that `hyperfine` is available. If it is unavailable, report that and suggest an installation method appropriate to the environment.
-- Give each command a descriptive label with `--command-name` when comparing alternatives.
-- Use warmup runs for steady-state measurements affected by filesystem caches, runtime initialization, or JIT compilation. Do not warm up a cold-start benchmark.
-- Let `hyperfine` select the run count by default. Adjust `--min-runs`, `--max-runs`, or `--runs` only when runtime or statistical needs justify it, and report the adjustment.
-- Use `--prepare` only for state that must be reset before every measured run. Remember that preparation time is excluded from the measurement.
-- Use parameter scans such as `-L` when the task is to compare a controlled range of input values.
-- Export results with `--export-json` when they need to be preserved, plotted, or compared later.
+- 检查 `hyperfine` 是否可用。如果不可用，说明情况并建议适合当前环境的安装方式。
+- 比较多个方案时，用 `--command-name` 为每条命令设置说明性标签。
+- 测量会受文件系统缓存、运行时初始化或 JIT 编译影响的稳态性能时，执行预热；测量冷启动时不要预热。
+- 默认让 `hyperfine` 决定运行次数。仅在运行时间或统计要求确有需要时调整 `--min-runs`、`--max-runs` 或 `--runs`，并在结果中说明调整。
+- 仅使用 `--prepare` 重置每次测量前必须恢复的状态；注意准备阶段的耗时不计入测量。
+- 需要比较一组受控输入值时，使用 `-L` 等参数扫描功能。
+- 需要保留、绘图或日后比较结果时，使用 `--export-json` 导出。
 
-Example steady-state comparison:
+稳态性能比较示例：
 
 ```sh
 hyperfine --warmup 3 --command-name baseline '<baseline command>' --command-name candidate '<candidate command>'
 ```
 
-Adapt quoting to the active shell and verify the expanded commands before starting a long benchmark.
+根据当前 Shell 调整引号，并在开始耗时较长的基准测试前核对展开后的命令。
 
-## Interpret and report
+## 解读并报告结果
 
-- Report the exact commands, relevant environment, benchmark mode, warmup count, sample count, and summary statistics.
-- Compare both central tendency and observed variance; do not present a difference within measurement noise as a meaningful improvement.
-- Call out likely confounders such as thermal throttling, power policy, antivirus activity, network access, shared caches, or changing inputs.
-- State whether the result supports the claimed optimization and identify any follow-up benchmark needed.
+- 报告准确命令、相关环境、基准测试模式、预热次数、样本数和汇总统计数据。
+- 同时比较集中趋势和观测方差；不要把测量噪声范围内的差异表述为有意义的改进。
+- 指出可能的混杂因素，例如温度降频、电源策略、杀毒软件活动、网络访问、共享缓存或变化的输入。
+- 说明结果是否支持所声称的优化，并指出还需要哪些后续基准测试。
