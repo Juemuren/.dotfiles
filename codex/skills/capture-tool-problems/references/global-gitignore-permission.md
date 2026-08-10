@@ -2,6 +2,7 @@
 date: 2026-08-09T12:00:00+08:00
 cwd: C:\work\repo
 command: "git status"
+completed: true
 ---
 
 ## 问题日志
@@ -12,9 +13,9 @@ warning: unable to access 'C:\Users\user/.config/git/ignore': Permission denied
 
 ## 问题分析
 
-`git status` 本身执行成功，退出码为 `0`。问题不影响任务的完成。
+`git status` 本身执行成功，退出码为 `0`。该问题没有影响命令的执行。
 
-产生警告的原因是，Git 尝试访问 `C:\Users\user/.config/git/ignore` 文件，但当前沙箱无法访问该文件。
+产生警告的原因是，Git 尝试访问 `C:\Users\user/.config/git/ignore` 文件，而当前沙箱无法访问该文件。
 
 ## 修复建议
 
@@ -30,7 +31,7 @@ git config --global core.excludesFile ""
 
 #### 修复原理
 
-让 Git 不使用全局的 ignore 文件，这样 `git status` 就不会尝试访问 ``~/.config/git/ignore`。
+让 Git 不使用全局的 ignore 文件，这样 `git status` 就不会尝试访问 `~/.config/git/ignore`。
 
 https://git-scm.com/docs/git-config/2.54.0
 
