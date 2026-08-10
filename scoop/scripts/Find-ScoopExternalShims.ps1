@@ -1,2 +1,2 @@
-scoop shim list |
-Where-Object Source -EQ External
+scoop shim list
+| Where-Object Source -EQ External

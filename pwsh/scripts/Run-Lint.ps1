@@ -3,8 +3,8 @@ param(
     [string]$Path
 )
 
-Invoke-ScriptAnalyzer -Path $Path |
-ForEach-Object {
+Invoke-ScriptAnalyzer -Path $Path
+| ForEach-Object {
     $path = $_.ScriptPath
     $line = $_.Line
     $column = $_.Column
@@ -12,9 +12,9 @@ ForEach-Object {
     $rule = $_.RuleName
     $message = $_.Message
 
-    @"
-${path}:${line}:$column
-[$severity] ${rule}: $message
-
-"@
+    @(
+        "${path}:${line}:$column"
+        "[$severity] ${rule}: $message"
+        ""
+    ) -join "`n"
 }

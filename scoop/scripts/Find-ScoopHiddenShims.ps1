@@ -1,2 +1,2 @@
-scoop shim list |
-Where-Object isHidden -EQ $true
+scoop shim list
+| Where-Object isHidden -EQ $true

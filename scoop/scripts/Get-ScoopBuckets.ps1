@@ -1,2 +1,2 @@
-scoop bucket list |
-Select-Object -ExpandProperty Name
+scoop bucket list
+| Select-Object -ExpandProperty Name

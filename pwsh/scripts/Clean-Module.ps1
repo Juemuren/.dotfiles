@@ -6,8 +6,8 @@ param(
 )
 
 $modules = @(
-    Get-InstalledModule -Name $ModuleName -AllVersions -ErrorAction SilentlyContinue |
-    Sort-Object Version -Descending
+    Get-InstalledModule -Name $ModuleName -AllVersions -ErrorAction SilentlyContinue
+    | Sort-Object Version -Descending
 )
 if ($modules.Count -eq 0) {
     Write-Error "'$ModuleName' is not installed."
