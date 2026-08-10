@@ -1,3 +1,4 @@
 PSCompletions
 PSFzf
 PSReadLine
+PSScriptAnalyzer
