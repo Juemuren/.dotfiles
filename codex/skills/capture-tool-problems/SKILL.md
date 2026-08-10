@@ -25,7 +25,7 @@ description: 在完成任务的过程中，收集因工具链、权限或开发�
 ## 编写问题报告
 
 - 将问题以 Markdown 文件格式保存到 `<project-root>/tmp` 目录下，文件名要能够反映出问题的概要。
-- 在 Front Matter 中标注时间戳、工作目录、命令来源和任务是否完成。
+- 在 Front Matter 中标注命令和任务是否完成。
 - 在正文中记录问题日志、问题分析和修复建议。
 
 报告的结构、措辞和格式等规范请参考 [global-gitignore-permission](references/global-gitignore-permission.md)。

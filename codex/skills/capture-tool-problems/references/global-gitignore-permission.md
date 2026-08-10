@@ -1,6 +1,4 @@
 ---
-date: 2026-08-09T12:00:00+08:00
-cwd: C:\work\repo
 command: "git status"
 completed: true
 ---
