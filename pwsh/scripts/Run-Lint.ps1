@@ -12,9 +12,15 @@ Invoke-ScriptAnalyzer -Path $Path
     $rule = $_.RuleName
     $message = $_.Message
 
-    @(
-        "${path}:${line}:$column"
-        "[$severity] ${rule}: $message"
-        ""
-    ) -join "`n"
+    $severityColor = switch ($severity) {
+        'ERROR' { $PSStyle.Foreground.Red }
+        'WARNING' { $PSStyle.Foreground.Yellow }
+        'INFORMATION' { $PSStyle.Foreground.Blue }
+        'PARSEERROR' { $PSStyle.Foreground.Magenta }
+        default { $PSStyle.Reset }
+    }
+
+    "$($PSStyle.Foreground.Cyan)${path}:${line}:$column"
+    "$severityColor[$severity] $($PSStyle.Foreground.Green)${rule}$($PSStyle.Reset): $message"
+    ""
 }
