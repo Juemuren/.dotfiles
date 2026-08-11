@@ -32,10 +32,16 @@ description: 在完成任务的过程中，收集因工具链、权限或开发�
 
 文件内容：
 
-- 在 Front Matter 中写上标题、来源和任务是否完成。
+- 在 Front Matter 中写上标题和任务是否完成。
 - 在正文中记录复现方式、问题分析和修复建议。
   - 复现方式部分：说明 Agent 如何复现该问题，并拷贝输出中的警告、错误等消息。
-  - 问题分析部分：清晰、简要地总结问题产生的原因。
-  - 修复建议部分：如果有多种修复方式，按推荐的顺序逐一列举；如果可能，用修复流程、修复原理、修复适用情况作为子标题组织内容。
+  - 问题分析部分：总结问题产生的原因，并简述问题的严重程度。
+  - 修复建议部分：如果有多种修复方式，按推荐的顺序逐一列举；如果修复建议较为复杂，用修复流程、修复原理、修复适用情况作为子标题组织内容。
 
-报告的结构、措辞和格式等规范请参考 [global-gitignore-permission](references/global-gitignore-permission.md)。
+### 报告参考
+
+报告的结构、措辞和格式等规范请参考以下文件：
+
+- [git-global-ignore-permission](references/git-global-ignore-permission.md)
+- [pnpm-database-permission](references/pnpm-database-permission.md)
+- [node-ca-error](references/node-ca-error.md)

@@ -1,6 +1,5 @@
 ---
 title: Git 访问全局 ignore 文件失败
-source: "Codex shell_command: git status"
 completed: true
 ---
 
@@ -15,6 +14,8 @@ warning: unable to access 'C:\Users\user/.config/git/ignore': Permission denied
 ## 问题分析
 
 Git 执行 `git status` 时尝试访问 `~/.config/git/ignore` 文件，而当前沙箱无法访问该文件。
+
+该问题不影响 `git status` 命令的执行。
 
 ## 修复建议
 
