@@ -25,5 +25,4 @@ source "$ZSH/oh-my-zsh.sh"
 # <<< oh my zsh <<<
 
 # User configuration
-export EDITOR="code"
 export MANPATH="/usr/local/man:$MANPATH"

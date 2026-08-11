@@ -17,3 +17,7 @@ uvx = true
 
 [settings.npm]
 package_manager = "pnpm"
+
+[env]
+VISUAL = { default = "code --wait" }
+EDITOR = { default = "code --wait" }

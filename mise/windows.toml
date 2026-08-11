@@ -24,5 +24,8 @@ uvx = true
 package_manager = "aube"
 
 [env]
+VISUAL = { default = "code --wait" }
+EDITOR = { default = "code --wait" }
+LANG = { default = "zh_CN.UTF-8" }
 PNPM_CONFIG_PM_ON_FAIL = "ignore"
 NODE_USE_SYSTEM_CA = 1

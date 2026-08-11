@@ -14,10 +14,8 @@ shopt -s checkwinsize
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# Editor
-export EDITOR="code"
-
 # Integration
+eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
