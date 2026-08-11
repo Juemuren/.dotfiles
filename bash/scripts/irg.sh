@@ -1,6 +1,7 @@
 #!/bin/sh
 
-RG='rg --column --color=always --smart-case {q}'
+RG="rg --column --color=always --smart-case {q}"
+BAT="bat --style=numbers --color=always --highlight-line {2} {1}"
 
 fzf --disabled --ansi \
     --delimiter : \
@@ -9,5 +10,5 @@ fzf --disabled --ansi \
     --bind "change:reload:$RG" \
     --bind "enter:become:$RG" \
     --bind="focus:transform-preview-label:echo {r1}" \
-    --preview 'bat --style=numbers --color=always --highlight-line {2} {1}' \
+    --preview "$BAT" \
     --preview-window '+{2}/2'
