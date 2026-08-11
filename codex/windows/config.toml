@@ -12,11 +12,12 @@ sandbox = "elevated"
 
 [sandbox_workspace_write]
 writable_roots = [
+    "{{pnpm_store}}",
     "~/AppData/Local/uv/cache",
     "~/AppData/Local/npm-cache",
     "~/AppData/Local/pnpm-cache",
 ]
 
 [shell_environment_policy]
-inherit = "core"
+inherit = "all"
 ignore_default_excludes = false
