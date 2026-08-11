@@ -1,4 +1,4 @@
 interface:
-  display_name: "Develop Shell Scripts"
-  short_description: "Create reusable Shell scripts and validate every change"
-  default_prompt: "Use $develop-shell-scripts to complete this task and persist its reusable command-line workflow as a validated Shell script."
+  display_name: "开发 Shell 脚本"
+  short_description: "创建可复用的 Shell 脚本，并对修改进行验证"
+  default_prompt: "使用 $develop-shell-scripts 将可复用的工作保存为经过验证的 Shell 脚本。"

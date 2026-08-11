@@ -1,41 +1,49 @@
 ---
 name: develop-shell-scripts
-description: Create, modify, test, lint, and format reusable POSIX shell and Bash scripts. Use when completing a command-line task whose reusable steps should be persisted as a script, when creating a new Shell script, or whenever changing an existing supported Shell script; validate every script change with ShellCheck and shfmt.
+description: 创建、修改、测试、检查并格式化可复用的 POSIX shell、Bash 或 Pwsh 脚本。当完成的任务中存在具有复用价值的命令，或要求创建、修改 shell 脚本时使用。
 ---
 
-# Develop Shell Scripts
+# 开发 Shell 脚本
 
-## Identify reusable work
+## 识别可复用工作
 
-- Complete the requested task, then review the commands and decisions it required. Persist the parts likely to be run again when doing so would reduce repetition or encode non-obvious knowledge.
-- Prefer extending an existing script or task over creating a duplicate. Follow the repository's conventions for script location, naming, interpreter, executable mode, and invocation.
-- Keep incidental exploration, one-off recovery commands, and trivial wrappers out of the script.
-- Never persist secrets, credentials, machine-specific absolute paths, transient values, or unconfirmed destructive actions. Expose changing inputs as arguments, environment variables, or configuration.
+- 完成请求的任务后，复盘其中使用的命令。如果某些命令可能再次执行，并且保存它们能够减少重复编码或记录不直观的知识，就将其持久化。
+- 如果项目中已有功能重叠的脚本或任务，则优先扩展原有的实现。
+- 不要把探索操作和一次性命令写入脚本。
+- 不要持久化密钥、凭据、特定于机器的绝对路径、临时值或未经确认的破坏性操作。
 
-## Create or modify the script
+## 创建或修改脚本
 
-- Determine the required dialect from project conventions and target environments. Prefer POSIX shell for portability and Bash only when its features provide clear value.
-- For a new script, define its inputs, outputs, exit behavior, side effects, working-directory assumptions, and failure modes before implementation.
-- For an existing script, inspect its callers and preserve its interface unless the task explicitly changes it. Make the smallest coherent change.
-- Quote expansions deliberately, handle paths safely, check important prerequisites, and make destructive operations narrow and explicit.
-- Add comments for intent and constraints rather than narrating obvious syntax. Include usage text when the interface is not self-evident.
+- 优先选择目标环境原生且维护成本最低的语言；需要跨 Unix 环境时优先 POSIX shell，需要 Bash 特性使用 Bash，完成 Windows 专属任务使用 Pwsh。
+- 对新脚本，在实现前定义其输入、输出、退出行为、副作用、工作目录假设和失败模式。
+- 对现有脚本，检查其调用者并保持接口不变，除非任务明确要求更改。
+- 使用职责单一、可组合的函数组织主流程；如果数据边界足够清晰，请使用管道将主流程改写为函数式风格。
 
-## Exercise the workflow
+## 测试
 
-- Run the new or changed script on a safe representative case. Confirm that it reproduces the reusable portion of the completed task and fails clearly for invalid input.
-- Avoid using live credentials or production data for validation. Preview filesystem mutations when the underlying tool supports it.
-- Run the repository's focused tests or task-runner recipe when one exists.
+- 使用安全且有代表性的案例进行测试，确认它能复现已完成任务中的可复用部分，并能在输入无效时明确地失败。
+- 验证时避免使用真实凭据或生产数据。底层工具支持时，先预览文件系统变更。
+- 如果仓库提供针对性测试或任务运行器配方，则运行它们。
 
-## Lint and format every change
+## 检查
 
-- Inspect the shebang, `.shellcheckrc`, ShellCheck directives, EditorConfig, and repository formatter settings.
-- Run the appropriate syntax check, such as `sh -n` or `bash -n`.
-- Run ShellCheck with the detected dialect. Fix findings in context; add only narrow, justified suppressions.
-- Run `shfmt -d` and inspect the proposed formatting, then apply `shfmt -w` using the repository's established options.
-- Re-run the syntax check, ShellCheck, and relevant tests after formatting.
-- ShellCheck and shfmt do not fully support zsh. If the project requires unsupported syntax, do not rewrite it blindly; use the dialect's own checks and report which required validations could not be performed.
+- 对于 POSIX shell 和 Bash 脚本，使用 `sh -n` 进行语法检查，使用 `shellcheck` 进行静态检查。
+- 对于 Pwsh 脚本，使用 `Invoke-ScriptAnalyzer` 进行静态检查。
+- 尽量修复静态检查发现的问题；只添加范围小且理由充分的抑制规则。
 
-## Report the result
+## 格式化
 
-- Report the reusable work that was persisted, the script path and interface, and how it relates to the original task.
-- List the execution, syntax, lint, formatting, and test commands run, along with any remaining warning, suppression, compatibility limitation, or untested side effect.
+- 对于 POSIX shell 和 Bash 脚本，使用 `shfmt` 进行格式化。
+- 对于 Pwsh 脚本，使用 `Invoke-Formatter` 进行格式化。
+- 当不存在项目级的格式化要求时，使用如下格式化配置：
+  ```ini
+  binary_next_line = true
+  space_redirects = true
+  switch_case_indent = true
+  function_next_line = false
+  ```
+
+## 报告结果
+
+- 报告已持久化的可复用工作、脚本路径和接口，以及它与原始任务的关系。
+- 如果存在缺失的工具、未消除的检查警告、新增的抑制规则、兼容性问题或未经测试的副作用，请进行说明。
