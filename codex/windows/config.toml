@@ -21,3 +21,6 @@ writable_roots = [
 [shell_environment_policy]
 inherit = "all"
 ignore_default_excludes = false
+
+[features]
+mentions_v2 = false
