@@ -55,8 +55,7 @@ lint-sh:
         shellcheck
 
 fmt-sh:
-    fd -e sh -e bash -e zsh -x \
-        shfmt --indent 4 --space-redirects --binary-next-line --write
+    shfmt --write .
 
 [script("pwsh")]
 [windows]

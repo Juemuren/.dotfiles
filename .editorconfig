@@ -8,7 +8,14 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-[{*.{sh,zsh,bash,ps1},Justfile}]
+[*.{sh,zsh,bash}]
+indent_size = 4
+binary_next_line = true
+space_redirects = true
+switch_case_indent = true
+function_next_line = false
+
+[{*.ps1,Justfile}]
 indent_size = 4
 
 [{codex/*/config.toml,codex/rules/*.rules}]
