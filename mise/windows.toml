@@ -10,7 +10,7 @@ python = "latest"
 uv = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["python", "node"]
+idiomatic_version_file_enable_tools = ["python", "node", "pnpm"]
 auto_install = false
 not_found_auto_install = false
 
@@ -22,3 +22,7 @@ uvx = true
 
 [settings.npm]
 package_manager = "aube"
+
+[env]
+PNPM_CONFIG_PM_ON_FAIL = "ignore"
+NODE_USE_SYSTEM_CA = 1
