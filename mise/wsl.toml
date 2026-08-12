@@ -5,7 +5,7 @@ python = "latest"
 uv = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["python", "node"]
+idiomatic_version_file_enable_tools = ["python", "node", "pnpm"]
 auto_install = false
 not_found_auto_install = false
 
@@ -19,5 +19,6 @@ uvx = true
 package_manager = "pnpm"
 
 [env]
-VISUAL = { default = "code --wait" }
-EDITOR = { default = "code --wait" }
+VISUAL = "code --wait"
+EDITOR = "code --wait"
+PNPM_CONFIG_PM_ON_FAIL = "ignore"
