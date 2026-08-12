@@ -22,6 +22,7 @@ fd
 ffmpeg
 fq
 fzf
+gawk
 genact
 gh
 ghostscript
@@ -35,6 +36,7 @@ innounp
 jq
 just
 just-lsp
+less
 make
 marp
 mdq
@@ -54,6 +56,7 @@ ripgrep
 rumdl
 rustup
 sd
+sed
 shellcheck
 shfmt
 sqlite
