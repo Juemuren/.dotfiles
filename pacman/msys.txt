@@ -1,5 +1,5 @@
 base
 filesystem
-mingw-w64-ucrt-x86_64-ansifilter
+man-db
 msys2-runtime
 zsh

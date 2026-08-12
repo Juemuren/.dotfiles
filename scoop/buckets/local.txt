@@ -1,3 +1,4 @@
+ansifilter
 checkexec
 git
 jq-lsp
