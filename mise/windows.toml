@@ -1,12 +1,19 @@
 [tools]
 aube = "latest"
+biome = "latest"
+cspell = "latest"
+dprint = "latest"
 go = "latest"
+just = "latest"
 node = "lts"
-"npm:cspell" = "latest"
 "pipx:fonttools" = "latest"
 "pipx:ocrmypdf" = "latest"
 pnpm = "latest"
 python = "latest"
+rumdl = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+typos = "latest"
 uv = "latest"
 
 [settings]
