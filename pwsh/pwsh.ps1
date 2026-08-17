@@ -9,19 +9,21 @@ param()
 [Console]::InputEncoding = [System.Text.Encoding]::UTF8
 
 # Modules
-Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
+Set-PSReadLineOption -Colors @{ Selection = $PSStyle.Reverse }
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-Import-Module PSCompletions
+# Import-Module PSCompletions
 
 # Tools
-Invoke-Expression (& { (mise activate pwsh | Out-String) })
-Invoke-Expression (&starship init powershell)
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+mise activate pwsh | Out-String | Invoke-Expression
+starship init powershell | Out-String | Invoke-Expression
+zoxide init powershell | Out-String | Invoke-Expression
+carapace _carapace powershell | Out-String | Invoke-Expression
 
 # Completions
-just --completions powershell | Out-String | Invoke-Expression
-pnpm completion pwsh | Out-String | Invoke-Expression
-uv generate-shell-completion powershell | Out-String | Invoke-Expression
+# just --completions powershell | Out-String | Invoke-Expression
+# pnpm completion pwsh | Out-String | Invoke-Expression
+# uv generate-shell-completion powershell | Out-String | Invoke-Expression
 
 # fastfetch

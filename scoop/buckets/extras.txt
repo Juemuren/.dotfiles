@@ -1,3 +1,4 @@
+carapace-bin
 mupdf
 quarto
 sfsu
