@@ -4,12 +4,16 @@
     "catppuccin.catppuccin-vsc",
     "editorconfig.editorconfig",
     "fanaticpythoner.better-todo-tree",
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
     "ms-ceintl.vscode-language-pack-zh-hans",
     "ms-vscode-remote.remote-wsl",
     "oderwat.indent-rainbow",
     "openai.chatgpt",
     "pkief.material-icon-theme",
     "pkief.material-product-icons",
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml",
     "usernamehw.errorlens"
   ]
 }
