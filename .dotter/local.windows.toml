@@ -1,5 +1,6 @@
 includes = [".dotter/windows.toml"]
 packages = [
+  "agents",
   "bash",
   "codex",
   "conda",
