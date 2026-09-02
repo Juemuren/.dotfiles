@@ -6,7 +6,7 @@
 
 目前包含这些配置
 
-<!-- TOOL-LIST:START -->
+<!-- TOOL-LIST:BEGIN -->
 * bash
 * brew
 * codex
@@ -31,7 +31,7 @@
 
 VSCode 包含以下 Profile
 
-<!-- VSCODE-PROFILE-LIST:START -->
+<!-- VSCODE-PROFILE-LIST:BEGIN -->
 * conf
 * doc
 * emb
@@ -44,7 +44,7 @@ VSCode 包含以下 Profile
 
 Codex 包含以下 Skill
 
-<!-- CODEX-SKILL-LIST:START -->
+<!-- CODEX-SKILL-LIST:BEGIN -->
 * benchmark-with-hyperfine
 * capture-tool-problems
 * develop-shell-scripts

@@ -1,13 +1,16 @@
 #!/bin/bash
 
+set -euo pipefail
+
 update_section() {
     local file=$1
     local marker=$2
-    local content=$3
+    local content
+    content=$(cat)
 
     sd -A -f s \
-        "<!-- $marker:START -->.*<!-- $marker:END -->" \
-        "<!-- $marker:START -->\n$content\n<!-- $marker:END -->" \
+        "<!-- $marker:BEGIN -->.*<!-- $marker:END -->" \
+        "<!-- $marker:BEGIN -->\n$content\n<!-- $marker:END -->" \
         "$file"
 }
 
@@ -22,11 +25,11 @@ get_dirs() {
     fi
 }
 
-TOOL_LIST="$(get_dirs . scripts)"
-update_section README.md TOOL-LIST "$TOOL_LIST"
+get_dirs . scripts \
+    | update_section README.md TOOL-LIST
 
-VSCODE_PROFILE_LIST="$(get_dirs vscode/profiles)"
-update_section README.md VSCODE-PROFILE-LIST "$VSCODE_PROFILE_LIST"
+get_dirs vscode/profiles \
+    | update_section README.md VSCODE-PROFILE-LIST
 
-CODEX_SKILL_LIST="$(get_dirs codex/skills)"
-update_section README.md CODEX-SKILL-LIST "$CODEX_SKILL_LIST"
+get_dirs codex/skills \
+    | update_section README.md CODEX-SKILL-LIST
