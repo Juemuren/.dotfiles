@@ -8,6 +8,7 @@ default_target_type = "automatic"
 
 [codex.files]
 "codex/rules" = "~/.codex/rules"
+"codex/pets" = { target = "~/.codex/pets", type = "symbolic", recurse = false }
 "codex/skills" = { target = "~/.agents/skills", type = "symbolic", recurse = false }
 
 [conda.files]
