@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# 将 JSON 按内容展开作为索引
-
 ECHO='echo "# Path\n" {r1} "\n# Content\n" {r2} | jq -r .'
 BAT='bat --color=always -p -l markdown'
 
