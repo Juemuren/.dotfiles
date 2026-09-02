@@ -1,5 +1,4 @@
 model = "gpt-5.6-sol"
-personality = "pragmatic"
 model_reasoning_effort = "medium"
 
 sandbox_mode = "workspace-write"
@@ -24,3 +23,12 @@ ignore_default_excludes = false
 
 [features]
 mentions_v2 = false
+
+[tui]
+show_tooltips = false
+session_picker_view = "comfortable"
+theme = "catppuccin-mocha"
+status_line = ["model-with-reasoning", "current-dir", "git-branch", "context-remaining"]
+status_line_use_colors = true
+terminal_title = ["activity", "project-name", "run-state", "task-progress"]
+pet = "disabled"
