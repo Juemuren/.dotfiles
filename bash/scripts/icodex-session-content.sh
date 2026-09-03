@@ -14,7 +14,6 @@ JQ_FILTER_CONTENT='
         + ([.payload.content[]? | .text // empty] | join("\n"))
         + "\n"
 '
-JQ_FILTER_ID='select(.type == "session_meta") | .payload.id'
 JQ_FILTER_MATCHES='
     [
         .[]
@@ -31,10 +30,11 @@ JQ_FILTER_MATCHES='
     | unique[]
 '
 RG_PATTERN='"role":"(user|assistant)"'
-SED_EXPRESSION='s#^.*[\\/]rollout-(.*)\.jsonl$#&\t\1#'
+DATE_TIME_PATTERN='[[:digit:]]+-[[:digit:]]+-[[:digit:]]+T[[:digit:]]+-[[:digit:]]+-[[:digit:]]+'
+UUID_PATTERN='[[:xdigit:]]+-[[:xdigit:]]+-[[:xdigit:]]+-[[:xdigit:]]+-[[:xdigit:]]+'
+SED_EXPRESSION="s|^.*[\\\\/]rollout-($DATE_TIME_PATTERN)-($UUID_PATTERN)\.jsonl$|&\t\1\t\2|"
 
 SESSION_CONTENT="jq -r '$JQ_FILTER_CONTENT' {1}"
-SESSION_ID="jq -r '$JQ_FILTER_ID' {1}"
 
 SEARCH="
     if [ -z {q} ]; then
@@ -60,12 +60,12 @@ PREVIEW="
 
 fzf --disabled --with-shell 'sh -c' \
     --delimiter '\t' \
-    --with-nth 2 \
+    --with-nth 2,3 \
     --header 'Enter: browser | Ctrl-E: edit | Ctrl-R: resume' \
     --bind "start:reload:$SEARCH" \
     --bind "change:reload:$SEARCH" \
     --bind "enter:become:$SESSION_CONTENT | $RENDER --paging=always" \
     --bind "ctrl-e:become:$EDITOR {1}" \
-    --bind "ctrl-r:become:codex resume \$($SESSION_ID)" \
+    --bind 'ctrl-r:become:codex resume {3}' \
     --preview "$PREVIEW" \
     --preview-window 'wrap,up,70%'
