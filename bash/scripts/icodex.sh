@@ -15,17 +15,55 @@ JQ_FILTER_CONTENT='
         + "\n"
 '
 JQ_FILTER_ID='select(.type == "session_meta") | .payload.id'
+JQ_FILTER_MATCHES='
+    [
+        .[]
+            | select(.type == "match")
+            | select(
+                .data.lines.text
+                | fromjson
+                | .type == "response_item"
+                    and .payload.type == "message"
+                    and (.payload.role == "user" or .payload.role == "assistant")
+            )
+            | .data.path.text
+    ]
+    | unique[]
+'
+RG_PATTERN='"role":"(user|assistant)"'
+SED_EXPRESSION='s#^.*[\\/]rollout-(.*)\.jsonl$#&\t\1#'
 
-RG="rg --files-with-matches --smart-case --glob '*.jsonl' {q} '$CODEX_SESSIONS'"
-MARKDOWN="jq -r '$JQ_FILTER_CONTENT' {}"
+SESSION_CONTENT="jq -r '$JQ_FILTER_CONTENT' {1}"
+SESSION_ID="jq -r '$JQ_FILTER_ID' {1}"
+
+RG="
+    if [ -z {q} ]; then
+        rg --files-with-matches --glob '*.jsonl' '$RG_PATTERN' '$CODEX_SESSIONS'
+    else
+        rg --json --smart-case --glob '*.jsonl' {q} '$CODEX_SESSIONS' |
+            jq -rs '$JQ_FILTER_MATCHES'
+    fi | sed -E '$SED_EXPRESSION'
+"
 BAT="bat --color=always --style=plain --language=markdown"
-SESSION_ID="jq -r '$JQ_FILTER_ID' {}"
+CONTEXT="$SESSION_CONTENT | $BAT | rg --color=always --context 3 --smart-case -- {q}"
+PREVIEW="
+    [ -n {1} ] || exit
+
+    if [ -n {q} ]; then
+        $CONTEXT
+    else
+        $SESSION_CONTENT | $BAT
+    fi
+"
 
 fzf --disabled --with-shell 'sh -c' \
-    --header 'Enter: open | Ctrl-R: resume' \
+    --delimiter '\t' \
+    --with-nth 2 \
+    --header 'Enter: browser | Ctrl-E: edit | Ctrl-R: resume' \
     --bind "start:reload:$RG" \
     --bind "change:reload:$RG" \
-    --bind "enter:become:$MARKDOWN | $BAT --paging=always" \
+    --bind "enter:become:$SESSION_CONTENT | $BAT --paging=always" \
+    --bind "ctrl-e:become:\$EDITOR {1}" \
     --bind "ctrl-r:become:codex resume \$($SESSION_ID)" \
-    --preview "$MARKDOWN | $BAT" \
+    --preview "$PREVIEW" \
     --preview-window 'wrap,up,70%'
