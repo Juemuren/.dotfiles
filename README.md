@@ -7,6 +7,7 @@
 目前包含这些配置
 
 <!-- TOOL-LIST:BEGIN -->
+* agents
 * bash
 * brew
 * codex
@@ -42,13 +43,13 @@ VSCode 包含以下 Profile
 * web
 <!-- VSCODE-PROFILE-LIST:END -->
 
-Codex 包含以下 Skill
+Agents 包含以下 Skill
 
-<!-- CODEX-SKILL-LIST:BEGIN -->
+<!-- AGENT-SKILL-LIST:BEGIN -->
 * benchmark-with-hyperfine
 * capture-tool-problems
 * develop-shell-scripts
-<!-- CODEX-SKILL-LIST:END -->
+<!-- AGENT-SKILL-LIST:END -->
 
 ## 使用方法
 

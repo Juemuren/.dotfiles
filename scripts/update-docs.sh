@@ -31,5 +31,5 @@ get_dirs . scripts \
 get_dirs vscode/profiles \
     | update_section README.md VSCODE-PROFILE-LIST
 
-get_dirs codex/skills \
-    | update_section README.md CODEX-SKILL-LIST
+get_dirs agents/skills \
+    | update_section README.md AGENT-SKILL-LIST
