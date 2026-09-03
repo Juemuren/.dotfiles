@@ -36,23 +36,25 @@ SED_EXPRESSION='s#^.*[\\/]rollout-(.*)\.jsonl$#&\t\1#'
 SESSION_CONTENT="jq -r '$JQ_FILTER_CONTENT' {1}"
 SESSION_ID="jq -r '$JQ_FILTER_ID' {1}"
 
-RG="
+SEARCH="
     if [ -z {q} ]; then
         rg --files-with-matches --glob '*.jsonl' '$RG_PATTERN' '$CODEX_SESSIONS'
     else
-        rg --json --smart-case --glob '*.jsonl' {q} '$CODEX_SESSIONS' |
-            jq -rs '$JQ_FILTER_MATCHES'
+        rg --json --smart-case --glob '*.jsonl' {q} '$CODEX_SESSIONS' \
+            | jq -rs '$JQ_FILTER_MATCHES'
     fi | sed -E '$SED_EXPRESSION'
 "
-BAT="bat --color=always --style=plain --language=markdown"
-CONTEXT="$SESSION_CONTENT | $BAT | rg --color=always --context 3 --smart-case -- {q}"
+RENDER="bat --color=always --style=plain --language=markdown"
 PREVIEW="
     [ -n {1} ] || exit
 
     if [ -n {q} ]; then
-        $CONTEXT
+        $SESSION_CONTENT \
+            | $RENDER \
+            | rg --color=always --context 3 --smart-case -- {q}
     else
-        $SESSION_CONTENT | $BAT
+        $SESSION_CONTENT \
+            | $RENDER
     fi
 "
 
@@ -60,10 +62,10 @@ fzf --disabled --with-shell 'sh -c' \
     --delimiter '\t' \
     --with-nth 2 \
     --header 'Enter: browser | Ctrl-E: edit | Ctrl-R: resume' \
-    --bind "start:reload:$RG" \
-    --bind "change:reload:$RG" \
-    --bind "enter:become:$SESSION_CONTENT | $BAT --paging=always" \
-    --bind "ctrl-e:become:\$EDITOR {1}" \
+    --bind "start:reload:$SEARCH" \
+    --bind "change:reload:$SEARCH" \
+    --bind "enter:become:$SESSION_CONTENT | $RENDER --paging=always" \
+    --bind "ctrl-e:become:$EDITOR {1}" \
     --bind "ctrl-r:become:codex resume \$($SESSION_ID)" \
     --preview "$PREVIEW" \
     --preview-window 'wrap,up,70%'

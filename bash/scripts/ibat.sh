@@ -1,8 +1,8 @@
 #!/bin/sh
 
-BAT="bat --color=always --style=full {}"
+PREVIEW="bat --color=always --style=full {}"
 
 fzf \
-    --bind "enter:become:$BAT" \
-    --preview "$BAT" \
+    --bind "enter:become:$PREVIEW" \
+    --preview "$PREVIEW" \
     --preview-window 'wrap,up,80%'

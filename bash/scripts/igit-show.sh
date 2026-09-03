@@ -1,11 +1,11 @@
 #!/bin/sh
 
-GIT_SHOW="git show --color=always {1}"
-GIT_DIFFTOOL='git difftool "{r1}^!"'
+COMMITS="git show --color=always {1}"
+DIFFTOOL='git difftool "{r1}^!"'
 
 git log --oneline --decorate --color=always \
     | fzf --ansi \
-        --preview "$GIT_SHOW" \
+        --preview "$COMMITS" \
         --header 'Enter: diff tool | Ctrl-P: print hash' \
-        --bind "enter:become:$GIT_DIFFTOOL" \
+        --bind "enter:become:$DIFFTOOL" \
         --bind "ctrl-p:become:echo {r1}"

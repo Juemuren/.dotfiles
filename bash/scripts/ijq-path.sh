@@ -1,9 +1,13 @@
 #!/bin/sh
 
-ECHO="echo {r} && jq -C getpath({}) $1"
+file=$1
 
-jq -r 'paths | tojson' "$1" \
+JQ_GET_PATHS='paths | tojson'
+
+PREVIEW="echo {r} && jq -C getpath({}) $file"
+
+jq -r "$JQ_GET_PATHS" "$file" \
     | fzf \
-        --preview "$ECHO" \
-        --bind "enter:become:$ECHO" \
+        --bind "enter:become:$PREVIEW" \
+        --preview "$PREVIEW" \
         --preview-window wrap

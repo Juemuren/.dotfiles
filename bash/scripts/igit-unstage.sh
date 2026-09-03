@@ -1,11 +1,11 @@
 #!/bin/sh
 
-FILE_LIST="git diff --cached --name-only"
-GIT_DIFF="git diff --cached --color=always -- {}"
-GIT_RESTORE="git restore --staged -- {}"
+FILES="git diff --cached --name-only"
+DIFF="git diff --cached --color=always -- {}"
+UNSTAGE="git restore --staged -- {}"
 
 fzf \
-    --preview "$GIT_DIFF" \
+    --preview "$DIFF" \
     --header 'Enter: unstage' \
-    --bind "start:reload:$FILE_LIST" \
-    --bind "enter:execute($GIT_RESTORE)+reload($FILE_LIST)"
+    --bind "start:reload:$FILES" \
+    --bind "enter:execute($UNSTAGE)+reload($FILES)"

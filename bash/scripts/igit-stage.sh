@@ -1,11 +1,11 @@
 #!/bin/sh
 
-FILE_LIST="git diff --name-only"
-GIT_DIFF="git diff --color=always -- {}"
-GIT_ADD="git add -- {}"
+FILES="git diff --name-only"
+DIFF="git diff --color=always -- {}"
+STAGE="git add -- {}"
 
 fzf \
-    --preview "$GIT_DIFF" \
+    --preview "$DIFF" \
     --header 'Enter: stage' \
-    --bind "start:reload:$FILE_LIST" \
-    --bind "enter:execute($GIT_ADD)+reload($FILE_LIST)"
+    --bind "start:reload:$FILES" \
+    --bind "enter:execute($STAGE)+reload($FILES)"
