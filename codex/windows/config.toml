@@ -1,7 +1,7 @@
 model = "gpt-5.6-sol"
 model_reasoning_effort = "medium"
 
-sandbox_mode = "workspace-write"
+default_permissions = "dev"
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 allow_login_shell = false
@@ -9,13 +9,16 @@ allow_login_shell = false
 [windows]
 sandbox = "elevated"
 
-[sandbox_workspace_write]
-writable_roots = [
-    "{{pnpm_store}}",
-    "~/AppData/Local/uv/cache",
-    "~/AppData/Local/npm-cache",
-    "~/AppData/Local/pnpm-cache",
-]
+[permissions.dev]
+extends = ":workspace"
+
+[permissions.dev.filesystem]
+"~/.config/**" = "read"
+"~/.cache" = "write"
+"~/AppData/Local/uv/cache" = "write"
+"~/AppData/Local/npm-cache" = "write"
+"{{pnpm_store}}" = "write"
+"~/AppData/Local/pnpm-cache" = "write"
 
 [shell_environment_policy]
 inherit = "all"
