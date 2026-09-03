@@ -1,11 +1,12 @@
 #!/bin/sh
 
-ECHO='echo "# Path\n" {r1} "\n# Content\n" {r2} | jq -r .'
-BAT='bat --color=always -p -l markdown'
+PRINTF="printf '%s\n\n' '# Path' {r1} '# Content' {r2}"
+BAT='bat --color=always --style=plain --language=markdown'
 
 jq -r 'paths(scalars) as $p | ($p | join("/") | tojson) + "\t" + (getpath($p) | tojson)' "$1" \
-    | fzf --delimiter '\t' \
-        --with-nth=2 \
-        --bind "enter:become:$ECHO | $BAT -P" \
-        --preview "$ECHO | $BAT" \
+    | fzf --with-shell 'sh -c' \
+        --delimiter '\t' \
+        --with-nth 2 \
+        --bind "enter:become:$PRINTF | $BAT --paging=never" \
+        --preview "$PRINTF | $BAT" \
         --preview-window wrap
