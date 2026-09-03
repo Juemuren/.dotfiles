@@ -6,6 +6,10 @@ approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 allow_login_shell = false
 
+[features]
+network_proxy = true
+mentions_v2 = false
+
 [windows]
 sandbox = "elevated"
 
@@ -20,12 +24,15 @@ extends = ":workspace"
 "{{pnpm_store}}" = "write"
 "~/AppData/Local/pnpm-cache" = "write"
 
+[permissions.dev.network]
+enabled = true
+
+[permissions.dev.network.domains]
+"*" = "allow"
+
 [shell_environment_policy]
 inherit = "all"
 ignore_default_excludes = false
-
-[features]
-mentions_v2 = false
 
 [tui]
 show_tooltips = false
