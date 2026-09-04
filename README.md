@@ -12,6 +12,7 @@
 * brew
 * codex
 * conda
+* env
 * fastfetch
 * git
 * mise
