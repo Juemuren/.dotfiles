@@ -19,25 +19,9 @@ function Get-ScriptInterpreter {
         throw "Script has no shebang: $Path"
     }
 
-    # Support plain interpreter arguments, including env -S. Reject syntax
-    # requiring shell parsing rather than silently changing its meaning.
-    $directive = $Matches[1].Trim()
-    if ($directive -match '["''\\]') {
-        throw "Quoted or escaped shebang arguments are not supported: $directive"
-    }
-    $parts = @($directive -split '\s+')
-    if ($parts[0] -in @('/usr/bin/env', '/bin/env', 'env')) {
-        $parts = @($parts | Select-Object -Skip 1)
-        if ($parts.Count -gt 0 -and $parts[0] -eq '-S') {
-            $parts = @($parts | Select-Object -Skip 1)
-        }
-        if ($parts.Count -eq 0 -or $parts[0] -match '^[-\w]*=|^-') {
-            throw "Expected an interpreter after env; environment options are unsupported: $directive"
-        }
-    }
-    if ($IsWindows -and $parts[0] -match '^/(usr/)?bin/([^/]+)$') {
-        $parts[0] = $Matches[2]
-    }
+    # Pass the optional shebang argument intact for the interpreter to handle.
+    $parts = @($Matches[1].Trim() -split '\s+', 2)
+    $parts[0] = ($parts[0] -split '/')[-1]
     return $parts
 }
 

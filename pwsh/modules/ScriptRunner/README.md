@@ -69,17 +69,14 @@ Enable-ScriptPicker
 
 优先读取脚本的 shebang，支持以下形式：
 
-| shebang 示例                  | 解释器与参数                             |
-| ----------------------------- | ---------------------------------------- |
-| `#!/bin/sh`                   | `/bin/sh`；Windows 上则为 PATH 中的 `sh` |
-| `#!/usr/bin/env python`       | PATH 中的 `python`                       |
-| `#!/usr/bin/env -S python -u` | PATH 中的 `python`，附加 `-u` 参数       |
+| shebang 示例                  | 解释器与参数                              |
+| ----------------------------- | ----------------------------------------- |
+| `#!/bin/sh`                   | PATH 中的 `sh`                            |
+| `#!/opt/venv/bin/python -u`   | PATH 中的 `python`，附加 `-u` 参数        |
+| `#!/usr/bin/env python`       | PATH 中的 `env`，附加 `python` 参数       |
+| `#!/usr/bin/env -S python -u` | PATH 中的 `env`，附加 `-S python -u` 参数 |
 
-Windows 上，`/bin/xx` 和 `/usr/bin/xx` 映射到 PATH 中的 `xx`；其他绝对解释器路径保留原样，不会自动在 Git Bash 和 WSL 之间切换。
+- 解释器部分，只获取路径中最后一个 `/` 后面的值作为解释器
+- 参数部分，会完整传递，不自动拆分，也不解析其中的引号和转义。
 
 没有 shebang 的 `.ps1` 使用 `pwsh -NoProfile -File` 执行；其他无 shebang 文件报错。
-
-### 支持范围
-
-- shebang 中的解释器参数必须是不含引号或反斜杠的简单参数。
-- `env` 支持直接指定解释器或使用 `-S`，不支持环境变量赋值及其他选项。
