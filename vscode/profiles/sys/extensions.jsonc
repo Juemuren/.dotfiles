@@ -3,6 +3,8 @@
     "cschlosser.doxdocgen",
     "daohong-emilio.yash",
     "golang.go",
+    "haskell.haskell",
+    "haskell.language-haskell",
     "llvm-vs-code-extensions.vscode-clangd",
     "ms-dotnettools.csdevkit",
     "ms-dotnettools.csharp",
