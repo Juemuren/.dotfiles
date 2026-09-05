@@ -6,7 +6,7 @@
   "C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
   "[cpp]": {
     "editor.stickyScroll.defaultModel": "foldingProviderModel",
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
   },
   // cmake
   "cmake.configureOnOpen": false,
