@@ -9,6 +9,7 @@ mq
 msys2
 pixi
 rush
+rustup
 Sarasa-Mono-SC
 Sarasa-Term-SC
 tinytex

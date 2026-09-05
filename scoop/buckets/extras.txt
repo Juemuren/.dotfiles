@@ -3,3 +3,5 @@ mupdf
 quarto
 sfsu
 sysinternals
+viddy
+wireshark
