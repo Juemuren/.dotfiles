@@ -57,6 +57,13 @@ lint-sh:
 fmt-sh:
     shfmt --write .
 
+lint-py:
+    ruff check .
+    ty check .
+
+fmt-py:
+    ruff format .
+
 [script("pwsh")]
 [windows]
 lint-pwsh:
