@@ -41,9 +41,7 @@ def get_doctor_stale_count() -> int:
     )
     report = json.loads(result.stdout)
     thread_check = next(
-        check
-        for check in report["checks"].values()
-        if check["category"] == "threads"
+        check for check in report["checks"].values() if check["category"] == "threads"
     )
     return int(thread_check["details"].get("rollout DB stale rows", 0))
 
@@ -77,9 +75,7 @@ def print_missing_threads(
 
 
 def confirm_deletion(count: int) -> bool:
-    answer = input(
-        f"Delete these {count} stale thread rows from the state DB? [y/N] "
-    )
+    answer = input(f"Delete these {count} stale thread rows from the state DB? [y/N] ")
     return answer.strip().lower() in {"y", "yes"}
 
 
