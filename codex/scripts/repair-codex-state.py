@@ -5,6 +5,17 @@ import os
 import sqlite3
 import subprocess
 from pathlib import Path
+from typing import NamedTuple
+
+
+class Thread(NamedTuple):
+    id: str
+    rollout_path: Path
+
+
+def get_database_path() -> Path:
+    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
+    return Path(codex_home, "state_5.sqlite")
 
 
 def get_doctor_stale_count() -> int:
@@ -23,52 +34,70 @@ def get_doctor_stale_count() -> int:
     return int(thread_check["details"].get("rollout DB stale rows", 0))
 
 
-def confirm(message: str) -> bool:
-    return input(f"{message} [y/N] ").strip().lower() in {"y", "yes"}
+def find_missing_threads(database: Path) -> list[Thread]:
+    with sqlite3.connect(database) as connection:
+        rows = connection.execute("SELECT id, rollout_path FROM threads").fetchall()
+
+    missing_threads = []
+    for thread_id, rollout_path in rows:
+        thread = Thread(thread_id, Path(rollout_path))
+        if not thread.rollout_path.is_file():
+            missing_threads.append(thread)
+
+    return missing_threads
 
 
-def main() -> None:
-    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
-    database = Path(os.environ.get("DB", codex_home / "state_5.sqlite"))
-    doctor_stale_count = get_doctor_stale_count()
+def print_missing_threads(
+    doctor_stale_count: int,
+    missing_threads: list[Thread],
+) -> None:
+    print(f"codex doctor reported stale rows: {doctor_stale_count}")
+    print(f"missing rollout files found: {len(missing_threads)}")
+
+    if missing_threads:
+        print()
+        for thread in missing_threads:
+            print(thread.rollout_path)
+        print()
+
+
+def confirm_deletion(count: int) -> bool:
+    answer = input(
+        f"Delete these {count} stale thread rows from the state DB? [y/N] "
+    )
+    return answer.strip().lower() in {"y", "yes"}
+
+
+def delete_threads(database: Path, threads: list[Thread]) -> int:
+    placeholders = ",".join("?" for _ in threads)
 
     with sqlite3.connect(database) as connection:
         connection.execute("PRAGMA foreign_keys = ON")
-        threads = connection.execute(
-            "SELECT id, rollout_path FROM threads"
-        ).fetchall()
-        missing_threads = [
-            (thread_id, rollout_path)
-            for thread_id, rollout_path in threads
-            if not Path(rollout_path).is_file()
-        ]
-
-        print(f"codex doctor reported stale rows: {doctor_stale_count}")
-        print(f"Missing rollout files found: {len(missing_threads)}")
-
-        if not missing_threads:
-            return
-
-        print()
-        for _, rollout_path in missing_threads:
-            print(rollout_path)
-        print()
-
-        if not confirm(
-            f"Delete these {len(missing_threads)} stale thread rows from the state DB?"
-        ):
-            print("No changes made.")
-            return
-
-        placeholders = ",".join("?" for _ in missing_threads)
         connection.execute("BEGIN IMMEDIATE")
         cursor = connection.execute(
             f"DELETE FROM threads WHERE id IN ({placeholders})",
-            [thread_id for thread_id, _ in missing_threads],
+            [thread.id for thread in threads],
         )
-        connection.commit()
 
-    print(f"Deleted {cursor.rowcount} stale thread rows.")
+    return cursor.rowcount
+
+
+def main() -> None:
+    database = get_database_path()
+    doctor_stale_count = get_doctor_stale_count()
+    missing_threads = find_missing_threads(database)
+
+    print_missing_threads(doctor_stale_count, missing_threads)
+
+    if not missing_threads:
+        return
+
+    if not confirm_deletion(len(missing_threads)):
+        print("No changes made.")
+        return
+
+    deleted_count = delete_threads(database, missing_threads)
+    print(f"Deleted {deleted_count} stale thread rows.")
 
 
 if __name__ == "__main__":
