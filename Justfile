@@ -67,12 +67,12 @@ fmt-py:
 [script("pwsh")]
 [windows]
 lint-pwsh:
-    fd -e ps1 | foreach { ./pwsh/scripts/Run-Lint.ps1 $_ }
+    fd -e ps1 -e psm1 | foreach { ./pwsh/scripts/Run-Lint.ps1 $_ }
 
 [script("pwsh")]
 [windows]
 fmt-pwsh:
-    fd -e ps1 | foreach { ./pwsh/scripts/Run-Format.ps1 $_ }
+    fd -e ps1 -e psm1 | foreach { ./pwsh/scripts/Run-Format.ps1 $_ }
 
 update-docs:
     ./scripts/update-docs.sh

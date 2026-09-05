@@ -15,7 +15,7 @@ space_redirects = true
 switch_case_indent = true
 function_next_line = false
 
-[*.ps1]
+[*.{ps1,psm1}]
 indent_size = 4
 
 [*.py]
