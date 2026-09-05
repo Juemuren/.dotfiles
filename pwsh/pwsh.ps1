@@ -14,6 +14,8 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 # Import-Module PSCompletions
+Import-Module ScriptRunner
+Enable-ScriptPicker
 
 # Tools
 mise activate pwsh | Out-String | Invoke-Expression
