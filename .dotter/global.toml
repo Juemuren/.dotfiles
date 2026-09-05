@@ -9,6 +9,9 @@ default_target_type = "automatic"
 [bash.files]
 "bash/scripts" = "~/.local/bin"
 
+[bat.files]
+"bat/config.txt" = "$BAT_CONFIG_DIR/config"
+
 [codex.files]
 "codex/rules" = "~/.codex/rules"
 "codex/pets" = { target = "~/.codex/pets", type = "symbolic", recurse = false }
