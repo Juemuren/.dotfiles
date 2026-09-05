@@ -9,6 +9,7 @@
 <!-- TOOL-LIST:BEGIN -->
 * agents
 * bash
+* bat
 * brew
 * codex
 * conda
