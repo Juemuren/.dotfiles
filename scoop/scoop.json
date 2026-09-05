@@ -4,7 +4,7 @@
   "scoop_branch": "master",
   "use_isolated_path": true,
   "use_sqlite_cache": true,
-  "cat_style": "numbers",
-  "show_manifest": true,
+  "cat_style": "plain",
+  "show_manifest": false,
   "aria2-warning-enabled": false
 }
