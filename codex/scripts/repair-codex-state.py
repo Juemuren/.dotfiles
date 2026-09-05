@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
+import argparse
 import json
 import os
 import sqlite3
 import subprocess
+import sys
 from pathlib import Path
 from typing import NamedTuple
 
@@ -11,6 +13,18 @@ from typing import NamedTuple
 class Thread(NamedTuple):
     id: str
     rollout_path: Path
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Remove Codex state DB rows whose rollout files are missing."
+    )
+    parser.add_argument(
+        "--doctor",
+        action="store_true",
+        help="run codex doctor and include its stale-row count",
+    )
+    return parser.parse_args()
 
 
 def get_database_path() -> Path:
@@ -48,10 +62,11 @@ def find_missing_threads(database: Path) -> list[Thread]:
 
 
 def print_missing_threads(
-    doctor_stale_count: int,
     missing_threads: list[Thread],
+    doctor_stale_count: int | None,
 ) -> None:
-    print(f"codex doctor reported stale rows: {doctor_stale_count}")
+    if doctor_stale_count is not None:
+        print(f"codex doctor reported stale rows: {doctor_stale_count}")
     print(f"missing rollout files found: {len(missing_threads)}")
 
     if missing_threads:
@@ -83,11 +98,12 @@ def delete_threads(database: Path, threads: list[Thread]) -> int:
 
 
 def main() -> None:
+    args = parse_args()
     database = get_database_path()
-    doctor_stale_count = get_doctor_stale_count()
+    doctor_stale_count = get_doctor_stale_count() if args.doctor else None
     missing_threads = find_missing_threads(database)
 
-    print_missing_threads(doctor_stale_count, missing_threads)
+    print_missing_threads(missing_threads, doctor_stale_count)
 
     if not missing_threads:
         return
@@ -101,4 +117,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, EOFError):
+        print("\nCancelled.", file=sys.stderr)
+        raise SystemExit(130) from None
