@@ -23,6 +23,7 @@ default_target_type = "automatic"
 
 [git.files]
 "git/git.ini" = "~/.gitconfig"
+"git/scripts" = "~/.local/bin"
 [git.variables]
 git_name = ""
 git_email = ""
