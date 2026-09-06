@@ -123,7 +123,7 @@
       "icon": "terminal-ubuntu"
     },
     "Bash (Git)": {
-      "path": "{{git_root}}/bin/bash.exe",
+      "path": "${env:GIT_ROOT}/bin/bash.exe",
       "args": [
         "--login",
         "-i"
@@ -131,7 +131,7 @@
       "icon": "terminal-git-bash"
     },
     "Zsh (MSYS)": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
+      "path": "${env:MSYS_ROOT}/usr/bin/zsh.exe",
       "args": [
         "--login",
         "-i"
@@ -142,7 +142,7 @@
       }
     },
     "MSYS UCRT": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
+      "path": "${env:MSYS_ROOT}/usr/bin/zsh.exe",
       "args": [
         "--login",
         "-i"
@@ -154,7 +154,7 @@
       }
     },
     "MSYS MINGW": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
+      "path": "${env:MSYS_ROOT}/usr/bin/zsh.exe",
       "args": [
         "--login",
         "-i"
@@ -166,7 +166,7 @@
       }
     },
     "MSYS CLANG": {
-      "path": "{{msys_root}}/usr/bin/zsh.exe",
+      "path": "${env:MSYS_ROOT}/usr/bin/zsh.exe",
       "args": [
         "--login",
         "-i"

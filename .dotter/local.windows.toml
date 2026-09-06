@@ -33,7 +33,4 @@ git_name = "Your git name"
 git_email = "Your git email"
 
 pnpm_store = "path/to/pnpm-store"
-
-git_root = "path/to/git"
-msys_root = "path/to/msys"
 scoop_root = "path/to/scoop"

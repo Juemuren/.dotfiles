@@ -24,9 +24,6 @@
 
 [windows]
 depends = ["pwsh", "scoop", "wt"]
-[windows.variables]
-git_root = "C:/Program Files/Git"
-msys_root = "C:/msys64"
 
 [pwsh.files]
 "pwsh/pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
