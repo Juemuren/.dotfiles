@@ -50,7 +50,7 @@ Agents 包含以下 Skill
 <!-- AGENT-SKILL-LIST:BEGIN -->
 * benchmark-with-hyperfine
 * capture-tool-problems
-* develop-shell-scripts
+* develop-automation-scripts
 <!-- AGENT-SKILL-LIST:END -->
 
 ## 使用方法

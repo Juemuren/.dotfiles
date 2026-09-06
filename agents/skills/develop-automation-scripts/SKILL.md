@@ -1,5 +1,5 @@
 ---
-name: develop-shell-scripts
+name: develop-automation-scripts
 description: 创建、修改、测试、检查并格式化可复用的 POSIX shell、Bash、PowerShell、Pwsh 或 Python 自动化脚本。当要求创建或修改这些语言的自动化脚本时使用；不用于一般 Python 应用或库的开发。
 ---
 
