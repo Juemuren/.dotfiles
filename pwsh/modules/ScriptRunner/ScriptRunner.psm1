@@ -32,11 +32,10 @@ function Get-ScriptInterpreter {
         throw "Script has no shebang: $Path"
     }
 
-    # Pass the optional shebang argument intact for the interpreter to handle.
-    $shebangParts = @($Matches[1].Trim() -split '\s+', 2)
+    $interpreterPath, $optionalArgument = $Matches[1].Trim() -split '\s+', 2
     return [PSCustomObject]@{
-        Name = ($shebangParts[0] -split '/')[-1]
-        Args = @($shebangParts | Select-Object -Skip 1)
+        Name = ($interpreterPath -split '/')[-1]
+        Args = @(if ($null -ne $optionalArgument) { $optionalArgument })
     }
 }
 
@@ -101,15 +100,15 @@ Set-Alias -Name runs -Value Invoke-LocalScript
 Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
 
-    # Only complete the script path, not arguments passed to the script.
     if ($commandAst.CommandElements.Count -gt 1) {
-        $scriptArgumentAst = $commandAst.CommandElements[1]
-        if ($cursorPosition -gt $scriptArgumentAst.Extent.EndOffset) {
+        $scriptNameAst = $commandAst.CommandElements[1]
+        $isCompletingScriptName = $cursorPosition -le $scriptNameAst.Extent.EndOffset
+        if (-not $isCompletingScriptName) {
             return
         }
 
-        if ($scriptArgumentAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
-            $wordToComplete = $scriptArgumentAst.Value
+        if ($scriptNameAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
+            $wordToComplete = $scriptNameAst.Value
         }
     }
 

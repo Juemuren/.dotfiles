@@ -35,8 +35,9 @@ $selection = @(
         --header='Tab: select | Ctrl+A: select all | Enter: clean | Esc: cancel' `
         --bind='ctrl-a:select-all'
 )
-# fzf 退出码：1 表示没有匹配项；130 表示用户按 Esc 或 Ctrl+C 取消。
-if ($LASTEXITCODE -in 1, 130) {
+$fzfNoMatchExitCode = 1
+$fzfCancelledExitCode = 130
+if ($LASTEXITCODE -in $fzfNoMatchExitCode, $fzfCancelledExitCode) {
     return
 }
 if ($LASTEXITCODE -ne 0) {
