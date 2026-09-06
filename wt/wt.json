@@ -129,6 +129,15 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
+                "commandline": "%MSYS_ROOT%\\msys2_shell.cmd -defterm -no-start -here -full-path -msys2 -shell zsh",
+                "guid": "{974ec67d-497f-49ea-a85b-9836f08c24c2}",
+                "hidden": false,
+                "icon": "%MSYS_ROOT%\\msys2.ico",
+                "name": "MSYS Zsh",
+                "pathTranslationStyle": "msys2",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
                 "commandline": "%MSYS_ROOT%\\msys2_shell.cmd -defterm -no-start -here -full-path -ucrt64 -shell zsh",
                 "guid": "{eebf208d-c959-5729-8feb-3721eb87667b}",
                 "hidden": false,
