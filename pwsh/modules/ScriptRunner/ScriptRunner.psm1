@@ -33,10 +33,10 @@ function Get-ScriptInterpreter {
     }
 
     # Pass the optional shebang argument intact for the interpreter to handle.
-    $parts = @($Matches[1].Trim() -split '\s+', 2)
+    $shebangParts = @($Matches[1].Trim() -split '\s+', 2)
     return [pscustomobject]@{
-        Name = ($parts[0] -split '/')[-1]
-        Args = @($parts | Select-Object -Skip 1)
+        Name = ($shebangParts[0] -split '/')[-1]
+        Args = @($shebangParts | Select-Object -Skip 1)
     }
 }
 
@@ -64,7 +64,7 @@ function Invoke-LocalScript {
     }
 
     $interpreter = Get-ScriptInterpreter $scriptPath
-    $interpreterPath = Get-Command -Name $interpreter.Name -CommandType Application -ErrorAction Stop
+    $interpreterPath = (Get-Command -Name $interpreter.Name -CommandType Application -ErrorAction Stop).Source
     $interpreterArgs = $interpreter.Args
     & $interpreterPath @interpreterArgs $scriptPath @scriptArgs
 }
@@ -102,14 +102,15 @@ Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -Script
     param($wordToComplete, $commandAst, $cursorPosition)
 
     # Only complete the script path, not arguments passed to the script.
-    if ($commandAst.CommandElements.Count -gt 1 -and
-        $cursorPosition -gt $commandAst.CommandElements[1].Extent.EndOffset) {
-        return
-    }
+    if ($commandAst.CommandElements.Count -gt 1) {
+        $scriptArgumentAst = $commandAst.CommandElements[1]
+        if ($cursorPosition -gt $scriptArgumentAst.Extent.EndOffset) {
+            return
+        }
 
-    if ($commandAst.CommandElements.Count -gt 1 -and
-        $commandAst.CommandElements[1] -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
-        $wordToComplete = $commandAst.CommandElements[1].Value
+        if ($scriptArgumentAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
+            $wordToComplete = $scriptArgumentAst.Value
+        }
     }
 
     Get-LocalScript | Where-Object {
