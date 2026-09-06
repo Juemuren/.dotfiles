@@ -1,5 +1,3 @@
-param([string]$ScriptPath)
-
 Import-Module ScriptRunner
-Invoke-LocalScript $ScriptPath @args
+Invoke-LocalScript @args
 exit $LASTEXITCODE

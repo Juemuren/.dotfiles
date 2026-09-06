@@ -8,6 +8,7 @@ function Get-LocalScript {
     <# .SYNOPSIS
     Lists local scripts with a shebang or a .ps1 extension.
     #>
+
     Get-ChildItem -LiteralPath "$HOME/.local/bin" -File | Where-Object {
         $_.Extension -eq '.ps1' -or
         (Get-Content -LiteralPath $_.FullName -TotalCount 1) -match '^#!'
@@ -45,31 +46,34 @@ function Invoke-LocalScript {
     .EXAMPLE
     runs backup.sh --target 'D:\My Backups'
     #>
-    param([string]$ScriptPath)
 
-    if (-not $ScriptPath) {
+    # Keep target script options out of PowerShell's named parameter binding.
+    if ($args.Count -eq 0 -or -not $args[0]) {
         throw 'Usage: runs <script> [args]'
     }
 
-    $path = if ($ScriptPath -match '[/\\]' -or [IO.Path]::IsPathRooted($ScriptPath)) {
-        $ScriptPath
+    $scriptPath = [string]$args[0]
+    if ($scriptPath -notmatch '[/\\]' -and -not [IO.Path]::IsPathRooted($scriptPath)) {
+        $scriptPath = Join-Path "$HOME/.local/bin" $scriptPath
     }
-    else {
-        Join-Path "$HOME/.local/bin" $ScriptPath
+    $scriptPath = (Resolve-Path -LiteralPath $scriptPath -ErrorAction Stop).ProviderPath
+
+    $scriptArgs = @()
+    if ($args.Count -gt 1) {
+        $scriptArgs = $args[1..($args.Count - 1)]
     }
 
-    $path = (Resolve-Path -LiteralPath $path -ErrorAction Stop).ProviderPath
-
-    $interpreter = Get-ScriptInterpreter $path
+    $interpreter = Get-ScriptInterpreter $scriptPath
     $interpreterPath = Get-Command -Name $interpreter.Name -CommandType Application -ErrorAction Stop
     $interpreterArgs = $interpreter.Args
-    & $interpreterPath @interpreterArgs $path @args
+    & $interpreterPath @interpreterArgs $scriptPath @scriptArgs
 }
 
 function Enable-ScriptPicker {
     <# .SYNOPSIS
     Binds Alt+s to insert an fzf-selected script into the command line.
     #>
+
     Set-PSReadLineKeyHandler -Chord 'Alt+s' -BriefDescription 'Select local script' -ScriptBlock {
         $selected = Get-LocalScript
         | Select-Object -ExpandProperty Name
@@ -94,9 +98,14 @@ function Enable-ScriptPicker {
 
 Set-Alias -Name runs -Value Invoke-LocalScript
 
-Register-ArgumentCompleter -CommandName Invoke-LocalScript, runs -ParameterName ScriptPath -ScriptBlock {
-    # Argument completers receive the current word as their third argument.
-    $wordToComplete = $args[2]
+Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+
+    # Only complete the script path, not arguments passed to the script.
+    if ($commandAst.CommandElements.Count -gt 1 -and
+        $cursorPosition -gt $commandAst.CommandElements[1].Extent.EndOffset) {
+        return
+    }
 
     Get-LocalScript | Where-Object Name -Like "$wordToComplete*" | ForEach-Object {
         $quoted = Convert-ScriptName $_.Name
