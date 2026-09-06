@@ -24,7 +24,7 @@ function Get-ScriptInterpreter {
     $firstLine = Get-Content -LiteralPath $Path -TotalCount 1
     if ($firstLine -notmatch '^#!\s*(.+)$') {
         if ([IO.Path]::GetExtension($Path) -eq '.ps1') {
-            return [pscustomobject]@{
+            return [PSCustomObject]@{
                 Name = 'pwsh'
                 Args = @('-NoProfile', '-File')
             }
@@ -34,7 +34,7 @@ function Get-ScriptInterpreter {
 
     # Pass the optional shebang argument intact for the interpreter to handle.
     $shebangParts = @($Matches[1].Trim() -split '\s+', 2)
-    return [pscustomobject]@{
+    return [PSCustomObject]@{
         Name = ($shebangParts[0] -split '/')[-1]
         Args = @($shebangParts | Select-Object -Skip 1)
     }
