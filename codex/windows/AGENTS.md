@@ -2,8 +2,8 @@
 
 ## Shell
 
-- 使用 `sh path/to/script.sh` 运行 Bash 脚本
-- 使用 `pwsh -NoProfile path/to/script.ps1` 运行 PowerShell 脚本
+- 通过 `sh` 调用 Bash
+- 通过 `pwsh` 调用 Pwsh
 
 ## 文件查找与代码搜索
 
