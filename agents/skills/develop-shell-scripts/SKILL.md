@@ -1,22 +1,36 @@
 ---
 name: develop-shell-scripts
-description: 创建、修改、测试、检查并格式化可复用的 POSIX shell、Bash 或 Pwsh 脚本。当完成的任务中存在具有复用价值的命令，或要求创建、修改 shell 脚本时使用。
+description: 创建、修改、测试、检查并格式化可复用的 POSIX shell、Bash、PowerShell、Pwsh 或 Python 自动化脚本。当要求创建或修改这些语言的自动化脚本时使用；不用于一般 Python 应用或库的开发。
 ---
 
-# 开发 Shell 脚本
+# 开发自动化脚本
 
-## 识别可复用工作
+## 识别可复用的工作
 
-- 完成请求的任务后，复盘其中使用的命令。如果某些命令可能再次执行，并且保存它们能够减少重复编码或记录不直观的知识，就将其持久化。
+- 如果一些命令可能再次执行，并且保存它们能够减少重复编码或记录不直观的知识，就将其持久化。
 - 如果项目中已有功能重叠的脚本或任务，则优先扩展原有的实现。
 - 不要把探索操作和一次性命令写入脚本。
 - 不要持久化密钥、凭据、特定于机器的绝对路径、临时值或未经确认的破坏性操作。
 
+## 选择语言
+
+- 尊重用户指定的语言和项目约定；修改现有脚本时优先沿用原语言；新脚本结合目标环境、运行时可用性和维护成本选择语言。
+- **POSIX shell / Bash**：主要工作是调用命令、连接管道和重定向时优先选择。需要跨 Unix 环境且无需 Bash 特性时使用 POSIX shell；需要数组等 Bash 特性时使用 Bash。
+- **PowerShell / Pwsh**：主要工作依赖 Windows 管理接口、PowerShell cmdlet、对象管道或 .NET 时优先选择；可以大胆使用新版 PowerShell 专有的语法；只有当任务明确要求需要运行在只有旧版 Powershell 的 Windows 平台上时，才考虑兼容旧版 Powershell。
+- **Python**：主要工作涉及结构化数据解析与转换、复杂控制流，或需要在 Windows / Unix 上复用同一套逻辑时优先选择。仅编排少量外部命令时通常无需引入 Python。
+
 ## 创建或修改脚本
 
-- 优先选择目标环境原生且维护成本最低的语言；需要跨 Unix 环境时优先 POSIX shell，需要 Bash 特性使用 Bash，完成 Windows 专属任务使用 Pwsh。
-- 对新脚本，在实现前规划好输入、输出、退出行为和副作用。
-- 对现有脚本，检查其调用者并保持接口不变，除非任务明确要求更改。
+### Shell / Pwsh 脚本
+
+- 除非任务要求最大的兼容性，否则当使用外部程序实现功能比内置命令更方便时，优先使用外部程序。
+- 对于脚本中出现的退出状态码、文件描述符、ASCII 转义序列、复杂正则或 DSL 等 Magic Number 和 Magic String，请用合适的变量表明其含义，或在注释中说明用途。
+
+### Python 脚本
+
+- 优先使用标准库和项目现有依赖。
+- 当标准库能力不足时，且项目中不存在任何依赖时，优先考虑通过子进程调用合适的工具，而不是自己造轮子。
+- 为函数参数和返回值添加有意义的类型标注，便于类型检查。
 
 ### 函数式风格
 
@@ -39,20 +53,14 @@ description: 创建、修改、测试、检查并格式化可复用的 POSIX she
 ## 检查
 
 - 对于 POSIX shell 和 Bash 脚本，使用 `sh -n` 进行语法检查，使用 `shellcheck` 进行静态检查。
-- 对于 Pwsh 脚本，使用 `Invoke-ScriptAnalyzer` 进行静态检查。
-- 尽量修复静态检查发现的问题；只添加范围小且理由充分的抑制规则。
+- 对于 PowerShell 和 Pwsh 脚本，使用 `Invoke-ScriptAnalyzer` 进行静态检查。
+- 对于 Python 脚本，使用 `ruff check` 进行静态检查，使用 `ty check` 进行类型检查。
 
 ## 格式化
 
-- 对于 POSIX shell 和 Bash 脚本，使用 `shfmt` 进行格式化。
-- 对于 Pwsh 脚本，使用 `Invoke-Formatter` 进行格式化。
-- 当不存在项目级的格式化要求时，使用如下格式化配置：
-  ```ini
-  binary_next_line = true
-  space_redirects = true
-  switch_case_indent = true
-  function_next_line = false
-  ```
+- 对于 POSIX shell 和 Bash 脚本，使用 `shfmt` 进行格式化。当不存在项目级的格式化要求时，使用 `-i 4 -ci -sr` 格式。
+- 对于 PowerShell 和 Pwsh 脚本，使用 `Invoke-Formatter` 进行格式化。
+- 对于 Python 脚本，使用 `ruff format` 进行格式化；仅验证格式时使用 `ruff format --check`。
 
 ## 报告结果
 
