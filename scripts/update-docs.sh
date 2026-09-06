@@ -26,10 +26,13 @@ get_dirs() {
 }
 
 get_dirs . scripts |
-    update_section README.md TOOL-LIST
+    update_section README.md TOOL
 
 get_dirs vscode/profiles |
-    update_section README.md VSCODE-PROFILE-LIST
+    update_section README.md VSCODE-PROFILE
 
 get_dirs agents/skills |
-    update_section README.md AGENT-SKILL-LIST
+    update_section README.md AGENT-SKILL
+
+get_dirs pwsh/modules |
+    update_section README.md PWSH-MODULE

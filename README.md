@@ -6,7 +6,7 @@
 
 目前包含这些配置
 
-<!-- TOOL-LIST:BEGIN -->
+<!-- TOOL:BEGIN -->
 * agents
 * bash
 * bat
@@ -30,11 +30,11 @@
 * vscode
 * wt
 * zsh
-<!-- TOOL-LIST:END -->
+<!-- TOOL:END -->
 
 VSCode 包含以下 Profile
 
-<!-- VSCODE-PROFILE-LIST:BEGIN -->
+<!-- VSCODE-PROFILE:BEGIN -->
 * conf
 * doc
 * emb
@@ -43,15 +43,21 @@ VSCode 包含以下 Profile
 * sci
 * sys
 * web
-<!-- VSCODE-PROFILE-LIST:END -->
+<!-- VSCODE-PROFILE:END -->
 
 Agents 包含以下 Skill
 
-<!-- AGENT-SKILL-LIST:BEGIN -->
+<!-- AGENT-SKILL:BEGIN -->
 * benchmark-with-hyperfine
 * capture-tool-problems
 * develop-automation-scripts
-<!-- AGENT-SKILL-LIST:END -->
+<!-- AGENT-SKILL:END -->
+
+Pwsh 包含以下 Module
+
+<!-- PWSH-MODULE:BEGIN -->
+* ScriptRunner
+<!-- PWSH-MODULE:END -->
 
 ## 使用方法
 
