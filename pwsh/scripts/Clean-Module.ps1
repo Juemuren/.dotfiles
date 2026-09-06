@@ -27,8 +27,11 @@ $oldModules.Version | ForEach-Object {
     Write-Output "  - $_"
 }
 
-if (-not $PSCmdlet.ShouldProcess($ModuleName, 'Uninstall the versions listed above')) {
+if (-not $PSCmdlet.ShouldProcess($ModuleName, 'Uninstall the old versions')) {
     return
 }
 
-$oldModules | Uninstall-Module -Confirm:$false
+$oldModules | ForEach-Object {
+    Write-Output "Uninstalling $($_.Name) $($_.Version) ..."
+    Uninstall-Module $_ -Confirm:$false
+}
