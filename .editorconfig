@@ -10,7 +10,6 @@ indent_size = 2
 
 [*.{sh,zsh,bash}]
 indent_size = 4
-binary_next_line = true
 space_redirects = true
 switch_case_indent = true
 function_next_line = false

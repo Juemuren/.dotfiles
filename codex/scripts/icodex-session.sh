@@ -20,14 +20,13 @@ RENDER="bat --color=always --style=plain --language=markdown"
 case ${1:-} in
     path)
         SEARCH="
-            fd --type file --extension jsonl --fixed-strings {q} '$CODEX_SESSIONS' \\
-                | sed -E '$SED_EXPRESSION'
+            fd --type file --extension jsonl --fixed-strings {q} '$CODEX_SESSIONS' |
+                sed -E '$SED_EXPRESSION'
         "
         PREVIEW="
             [ -n {1} ] || exit
 
-            $SESSION_CONTENT \\
-                | $RENDER
+            $SESSION_CONTENT | $RENDER
         "
         ;;
     content)
@@ -35,20 +34,17 @@ case ${1:-} in
             if [ -z {q} ]; then
                 rg --files-with-matches --glob '*.jsonl' '$RG_PATTERN' '$CODEX_SESSIONS'
             else
-                rg --json --smart-case --glob '*.jsonl' {q} '$CODEX_SESSIONS' \\
-                    | jq -rs -f '$SESSION_MATCHES_FILTER'
+                rg --json --smart-case --glob '*.jsonl' {q} '$CODEX_SESSIONS' |
+                    jq -rs -f '$SESSION_MATCHES_FILTER'
             fi | sed -E '$SED_EXPRESSION'
         "
         PREVIEW="
             [ -n {1} ] || exit
 
             if [ -n {q} ]; then
-                $SESSION_CONTENT \\
-                    | $RENDER \\
-                    | rg --color=always --context 3 --smart-case -- {q}
+                $SESSION_CONTENT | $RENDER | rg --color=always --context 3 --smart-case -- {q}
             else
-                $SESSION_CONTENT \\
-                    | $RENDER
+                $SESSION_CONTENT | $RENDER
             fi
         "
         ;;

@@ -13,8 +13,8 @@ JQ_GET_CONTENTS='
 FORMAT="printf '%s\n\n' '# Path' {r1} '# Content' {r2}"
 RENDER='bat --color=always --style=plain --language=markdown'
 
-jq -r "$JQ_GET_CONTENTS" "$file" \
-    | fzf --with-shell 'sh -c' \
+jq -r "$JQ_GET_CONTENTS" "$file" |
+    fzf --with-shell 'sh -c' \
         --delimiter '\t' \
         --with-nth 2 \
         --bind "enter:become:$FORMAT | $RENDER --paging=never" \

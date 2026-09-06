@@ -25,11 +25,11 @@ get_dirs() {
     fi
 }
 
-get_dirs . scripts \
-    | update_section README.md TOOL-LIST
+get_dirs . scripts |
+    update_section README.md TOOL-LIST
 
-get_dirs vscode/profiles \
-    | update_section README.md VSCODE-PROFILE-LIST
+get_dirs vscode/profiles |
+    update_section README.md VSCODE-PROFILE-LIST
 
-get_dirs agents/skills \
-    | update_section README.md AGENT-SKILL-LIST
+get_dirs agents/skills |
+    update_section README.md AGENT-SKILL-LIST
