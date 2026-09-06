@@ -107,7 +107,14 @@ Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -Script
         return
     }
 
-    Get-LocalScript | Where-Object Name -Like "$wordToComplete*" | ForEach-Object {
+    if ($commandAst.CommandElements.Count -gt 1 -and
+        $commandAst.CommandElements[1] -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
+        $wordToComplete = $commandAst.CommandElements[1].Value
+    }
+
+    Get-LocalScript | Where-Object {
+        $_.Name.StartsWith($wordToComplete, [StringComparison]::OrdinalIgnoreCase)
+    } | ForEach-Object {
         $quoted = Convert-ScriptName $_.Name
         [System.Management.Automation.CompletionResult]::new(
             $quoted, $_.Name, 'ParameterValue', $_.FullName
