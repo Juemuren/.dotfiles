@@ -35,7 +35,7 @@ runs ./tools/example.py --help
 
 - 保持当前工作目录，不切换到脚本所在目录。
 - 保留脚本的标准输出和标准错误，不捕获为额外的结果对象。
-- 退出码保存在 `$LASTEXITCODE` 中。
+- 外部程序的退出码保存在 `$LASTEXITCODE` 中。
 
 ## 补全与选择
 
@@ -80,3 +80,5 @@ Enable-ScriptPicker
 - 参数部分，会完整传递，不自动拆分，也不解析其中的引号和转义。
 
 没有 shebang 的 `.ps1` 使用 `pwsh -NoProfile -File` 执行；其他无 shebang 文件报错。
+
+可以运行 `Get-ScriptInterpreter example.py` 查看解析结果。
