@@ -32,8 +32,8 @@ update-scoop:
     ./scripts/update-scoop.ps1
 
 [linux]
-update-brew os:
-    brew list --installed-on-request > "brew/{{ os }}.txt"
+update-brew:
+    brew list --installed-on-request > "brew/{{ os() }}.txt"
 
 [script("msys2")]
 [windows]
@@ -45,7 +45,6 @@ update-tex:
     tlmgr info --list --only-installed --data name > "tex/{{ os() }}/packages.txt"
 
 [script("pwsh")]
-[windows]
 update-pwsh:
     ./scripts/update-pwsh.ps1
 
@@ -69,12 +68,10 @@ fmt-py:
     ruff format .
 
 [script("pwsh")]
-[windows]
 lint-pwsh:
     fd -e ps1 -e psm1 -e psd1 | ./pwsh/scripts/Run-Lint.ps1
 
 [script("pwsh")]
-[windows]
 fmt-pwsh:
     fd -e ps1 -e psm1 -e psd1 | ./pwsh/scripts/Run-Format.ps1
 
