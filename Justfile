@@ -1,3 +1,9 @@
+[unix]
+set script-interpreter := ["sh", "-eu"]
+
+[windows]
+set script-interpreter := ["pwsh", "-NoProfile", "-File"]
+
 [default]
 default:
     just --list
@@ -34,10 +40,9 @@ update-brew os:
 update-pacman:
     pacman -Qeq > "pacman/msys.txt"
 
-[script("pwsh")]
-[windows]
+[script]
 update-tex:
-    tlmgr info --list --only-installed --data name > "tex/windows.txt"
+    tlmgr info --list --only-installed --data name > "tex/{{ os() }}/packages.txt"
 
 [script("pwsh")]
 [windows]
