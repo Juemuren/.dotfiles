@@ -53,7 +53,7 @@ pnpm_store = "~/AppData/Local/pnpm/store"
 "uv/uv.toml" = "~/.config/uv/uv.toml"
 
 [vim.files]
-"vim/vim.vim" = "~/.vimrc"
+"vim/config.vim" = "~/.vimrc"
 
 [vscode.files]
 "vscode/profiles/global/keybindings.jsonc" = "~/.config/Code/User/keybindings.json"
