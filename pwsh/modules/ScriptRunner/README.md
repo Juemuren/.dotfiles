@@ -43,7 +43,7 @@ runs ./tools/example.py --help
 
 `runs` 对裸文件名提供了补全。
 
-输入 `runs git-p` 后按 Tab，可以补全为 `runs 'git-push.sh'`。候选项来自 `~/.local/bin` 顶层目录中的 `.ps1` 文件和有 shebang 的文件。
+输入 `runs git-p` 后按 Tab，可以补全为 `runs 'git-push.sh'`。候选项来自 `~/.local/bin` 顶层目录中的 `.ps1` 文件和有 shebang 的文件，并按文件名排序。若目录不存在，则候选项为空。
 
 可以运行 `Get-LocalScript` 查看候选文件。
 
@@ -76,8 +76,8 @@ Enable-ScriptPicker
 | `#!/usr/bin/env python`       | PATH 中的 `env`，附加 `python` 参数       |
 | `#!/usr/bin/env -S python -u` | PATH 中的 `env`，附加 `-S python -u` 参数 |
 
-- 解释器部分，只获取路径中最后一个 `/` 后面的值作为解释器
-- 参数部分，会完整传递，不自动拆分，也不解析其中的引号和转义。
+- 解释器部分，只取文件名，即路径中最后一个 `/` 后值，忽略前面的所有目录。因此解释器不支持使用绝对路径。
+- 参数部分，会完整传递给解释器。但参数不会自动拆分，也不解析其中的引号和转义。
 
 没有 shebang 的 `.ps1` 使用 `pwsh -NoProfile -File` 执行；其他无 shebang 文件报错。
 

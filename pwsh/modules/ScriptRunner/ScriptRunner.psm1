@@ -1,3 +1,5 @@
+$script:ScriptRunnerDirectory = '~/.local/bin'
+
 function Convert-ScriptName {
     param([string]$Value)
 
@@ -9,17 +11,24 @@ function Get-LocalScript {
     Lists local scripts with a shebang or a .ps1 extension.
     #>
 
-    Get-ChildItem -LiteralPath "$HOME/.local/bin" -File | Where-Object {
-        $_.Extension -eq '.ps1' -or
-        (Get-Content -LiteralPath $_.FullName -TotalCount 1) -match '^#!'
+    if (-not (Test-Path -LiteralPath $script:ScriptRunnerDirectory -PathType Container)) {
+        return
     }
+
+    Get-ChildItem -LiteralPath $script:ScriptRunnerDirectory -File | Where-Object {
+        $_.Extension -eq '.ps1' -or
+        (Get-Content -LiteralPath $_.FullName -TotalCount 1 -ErrorAction SilentlyContinue) -match '^#!'
+    } | Sort-Object Name
 }
 
 function Get-ScriptInterpreter {
     <# .SYNOPSIS
     Returns the interpreter name and arguments for a script without running it.
     #>
-    param([string]$Path)
+    param(
+        [Parameter(Mandatory)]
+        [string]$Path
+    )
 
     $firstLine = Get-Content -LiteralPath $Path -TotalCount 1
     if ($firstLine -notmatch '^#!\s*(.+)$') {
@@ -53,7 +62,7 @@ function Invoke-LocalScript {
 
     $scriptPath = [string]$args[0]
     if ($scriptPath -notmatch '[/\\]' -and -not [IO.Path]::IsPathRooted($scriptPath)) {
-        $scriptPath = Join-Path "$HOME/.local/bin" $scriptPath
+        $scriptPath = Join-Path $script:ScriptRunnerDirectory $scriptPath
     }
     $scriptPath = (Resolve-Path -LiteralPath $scriptPath -ErrorAction Stop).ProviderPath
 
