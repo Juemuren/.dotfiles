@@ -3,24 +3,33 @@
 Formats PowerShell scripts with PSScriptAnalyzer.
 
 .DESCRIPTION
-Accepts a path array or paths from the pipeline.
-Uses LF line endings and one final newline.
-Writes only changed files.
+Writes only changed files, using LF line endings and one final newline.
+Reports changed files and a batch summary. Use -Verbose to show unchanged files.
 
-Use -Check to report whether formatting is needed without writing.
-Use -Verbose to show unchanged files.
-Use -Quiet to hide successful formatting output and summaries; check failures remain visible.
+.PARAMETER Path
+File paths, supplied as an array or through the pipeline.
 
-Exit codes:
-    - 0: formatted or unchanged
-    - 1: -Check found changes
-    - 2: execution failed.
+.PARAMETER Check
+Reports files needing formatting without writing changes.
+
+.PARAMETER Quiet
+Hides successful formatting output and summaries. Check findings and execution errors remain visible.
 
 .EXAMPLE
 Run-Format.ps1 .\test.ps1 -Check
 
 .EXAMPLE
+Run-Format.ps1 -Path a.ps1, b.ps1
+
+.EXAMPLE
 fd -e ps1 -e psm1 | Run-Format.ps1
+
+.NOTES
+Exit codes:
+    0: formatted or unchanged
+    1: -Check found changes
+    2: execution failed for at least one file
+Continues after file failures. Exit code 2 takes precedence over 1.
 #>
 [CmdletBinding()]
 param(
@@ -33,6 +42,14 @@ param(
 )
 
 begin {
+    function ConvertTo-FormattedScriptText {
+        param([string]$Text)
+
+        $normalized = $Text.Replace("`r`n", "`n")
+        $formatted = Invoke-Formatter -ScriptDefinition $normalized -Verbose:$false
+        return $formatted.TrimEnd("`r", "`n") + "`n"
+    }
+
     $ErrorActionPreference = 'Stop'
     $fileCount = 0
     $changedCount = 0
@@ -45,7 +62,7 @@ process {
         $fileCount++
         try {
             $original = (Get-Content -LiteralPath $filePath -Raw) ?? ''
-            $formatted = (Invoke-Formatter -ScriptDefinition $original.Replace("`r`n", "`n") -Verbose:$false).TrimEnd("`r", "`n") + "`n"
+            $formatted = ConvertTo-FormattedScriptText -Text $original
 
             if ($original -ceq $formatted) {
                 $unchangedCount++

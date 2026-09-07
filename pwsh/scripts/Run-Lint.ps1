@@ -3,22 +3,32 @@
 Checks PowerShell scripts with PSScriptAnalyzer.
 
 .DESCRIPTION
-Accepts a path array or paths from the pipeline.
-Findings and execution errors remain visible.
+Reports findings for each file and a batch summary.
 
-Outputs ANSI colors by default. Use -NoColor or set $env:NO_COLOR to avoid coloring.
-Use -Quiet to hide the summary.
+.PARAMETER Path
+File paths, supplied as an array or through the pipeline.
 
-Exit codes:
-    - 0: no findings
-    - 1: lint findings
-    - 2: execution failed
+.PARAMETER NoColor
+Disables ANSI colors. Setting the NO_COLOR environment variable also disables colors.
+
+.PARAMETER Quiet
+Hides the summary. Findings and execution errors remain visible.
 
 .EXAMPLE
 Run-Lint.ps1 .\test.ps1
 
 .EXAMPLE
+Run-Lint.ps1 -Path a.ps1, b.ps1
+
+.EXAMPLE
 fd -e ps1 -e psm1 | Run-Lint.ps1
+
+.NOTES
+Exit codes:
+    0: no findings
+    1: lint findings (including warnings)
+    2: execution failed for at least one file
+Continues after file failures. Exit code 2 takes precedence over 1.
 #>
 [CmdletBinding()]
 param(
@@ -31,6 +41,34 @@ param(
 )
 
 begin {
+    function Format-LintFinding {
+        param(
+            [object]$Finding,
+            [bool]$UseColor
+        )
+
+        $severity = $Finding.Severity.ToString().ToUpperInvariant()
+        $location = "{0}:{1}:{2}" -f $Finding.ScriptPath, $Finding.Line, $Finding.Column
+        $rule = $Finding.RuleName
+        if ($UseColor) {
+            $severityColor = switch ($severity) {
+                'ERROR' { $PSStyle.Foreground.Red }
+                'WARNING' { $PSStyle.Foreground.Yellow }
+                'INFORMATION' { $PSStyle.Foreground.Blue }
+                'PARSEERROR' { $PSStyle.Foreground.Magenta }
+                default { $PSStyle.Reset }
+            }
+            $location = "$($PSStyle.Foreground.Cyan)$location$($PSStyle.Reset)"
+            $severity = "$severityColor[$severity]"
+            $rule = "$($PSStyle.Foreground.Green)$rule$($PSStyle.Reset)"
+        }
+        else {
+            $severity = "[$severity]"
+        }
+
+        return "{0}`n {1} {2}: {3}`n" -f $location, $severity, $rule, $Finding.Message
+    }
+
     $ErrorActionPreference = 'Stop'
     $useColor = -not $NoColor -and [string]::IsNullOrEmpty($env:NO_COLOR)
     $fileCount = 0
@@ -45,40 +83,8 @@ process {
             $findings = @(Invoke-ScriptAnalyzer -Path $filePath)
             $findingCount += $findings.Count
             foreach ($finding in $findings) {
-                $severity = $finding.Severity.ToString().ToUpperInvariant()
-                if ($useColor) {
-                    $severityColor = switch ($severity) {
-                        'ERROR' { $PSStyle.Foreground.Red }
-                        'WARNING' { $PSStyle.Foreground.Yellow }
-                        'INFORMATION' { $PSStyle.Foreground.Blue }
-                        'PARSEERROR' { $PSStyle.Foreground.Magenta }
-                        default { $PSStyle.Reset }
-                    }
-                    $text = "{0}{1}:{2}:{3}{4}`n {5}[{6}] {7}{8}{4}: {9}`n" -f `
-                        $PSStyle.Foreground.Cyan, `
-                        $finding.ScriptPath, `
-                        $finding.Line, `
-                        $finding.Column, `
-                        $PSStyle.Reset, `
-                        $severityColor, `
-                        $severity, `
-                        $PSStyle.Foreground.Green, `
-                        $finding.RuleName, `
-                        $finding.Message
-                    Write-Output $text
-                }
-                else {
-                    $text = "{0}:{1}:{2}`n [{3}] {4}: {5}`n" -f `
-                        $finding.ScriptPath, `
-                        $finding.Line, `
-                        $finding.Column, `
-                        $severity, `
-                        $finding.RuleName, `
-                        $finding.Message
-                    Write-Output $text
-                }
+                Format-LintFinding -Finding $finding -UseColor $useColor
             }
-
         }
         catch {
             $failedCount++
