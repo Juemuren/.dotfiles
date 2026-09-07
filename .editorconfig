@@ -38,5 +38,5 @@ indent_size = 4
 [pi/*/settings.json]
 insert_final_newline = false
 
-[fastfetch/sakiko.txt]
+[fastfetch/logos/*.txt]
 insert_final_newline = false

@@ -24,8 +24,8 @@ default_target_type = "automatic"
 "conda/conda.yaml" = "~/.condarc"
 
 [fastfetch.files]
-"fastfetch/fastfetch.jsonc" = "~/.config/fastfetch/config.jsonc"
-"fastfetch/logos" = "~/.local/share/fastfetch"
+"fastfetch/config.jsonc" = "~/.config/fastfetch/config.jsonc"
+"fastfetch/logos" = "~/.local/share/fastfetch/logos"
 
 [git.files]
 "git/config.ini" = "~/.gitconfig"
