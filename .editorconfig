@@ -35,5 +35,8 @@ trim_trailing_whitespace = false
 insert_final_newline = false
 indent_size = 4
 
+[pi/*/settings.json]
+insert_final_newline = false
+
 [fastfetch/sakiko.txt]
 insert_final_newline = false
