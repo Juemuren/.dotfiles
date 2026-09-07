@@ -13,7 +13,6 @@
 * brew
 * codex
 * conda
-* env
 * fastfetch
 * git
 * mise
@@ -29,6 +28,7 @@
 * uv
 * vim
 * vscode
+* windows
 * wt
 * zsh
 <!-- TOOL:END -->
