@@ -42,7 +42,7 @@ git_email = ""
 "pixi/global.toml" = "$PIXI_HOME/manifests/pixi-global.toml"
 
 [pnpm.files]
-"pnpm/pnpm.yaml" = "~/.config/pnpm/config.yaml"
+"pnpm/config.yaml" = "~/.config/pnpm/config.yaml"
 [pnpm.variables]
 pnpm_store = "~/AppData/Local/pnpm/store"
 

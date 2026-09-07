@@ -12,7 +12,7 @@
 "pi/windows/settings.json" = "~/.pi/agent/settings.json"
 
 [pnpm.files]
-"pnpm/pnpm.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
+"pnpm/config.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
 
 [uv.files]
 "uv/uv.toml" = "~/AppData/Roaming/uv/uv.toml"
