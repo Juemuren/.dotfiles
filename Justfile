@@ -51,8 +51,7 @@ format:
     dprint fmt
 
 lint-sh:
-    fd -e sh -e bash -e zsh -x \
-        shellcheck
+    fd -e sh -e bash -e zsh -x shellcheck
 
 fmt-sh:
     shfmt --write .
@@ -67,12 +66,12 @@ fmt-py:
 [script("pwsh")]
 [windows]
 lint-pwsh:
-    fd -e ps1 -e psm1 | foreach { ./pwsh/scripts/Run-Lint.ps1 $_ }
+    fd -e ps1 -e psm1 -e psd1 | ./pwsh/scripts/Run-Lint.ps1
 
 [script("pwsh")]
 [windows]
 fmt-pwsh:
-    fd -e ps1 -e psm1 | foreach { ./pwsh/scripts/Run-Format.ps1 $_ }
+    fd -e ps1 -e psm1 -e psd1 | ./pwsh/scripts/Run-Format.ps1
 
 update-docs:
     ./scripts/update-docs.sh
