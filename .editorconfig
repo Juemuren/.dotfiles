@@ -26,7 +26,7 @@ indent_size = 4
 [{codex/*/config.toml,codex/rules/*.rules}]
 indent_size = 4
 
-[git/git.ini]
+[git/config.ini]
 indent_style = tab
 trim_trailing_whitespace = false
 

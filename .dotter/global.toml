@@ -28,7 +28,7 @@ default_target_type = "automatic"
 "fastfetch/logos" = "~/.local/share/fastfetch"
 
 [git.files]
-"git/git.ini" = "~/.gitconfig"
+"git/config.ini" = "~/.gitconfig"
 "git/scripts" = "~/.local/bin"
 [git.variables]
 git_name = ""
