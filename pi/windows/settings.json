@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.85.1",
-  "theme": "dark",
+  "theme": "catppuccin-mocha",
   "defaultProvider": "openai-codex",
   "shellPath": "{{scoop_root}}/apps/git/current/bin/bash.exe",
   "defaultModel": "gpt-5.5"

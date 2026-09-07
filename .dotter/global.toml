@@ -12,6 +12,9 @@ default_target_type = "automatic"
 [bat.files]
 "bat/config.txt" = "$BAT_CONFIG_DIR/config"
 
+[pi.files]
+"pi/themes" = "~/.pi/agent/themes"
+
 [codex.files]
 "codex/rules" = "~/.codex/rules"
 "codex/pets" = { target = "~/.codex/pets", type = "symbolic", recurse = false }
