@@ -34,7 +34,7 @@ depends = ["pwsh", "scoop", "wt"]
 "pwsh/scripts" = "~/.local/bin"
 
 [scoop.files]
-"scoop/scoop.json" = "~/.config/scoop/config.json"
+"scoop/config.json" = "~/.config/scoop/config.json"
 "scoop/scripts" = "~/.local/bin"
 [scoop.variables]
 scoop_root = "~/scoop"
