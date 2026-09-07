@@ -1,21 +1,19 @@
+set default-list := true
+
 [unix]
 set script-interpreter := ["sh", "-eu"]
 
 [windows]
 set script-interpreter := ["pwsh", "-NoProfile", "-File"]
 
-[default]
-default:
-    just --list
-
-[linux]
-install:
-    ./scripts/install.sh
-
-[script("pwsh")]
 [windows]
-install:
-    ./scripts/install.ps1
+mod windows 'windows.just'
+[unix]
+mod unix 'unix.just'
+
+mod pwsh 'pwsh.just'
+mod sh 'sh.just'
+mod py 'py.just'
 
 watch:
     ./bin/dotter watch --dry-run --force
@@ -26,54 +24,17 @@ preview:
 deploy:
     ./bin/dotter deploy --verbose --force --noconfirm
 
-[script("pwsh")]
-[windows]
-update-scoop:
-    ./scripts/update-scoop.ps1
-
-[linux]
-update-brew os:
-    brew list --installed-on-request > "brew/{{ os }}/packages.txt"
-
-[script("msys2")]
-[windows]
-update-pacman:
-    pacman -Qeq > "pacman/msys.txt"
-
 [script]
 update-tex:
     tlmgr info --list --only-installed --data name > "tex/{{ os() }}/packages.txt"
 
-[script("pwsh")]
-update-pwsh:
-    ./scripts/update-pwsh.ps1
-
 update-vscode profile:
     ./scripts/update-vscode.sh "{{ profile }}"
 
-format:
+fmt:
     dprint fmt
 
-lint-sh:
-    fd -e sh -e bash -e zsh -x shellcheck
-
-fmt-sh:
-    shfmt --write .
-
-lint-py:
-    ruff check .
-    ty check .
-
-fmt-py:
-    ruff format .
-
-[script("pwsh")]
-lint-pwsh:
-    fd -e ps1 -e psm1 -e psd1 | ./pwsh/scripts/Run-Lint.ps1
-
-[script("pwsh")]
-fmt-pwsh:
-    fd -e ps1 -e psm1 -e psd1 | ./pwsh/scripts/Run-Format.ps1
+lint: pwsh::lint sh::lint py::lint
 
 update-docs:
     ./scripts/update-docs.sh
