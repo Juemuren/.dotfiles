@@ -5,9 +5,9 @@
   "markdown": {},
   "toml": {},
   "excludes": [
-    "wt/*.json",
-    "starship/*.toml",
-    "codex/*/config.toml",
+    "wt/settings.json",
+    "pi/*/settings.json",
+    "starship/starship.toml",
     "README.md"
   ],
   "plugins": [
