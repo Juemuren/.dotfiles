@@ -6,7 +6,7 @@
 "codex/windows/AGENTS.md" = "~/.codex/AGENTS.md"
 
 [mise.files]
-"mise/windows.toml" = "~/.config/mise/config.toml"
+"mise/windows/config.toml" = "~/.config/mise/config.toml"
 
 [pi.files]
 "pi/windows/settings.json" = "~/.pi/agent/settings.json"

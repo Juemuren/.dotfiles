@@ -2,7 +2,7 @@
 "bash/wsl.bash" = "~/.bashrc"
 
 [mise.files]
-"mise/wsl.toml" = "~/.config/mise/config.toml"
+"mise/wsl/config.toml" = "~/.config/mise/config.toml"
 
 [zsh.files]
 "zsh/wsl.zsh" = "~/.zshrc"
