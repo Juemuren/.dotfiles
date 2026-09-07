@@ -21,7 +21,7 @@ default_target_type = "automatic"
 "codex/scripts" = "~/.local/bin"
 
 [conda.files]
-"conda/conda.yaml" = "~/.condarc"
+"conda/config.yaml" = "~/.condarc"
 
 [fastfetch.files]
 "fastfetch/config.jsonc" = "~/.config/fastfetch/config.jsonc"
