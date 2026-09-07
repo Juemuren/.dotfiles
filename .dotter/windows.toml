@@ -29,7 +29,7 @@
 depends = ["pwsh", "scoop", "wt"]
 
 [pwsh.files]
-"pwsh/pwsh.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+"pwsh/profile.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
 "pwsh/modules" = "~/Documents/PowerShell/Modules"
 "pwsh/scripts" = "~/.local/bin"
 
