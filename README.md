@@ -19,6 +19,7 @@
 * mise
 * npm
 * pacman
+* pi
 * pixi
 * pnpm
 * pwsh

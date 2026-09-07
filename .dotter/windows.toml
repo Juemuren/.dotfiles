@@ -8,6 +8,9 @@
 [mise.files]
 "mise/windows.toml" = "~/.config/mise/config.toml"
 
+[pi.files]
+"pi/windows/settings.json" = "~/.pi/agent/settings.json"
+
 [pnpm.files]
 "pnpm/pnpm.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
 

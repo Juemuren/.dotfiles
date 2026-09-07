@@ -9,6 +9,7 @@ packages = [
   "git",
   "mise",
   "npm",
+  "pi",
   "pixi",
   "pnpm",
   "starship",
