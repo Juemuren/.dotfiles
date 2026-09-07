@@ -32,8 +32,8 @@ update-scoop:
     ./scripts/update-scoop.ps1
 
 [linux]
-update-brew:
-    brew list --installed-on-request > "brew/{{ os() }}.txt"
+update-brew os:
+    brew list --installed-on-request > "brew/{{ os }}/packages.txt"
 
 [script("msys2")]
 [windows]
