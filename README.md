@@ -16,8 +16,8 @@
 * fastfetch
 * git
 * mise
+* msys
 * npm
-* pacman
 * pi
 * pixi
 * pnpm
