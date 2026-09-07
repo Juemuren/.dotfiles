@@ -30,7 +30,7 @@ indent_size = 4
 indent_style = tab
 trim_trailing_whitespace = false
 
-[wt/wt.json]
+[wt/settings.json]
 trim_trailing_whitespace = false
 insert_final_newline = false
 indent_size = 4
