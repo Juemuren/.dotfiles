@@ -38,8 +38,8 @@ git_email = ""
 "npm/config.ini" = "~/.npmrc"
 
 [pixi.files]
-"pixi/pixi.toml" = "$PIXI_HOME/config.toml"
-"pixi/global.toml" = "$PIXI_HOME/manifests/pixi-global.toml"
+"pixi/config.toml" = "$PIXI_HOME/config.toml"
+"pixi/pixi-global.toml" = "$PIXI_HOME/manifests/pixi-global.toml"
 
 [pnpm.files]
 "pnpm/config.yaml" = "~/.config/pnpm/config.yaml"
