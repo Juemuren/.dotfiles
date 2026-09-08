@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+cd -- "$1"
+
 update_section() {
     local file=$1
     local marker=$2

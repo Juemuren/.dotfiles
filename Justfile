@@ -7,13 +7,15 @@ set script-interpreter := ["sh", "-eu"]
 set script-interpreter := ["pwsh", "-NoProfile", "-File"]
 
 [windows]
-mod windows 'windows.just'
+mod windows 'scripts/windows'
 [unix]
-mod unix 'unix.just'
+mod unix 'scripts/unix'
 
-mod pwsh 'pwsh.just'
-mod sh 'sh.just'
-mod py 'py.just'
+mod pwsh 'scripts/pwsh'
+mod sh 'scripts/sh'
+mod py 'scripts/py'
+mod vscode 'scripts/vscode'
+mod docs 'scripts/docs'
 
 watch:
     ./bin/dotter watch --dry-run --force
@@ -28,13 +30,7 @@ deploy:
 update-tex:
     tlmgr info --list --only-installed --data name > "tex/{{ os() }}/packages.txt"
 
-update-vscode profile:
-    ./scripts/update-vscode.sh "{{ profile }}"
-
-fmt:
+fmt: pwsh::fmt sh::fmt py::fmt
     dprint fmt
 
 lint: pwsh::lint sh::lint py::lint
-
-update-docs:
-    ./scripts/update-docs.sh
