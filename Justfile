@@ -1,16 +1,11 @@
 set default-list := true
 
-[unix]
-set script-interpreter := ["sh", "-eu"]
-
-[windows]
-set script-interpreter := ["pwsh", "-NoProfile", "-File"]
-
 [windows]
 mod windows 'scripts/windows'
 [unix]
 mod unix 'scripts/unix'
 
+mod common 'scripts/common'
 mod pwsh 'scripts/pwsh'
 mod sh 'scripts/sh'
 mod py 'scripts/py'
@@ -25,10 +20,6 @@ preview:
 
 deploy:
     ./bin/dotter deploy --verbose --force --noconfirm
-
-[script]
-update-tex:
-    tlmgr info --list --only-installed --data name > "tex/{{ os() }}/packages.txt"
 
 fmt: pwsh::fmt sh::fmt py::fmt
     dprint fmt
