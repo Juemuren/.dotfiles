@@ -177,6 +177,15 @@
         "MSYS2_PATH_TYPE": "inherit"
       }
     },
+    "VS Pwsh": {
+      "path": "pwsh.exe",
+      "args": [
+        "-NoExit",
+        "-Command",
+        "vs"
+      ],
+      "icon": "terminal-powershell"
+    },
     "Command Prompt": null,
     "Windows PowerShell": null
   },
