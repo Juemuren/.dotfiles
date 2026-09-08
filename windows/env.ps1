@@ -1,4 +1,4 @@
-[Environment]::SetEnvironmentVariable(
+[System.Environment]::SetEnvironmentVariable(
     'HOME',
     "$env:USERPROFILE",
     'User'
