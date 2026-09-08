@@ -8,7 +8,6 @@
 - [ ] vscode: 编写扩展安装脚本，读取 `vscode/*/extensions.jsonc` 通过 `code --install-extension extension-id --profile profile` 安装扩展。
 - [ ] vscode: 完善 profile 记录脚本，通过 CLI 导出 `*.code-profile`，不再需要手动操作。目前 `code` 似乎并不支持这个功能，也许有一些比较 hack 的方法。
 - [ ] vscode: 编写 profile 映射脚本。获取 profile 路径，修改 `.dotter/local.toml` 中的配置目录映射，从而自动消除 `*_hash` 占位。不太清楚能否实现，目前的手动方案尚可接受。
-- [ ] 本机配置：集中管理盘符、Scoop 根目录、缓存目录等差异，补齐本地配置示例与目录创建步骤。
 - [ ] windows：补充把 `~/.local/bin` 添加到 PATH 中的脚本，需要注意重复执行的问题，必须保持幂等性。可以追加到 `windows/env.ps1` 里。
 - [ ] windows: 编写安装 Scoop 的脚本，允许用参数指定安装目录。配置 `SCOOP_HOME` 环境变量，可以顺便修改 `.dotter/local.toml` 中的变量。注意幂等性。
 - [ ] windows：分别编写安装 PowerShell 7、MSVC/SDK 的脚本（使用 winget）。注意幂等性。
@@ -56,10 +55,86 @@
 ## Chore
 
 - [ ] 配置 Windows 开发卷
-- [ ] 用 Scoop 管理 VSCode 安装。我的 bucket 不在本仓库中，也许可以考虑一下把 manifest 符号链接进来。
+- [ ] 用 Scoop 管理 VSCode 安装。我的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
 - [ ] 多用用 neovim，并记录 neovim 配置
 - [ ] 尝试一下在 WSL 里使用 Nix
 - [ ] 考虑迁移到 chezmoi
+- [ ] 改善从复制本地配置示例到创建实际需要的本地配置之间的这段体验，也就是改善配置 machine-special 的过程。一是 vscode 的 profiles 目前还需要手动寻找位置；二是变量需要手动填写（有部分确实必须手写，有部分可以在机器初始化时直接写入），且如果使用外部 `*.env` 权威源，那么可以按文件名拆分模块，不用挤在一个 toml 里，相对更易读。
+
+## Refactor
+
+- [ ] 修改仓库结构
+
+考虑修改仓库结构，改为如下方案
+
+```txt
+.dotfiles
+│
+├── configs
+│   ├── git/
+│   ├── vscode/
+│   ├── starship/
+│   └── ...
+│
+├── manifests
+│   ├── scoop/buckets/*.txt
+│   ├── pwsh/modules.txt
+│   ├── vscode/*/extensions.jsonc
+│   └── ...
+│
+└── automation
+    ├── record
+    ├── restore
+    └── bootstrap
+```
+
+然后 just 作为唯一入口
+
+```sh
+just record scoop
+just record vscode
+just record
+
+just restore scoop
+just restore pwsh
+just restore
+
+just deploy
+
+just bootstrap
+```
+
+- [ ] 唯一权威源
+
+`.dotter/local.toml` 中的 `variables` 只有配置能读，要运行的脚本不能读。
+
+可以使用几个 `*.env` 文件作为 machine-special 权威源。自动化脚本可以从这里读取内容，配置通过 `dotter --patch` 也可以读取这些内容。
+
+比如权威源文件 `.local/env` 可以这样写
+
+```env
+scoop_root="path/to/scoop"
+```
+
+然后通过 just 加载此文件，从而让脚本可以读取
+
+```justfile
+set dotenv-path := ".local/env"
+```
+
+转为 dotter 可接受的 patch 也只需添加一个 `[variables]` 头就行（我觉得可以给 dotter 提个 pr，能够直接在配置文件里写读取哪些 .env 文件。issues 已经提交 https://github.com/SuperCuber/dotter/issues/228 ）
+
+```bash
+# Bash
+printf "[variables]\n$(cat .local.env)"
+```
+
+```pwsh
+# Pwsh
+echo "[variables]`n$(cat .local.env)"
+```
+
+完成之后所有 dotter 的 `[variables]` 字段都可以删了，不需要 `global.toml` / `os.toml` / `local.example.toml` / `local.toml` 各写一遍。
 
 ## Scripts
 

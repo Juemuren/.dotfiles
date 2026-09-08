@@ -13,6 +13,8 @@
 
 [pnpm.files]
 "pnpm/config.yaml" = "~/AppData/Local/pnpm/config/config.yaml"
+[pnpm.variables]
+pnpm_store = "~/AppData/Local/pnpm/store"
 
 [uv.files]
 "uv/uv.toml" = "~/AppData/Roaming/uv/uv.toml"

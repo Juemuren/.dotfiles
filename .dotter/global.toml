@@ -43,8 +43,6 @@ git_email = ""
 
 [pnpm.files]
 "pnpm/config.yaml" = "~/.config/pnpm/config.yaml"
-[pnpm.variables]
-pnpm_store = "~/AppData/Local/pnpm/store"
 
 [starship.files]
 "starship/starship.toml" = "~/.config/starship.toml"
