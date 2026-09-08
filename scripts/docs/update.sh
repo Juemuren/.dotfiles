@@ -21,9 +21,9 @@ get_dirs() {
     local exclude=${2:-}
 
     if [[ -z "$exclude" ]]; then
-        fd -d 1 -t dir --search-path "$path" --format '* {/.}'
+        fd -d 1 -t dir --search-path "$path" --format '* [{/.}]({})'
     else
-        fd -d 1 -t dir --search-path "$path" --exclude "$exclude" --format '* {/.}'
+        fd -d 1 -t dir --search-path "$path" --exclude "$exclude" --format '* [{/.}]({})'
     fi
 }
 
