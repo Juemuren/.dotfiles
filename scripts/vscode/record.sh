@@ -36,10 +36,26 @@ extract_global_extensions() {
         sort > "$PROFILES_DIR/$GLOBAL_PROFILE_NAME/extensions.txt"
 }
 
+extract_all_extensions() {
+    extract_global_extensions
+    for profile_dir in "$PROFILES_DIR"/*/; do
+        profile_name=$(basename "$profile_dir")
+        if [ "$profile_name" != "$GLOBAL_PROFILE_NAME" ]; then
+            extract_profile_extensions "$profile_name"
+        fi
+    done
+}
+
 profile_name=$2
 
-if [ "$profile_name" = "$GLOBAL_PROFILE_NAME" ]; then
-    extract_global_extensions
-else
-    extract_profile_extensions "$profile_name"
-fi
+case "$profile_name" in
+    "$GLOBAL_PROFILE_NAME")
+        extract_global_extensions
+        ;;
+    all)
+        extract_all_extensions
+        ;;
+    *)
+        extract_profile_extensions "$profile_name"
+        ;;
+esac
