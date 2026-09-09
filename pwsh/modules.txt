@@ -1,3 +1,5 @@
+BuildHelpers
+Pester
 PSFzf
 PSReadLine
 PSScriptAnalyzer
