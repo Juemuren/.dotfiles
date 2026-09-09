@@ -1,7 +1,6 @@
 ## Core
 
 - [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
-- [ ] pwsh：编写模块安装脚本，读取 `pwsh/modules.txt`，安装模块的最新稳定版。
 - [ ] msys: 编写包安装脚本，读取 `msys/packages.txt` 并使用 pacman 安装。
 - [ ] tex: 编写包安装脚本，读取 `tex/*/packages.txt` 并使用 tlmgr 安装。
 - [ ] vscode: 编写扩展安装脚本，读取 `vscode/*/extensions.jsonc` 通过 `code --install-extension extension-id --profile profile` 安装扩展。

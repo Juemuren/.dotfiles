@@ -11,6 +11,12 @@ update-scoop:
 install-scoop:
     ./install-scoop.ps1 -Source '{{ justfile_directory() }}/scoop/buckets'
 
+record-pwsh:
+    ./record-pwsh.ps1 -Destination '{{ justfile_directory() }}/pwsh/modules.txt'
+
+restore-pwsh:
+    ./restore-pwsh.ps1 -Source '{{ justfile_directory() }}/pwsh/modules.txt'
+
 [script("msys2")]
 update-msys:
     pacman -Qeq > "{{ justfile_directory() }}/msys/packages.txt"
