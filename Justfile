@@ -6,10 +6,9 @@ mod windows 'scripts/windows'
 mod unix 'scripts/unix'
 
 mod common 'scripts/common'
-mod pwsh 'scripts/pwsh'
-mod sh 'scripts/sh'
-mod py 'scripts/py'
 mod vscode 'scripts/vscode'
+
+mod checks 'scripts/checks'
 mod docs 'scripts/docs'
 
 watch:
@@ -20,8 +19,3 @@ preview:
 
 deploy:
     ./bin/dotter deploy --verbose --force --noconfirm
-
-fmt: pwsh::fmt sh::fmt py::fmt
-    dprint fmt
-
-lint: pwsh::lint sh::lint py::lint
