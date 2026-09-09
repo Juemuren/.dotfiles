@@ -18,5 +18,9 @@ restore-pwsh:
     ./restore-pwsh.ps1 -Source '{{ justfile_directory() }}/pwsh/modules.txt'
 
 [script("msys2")]
-update-msys:
+record-msys:
     pacman -Qeq > "{{ justfile_directory() }}/msys/packages.txt"
+
+[script("msys2")]
+restore-msys:
+    cat "{{ justfile_directory() }}/msys/packages.txt" | xargs pacman -S --needed --noconfirm

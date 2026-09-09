@@ -1,7 +1,6 @@
 ## Core
 
 - [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
-- [ ] msys: 编写包安装脚本，读取 `msys/packages.txt` 并使用 pacman 安装。
 - [ ] tex: 编写包安装脚本，读取 `tex/*/packages.txt` 并使用 tlmgr 安装。
 - [ ] vscode: 编写扩展安装脚本，读取 `vscode/*/extensions.jsonc` 通过 `code --install-extension extension-id --profile profile` 安装扩展。
 - [ ] vscode: 完善 profile 记录脚本，通过 CLI 导出 `*.code-profile`，不再需要手动操作。目前 `code` 似乎并不支持这个功能，也许有一些比较 hack 的方法。
