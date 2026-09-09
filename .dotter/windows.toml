@@ -28,7 +28,7 @@ pnpm_store = "~/AppData/Local/pnpm/store"
 "zsh/windows.zsh" = "~/.zshrc"
 
 [windows]
-depends = ["pwsh", "scoop", "wt"]
+depends = ["pwsh", "scoop", "winget", "wt"]
 
 [pwsh.files]
 "pwsh/profile.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
