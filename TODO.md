@@ -4,10 +4,6 @@
 - [ ] vscode: 编写扩展安装脚本，读取 `vscode/*/extensions.jsonc` 通过 `code --install-extension extension-id --profile profile` 安装扩展。
 - [ ] vscode: 完善 profile 记录脚本，通过 CLI 导出 `*.code-profile`，不再需要手动操作。目前 `code` 似乎并不支持这个功能，也许有一些比较 hack 的方法。
 - [ ] vscode: 编写 profile 映射脚本。获取 profile 路径，修改 `.dotter/local.toml` 中的配置目录映射，从而自动消除 `*_hash` 占位。不太清楚能否实现，目前的手动方案尚可接受。
-- [ ] windows：补充把 `~/.local/bin` 添加到 PATH 中的脚本，需要注意重复执行的问题，必须保持幂等性。可以追加到 `windows/env.ps1` 里。
-- [ ] windows: 编写安装 Scoop 的脚本，允许用参数指定安装目录。配置 `SCOOP_HOME` 环境变量，可以顺便修改 `.dotter/local.toml` 中的变量。注意幂等性。
-- [ ] windows：分别编写安装 PowerShell 7、MSVC/SDK 的脚本（使用 winget）。注意幂等性。
-- [ ] windows：编写安装 WSL 的脚本，并记录发行版。注意幂等性。
 - [ ] windows: 编写新系统的初始化脚本，放入 `scripts/windows` 下，并在 just 的 windows 模块中调用。
 - [ ] unix: 编写新系统的初始化脚本，放入 `scripts/unix` 下，并在 just 的 unix 模块中调用。
 
