@@ -12,7 +12,6 @@
 - [ ] windows：分别编写安装 PowerShell 7、MSVC/SDK 的脚本（使用 winget）。注意幂等性。
 - [ ] windows：编写安装 WSL 的脚本，并记录发行版。注意幂等性。
 - [ ] windows: 编写新系统的初始化脚本，放入 `scripts/windows` 下，并在 just 的 windows 模块中调用。
-- [ ] brew: 编写包安装脚本，读取 `brew/*/packages.txt`。
 - [ ] unix: 编写新系统的初始化脚本，放入 `scripts/unix` 下，并在 just 的 unix 模块中调用。
 
 ## Skils
