@@ -1,0 +1,14 @@
+antfu.iconify
+biomejs.biome
+bradlc.vscode-tailwindcss
+davidanson.vscode-markdownlint
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+funkyremi.vscode-google-translate
+humao.rest-client
+jock.svg
+lokalise.i18n-ally
+ms-vscode.extension-test-runner
+rust-lang.rust-analyzer
+tauri-apps.tauri-vscode
+vitest.explorer

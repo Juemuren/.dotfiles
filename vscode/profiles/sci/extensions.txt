@@ -1,0 +1,17 @@
+astral-sh.ty
+charliermarsh.ruff
+julialang.language-julia
+leanprover.lean4
+mermaidchart.vscode-mermaid-chart
+ms-python.python
+ms-toolsai.datawrangler
+ms-toolsai.jupyter
+ms-toolsai.jupyter-renderers
+ms-vscode.cpptools
+nefrob.vscode-just-syntax
+njpwerner.autodocstring
+nvidia.nsight-vscode-edition
+quarto.quarto
+tomoki1207.pdf
+vincent-templier.vscode-netron
+yzhang.markdown-all-in-one

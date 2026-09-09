@@ -1,0 +1,13 @@
+adguard.adblock
+beaglefoot.awk-ide-vscode
+dummy.vscode-jq
+esbenp.prettier-vscode
+mads-hartmann.bash-ide-vscode
+mechatroner.rainbow-csv
+ms-azuretools.vscode-containers
+ms-python.python
+ms-vscode.hexeditor
+ms-vscode.powershell
+nefrob.vscode-just-syntax
+sumneko.lua
+xadillax.viml
