@@ -127,5 +127,3 @@ echo "[variables]`n$(cat .local.env)"
 完成之后所有 dotter 的 `[variables]` 字段都可以删了，不需要 `global.toml` / `os.toml` / `local.example.toml` / `local.toml` 各写一遍。
 
 ## Scripts
-
-- [ ] 编写脚本，用 fzf 交互式更新 winget 软件

@@ -41,6 +41,9 @@ depends = ["pwsh", "scoop", "wt"]
 [scoop.variables]
 scoop_root = "~/scoop"
 
+[winget.files]
+"winget/scripts" = "~/.local/bin"
+
 [wt.files]
 "wt/settings.json" = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 "wt/icons" = { target = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState", type = "symbolic" }
