@@ -8,6 +8,9 @@ install:
 update-scoop:
     ./update-scoop.ps1 -Destination '{{ justfile_directory() }}/scoop/buckets'
 
+install-scoop:
+    ./install-scoop.ps1 -Source '{{ justfile_directory() }}/scoop/buckets'
+
 [script("msys2")]
 update-msys:
     pacman -Qeq > "{{ justfile_directory() }}/msys/packages.txt"

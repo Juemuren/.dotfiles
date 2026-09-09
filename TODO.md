@@ -1,6 +1,5 @@
 ## Core
 
-- [ ] scoop：编写应用安装脚本，读取 `scoop/buckets/*.txt`，按 `bucket/app` 安装。
 - [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
 - [ ] pwsh：编写模块安装脚本，读取 `pwsh/modules.txt`，安装模块的最新稳定版。
 - [ ] msys: 编写包安装脚本，读取 `msys/packages.txt` 并使用 pacman 安装。
