@@ -4,5 +4,5 @@ param(
 )
 
 Get-Content -LiteralPath $Source | ForEach-Object {
-    Install-Module -Name $_
+    Install-Module -Name $_ -Scope CurrentUser
 }

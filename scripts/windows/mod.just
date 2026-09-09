@@ -5,11 +5,11 @@ set default-list := true
 install:
     ./install.ps1 -Destination '{{ justfile_directory() }}/bin'
 
-update-scoop:
-    ./update-scoop.ps1 -Destination '{{ justfile_directory() }}/scoop/buckets'
+record-scoop:
+    ./record-scoop.ps1 -Destination '{{ justfile_directory() }}/scoop/buckets'
 
-install-scoop:
-    ./install-scoop.ps1 -Source '{{ justfile_directory() }}/scoop/buckets'
+restore-scoop:
+    ./restore-scoop.ps1 -Source '{{ justfile_directory() }}/scoop/buckets'
 
 record-pwsh:
     ./record-pwsh.ps1 -Destination '{{ justfile_directory() }}/pwsh/modules.txt'
@@ -23,4 +23,4 @@ record-msys:
 
 [script("msys2")]
 restore-msys:
-    cat "{{ justfile_directory() }}/msys/packages.txt" | xargs pacman -S --needed --noconfirm
+    xargs pacman -S --needed --noconfirm < "{{ justfile_directory() }}/msys/packages.txt"

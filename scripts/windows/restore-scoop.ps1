@@ -12,8 +12,5 @@ Get-ChildItem -LiteralPath $Source -Filter '*.txt' -File
         Get-Content -LiteralPath $_.FullName
         | ForEach-Object { "$bucket/$_" }
     )
-    if ($apps.Count) {
-        scoop install @apps
-        if ($LASTEXITCODE) { exit $LASTEXITCODE }
-    }
+    scoop install @apps
 }
