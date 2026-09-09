@@ -1,12 +1,26 @@
+<#
+.SYNOPSIS
+Returns the file path of an external command or PowerShell script.
+
+.PARAMETER CommandName
+Command name or path. Aliases are resolved to their target command.
+Cmdlets and functions have no command file path and are rejected.
+
+.EXAMPLE
+Get-CommandPath.ps1 pwsh
+#>
+[CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true, Position = 0)]
+    [Parameter(Mandatory, Position = 0)]
     [string]$CommandName
 )
 
-$cmd = Get-Command $CommandName
-if (-not $cmd.Source) {
-    Write-Error "$CommandName has no source file"
-    exit 1
+$ErrorActionPreference = 'Stop'
+$command = Get-Command -Name $CommandName
+if ($command -is [System.Management.Automation.AliasInfo]) {
+    $command = $command.ResolvedCommand
 }
-
-Write-Output $cmd.Source
+if ($command.CommandType -notin 'Application', 'ExternalScript') {
+    throw "'$CommandName' is not an external command or script."
+}
+$command.Path

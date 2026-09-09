@@ -1,1 +1,13 @@
-Get-Content "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\$($Host.Name)_history.txt"
+#Requires -Modules PSReadLine
+
+<#
+.SYNOPSIS
+Reads the history file configured in PSReadLine for the current session.
+
+.EXAMPLE
+Get-HistoryFile.ps1
+#>
+[CmdletBinding()]
+param()
+
+Get-Content -LiteralPath (Get-PSReadLineOption).HistorySavePath -ErrorAction Stop
