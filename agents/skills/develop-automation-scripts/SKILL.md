@@ -51,7 +51,7 @@ description: 创建、修改、测试、检查并格式化可复用的 POSIX she
 
 ## 格式化
 
-- 对于 POSIX shell 和 Bash 脚本，使用 `shfmt` 进行格式化。当不存在项目级的格式化要求时，使用 `-i 4 -ci -sr` 格式。
+- 对于 POSIX shell 和 Bash 脚本，使用 `shfmt` 进行格式化。请遵守项目要求的格式；如果项目中不存在 `.editorconfig` 时使用 `-i 4 -ci -sr` 格式。
 - 对于 PowerShell 和 Pwsh 脚本，使用 `Invoke-Formatter` 进行格式化。优先直接运行 PATH 中封装好的脚本 `Run-Format.ps1 example.ps1`；仅验证格式、不写入时使用 `Run-Format.ps1 example.ps1 -Check`。`Run-Format` 可以指定多个文件 `Run-Format.ps1 -Path a.ps1, b.ps1`，同时支持管道 `fd -e ps1 -e psm1 | Run-Format.ps1`。获取 `Run-Format` 的完整说明请使用 `Get-Help Run-Format.ps1 -Full`。
 - 对于 Python 脚本，使用 `ruff format` 进行格式化；仅验证格式时使用 `ruff format --check`。
 
