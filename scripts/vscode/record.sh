@@ -4,6 +4,8 @@ set -eu
 
 SCRIPT_DIR=$(dirname "$0")
 PROFILES_DIR=$1
+GLOBAL_EXTENSIONS="$HOME/.vscode/extensions/extensions.json"
+GLOBAL_PROFILE_NAME="global"
 
 profile_name=$2
 
@@ -19,23 +21,21 @@ extract_profile_id() {
 extract_profile_extensions() {
     local profile_id=$1
 
-    # TODO 和 *.code-profile 的导出结果有差异，会包含部分全局扩展
     jq -er \
+        --slurpfile global_extensions "$GLOBAL_EXTENSIONS" \
         -f "$SCRIPT_DIR/extract-profile-extensions.jq" \
         "$APPDATA/Code/User/profiles/$profile_id/extensions.json" |
-    sort > "$PROFILES_DIR/$profile_name/extensions.txt"
+        sort > "$PROFILES_DIR/$profile_name/extensions.txt"
 }
 
 extract_glocal_extensions() {
-    profile_name="global"
-
     jq -er \
         -f "$SCRIPT_DIR/extract-global-extensions.jq" \
-        "$HOME/.vscode/extensions/extensions.json" |
-    sort > "$PROFILES_DIR/$profile_name/extensions.txt"
+        "$GLOBAL_EXTENSIONS" |
+        sort > "$PROFILES_DIR/$GLOBAL_PROFILE_NAME/extensions.txt"
 }
 
-if [ "$profile_name" = "global" ]; then
+if [ "$profile_name" = "$GLOBAL_PROFILE_NAME" ]; then
     extract_glocal_extensions
 else
     profile_id=$(extract_profile_id "$profile_name")
