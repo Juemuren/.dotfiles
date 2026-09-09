@@ -1,61 +1,59 @@
-## Core
+# TODO
 
-- [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
-- [ ] windows: 编写新系统的初始化脚本，放入 `scripts/windows` 下，并在 just 的 windows 模块中调用。
-- [ ] unix: 编写新系统的初始化脚本，放入 `scripts/unix` 下，并在 just 的 unix 模块中调用。
+## 系统初始化与软件恢复
 
-## Skils
+- [ ] Scoop：编写 bucket 记录与恢复脚本，记录 bucket 名称与来源，包括我自己的 bucket 仓库。
+- [ ] Windows：编写新系统初始化脚本，放入 `scripts/windows`，并在 just 的 windows 模块中调用。
+- [ ] Unix：编写新系统初始化脚本，放入 `scripts/unix`，并在 just 的 unix 模块中调用。
+- [ ] 用 Scoop 管理 VSCode 安装。我自己的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
+- [ ] 配置 Windows 开发卷，并研究一下有没有可自动化的方法。
 
-- [ ] transform-media-with-ffmpeg: 名称太泛了，考虑修改一下。主要用途是使用 FFmpeg 将 MP4 视频转为 WebP，以便在 GitHub 等网站的 README 中展示。需要说明一下个人审美。
+## 配置部署与机器差异
 
-- [ ] create-scoop-manifest: 说明如何使用 scoop search 软件，并在缺失软件时让 agent 给我的 scoop bucket 添加一个 manifest。需要说明一下审美：能不写脚本就不写脚本；即使要写，也不要在 JSON 里直接编写转义的 pwsh 脚本，而是把脚本放到 scripts 目录下，JSON 里直接运行文件；同时 _common 目录用于存放通用脚本或者辅助脚本。不过这些要求可能放到 bucket repo 的 agents.md 里更好，skill 里引用 agents.md 就行。
+- [ ] 改善从本地配置示例到可用机器配置的流程（machine-special）。
+  - [ ] 自动填写 VSCode profiles 的文件映射。目前已经可以提取 `profile_id`，可以考虑用脚本自动修改 `.dotter/local.toml` 中的 `files`。
+  - [ ] 自动识别并填写部分机器相关变量。
+  - [ ] 评估并实现机器相关变量的唯一权威源，让配置与自动化脚本共享变量。
 
-- [ ] build-documents-with-pandoc: 使用 Pandoc 将 Markdown 转为 PDF，并提供模板。优先考虑通过 typst，其次 latex (引擎为 tectonic / xelatex)，最后 html (引擎为 weasyprint / headless chrome)。
+### 方案草稿：机器变量的唯一权威源
 
-- [ ] making-braille-ascii: 使用 ImageMagick 和 chafa 将动漫图片转为盲文 ASCII，以便在 fastfetch 里显示。需要声明一下个人审美，并给出命令示例。~~也许还可以让 agent 自己去 pixiv 等网站找图~~。
-  ```sh
-  chafa -f symbols --symbols braille -c none input.jpg > ouput.txt
-  ```
+目前 `.dotter/local.toml` 中的 `variables` 只有配置能读，要运行的脚本不能读；变量还需要在 `global.toml`、`os.toml`、`local.example.toml`、`local.toml` 中重复维护。
 
-- [ ] process-pdf: 也许应该修改一下名称。我的实际用途就是修改 zlib 上下载到的电子书，去掉扉页、版权页、出版商的话、封底等影响阅读体验的东西，然后根据目录页补全 PDF 目录，最后补上可能缺失的封面（可以去豆瓣找，不过豆瓣的反爬有点难处理）和 OCR。
-      工具集大概如下，有点多，可能还要筛选一下。
-  - 常规 PDF 操作优先使用以下工具
-    - qpdf：页面选择、拆分、合并、重排、结构性修改
-    - Poppler utils：文本提取、搜索、元数据检查、页面渲染
-    - MuPDF（mutool）：PDF 检查、文本提取、搜索、页面渲染及通用处理
-  - 需要 OCR 时使用 OCRmyPDF。
-  - 上述工具不方便完成的高级 PDF 操作可使用 pdfcpu。
-  - Ghostscript 仅作为最后选择，用于其它工具无法处理的异常 PDF。
+考虑使用外部 `*.env` 文件作为 machine-special 权威源，方便脚本读取和修改；配置通过 `dotter --patch` 读取这些内容。
 
-- [ ] data-wrangling: 处理结构化数据。虽然天天用这些工具，但暂时没有非常明确的、单一的用途。这些知识 agent 大概率也懂，我只需要让它优先使用现成的工具，尽量少用 python / shell 反复造轮子就行。
-      工具集大概如下，太多了，最好再筛选一下。
-  - 默认：
-    - JSON：jq
-    - YAML / TOML / XML / 配置文件：yq
-    - CSV / TSV / JSONL / Parquet / 关系型数据：DuckDB
-  - 专项：
-    - Miller：流式或逐记录转换
-    - qsv：CSV 验证、修复、剖析、特殊采样或大型 CSV 专项操作
-  - 兜底：
-    - Python：复杂、自定义、多步骤或需要专用库的数据处理
-    - awk：仅用于简单纯文本处理，不作为结构化数据的默认方案
+例如，将权威源文件放在 `.local/env`：
 
-## Chore
+```env
+scoop_root="path/to/scoop"
+```
 
-- [ ] 配置 Windows 开发卷
-- [ ] 用 Scoop 管理 VSCode 安装。我的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
-- [ ] 多用用 neovim，并记录 neovim 配置
-- [ ] 尝试一下在 WSL 里使用 Nix
-- [ ] 考虑迁移到 chezmoi
-- [ ] 改善从复制本地配置示例到创建实际需要的本地配置之间的这段体验，也就是改善配置 machine-special 的过程。
-  1. vscode 的 profiles 目前还需要手动寻找映射位置。目前已经可以提取 `profile_id`，可以考虑用脚本自动修改 `.dotter/local.toml` 中的 `files`。
-  2. 机器相关变量仍需手动填写。有部分可以尝试用脚本自动修改。且如果使用外部 `*.env` 权威源，那么可以把变量放在外部文件中，更方便脚本读取和修改。
+通过 just 加载，让脚本可以读取：
 
-## Refactor
+```just
+set dotenv-path := ".local/env"
+```
 
-- [ ] 修改仓库结构
+转换为 dotter patch，目前的想法是添加 `[variables]` 头（需验证 dotenv 与 TOML 的语法兼容性）：
 
-考虑修改仓库结构，改为如下方案
+```sh
+printf '[variables]\n'
+cat .local/env
+```
+
+```pwsh
+"[variables]`n$(Get-Content -Raw .local/env)"
+```
+
+更好的解决方案是让 dotter 可以直接在配置中声明读取哪些 `.env` 文件。相关 PR 已提交 [issue #228](https://github.com/SuperCuber/dotter/issues/228)。
+
+方案验证并完成迁移后，再删除各层 dotter 配置中重复的 `[variables]`。
+
+## 仓库结构与命令入口
+
+- [ ] 调整仓库结构，区分配置、软件清单和自动化脚本。
+- [ ] 更改命令入口，根据记录、恢复、部署与初始化等划分子模块。
+
+### 方案草稿：目录结构
 
 ```txt
 .dotfiles
@@ -78,7 +76,9 @@
     └── bootstrap
 ```
 
-然后 just 作为唯一入口
+初始化脚本当前计划放在 `scripts/windows` 和 `scripts/unix`；采用新结构时，需同步调整路径。
+
+### 方案草稿：命令入口
 
 ```sh
 just record scoop
@@ -94,36 +94,76 @@ just deploy
 just bootstrap
 ```
 
-- [ ] 唯一权威源
+## Agent Skills
 
-`.dotter/local.toml` 中的 `variables` 只有配置能读，要运行的脚本不能读。
+- [ ] `transform-media-with-ffmpeg`：考虑重命名。主要用于将 MP4 视频转为 WebP，以便在 GitHub 等网站的 README 中展示；需要补充个人审美要求。
+- [ ] `create-scoop-manifest`：说明如何使用 `scoop search` 查找软件，并在缺失时向自己的 bucket 添加 manifest。
+- [ ] `build-documents-with-pandoc`：使用 Pandoc 将 Markdown 转为 PDF，并提供模板。
+- [ ] `making-braille-ascii`：使用 ImageMagick 和 chafa 将动漫图片转为盲文 ASCII，用于 fastfetch；需要补充个人审美要求。
+- [ ] `process-pdf`：考虑重命名。需要明确验收要求，有待筛选更精简的工具集。
+- [ ] `data-wrangling`：明确适用场景并筛选工具，优先使用现成工具，减少用 Python / shell 重复实现已有功能。
 
-可以使用几个 `*.env` 文件作为 machine-special 权威源。自动化脚本可以从这里读取内容，配置通过 `dotter --patch` 也可以读取这些内容。
+### 设计备注：create-scoop-manifest
 
-比如权威源文件 `.local/env` 可以这样写
+个人偏好：
 
-```env
-scoop_root="path/to/scoop"
+- 能不写脚本就不写脚本。
+- 需要脚本时，放到 `scripts` 目录，在 JSON 中调用文件，避免内嵌转义的 Pwsh 脚本。
+- `_common` 目录用于通用脚本或辅助脚本。
+
+这些要求可能更适合放到 bucket 仓库的 `AGENTS.md` 中，skill 引用即可。
+
+### 设计备注：build-documents-with-pandoc
+
+PDF 生成路径的优先顺序：
+
+1. Typst。
+2. LaTeX（tectonic / xelatex）。
+3. HTML（weasyprint / headless chrome）。
+
+### 设计备注：making-braille-ascii
+
+命令示例：
+
+```sh
+chafa -f symbols --symbols braille -c none input.jpg > output.txt
 ```
 
-然后通过 just 加载此文件，从而让脚本可以读取
+考虑是否要让 agent 自己去 Pixiv 等网站找图。
 
-```justfile
-set dotenv-path := ".local/env"
-```
+### 设计备注：process-pdf
 
-转为 dotter 可接受的 patch 也只需添加一个 `[variables]` 头就行（我觉得可以给 dotter 提个 pr，能够直接在配置文件里写读取哪些 .env 文件。issues 已经提交 https://github.com/SuperCuber/dotter/issues/228 ）
+实际用途是整理从 zlib 下载的电子书：去掉扉页、版权页、出版商的话、封底等影响阅读体验的页面，根据目录页补全 PDF 目录，补齐可能缺失的封面，并实现全书 OCR。封面可考虑从豆瓣查找，但反爬可能较难处理。
 
-```bash
-# Bash
-printf "[variables]\n$(cat .local.env)"
-```
+候选工具较多，还需筛选：
 
-```pwsh
-# Pwsh
-echo "[variables]`n$(cat .local.env)"
-```
+| 用途 | 候选工具 |
+| --- | --- |
+| 页面选择、拆分、合并、重排、结构性修改 | qpdf |
+| 文本提取、搜索、元数据检查、页面渲染 | Poppler utils |
+| PDF 检查、文本提取、搜索、页面渲染及通用处理 | MuPDF（mutool） |
+| OCR | OCRmyPDF |
+| 上述工具不方便完成的高级操作（Bug 有点多，待考虑） | pdfcpu |
+| 其它工具无法处理的异常 PDF，作为最后选择 | Ghostscript |
 
-完成之后所有 dotter 的 `[variables]` 字段都可以删了，不需要 `global.toml` / `os.toml` / `local.example.toml` / `local.toml` 各写一遍。
+### 设计备注：data-wrangling
 
-## Scripts
+虽然经常使用这些工具，但尚无明确、单一的用途。Agent 大概率已经掌握相关知识，重点是表达工具选择偏好。
+
+以下候选工具仍需精简：
+
+| 定位 | 数据或场景 | 工具 |
+| --- | --- | --- |
+| 默认 | JSON / 简单 JSONL | jq |
+| 默认 | YAML / TOML / XML / 配置文件 | yq |
+| 默认 | CSV / TSV / 复杂 JSONL / Parquet / 关系型数据 | DuckDB |
+| 专项 | 流式或逐记录转换（没实际用过） | Miller |
+| 专项 | 高级 CSV 操作（没实际用过） | qsv |
+| 兜底 | 复杂、自定义、多步骤或需要专用库的数据处理 | Python |
+| 受限使用 | 简单纯文本处理 | awk |
+
+## 探索与评估
+
+- [ ] 把更多工作迁移到 Neovim 上，并尝试从零开始编写自己的配置。可以先在 VSCode 里使用 Neovim 后端以熟练命令。
+- [ ] 尝试在 WSL 中使用 Nix。
+- [ ] 评估迁移到 chezmoi。
