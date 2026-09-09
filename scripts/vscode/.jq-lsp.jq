@@ -1,1 +1,1 @@
-def $profile: empty;
+def $profile_name: empty;

@@ -1,3 +1,3 @@
 .userDataProfiles[]
-| select(.name == $profile)
+| select(.name == $profile_name)
 | .location
