@@ -1,3 +1,0 @@
-.settings |
-fromjson |
-.settings
