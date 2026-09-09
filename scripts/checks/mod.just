@@ -5,6 +5,6 @@ mod sh 'sh'
 mod py 'py'
 
 fmt: sh::fmt pwsh::fmt py::fmt
-    dprint fmt
+    cd "{{ justfile_directory() }}" && dprint fmt
 
 lint: sh::lint pwsh::lint py::lint
