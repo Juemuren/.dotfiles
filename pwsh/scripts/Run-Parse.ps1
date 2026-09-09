@@ -36,6 +36,28 @@ param(
 )
 
 begin {
+    function Get-ScriptParseError {
+        param([string]$FilePath)
+
+        $tokens = $null
+        $parseErrors = $null
+        $null = [System.Management.Automation.Language.Parser]::ParseFile(
+            $FilePath,
+            [ref]$tokens,
+            [ref]$parseErrors
+        )
+
+        return $parseErrors
+    }
+
+    function Format-ParseError {
+        param([System.Management.Automation.Language.ParseError]$ParseError)
+
+        $location = '{0}:{1}:{2}' -f $ParseError.Extent.File, $ParseError.Extent.StartLineNumber, $ParseError.Extent.StartColumnNumber
+
+        return "{0}`n[PARSEERROR] {1}: {2}" -f $location, $ParseError.ErrorId, $ParseError.Message
+    }
+
     $ErrorActionPreference = 'Stop'
     $fileCount = 0
     $parseErrorCount = 0
@@ -47,13 +69,7 @@ process {
         $fileCount++
         try {
             $resolvedPath = (Resolve-Path -LiteralPath $filePath).ProviderPath
-            $tokens = $null
-            $parseErrors = $null
-            $null = [System.Management.Automation.Language.Parser]::ParseFile(
-                $resolvedPath,
-                [ref]$tokens,
-                [ref]$parseErrors
-            )
+            $parseErrors = @(Get-ScriptParseError -FilePath $resolvedPath)
 
             # ParseFile reports file read failures as ParseError objects, too.
             $readErrors = @($parseErrors | Where-Object ErrorId -EQ 'FileReadError')
@@ -67,10 +83,7 @@ process {
 
             $parseErrorCount += $parseErrors.Count
             foreach ($parseError in $parseErrors) {
-                Write-Output ("{0}:{1}:{2}`n[PARSEERROR] {3}: {4}" -f
-                    $resolvedPath, $parseError.Extent.StartLineNumber,
-                    $parseError.Extent.StartColumnNumber, $parseError.ErrorId,
-                    $parseError.Message)
+                Format-ParseError -ParseError $parseError
             }
         }
         catch {
