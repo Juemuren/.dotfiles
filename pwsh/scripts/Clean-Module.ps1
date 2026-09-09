@@ -1,3 +1,18 @@
+#Requires -Modules PowerShellGet
+
+<#
+.SYNOPSIS
+Uninstalls older PowerShellGet-managed versions of a module, keeping the newest.
+
+.PARAMETER ModuleName
+Name of the installed module to clean.
+
+.DESCRIPTION
+Prompts before uninstalling. Use -WhatIf to preview or -Confirm:$false to skip confirmation.
+
+.EXAMPLE
+Clean-Module.ps1 Pester -WhatIf
+#>
 [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
 param(
     [Parameter(Mandatory, Position = 0)]
@@ -5,13 +20,14 @@ param(
     [string]$ModuleName
 )
 
+$ErrorActionPreference = 'Stop'
+
 $modules = @(
-    Get-InstalledModule -Name $ModuleName -AllVersions -ErrorAction SilentlyContinue
+    Get-InstalledModule -Name $ModuleName -AllVersions
     | Sort-Object Version -Descending
 )
 if ($modules.Count -eq 0) {
-    Write-Error "'$ModuleName' is not installed."
-    return
+    throw "'$ModuleName' is not installed."
 }
 
 $latestModule = $modules | Select-Object -First 1
@@ -33,5 +49,5 @@ if (-not $PSCmdlet.ShouldProcess($ModuleName, 'Uninstall the old versions')) {
 
 $oldModules | ForEach-Object {
     Write-Output "Uninstalling $($_.Name) $($_.Version) ..."
-    Uninstall-Module $_ -Confirm:$false
+    Uninstall-Module -InputObject $_ -Confirm:$false
 }

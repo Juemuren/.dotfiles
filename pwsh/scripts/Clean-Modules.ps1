@@ -1,3 +1,17 @@
+#Requires -Modules PowerShellGet
+
+<#
+.SYNOPSIS
+Selects modules with fzf and removes older versions, keeping each newest version.
+
+.DESCRIPTION
+Requires fzf. Only PowerShellGet-managed modules are included.
+Tab toggles selection, Ctrl+A selects all, Enter continues, and Esc cancels.
+Prompts before cleaning each module. Use -WhatIf to preview or -Confirm:$false to skip confirmation.
+
+.EXAMPLE
+Clean-Modules.ps1 -WhatIf
+#>
 [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
 param()
 
