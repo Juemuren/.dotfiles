@@ -1,7 +1,6 @@
 ## Core
 
 - [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
-- [ ] vscode: 编写 profile 映射脚本。获取 profile 路径，修改 `.dotter/local.toml` 中的配置目录映射，从而自动消除 `*_hash` 占位。不太清楚能否实现，目前的手动方案尚可接受。
 - [ ] windows: 编写新系统的初始化脚本，放入 `scripts/windows` 下，并在 just 的 windows 模块中调用。
 - [ ] unix: 编写新系统的初始化脚本，放入 `scripts/unix` 下，并在 just 的 unix 模块中调用。
 
@@ -48,7 +47,9 @@
 - [ ] 多用用 neovim，并记录 neovim 配置
 - [ ] 尝试一下在 WSL 里使用 Nix
 - [ ] 考虑迁移到 chezmoi
-- [ ] 改善从复制本地配置示例到创建实际需要的本地配置之间的这段体验，也就是改善配置 machine-special 的过程。一是 vscode 的 profiles 目前还需要手动寻找位置；二是变量需要手动填写（有部分确实必须手写，有部分可以在机器初始化时直接写入），且如果使用外部 `*.env` 权威源，那么可以按文件名拆分模块，不用挤在一个 toml 里，相对更易读。
+- [ ] 改善从复制本地配置示例到创建实际需要的本地配置之间的这段体验，也就是改善配置 machine-special 的过程。
+  1. vscode 的 profiles 目前还需要手动寻找映射位置。目前已经可以提取 `profile_id`，可以考虑用脚本自动修改 `.dotter/local.toml` 中的 `files`。
+  2. 机器相关变量仍需手动填写。有部分可以尝试用脚本自动修改。且如果使用外部 `*.env` 权威源，那么可以把变量放在外部文件中，更方便脚本读取和修改。
 
 ## Refactor
 

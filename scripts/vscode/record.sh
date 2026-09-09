@@ -4,40 +4,42 @@ set -eu
 
 SCRIPT_DIR=$(dirname "$0")
 PROFILES_DIR=$1
-GLOBAL_EXTENSIONS="$HOME/.vscode/extensions/extensions.json"
+GLOBAL_EXTENSIONS_FILE="$HOME/.vscode/extensions/extensions.json"
 GLOBAL_PROFILE_NAME="global"
 
-profile_name=$2
-
 extract_profile_id() {
-    STORAGE="$APPDATA/Code/User/globalStorage/storage.json"
+    local profile_name=$1
+    local storage_file="$APPDATA/Code/User/globalStorage/storage.json"
 
     jq -er \
         --arg profile_name "$profile_name" \
         -f "$SCRIPT_DIR/extract-profile-id.jq" \
-        "$STORAGE"
+        "$storage_file"
 }
 
 extract_profile_extensions() {
-    local profile_id=$1
+    local profile_name=$1
+    local extensions_file
+    extensions_file="$APPDATA/Code/User/profiles/$(extract_profile_id "$profile_name")/extensions.json"
 
     jq -er \
-        --slurpfile global_extensions "$GLOBAL_EXTENSIONS" \
+        --slurpfile global_extensions "$GLOBAL_EXTENSIONS_FILE" \
         -f "$SCRIPT_DIR/extract-profile-extensions.jq" \
-        "$APPDATA/Code/User/profiles/$profile_id/extensions.json" |
+        "$extensions_file" |
         sort > "$PROFILES_DIR/$profile_name/extensions.txt"
 }
 
-extract_glocal_extensions() {
+extract_global_extensions() {
     jq -er \
         -f "$SCRIPT_DIR/extract-global-extensions.jq" \
-        "$GLOBAL_EXTENSIONS" |
+        "$GLOBAL_EXTENSIONS_FILE" |
         sort > "$PROFILES_DIR/$GLOBAL_PROFILE_NAME/extensions.txt"
 }
 
+profile_name=$2
+
 if [ "$profile_name" = "$GLOBAL_PROFILE_NAME" ]; then
-    extract_glocal_extensions
+    extract_global_extensions
 else
-    profile_id=$(extract_profile_id "$profile_name")
-    extract_profile_extensions "$profile_id"
+    extract_profile_extensions "$profile_name"
 fi
