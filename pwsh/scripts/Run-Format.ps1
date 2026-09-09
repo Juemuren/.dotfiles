@@ -1,3 +1,6 @@
+#Requires -Version 7.0
+#Requires -Modules PSScriptAnalyzer
+
 <#
 .SYNOPSIS
 Formats PowerShell scripts with PSScriptAnalyzer.

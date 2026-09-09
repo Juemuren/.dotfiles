@@ -1,3 +1,6 @@
+#Requires -Version 7.2
+#Requires -Modules PSScriptAnalyzer
+
 <#
 .SYNOPSIS
 Checks PowerShell scripts with PSScriptAnalyzer.
