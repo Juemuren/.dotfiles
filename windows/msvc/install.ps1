@@ -2,9 +2,16 @@
 <#
 .SYNOPSIS
 Install Visual Studio Build Tools or add items from .vsconfig to an existing installation.
+.PARAMETER InstallPath
+Installation directory for a new installation. Existing installations keep their current directory.
+.EXAMPLE
+./install.ps1 -InstallPath 'D:\Microsoft Visual Studio\BuildTools'
 #>
 [CmdletBinding(SupportsShouldProcess)]
-param()
+param(
+    [ValidateNotNullOrEmpty()]
+    [string]$InstallPath
+)
 
 $ErrorActionPreference = 'Stop'
 $config = (Resolve-Path (Join-Path $PSScriptRoot '.vsconfig')).Path
@@ -39,6 +46,9 @@ if ($instance) {
 }
 else {
     $override = '--passive --wait --norestart --config ' + '"' + $config + '"'
+    if ($InstallPath) {
+        $override += ' --installPath "' + $InstallPath.TrimEnd('\') + '"'
+    }
     # PowerShell 5.1 and Legacy mode need escaped quotes for native commands.
     if ($PSVersionTable.PSVersion -lt [version]'7.3' -or $PSNativeCommandArgumentPassing -eq 'Legacy') {
         $override = $override.Replace('"', '\"')
