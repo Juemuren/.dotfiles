@@ -1,7 +1,6 @@
 ## Core
 
 - [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
-- [ ] vscode: 编写扩展安装脚本，读取 `vscode/*/extensions.jsonc` 通过 `code --install-extension extension-id --profile profile` 安装扩展。
 - [ ] vscode: 完善 profile 记录脚本，通过 CLI 导出 `*.code-profile`，不再需要手动操作。目前 `code` 似乎并不支持这个功能，也许有一些比较 hack 的方法。
 - [ ] vscode: 编写 profile 映射脚本。获取 profile 路径，修改 `.dotter/local.toml` 中的配置目录映射，从而自动消除 `*_hash` 占位。不太清楚能否实现，目前的手动方案尚可接受。
 - [ ] windows: 编写新系统的初始化脚本，放入 `scripts/windows` 下，并在 just 的 windows 模块中调用。
@@ -21,7 +20,7 @@
   ```
 
 - [ ] process-pdf: 也许应该修改一下名称。我的实际用途就是修改 zlib 上下载到的电子书，去掉扉页、版权页、出版商的话、封底等影响阅读体验的东西，然后根据目录页补全 PDF 目录，最后补上可能缺失的封面（可以去豆瓣找，不过豆瓣的反爬有点难处理）和 OCR。
-  工具集大概如下，有点多，可能还要筛选一下。
+      工具集大概如下，有点多，可能还要筛选一下。
   - 常规 PDF 操作优先使用以下工具
     - qpdf：页面选择、拆分、合并、重排、结构性修改
     - Poppler utils：文本提取、搜索、元数据检查、页面渲染
@@ -31,7 +30,7 @@
   - Ghostscript 仅作为最后选择，用于其它工具无法处理的异常 PDF。
 
 - [ ] data-wrangling: 处理结构化数据。虽然天天用这些工具，但暂时没有非常明确的、单一的用途。这些知识 agent 大概率也懂，我只需要让它优先使用现成的工具，尽量少用 python / shell 反复造轮子就行。
-  工具集大概如下，太多了，最好再筛选一下。
+      工具集大概如下，太多了，最好再筛选一下。
   - 默认：
     - JSON：jq
     - YAML / TOML / XML / 配置文件：yq
