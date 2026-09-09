@@ -1,7 +1,6 @@
 ## Core
 
 - [ ] scoop: 编写脚本记录 bucket 名称与来源（包括自己的 bucket 仓库），以及另一个根据记录重新添加 bucket 的脚本。
-- [ ] tex: 编写包安装脚本，读取 `tex/*/packages.txt` 并使用 tlmgr 安装。
 - [ ] vscode: 编写扩展安装脚本，读取 `vscode/*/extensions.jsonc` 通过 `code --install-extension extension-id --profile profile` 安装扩展。
 - [ ] vscode: 完善 profile 记录脚本，通过 CLI 导出 `*.code-profile`，不再需要手动操作。目前 `code` 似乎并不支持这个功能，也许有一些比较 hack 的方法。
 - [ ] vscode: 编写 profile 映射脚本。获取 profile 路径，修改 `.dotter/local.toml` 中的配置目录映射，从而自动消除 `*_hash` 占位。不太清楚能否实现，目前的手动方案尚可接受。
