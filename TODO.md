@@ -167,3 +167,14 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
 - [ ] 把更多工作迁移到 Neovim 上，并尝试从零开始编写自己的配置。可以先在 VSCode 里使用 Neovim 后端以熟练命令。
 - [ ] 尝试在 WSL 中使用 Nix。
 - [ ] 评估迁移到 chezmoi。
+
+## 日用脚本编写
+
+- [ ] 查询 Codex 会话内容，可以使用 duckdb、fd、rg、jq 等工具
+  - [ ] 查询在指定日期区间内的所有会话，列出日期、标题和 id
+  - [ ] 找最长 prompt
+  - [ ] 查询单个会话中的所有用户问题，需要指定 id
+  - [ ] 查询单个会话中包含指定关键词的消息
+  - [ ] 统计 token，可以是单个会话或多个会话
+  - [ ] 统计每天会话数
+  - [ ] 找含错误信息的 assistant 回复
