@@ -7,6 +7,7 @@ bat
 bottom
 chafa
 charm-gum
+chezmoi
 claude-code
 codex
 d2
@@ -27,7 +28,6 @@ fq
 fzf
 gawk
 gh
-ghcup
 ghostscript
 gopass
 gpg
@@ -41,6 +41,7 @@ jc
 jq
 just-lsp
 less
+llvm
 lychee
 mandoc
 marp
@@ -54,6 +55,7 @@ neovim
 openssl
 pandoc
 pdfcpu
+pi-coding-agent
 poppler
 prek
 qpdf
