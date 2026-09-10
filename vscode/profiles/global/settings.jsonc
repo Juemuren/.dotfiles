@@ -180,9 +180,15 @@
     "VS Pwsh": {
       "path": "pwsh.exe",
       "args": [
-        "-NoExit",
-        "-Command",
-        "vs"
+          "-NoExit",
+          "-NoLogo",
+          "-File",
+          "${env:VS_ROOT}/Common7/Tools/Launch-VsDevShell.ps1",
+          "-Arch",
+          "amd64",
+          "-HostArch",
+          "amd64",
+          "-SkipAutomaticLocation"
       ],
       "icon": "terminal-powershell"
     },
