@@ -45,7 +45,7 @@ if ($instance) {
     $exitCode = $process.ExitCode
 }
 else {
-    $override = '--passive --wait --norestart --config ' + '"' + $config + '"'
+    $override = '--quiet --wait --norestart --config ' + '"' + $config + '"'
     if ($InstallPath) {
         $override += ' --installPath "' + $InstallPath.TrimEnd('\') + '"'
     }
@@ -54,7 +54,7 @@ else {
         $override = $override.Replace('"', '\"')
     }
     winget install --id Microsoft.VisualStudio.BuildTools --exact --source winget `
-        --silent --accept-package-agreements --accept-source-agreements `
+        --disable-interactivity --silent --accept-package-agreements --accept-source-agreements `
         --override $override
     $exitCode = $LASTEXITCODE
 }
