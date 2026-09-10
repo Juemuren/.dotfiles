@@ -1,12 +1,10 @@
 set default-list := true
 
+mod common 'scripts/common'
 [windows]
 mod windows 'scripts/windows'
 [unix]
 mod unix 'scripts/unix'
-
-mod common 'scripts/common'
-mod vscode 'scripts/vscode'
 
 mod checks 'scripts/checks'
 mod docs 'scripts/docs'
