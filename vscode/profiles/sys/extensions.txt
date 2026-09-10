@@ -13,4 +13,5 @@ ms-vscode.hexeditor
 nefrob.vscode-just-syntax
 rust-lang.rust-analyzer
 tboox.xmake-vscode
+vadimcn.vscode-lldb
 ziglang.vscode-zig

@@ -1,4 +1,5 @@
 anthropic.claude-code
+asvetliakov.vscode-neovim
 catppuccin.catppuccin-vsc
 editorconfig.editorconfig
 fanaticpythoner.better-todo-tree

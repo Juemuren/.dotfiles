@@ -2,6 +2,7 @@ astral-sh.ty
 charliermarsh.ruff
 julialang.language-julia
 leanprover.lean4
+marimo-team.vscode-marimo
 mermaidchart.vscode-mermaid-chart
 ms-python.python
 ms-toolsai.datawrangler
