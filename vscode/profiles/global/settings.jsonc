@@ -40,6 +40,7 @@
     "explorer.fileNesting.expand",
     "scm.repositories.selectionMode",
     "chat.disableAIFeatures",
+    "extensions.experimental.affinity",
     "github.copilot.enable",
     "git.addAICoAuthor",
     "git.untrackedChanges"
@@ -218,6 +219,9 @@
   // 聊天
   "chat.disableAIFeatures": true,
   /********** 手动同步/插件相关 **********/
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
   // copilot
   "github.copilot.enable": {
     "*": false
