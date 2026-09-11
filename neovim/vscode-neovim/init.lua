@@ -31,6 +31,3 @@ map("n", "<leader>r", action("editor.action.rename"),
 
 map("n", "<leader>a", action("editor.action.quickFix"),
   { desc = "Code Action" })
-
-map("n", "<leader>w", action("workbench.action.files.save"),
-  { desc = "Save" })
