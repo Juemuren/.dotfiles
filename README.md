@@ -19,6 +19,7 @@
 * [git](./git)
 * [mise](./mise)
 * [msys](./msys)
+* [neovim](./neovim)
 * [npm](./npm)
 * [pi](./pi)
 * [pixi](./pixi)
