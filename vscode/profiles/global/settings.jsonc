@@ -41,6 +41,7 @@
     "scm.repositories.selectionMode",
     "chat.disableAIFeatures",
     "extensions.experimental.affinity",
+    "vscode-neovim.NVIM_APPNAME",
     "github.copilot.enable",
     "git.addAICoAuthor",
     "git.untrackedChanges"
@@ -219,9 +220,11 @@
   // 聊天
   "chat.disableAIFeatures": true,
   /********** 手动同步/插件相关 **********/
+  // neovim
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
   // copilot
   "github.copilot.enable": {
     "*": false

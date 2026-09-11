@@ -8,6 +8,9 @@
 [mise.files]
 "mise/windows/config.toml" = "~/.config/mise/config.toml"
 
+[neovim.files]
+"neovim/vscode-neovim" = "~/AppData/Local/vscode-neovim"
+
 [pi.files]
 "pi/windows/settings.json" = "~/.pi/agent/settings.json"
 
