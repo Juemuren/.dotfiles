@@ -10,10 +10,10 @@ mod checks '.scripts/checks'
 mod docs '.scripts/docs'
 
 watch:
-    ./bin/dotter watch --dry-run --force
+    ./.bin/dotter watch --dry-run --force
 
 preview:
-    ./bin/dotter deploy --dry-run --force
+    ./.bin/dotter deploy --dry-run --force
 
 deploy:
-    ./bin/dotter deploy --verbose --force --noconfirm
+    ./.bin/dotter deploy --verbose --force --noconfirm

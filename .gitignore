@@ -7,7 +7,7 @@
 .vscode
 
 # binary
-bin
+.bin
 
 # temp
-tmp
+.tmp
