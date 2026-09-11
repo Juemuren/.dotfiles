@@ -56,5 +56,6 @@ git_email = ""
 [vscode.files]
 "vscode/profiles/global/keybindings.jsonc" = "~/.config/Code/User/keybindings.json"
 "vscode/profiles/global/settings.jsonc" = "~/.config/Code/User/settings.json"
+"vscode/profiles/global/tasks.jsonc" = "~/.config/Code/User/tasks.json"
 "vscode/profiles/global/snippets" = "~/.config/Code/User/snippets"
 "vscode/scripts" = "~/.local/bin"

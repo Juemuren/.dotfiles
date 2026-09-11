@@ -25,6 +25,7 @@ pnpm_store = "~/AppData/Local/pnpm/store"
 [vscode.files]
 "vscode/profiles/global/keybindings.jsonc" = "~/AppData/Roaming/Code/User/keybindings.json"
 "vscode/profiles/global/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
+"vscode/profiles/global/tasks.jsonc" = "~/AppData/Roaming/Code/User/tasks.json"
 "vscode/profiles/global/snippets" = "~/AppData/Roaming/Code/User/snippets"
 
 [zsh.files]

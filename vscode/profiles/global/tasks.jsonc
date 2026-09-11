@@ -1,0 +1,130 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clang: compile current file",
+      "type": "process",
+      "command": "clang",
+      "args": [
+        "-Wall",
+        "-Wextra",
+        "-fno-color-diagnostics",
+        "${fileBasename}",
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "owner": "clang",
+        "source": "clang",
+        "fileLocation": ["relative", "${fileDirname}"],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(error|warning):\\s+(.*?)(?:\\s+\\[([^\\]]+)\\])?$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5,
+          "code": 6
+        }
+      },
+      "group": "build"
+    },
+    {
+      "label": "ghc: compile current file",
+      "type": "process",
+      "command": "ghc",
+      "args": [
+        "-Wall",
+        "-fdiagnostics-color=never",
+        "-fno-diagnostics-show-caret",
+        "${fileBasename}",
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "owner": "ghc",
+        "source": "ghc",
+        "fileLocation": ["relative", "${fileDirname}"],
+        "pattern": [
+          {
+            "regexp": "^(.+?):(\\d+):(\\d+)(?:-(?:\\d+:)?\\d+)?:\\s+(error|warning):(?:\\s+\\[([^\\]]+)\\])?\\s*$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "code": 5
+          },
+          {
+            "regexp": "^\\s+(.*\\S.*)$",
+            "message": 1
+          }
+        ]
+      },
+      "group": "build"
+    },
+    {
+      "label": "rustc: compile current file",
+      "type": "process",
+      "command": "rustc",
+      "args": [
+        "--error-format=short",
+        "--color=never",
+        "${fileBasename}",
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "owner": "rustc",
+        "source": "rustc",
+        "fileLocation": ["relative", "${fileDirname}"],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(error|warning)(?:\\[([^\\]]+)\\])?:\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        }
+      },
+      "group": "build"
+    },
+    {
+      "label": "go: compile current file",
+      "type": "process",
+      "command": "go",
+      "args": [
+        "build",
+        "-o",
+        "${fileBasenameNoExtension}",
+        "${fileBasename}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "owner": "go",
+        "source": "go",
+        "severity": "error",
+        "fileLocation": ["relative", "${fileDirname}"],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "message": 4
+        }
+      },
+      "group": "build"
+    }
+  ]
+}
