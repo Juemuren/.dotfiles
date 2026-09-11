@@ -8,7 +8,8 @@
       "args": [
         "-Wall",
         "-Wextra",
-        "-fno-color-diagnostics",
+        "-fdiagnostics-color=always",
+        "-fansi-escape-codes",
         "${fileBasename}",
         "-o",
         "${fileBasenameNoExtension}"
@@ -38,8 +39,7 @@
       "command": "ghc",
       "args": [
         "-Wall",
-        "-fdiagnostics-color=never",
-        "-fno-diagnostics-show-caret",
+        "-fdiagnostics-color=always",
         "${fileBasename}",
         "-o",
         "${fileBasenameNoExtension}"
@@ -74,7 +74,7 @@
       "command": "rustc",
       "args": [
         "--error-format=short",
-        "--color=never",
+        "--color=always",
         "${fileBasename}",
         "-o",
         "${fileBasenameNoExtension}"
