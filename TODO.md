@@ -50,22 +50,21 @@ cat .local/env
 
 ## 命令入口
 
-- [ ] 更改命令入口，根据记录、恢复、部署与初始化等划分子模块。
+- [ ] 更改命令入口和脚本目录结构，根据 `平台/软件` 划分子模块，每个子模块各自维护 `record` / `restore` / `bootstrap` 三类命令，并在父模块中组合命令。`deploy` / `preview` 等命令仍然保留在根部。
 
 ### 方案草稿：命令入口
 
 ```sh
-just record scoop
-just record vscode
-just record
+just common::vscode::record
+just common::vscode::restore
+just common::vscode::bootstrap
 
-just restore scoop
-just restore pwsh
-just restore
+just windows::scoop::record
+just unix::brew::record
 
-just deploy
-
-just bootstrap
+just windows::record # record 所有 windows 软件
+just common::record # record 所有 common 软件
+just record # 根据平台 record 所有软件
 ```
 
 ## Agent Skills
@@ -138,7 +137,6 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
 
 ## 探索与评估
 
-- [ ] 把更多工作迁移到 Neovim 上，并尝试从零开始编写自己的配置。可以先在 VSCode 里使用 Neovim 后端以熟练命令。
 - [ ] 尝试在 WSL 中使用 Nix。
 - [ ] 评估迁移到 chezmoi。
 
@@ -152,3 +150,5 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
   - [ ] 统计 token，可以是单个会话或多个会话
   - [ ] 统计每天会话数
   - [ ] 找含错误信息的 assistant 回复
+- [ ] 把查找 VSCode 中重复的扩展目录的脚本用 python 或 shell 重写
+- [ ] 删除 VSCode 中重复的扩展目录，需要用户确认
