@@ -36,6 +36,7 @@
     "terminal.integrated.persistentSessionReviveProcess",
     "terminal.integrated.profiles.windows",
     "terminal.integrated.profiles.linux",
+    "explorer.compactFolders",
     "explorer.fileNesting.enabled",
     "explorer.fileNesting.expand",
     "scm.repositories.selectionMode",
@@ -213,6 +214,7 @@
     "pwsh": null
   },
   // 资源管理器
+  "explorer.compactFolders": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   // 源代码管理器
