@@ -8,6 +8,7 @@ ltex
 mise
 mq
 msys2
+neovim
 pixi
 rush
 rustup
