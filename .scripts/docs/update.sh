@@ -18,16 +18,11 @@ update_section() {
 
 get_dirs() {
     local path=$1
-    local exclude=${2:-}
 
-    if [[ -z "$exclude" ]]; then
-        fd -d 1 -t dir --search-path "$path" --format '* [{/.}]({})'
-    else
-        fd -d 1 -t dir --search-path "$path" --exclude "$exclude" --format '* [{/.}]({})'
-    fi
+    fd -d 1 -t dir --search-path "$path" --format '* [{/.}]({})'
 }
 
-get_dirs . scripts |
+get_dirs . |
     update_section README.md TOOL
 
 get_dirs vscode/profiles |

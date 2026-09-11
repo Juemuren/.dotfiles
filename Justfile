@@ -1,13 +1,13 @@
 set default-list := true
 
-mod common 'scripts/common'
+mod common '.scripts/common'
 [windows]
-mod windows 'scripts/windows'
+mod windows '.scripts/windows'
 [unix]
-mod unix 'scripts/unix'
+mod unix '.scripts/unix'
 
-mod checks 'scripts/checks'
-mod docs 'scripts/docs'
+mod checks '.scripts/checks'
+mod docs '.scripts/docs'
 
 watch:
     ./bin/dotter watch --dry-run --force

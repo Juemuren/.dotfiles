@@ -48,35 +48,9 @@ cat .local/env
 
 方案验证并完成迁移后，再删除各层 dotter 配置中重复的 `[variables]`。
 
-## 仓库结构与命令入口
+## 命令入口
 
-- [ ] 调整仓库结构，区分配置、软件清单和自动化脚本。
 - [ ] 更改命令入口，根据记录、恢复、部署与初始化等划分子模块。
-
-### 方案草稿：目录结构
-
-```txt
-.dotfiles
-│
-├── configs
-│   ├── git/
-│   ├── vscode/
-│   ├── starship/
-│   └── ...
-│
-├── manifests
-│   ├── scoop/buckets/*.txt
-│   ├── pwsh/modules.txt
-│   ├── vscode/*/extensions.jsonc
-│   └── ...
-│
-└── automation
-    ├── record
-    ├── restore
-    └── bootstrap
-```
-
-初始化脚本当前计划放在 `scripts/windows` 和 `scripts/unix`；采用新结构时，需同步调整路径。
 
 ### 方案草稿：命令入口
 
