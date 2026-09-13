@@ -1,26 +1,26 @@
 local map = vim.keymap.set
 
-local vscode = require("vscode")
+-- Delete
 
-local function action(name)
-  return function()
-    vscode.action(name)
-  end
-end
+map({ "n", "x" }, "x", '"_x', {
+  desc = "Delete character without overwriting clipboard",
+})
 
--- VS Code UI
-map("n", "<leader>p", action("workbench.action.quickOpen"),
-  { desc = "Quick Open" })
+map({"n", "x"}, "<leader>d", '"_d', {
+  desc = "Delete without overwriting clipboard",
+})
 
-map("n", "<leader>/", action("workbench.action.findInFiles"),
-  { desc = "Find in Files" })
+-- Paste
 
-map("n", "<leader>e", action("workbench.view.explorer"),
-  { desc = "Explorer" })
+map("x", "p", '"_dP', {
+  desc = "Paste without overwriting clipboard",
+})
 
--- Code actions
-map("n", "<leader>r", action("editor.action.rename"),
-  { desc = "Rename Symbol" })
+map({"n", "x"}, "<leader>p", '"0p', {
+  desc = "Paste last yanked text",
+})
 
-map("n", "<leader>a", action("editor.action.quickFix"),
-  { desc = "Code Action" })
+map("n", "<leader>P", '"0P', {
+  desc = "Paste last yanked text before cursor",
+})
+
