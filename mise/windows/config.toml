@@ -2,6 +2,7 @@
 aube = "latest"
 biome = "latest"
 cspell = "latest"
+deno = "latest"
 dprint = "latest"
 go = "latest"
 just = "latest"
