@@ -29,6 +29,7 @@ fzf
 gawk
 gh
 ghostscript
+gnuplot
 gopass
 gpg
 graphviz
