@@ -43,6 +43,8 @@
     "chat.disableAIFeatures",
     "extensions.experimental.affinity",
     "vscode-neovim.NVIM_APPNAME",
+    "vscode-neovim.ctrlKeysForNormalMode",
+    "vscode-neovim.ctrlKeysForInsertMode",
     "github.copilot.enable",
     "git.addAICoAuthor",
     "git.untrackedChanges"
@@ -227,6 +229,43 @@
     "asvetliakov.vscode-neovim": 1
   },
   "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
+  "vscode-neovim.ctrlKeysForNormalMode": [
+    "a",
+    "b",
+    "d",
+    "e",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "o",
+    "r",
+    "t",
+    "u",
+    "w",
+    "y",
+    "z",
+    "/",
+    "]",
+    "right",
+    "left",
+    "up",
+    "down",
+    "backspace",
+    "delete"
+  ],
+  "vscode-neovim.ctrlKeysForInsertMode": [
+    "d",
+    "h",
+    "j",
+    "m",
+    "o",
+    "r",
+    "t",
+    "w"
+  ],
   // copilot
   "github.copilot.enable": {
     "*": false
