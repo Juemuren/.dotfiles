@@ -150,5 +150,4 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
   - [ ] 统计 token，可以是单个会话或多个会话
   - [ ] 统计每天会话数
   - [ ] 找含错误信息的 assistant 回复
-- [ ] 把查找 VSCode 中重复的扩展目录的脚本用 python 或 shell 重写
 - [ ] 删除 VSCode 中重复的扩展目录，需要用户确认
