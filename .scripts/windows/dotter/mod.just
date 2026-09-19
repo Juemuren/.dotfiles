@@ -3,4 +3,4 @@ set default-script := true
 set default-list := true
 
 bootstrap:
-    ./bootstrap.ps1 -Destination '{{ justfile_directory() }}/bin'
+    ./bootstrap.ps1 -Destination '{{ justfile_directory() }}/.bin'

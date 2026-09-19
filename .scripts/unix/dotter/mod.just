@@ -3,4 +3,4 @@ set default-script := true
 set default-list := true
 
 bootstrap:
-    ./bootstrap.sh "{{ justfile_directory() }}/bin"
+    ./bootstrap.sh "{{ justfile_directory() }}/.bin"
