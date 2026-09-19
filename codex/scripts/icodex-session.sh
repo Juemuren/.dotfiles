@@ -6,8 +6,8 @@ if [ "$OS" = "Windows_NT" ]; then
 fi
 
 SCRIPT_DIR=$(dirname "$0")
-SESSION_CONTENT_FILTER="$SCRIPT_DIR/session-content.jq"
-SESSION_MATCHES_FILTER="$SCRIPT_DIR/session-matches.jq"
+SESSION_CONTENT_FILTER="$SCRIPT_DIR/codex-session-content.jq"
+SESSION_MATCHES_FILTER="$SCRIPT_DIR/codex-session-matches.jq"
 
 DATE_TIME_PATTERN='[[:digit:]]+-[[:digit:]]+-[[:digit:]]+T[[:digit:]]+-[[:digit:]]+-[[:digit:]]+'
 UUID_PATTERN='[[:xdigit:]]+-[[:xdigit:]]+-[[:xdigit:]]+-[[:xdigit:]]+-[[:xdigit:]]+'
