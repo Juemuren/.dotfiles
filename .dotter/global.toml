@@ -36,6 +36,7 @@ git_email = ""
 
 [npm.files]
 "npm/config.ini" = "~/.npmrc"
+"npm/scripts" = "~/.local/bin"
 
 [pixi.files]
 "pixi/config.toml" = "$PIXI_HOME/config.toml"
