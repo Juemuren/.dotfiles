@@ -11,7 +11,7 @@ extract_profile_id() {
     local profile_name=$1
     local storage_file="$APPDATA/Code/User/globalStorage/storage.json"
 
-    jq -er \
+    jq -ber \
         --arg profile_name "$profile_name" \
         -f "$SCRIPT_DIR/extract-profile-id.jq" \
         "$storage_file"
@@ -22,18 +22,16 @@ extract_profile_extensions() {
     local extensions_file
     extensions_file="$APPDATA/Code/User/profiles/$(extract_profile_id "$profile_name")/extensions.json"
 
-    jq -er \
+    jq -br \
         --slurpfile global_extensions "$GLOBAL_EXTENSIONS_FILE" \
         -f "$SCRIPT_DIR/extract-profile-extensions.jq" \
-        "$extensions_file" |
-        sort > "$PROFILES_DIR/$profile_name/extensions.txt"
+        "$extensions_file" > "$PROFILES_DIR/$profile_name/extensions.txt"
 }
 
 extract_global_extensions() {
-    jq -er \
+    jq -br \
         -f "$SCRIPT_DIR/extract-global-extensions.jq" \
-        "$GLOBAL_EXTENSIONS_FILE" |
-        sort > "$PROFILES_DIR/$GLOBAL_PROFILE_NAME/extensions.txt"
+        "$GLOBAL_EXTENSIONS_FILE" > "$PROFILES_DIR/$GLOBAL_PROFILE_NAME/extensions.txt"
 }
 
 extract_all_extensions() {

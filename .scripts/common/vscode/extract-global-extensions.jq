@@ -1,3 +1,5 @@
-.[]
-| select(.metadata.isApplicationScoped == true)
-| .identifier.id
+map(
+  select(.metadata.isApplicationScoped == true)
+  | .identifier.id
+)
+| sort[]

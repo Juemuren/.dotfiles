@@ -4,9 +4,11 @@
 ) as $global_ids
 # which can be incorrectly listed as a profile extension.
 | ["github.copilot-chat"] as $ignored_ids
-| .[]
-| select(.metadata.isApplicationScoped != true)
-| .identifier.id as $id
-| select($ignored_ids | index($id) == null)
-| select($global_ids | index($id) == null)
-| $id
+| map(
+  select(.metadata.isApplicationScoped != true)
+  | .identifier.id as $id
+  | select($ignored_ids | index($id) == null)
+  | select($global_ids | index($id) == null)
+  | $id
+)
+| sort[]
