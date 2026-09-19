@@ -3,8 +3,8 @@
 ## 系统初始化与软件恢复
 
 - [ ] Scoop：编写 bucket 记录与恢复脚本，记录 bucket 名称与来源，包括我自己的 bucket 仓库。
-- [ ] Windows：编写新系统初始化脚本，放入 `scripts/windows`，并在 just 的 windows 模块中调用。
-- [ ] Unix：编写新系统初始化脚本，放入 `scripts/unix`，并在 just 的 unix 模块中调用。
+- [ ] Windows：编写新系统初始化脚本，放入 `.scripts/windows`，并在 just 的 windows 模块中调用。
+- [ ] Unix：编写新系统初始化脚本，放入 `.scripts/unix`，并在 just 的 unix 模块中调用。
 - [ ] 用 Scoop 管理 VSCode 安装。我自己的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
 - [ ] 配置 Windows 开发卷，并研究一下有没有可自动化的方法。
 
@@ -47,25 +47,6 @@ cat .local/env
 更好的解决方案是让 dotter 可以直接在配置中声明读取哪些 `.env` 文件。相关 PR 已提交 [issue #228](https://github.com/SuperCuber/dotter/issues/228)。
 
 方案验证并完成迁移后，再删除各层 dotter 配置中重复的 `[variables]`。
-
-## 命令入口
-
-- [ ] 更改命令入口和脚本目录结构，根据 `平台/软件` 划分子模块，每个子模块各自维护 `record` / `restore` / `bootstrap` 三类命令，并在父模块中组合命令。`deploy` / `preview` 等命令仍然保留在根部。
-
-### 方案草稿：命令入口
-
-```sh
-just common::vscode::record
-just common::vscode::restore
-just common::vscode::bootstrap
-
-just windows::scoop::record
-just unix::brew::record
-
-just windows::record # record 所有 windows 软件
-just common::record # record 所有 common 软件
-just record # 根据平台 record 所有软件
-```
 
 ## Agent Skills
 

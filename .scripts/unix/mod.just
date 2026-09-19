@@ -1,12 +1,10 @@
-set script-interpreter := ["sh", "-eu"]
-set default-script := true
 set default-list := true
 
-install:
-    ./install.sh "{{ justfile_directory() }}/bin"
+mod brew 'brew'
+mod dotter 'dotter'
 
-record-brew os=os():
-    ./record-brew.sh "{{ justfile_directory() }}/brew/{{ os }}"
+record: brew::record
 
-restore-brew os=os():
-    ./restore-brew.sh "{{ justfile_directory() }}/brew/{{ os }}"
+restore: brew::restore
+
+bootstrap: dotter::bootstrap
