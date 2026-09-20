@@ -1,0 +1,22 @@
+{
+  "mathbb": {
+    "prefix": "bb",
+    "body": "\\mathbb{${1}}"
+  },
+  "mathbf": {
+    "prefix": "bf",
+    "body": "\\mathbf{${1}}"
+  },
+  "mathbm": {
+    "prefix": "bm",
+    "body": "\\boldsymbol{${1}}"
+  },
+  "mathcal": {
+    "prefix": "cal",
+    "body": "\\mathcal{${1}}"
+  },
+  "mathrm": {
+    "prefix": "rm",
+    "body": "\\mathrm{${1}}"
+  }
+}
