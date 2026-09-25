@@ -1,155 +1,32 @@
 {
-  "markdown-table-pipe": {
-    "scope": "markdown",
+  "pipe-table": {
+    "scope": "markdown,mdx",
     "prefix": ["table", "||"],
     "body": [
       "| $1 | $2 |",
       "|----|----|",
       "| $3 | $4 |",
       "$0"
-    ],
-    "description": "Markdown pipe table"
+    ]
   },
-  "markdown-math-block": {
-    "scope": "markdown",
+  "math-block": {
+    "scope": "markdown,mdx",
     "prefix": ["math", "$$"],
     "body": [
       "$$",
       "$1",
       "$$",
       "$0"
-    ],
-    "description": "Markdown math block"
+    ]
   },
-  "markdown-code-block": {
-    "scope": "markdown",
+  "code-block": {
+    "scope": "markdown,mdx",
     "prefix": ["code", "``"],
     "body": [
       "```${1:language}",
       "$2",
       "```",
       "$0"
-    ],
-    "description": "Markdown code block"
-  },
-  "latex-derivative": {
-    "scope": "latex",
-    "prefix": ["derivative", "deriv"],
-    "body": "\\frac{\\mathrm{d}${1:y}}{\\mathrm{d}${2:x}} $0",
-    "description": "LaTeX derivative"
-  },
-  "latex-n-derivative": {
-    "scope": "latex",
-    "prefix": ["n-derivative", "nd"],
-    "body": "\\frac{\\mathrm{d}^${3:n} ${1:y}}{\\mathrm{d}${2:x}^${3:n}} $0",
-    "description": "LaTeX n derivative"
-  },
-  "latex-partial-derivative": {
-    "scope": "latex",
-    "prefix": ["partial-derivative", "pd"],
-    "body": "\\frac{\\partial ${1:y}}{\\partial ${2:x}} $0",
-    "description": "LaTeX partial derivative"
-  },
-  "latex-n-partial-derivative": {
-    "scope": "latex",
-    "prefix": ["n-partial-derivative", "npd"],
-    "body": "\\frac{\\partial^${3:n} ${1:y}}{\\partial ${2:x}^${3:n}} $0",
-    "description": "LaTeX n partial derivative"
-  },
-  "latex-integration": {
-    "scope": "latex",
-    "prefix": ["integration", "int"],
-    "body": "\\int_{${1:a}}^{${2:b}} ${4:f} \\mathrm{d}${3:x} $0",
-    "description": "LaTeX integration"
-  },
-  "latex-differentiation": {
-    "scope": "latex",
-    "prefix": ["differentiation", "diff"],
-    "body": "\\mathrm{d}${1:y} = ${3:f} \\mathrm{d}${2:x} $0",
-    "description": "LaTeX differentiation"
-  },
-  "latex-jacobian-matrix": {
-    "scope": "latex",
-    "prefix": ["jacobian-matrix", "jm"],
-    "body": [
-      "\\begin{bmatrix}",
-      "  \\frac{\\partial ${1:x}}{\\partial ${3:u}} & \\frac{\\partial ${1:x}}{\\partial ${4:v}} \\\\\\",
-      "  \\frac{\\partial ${2:y}}{\\partial ${3:u}} & \\frac{\\partial ${2:y}}{\\partial ${4:v}}",
-      "\\end{bmatrix}",
-      "$0"
-    ],
-    "description": "LaTeX jacobian matrix"
-  },
-  "latex-jacobian-determinant": {
-    "scope": "latex",
-    "prefix": ["jacobian-determinant", "jd"],
-    "body": [
-      "\\begin{vmatrix}",
-      "  \\frac{\\partial ${1:x}}{\\partial ${3:u}} & \\frac{\\partial ${1:x}}{\\partial ${4:v}} \\\\\\",
-      "  \\frac{\\partial ${2:y}}{\\partial ${3:u}} & \\frac{\\partial ${2:y}}{\\partial ${4:v}}",
-      "\\end{vmatrix}",
-      "$0"
-    ],
-    "description": "LaTeX jacobian determinant"
-  },
-  "latex-hessian-matrix": {
-    "scope": "latex",
-    "prefix": ["hessian-matrix", "hm"],
-    "body": [
-      "\\begin{bmatrix}",
-      "  \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}^2} & \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}\\partial ${3:y}} \\\\\\",
-      "  \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}\\partial ${2:x}} & \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}^2}",
-      "\\end{bmatrix}",
-      "$0"
-    ],
-    "description": "LaTeX hessian matrix"
-  },
-  "latex-hessian-determinant": {
-    "scope": "latex",
-    "prefix": ["hessian-determinant", "hd"],
-    "body": [
-      "\\begin{vmatrix}",
-      "  \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}^2} & \\frac{\\partial^2 ${1:f}}{\\partial ${2:x}\\partial ${3:y}} \\\\\\",
-      "  \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}\\partial ${2:x}} & \\frac{\\partial^2 ${1:f}}{\\partial ${3:y}^2}",
-      "\\end{vmatrix}",
-      "$0"
-    ],
-    "description": "LaTeX hessian determinant"
-  },
-  "latex-round-bracket": {
-    "scope": "latex",
-    "prefix": ["round-bracket", "paren", "rb"],
-    "body": "\\left( $1 \\right) $0",
-    "description": "LaTeX round-bracket"
-  },
-  "latex-square-bracket": {
-    "scope": "latex",
-    "prefix": ["square-bracket", "brack", "sb"],
-    "body": "\\left[ $1 \\right] $0",
-    "description": "LaTeX square bracket"
-  },
-  "latex-curly-bracket": {
-    "scope": "latex",
-    "prefix": ["curly-bracket", "brace", "cb"],
-    "body": "\\left\\{ $1 \\right\\\\} $0",
-    "description": "LaTeX curly bracket"
-  },
-  "latex-angle-bracket": {
-    "scope": "latex",
-    "prefix": ["angle-bracket", "angle", "ab"],
-    "body": "\\left\\langle $1 \\right\\rangle $0",
-    "description": "LaTeX angle bracket"
-  },
-  "latex-single-bar": {
-    "scope": "latex",
-    "prefix": ["single-bar", "vert", "sb"],
-    "body": "\\left\\lvert $1 \\right\\rvert $0",
-    "description": "LaTeX single bar"
-  },
-  "latex-double-bar": {
-    "scope": "latex",
-    "prefix": ["double-bar", "Vert", "db"],
-    "body": "\\left\\lVert $1 \\right\\rVert $0",
-    "description": "LaTeX double bar"
-  },
+    ]
+  }
 }

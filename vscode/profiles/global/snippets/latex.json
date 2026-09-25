@@ -37,5 +37,53 @@
   "sum": {
     "prefix": "sum",
     "body": "${1}1 ${2:+} ${1}2 ${2:+} \\cdots ${2:+} ${1}n"
+  },
+  "derivative": {
+    "prefix": ["derivative", "deriv"],
+    "body": "\\frac{\\mathrm{d}${1:y}}{\\mathrm{d}${2:x}}"
+  },
+  "n-derivative": {
+    "prefix": ["n-derivative", "nd"],
+    "body": "\\frac{\\mathrm{d}^${3:n} ${1:y}}{\\mathrm{d}${2:x}^${3:n}}"
+  },
+  "partial-derivative": {
+    "prefix": ["partial-derivative", "pd"],
+    "body": "\\frac{\\partial ${1:y}}{\\partial ${2:x}}"
+  },
+  "n-partial-derivative": {
+    "prefix": ["n-partial-derivative", "npd"],
+    "body": "\\frac{\\partial^${3:n} ${1:y}}{\\partial ${2:x}^${3:n}}"
+  },
+  "integration": {
+    "prefix": ["integration", "int"],
+    "body": "\\int_{${1:a}}^{${2:b}} ${4:f} \\mathrm{d}${3:x}"
+  },
+  "differentiation": {
+    "prefix": ["differentiation", "diff"],
+    "body": "\\mathrm{d}${1:y} = ${3:f} \\mathrm{d}${2:x}"
+  },
+  "round-bracket": {
+    "prefix": ["round-bracket", "paren", "rb"],
+    "body": "\\left( $1 \\right)"
+  },
+  "square-bracket": {
+    "prefix": ["square-bracket", "brack", "sb"],
+    "body": "\\left[ $1 \\right]"
+  },
+  "curly-bracket": {
+    "prefix": ["curly-bracket", "brace", "cb"],
+    "body": "\\left\\{ $1 \\right\\\\}"
+  },
+  "angle-bracket": {
+    "prefix": ["angle-bracket", "angle", "ab"],
+    "body": "\\left\\langle $1 \\right\\rangle"
+  },
+  "single-bar": {
+    "prefix": ["single-bar", "vert", "sb"],
+    "body": "\\left\\lvert $1 \\right\\rvert"
+  },
+  "double-bar": {
+    "prefix": ["double-bar", "Vert", "db"],
+    "body": "\\left\\lVert $1 \\right\\rVert"
   }
 }
