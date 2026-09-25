@@ -18,5 +18,24 @@
   "mathrm": {
     "prefix": "rm",
     "body": "\\mathrm{${1}}"
+  },
+  "matrix": {
+    "prefix": "matrix",
+    "body": [
+      "\\begin{${1:matrix}}",
+      "  ${2}11 & ${2}12 & \\cdots & ${2}1n \\\\\\",
+      "  ${2}21 & ${2}22 & \\cdots & ${2}2n \\\\\\",
+      "  \\vdots & \\vdots & \\ddots & \\vdots \\\\\\",
+      "  ${2}n1 & ${2}n2 & \\cdots & ${2}nn \\\\\\",
+      "\\end{${1:matrix}}"
+    ]
+  },
+  "set": {
+    "prefix": "set",
+    "body": "\\\\${1:set}{${2}1, ${2}2, \\cdots, ${2}n}"
+  },
+  "sum": {
+    "prefix": "sum",
+    "body": "${1}1 ${2:+} ${1}2 ${2:+} \\cdots ${2:+} ${1}n"
   }
 }
