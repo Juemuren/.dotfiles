@@ -123,12 +123,8 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
 
 ## 日用脚本编写
 
-- [ ] 查询 Codex 会话内容，可以使用 duckdb、fd、rg、jq 等工具
+- [ ] 查询 Codex 会话内容，可以使用 duckdb、fd、rg、jq、bat 等工具
   - [ ] 查询在指定日期区间内的所有会话，列出日期、标题和 id
-  - [ ] 找最长 prompt
   - [ ] 查询单个会话中的所有用户问题，需要指定 id
   - [ ] 查询单个会话中包含指定关键词的消息
-  - [ ] 统计 token，可以是单个会话或多个会话
   - [ ] 统计每天会话数
-  - [ ] 找含错误信息的 assistant 回复
-- [ ] 删除 VSCode 中重复的扩展目录，需要用户确认
