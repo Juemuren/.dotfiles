@@ -10,6 +10,7 @@
 
 [neovim.files]
 "neovim/vscode-neovim" = "~/AppData/Local/vscode-neovim"
+"neovim/nvim" = "~/AppData/Local/nvim"
 
 [pi.files]
 "pi/windows/settings.json" = "~/.pi/agent/settings.json"
