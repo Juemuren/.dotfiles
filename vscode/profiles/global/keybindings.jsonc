@@ -18,5 +18,21 @@
     "key": "ctrl+space",
     "command": "-editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+shift+.",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == markdown && editorHasSelection",
+    "args": {
+      "snippet": "${TM_SELECTED_TEXT/^/> /gm}"
+    }
+  },
+  {
+    "key": "ctrl+shift+,",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == markdown && editorHasSelection",
+    "args": {
+      "snippet": "${TM_SELECTED_TEXT/^> ?//gm}"
+    }
   }
 ]
