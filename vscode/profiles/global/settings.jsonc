@@ -271,5 +271,7 @@
   },
   // git
   "git.addAICoAuthor": "off",
-  "git.untrackedChanges": "separate"
+  "git.untrackedChanges": "separate",
+  // julia
+  "julia.symbolCacheDownload": true
 }

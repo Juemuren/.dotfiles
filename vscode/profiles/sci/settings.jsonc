@@ -1,9 +1,5 @@
 {
   "editor.tabSize": 4,
-  // mermaid
-  "mermaid.vscode.aiExportName": false,
-  "mermaidChart.showGenerateDiagramCodeLens": false,
-  "mermaidChart.preCommitSync.enabled": false,
   // python
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": false,
@@ -27,5 +23,6 @@
   // julia
   "terminal.integrated.commandsToSkipShell": [
     "language-julia.interrupt"
-  ]
+  ],
+  "julia.enableTelemetry": false
 }

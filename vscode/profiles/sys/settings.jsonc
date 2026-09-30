@@ -56,7 +56,7 @@
       }
     ]
   },
-  // C & C++
+  // cpp
   "[cpp]": {
     "editor.stickyScroll.defaultModel": "foldingProviderModel",
     "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
