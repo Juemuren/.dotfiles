@@ -20,6 +20,10 @@
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
   },
   {
+    "key": "ctrl+[",
+    "command": "-vscode-neovim.escape"
+  },
+  {
     "key": "ctrl+shift+.",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus && editorLangId == markdown && editorHasSelection",
