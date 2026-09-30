@@ -1,6 +1,62 @@
 {
   "editor.tabSize": 4,
-  // c/cpp
+  "launch": {
+    "configurations": [
+      {
+        "name": "LLDB: Debug Current Binary",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${file}",
+        "cwd": "${fileDirname}"
+      },
+      {
+        "name": "C (LLDB): Build and Debug Current File",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "cwd": "${fileDirname}",
+        "preLaunchTask": "C (clang): Compile Current File"
+      },
+      {
+        "name": "C++ (LLDB): Build and Debug Current File",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "cwd": "${fileDirname}",
+        "preLaunchTask": "C++ (clang++): Compile Current File"
+      },
+      {
+        "name": "Haskell (LLDB): Build and Debug Current File",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "windows": {
+          "program": "${fileDirname}/${fileBasenameNoExtension}"
+        },
+        "cwd": "${fileDirname}",
+        "preLaunchTask": "Haskell (ghc): Compile Current File"
+      },
+      {
+        "name": "Rust (LLDB): Build and Debug Current File",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "cwd": "${fileDirname}",
+        "sourceLanguages": ["rust"],
+        "preLaunchTask": "Rust (rustc): Compile Current File"
+      },
+      {
+        "name": "Go (Delve): Build and Debug Current File",
+        "type": "go",
+        "request": "launch",
+        "mode": "exec",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "cwd": "${fileDirname}",
+        "preLaunchTask": "Go (go): Compile Current File"
+      }
+    ]
+  },
+  // C & C++
   "[cpp]": {
     "editor.stickyScroll.defaultModel": "foldingProviderModel",
     "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
