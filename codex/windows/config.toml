@@ -9,6 +9,7 @@ allow_login_shell = false
 [features]
 network_proxy = true
 mentions_v2 = false
+daemon_auto_start = false
 
 [windows]
 sandbox = "elevated"
@@ -36,7 +37,7 @@ ignore_default_excludes = false
 
 [tui]
 screen_reader_detection_done = true
-fullscreen_transcript = false
+fullscreen_transcript = true
 show_tooltips = false
 session_picker_view = "comfortable"
 theme = "catppuccin-mocha"
