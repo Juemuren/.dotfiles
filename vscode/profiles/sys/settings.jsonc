@@ -1,6 +1,7 @@
 {
   "editor.tabSize": 4,
   "launch": {
+    "version": "0.2.0",
     "configurations": [
       {
         "name": "LLDB: Debug Current Binary",
@@ -23,18 +24,8 @@
         "request": "launch",
         "program": "${fileDirname}/${fileBasenameNoExtension}",
         "cwd": "${fileDirname}",
+        "sourceLanguages": ["cpp"],
         "preLaunchTask": "C++ (clang++): Compile Current File"
-      },
-      {
-        "name": "Haskell (LLDB): Build and Debug Current File",
-        "type": "lldb",
-        "request": "launch",
-        "program": "${fileDirname}/${fileBasenameNoExtension}",
-        "windows": {
-          "program": "${fileDirname}/${fileBasenameNoExtension}"
-        },
-        "cwd": "${fileDirname}",
-        "preLaunchTask": "Haskell (ghc): Compile Current File"
       },
       {
         "name": "Rust (LLDB): Build and Debug Current File",
@@ -44,6 +35,14 @@
         "cwd": "${fileDirname}",
         "sourceLanguages": ["rust"],
         "preLaunchTask": "Rust (rustc): Compile Current File"
+      },
+      {
+        "name": "Haskell (LLDB): Build and Debug Current File",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "cwd": "${fileDirname}",
+        "preLaunchTask": "Haskell (ghc): Compile Current File"
       },
       {
         "name": "Go (Delve): Build and Debug Current File",

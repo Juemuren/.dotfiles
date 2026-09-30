@@ -68,6 +68,38 @@
       "group": "build"
     },
     {
+      "label": "Rust (rustc): Compile Current File",
+      "type": "process",
+      "command": "rustc",
+      "args": [
+        "--error-format=short",
+        "--color=always",
+        "-g",
+        "-C",
+        "opt-level=0",
+        "${fileBasename}",
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "source": "rustc",
+        "fileLocation": ["relative", "${fileDirname}"],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(error|warning)(?:\\[([^\\]]+)\\])?:\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        }
+      },
+      "group": "build"
+    },
+{
       "label": "Haskell (ghc): Compile Current File",
       "type": "process",
       "command": "ghc",
@@ -100,38 +132,6 @@
             "message": 1
           }
         ]
-      },
-      "group": "build"
-    },
-    {
-      "label": "Rust (rustc): Compile Current File",
-      "type": "process",
-      "command": "rustc",
-      "args": [
-        "--error-format=short",
-        "--color=always",
-        "-g",
-        "-C",
-        "opt-level=0",
-        "${fileBasename}",
-        "-o",
-        "${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": {
-        "source": "rustc",
-        "fileLocation": ["relative", "${fileDirname}"],
-        "pattern": {
-          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(error|warning)(?:\\[([^\\]]+)\\])?:\\s+(.*)$",
-          "file": 1,
-          "line": 2,
-          "column": 3,
-          "severity": 4,
-          "code": 5,
-          "message": 6
-        }
       },
       "group": "build"
     },

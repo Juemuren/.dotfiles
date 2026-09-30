@@ -1,5 +1,28 @@
 {
   "editor.tabSize": 4,
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Debug Current File",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${file}"
+      },
+      {
+        "name": "Python: Attach",
+        "type": "debugpy",
+        "request": "attach",
+        "processId": "${command:pickProcess}"
+      },
+      {
+        "name": "Julia: Debug Current File",
+        "type": "julia",
+        "request": "launch",
+        "program": "${file}"
+      }
+    ]
+  },
   // python
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": false,

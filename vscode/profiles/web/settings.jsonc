@@ -4,6 +4,23 @@
     "**/node_modules": true,
     "**/patches": true
   },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Node.js: Debug Current File",
+        "type": "node",
+        "request": "launch",
+        "program": "${file}"
+      },
+      {
+        "name": "Node.js: Attach",
+        "type": "node",
+        "request": "attach",
+        "processId": "${command:PickProcess}"
+      }
+    ]
+  },
   // todo-tree
   "better-todo-tree.filtering.excludeGlobs": [
     "**/node_modules/*/**",
