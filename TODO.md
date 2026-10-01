@@ -2,9 +2,9 @@
 
 ## 系统初始化与软件恢复
 
-- [ ] Scoop：编写 bucket 记录与恢复脚本，记录 bucket 名称与来源，包括我自己的 bucket 仓库。
-- [ ] Windows：编写新系统初始化脚本，放入 `.scripts/windows`，并在 just 的 windows 模块中调用。
+- [ ] Windows：编写新系统初始化脚本，放入 `.scripts/windows`，并在 just 的 windows 模块中调用。目前已经完成了部分，但可能需要提取一下 helper 函数从而复用代码。并且 MSVC 的组件配置不应该放在 `.scripts/` 下。
 - [ ] Unix：编写新系统初始化脚本，放入 `.scripts/unix`，并在 just 的 unix 模块中调用。
+- [ ] Scoop：编写 bucket 记录与恢复脚本，记录 bucket 名称与来源，包括我自己的 bucket 仓库。
 - [ ] 用 Scoop 管理 VSCode 安装。我自己的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
 - [ ] 配置 Windows 开发卷，并研究一下有没有可自动化的方法。
 

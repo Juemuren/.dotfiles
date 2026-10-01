@@ -31,7 +31,6 @@
 * [uv](./uv)
 * [vim](./vim)
 * [vscode](./vscode)
-* [windows](./windows)
 * [winget](./winget)
 * [wt](./wt)
 * [zsh](./zsh)
