@@ -1,4 +1,10 @@
 local map = vim.keymap.set
+local del = vim.keymap.del
+
+-- Restore neovim default keys
+
+del("n", "=")
+del("n", "==")
 
 -- Delete
 

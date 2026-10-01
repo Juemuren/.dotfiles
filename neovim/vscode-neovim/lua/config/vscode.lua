@@ -14,11 +14,11 @@ map("n", "<leader>p", action("workbench.action.quickOpen"), {
 })
 
 map("n", "<leader>t", action("workbench.action.tasks.runTask"), {
-  desc = "Select a task"
+  desc = "Select a Task"
 })
 
 map("n", "<leader>d", action("workbench.action.debug.selectandstart"), {
-  desc = "Select a debug"
+  desc = "Select a Debug"
 })
 
 map("n", "<leader>/", action("workbench.action.findInFiles"), {
@@ -36,4 +36,8 @@ map("n", "<leader>r", action("editor.action.rename"), {
 
 map("n", "<leader>a", action("editor.action.quickFix"), {
   desc = "Code Action"
+})
+
+map("n", "<leader>f", action("editor.action.formatDocument"), {
+  desc = "Format File"
 })
