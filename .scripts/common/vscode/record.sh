@@ -3,19 +3,11 @@
 set -eu
 
 SCRIPT_DIR=$(dirname "$0")
+# shellcheck source-path=SCRIPTDIR
+source "$SCRIPT_DIR/helper/profiles.sh"
+
 PROFILES_DIR=$1
 GLOBAL_EXTENSIONS_FILE="$HOME/.vscode/extensions/extensions.json"
-GLOBAL_PROFILE_NAME="global"
-
-extract_profile_id() {
-    local profile_name=$1
-    local storage_file="$APPDATA/Code/User/globalStorage/storage.json"
-
-    jq -ber \
-        --arg profile_name "$profile_name" \
-        -f "$SCRIPT_DIR/helper/extract-profile-id.jq" \
-        "$storage_file"
-}
 
 extract_profile_extensions() {
     local profile_name=$1
@@ -36,12 +28,7 @@ extract_global_extensions() {
 
 extract_all_extensions() {
     extract_global_extensions
-    for profile_dir in "$PROFILES_DIR"/*/; do
-        profile_name=$(basename "$profile_dir")
-        if [ "$profile_name" != "$GLOBAL_PROFILE_NAME" ]; then
-            extract_profile_extensions "$profile_name"
-        fi
-    done
+    for_each_profile "$PROFILES_DIR" extract_profile_extensions
 }
 
 profile_name=$2
