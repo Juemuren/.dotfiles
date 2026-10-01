@@ -3,5 +3,6 @@ mupdf
 quarto
 sfsu
 sysinternals
+tex-fmt
 viddy
 wireshark
