@@ -13,7 +13,7 @@ extract_profile_id() {
 
     jq -ber \
         --arg profile_name "$profile_name" \
-        -f "$SCRIPT_DIR/record/extract-profile-id.jq" \
+        -f "$SCRIPT_DIR/helper/extract-profile-id.jq" \
         "$storage_file"
 }
 

@@ -13,7 +13,7 @@ extract_profile_id() {
 
     jq -ber \
         --arg profile_name "$profile_name" \
-        -f "$SCRIPT_DIR/extract-profile-id.jq" \
+        -f "$SCRIPT_DIR/helper/extract-profile-id.jq" \
         "$storage_file"
 }
 
@@ -24,13 +24,13 @@ extract_profile_extensions() {
 
     jq -br \
         --slurpfile global_extensions "$GLOBAL_EXTENSIONS_FILE" \
-        -f "$SCRIPT_DIR/extract-profile-extensions.jq" \
+        -f "$SCRIPT_DIR/helper/extract-profile-extensions.jq" \
         "$extensions_file" > "$PROFILES_DIR/$profile_name/extensions.txt"
 }
 
 extract_global_extensions() {
     jq -br \
-        -f "$SCRIPT_DIR/extract-global-extensions.jq" \
+        -f "$SCRIPT_DIR/helper/extract-global-extensions.jq" \
         "$GLOBAL_EXTENSIONS_FILE" > "$PROFILES_DIR/$GLOBAL_PROFILE_NAME/extensions.txt"
 }
 

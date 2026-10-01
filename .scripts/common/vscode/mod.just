@@ -7,7 +7,7 @@ bootstrap:
     ./bootstrap.sh "{{ justfile_directory() }}/vscode/profiles" "{{ justfile_directory() }}/.local/vscode.env"
 
 record profile="all":
-    ./record/index.sh "{{ justfile_directory() }}/vscode/profiles" "{{ profile }}"
+    ./record.sh "{{ justfile_directory() }}/vscode/profiles" "{{ profile }}"
 
 restore profile="all":
     ./restore.sh "{{ justfile_directory() }}/vscode/profiles" "{{ profile }}"
