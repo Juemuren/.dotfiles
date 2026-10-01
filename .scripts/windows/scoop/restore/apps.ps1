@@ -3,8 +3,6 @@ param(
     [string]$Source
 )
 
-$ErrorActionPreference = 'Stop'
-
 Get-ChildItem -LiteralPath $Source -Filter '*.txt' -File
 | ForEach-Object {
     $bucket = $_.BaseName

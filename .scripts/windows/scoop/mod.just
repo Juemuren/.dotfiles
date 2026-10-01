@@ -6,4 +6,4 @@ record:
     ./record/index.ps1 -Destination '{{ justfile_directory() }}/scoop'
 
 restore:
-    ./restore.ps1 -Source '{{ justfile_directory() }}/scoop/buckets'
+    ./restore/index.ps1 -Source '{{ justfile_directory() }}/scoop'
