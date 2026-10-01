@@ -13,6 +13,14 @@ map("n", "<leader>p", action("workbench.action.quickOpen"), {
   desc = "Quick Open"
 })
 
+map("n", "<leader>t", action("workbench.action.tasks.runTask"), {
+  desc = "Select a task"
+})
+
+map("n", "<leader>d", action("workbench.action.debug.selectandstart"), {
+  desc = "Select a debug"
+})
+
 map("n", "<leader>/", action("workbench.action.findInFiles"), {
   desc = "Find in Files"
 })
