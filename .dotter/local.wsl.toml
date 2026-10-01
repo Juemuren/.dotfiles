@@ -11,8 +11,6 @@ packages = [
   "zsh",
 ]
 
-[files]
-
 [variables]
 git_name = "Your git name"
 git_email = "Your git email"

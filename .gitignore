@@ -9,5 +9,5 @@
 # binary
 .bin
 
-# temp
-.tmp
+# local variables
+.local

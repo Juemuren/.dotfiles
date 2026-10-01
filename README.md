@@ -83,34 +83,43 @@ Pwsh 包含以下 Module
 
 ### 部署点文件
 
-本仓库使用 [dotter](https://github.com/SuperCuber/dotter) 管理点文件。
+本仓库使用 [dotter](https://github.com/SuperCuber/dotter) 管理点文件，使用 [just](https://github.com/casey/just) 运行任务。
 
 参考下面的方法把仓库中的点文件部署到本机的对应位置：
 
 1. 克隆仓库
+
     ```sh
     git clone https://github.com/Juemuren/.dotfiles
     cd .dotfiles
     ```
 
 2. 复制配置示例（可以任选一个 `.dotter/local.*.toml` 作为示例文件）
+
     ```sh
     cp .dotter/local.windows.toml .dotter/local.toml
     ```
 
 3. 根据需要修改 `.dotter/local.toml`
+
     ```sh
     vim .dotter/local.toml
     ```
 
 4. 预览部署结果
+
     ```sh
-    dotter deploy --dry-run -f
+   just preview
     ```
 
-5. （可选）如果提示 `Warning`，那么通常是目标位置已经存在文件。建议进行备份，因为下一步原位置的文件将被删除。
+5. 如果部署失败，显示 `ERROR`，那么通常是一些文件的目标路径需要动态获取。请在 `.local/xxx.env` 中填写对应的变量，或者运行 `just yyy::xxx::bootstrap` 来自动填写变量。目前这类软件、对应的 `*.env` 文件以及自动填写的命令分别为
 
-6. 部署点文件
+    - vscode - `.local/vscode.env` - `just common::vscode::bootstrap`
+
+6. （可选）如果显示 `WARN`，那么通常是目标位置已经存在文件。建议进行备份，因为下一步原位置的文件将被删除。
+
+7. 部署点文件
+
     ```sh
-    dotter deploy -v -f
+    just deploy
     ```

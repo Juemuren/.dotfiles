@@ -9,15 +9,13 @@
 
 ## 配置部署与机器差异
 
-- [ ] 改善从本地配置示例到可用机器配置的流程（machine-special）。
-  - [ ] 自动填写 VSCode profiles 的文件映射。目前已经可以用脚本提取 `profile_id`。可以考虑用脚本自动修改 `.dotter/local.toml` 中的 `files`，或者路径里填写环境变量，然后部署前加载环境变量。
-  - [ ] 考虑使用 `*.env` 文件作为机器变量的唯一权威源。
+- [ ] 考虑使用 `*.env` 文件作为机器变量的唯一权威源。
 
 ### 方案草稿：机器变量的唯一权威源
 
 目前 `.dotter/local.toml` 中的 `variables` 只有当配置作为模板文件时才能读，要运行的脚本不能读，目标文件的路径也不能读。变量还可能在 `global.toml`、`os.toml`、`local.example.toml`、`local.toml` 中重复维护。
 
-考虑使用外部 `*.env` 文件作为 machine-special 权威源：
+考虑使用外部 `*.env` 文件作为机器变量权威源：
 
 - 在部署前通过 `just` 加载到环境变量中，从而可以在路径中使用环境变量。
 - 脚本也可以更方便地读取或修改 `*.env` 文件。
@@ -29,7 +27,7 @@
 vscode_conf_id="114514"
 ```
 
-通过 `.scripts/common/vscode/mod.just` 加载为环境变量：
+通过根目录 `Justfile` 在部署前将其加载为环境变量：
 
 ```just
 set dotenv-path := ".local/vscode.env"
@@ -51,12 +49,11 @@ echo "$vscode_conf_id"
 至于转换为 dotter patch，目前的想法是添加 `[variables]` 头（需验证 dotenv 与 TOML 的语法兼容性）：
 
 ```sh
-printf '[variables]\n'
-cat .local/vscode.env
+(printf '[variables]\n'; cat .local/vscode.env) | dotter --patch
 ```
 
 ```pwsh
-"[variables]`n$(Get-Content -Raw .local/vscode.env)"
+"[variables]`n$(Get-Content -Raw .local/vscode.env)" | dotter --patch
 ```
 
 更好的解决方案是让 dotter 可以直接在配置中声明读取哪些 `.env` 文件。相关 issue 已提交 [issue #228](https://github.com/SuperCuber/dotter/issues/228)。

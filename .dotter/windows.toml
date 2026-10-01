@@ -28,6 +28,13 @@ pnpm_store = "~/AppData/Local/pnpm/store"
 "vscode/profiles/global/settings.jsonc" = "~/AppData/Roaming/Code/User/settings.json"
 "vscode/profiles/global/tasks.jsonc" = "~/AppData/Roaming/Code/User/tasks.json"
 "vscode/profiles/global/snippets" = "~/AppData/Roaming/Code/User/snippets"
+"vscode/profiles/conf/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_conf_id/settings.json"
+"vscode/profiles/doc/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_doc_id/settings.json"
+"vscode/profiles/emb/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_emb_id/settings.json"
+"vscode/profiles/game/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_game_id/settings.json"
+"vscode/profiles/sci/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_sci_id/settings.json"
+"vscode/profiles/sys/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_sys_id/settings.json"
+"vscode/profiles/web/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_web_id/settings.json"
 
 [zsh.files]
 "zsh/windows.zsh" = "~/.zshrc"
