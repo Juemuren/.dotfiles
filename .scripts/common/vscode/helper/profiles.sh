@@ -3,7 +3,7 @@
 VSCODE_HELPER_DIR=$(dirname "${BASH_SOURCE[0]}")
 GLOBAL_PROFILE_NAME="global"
 
-# 提取指定 profile_name 的 location
+# 提取 $1 的 location
 extract_profile_id() {
     local profile_name=$1
     local storage_file="$APPDATA/Code/User/globalStorage/storage.json"
@@ -14,7 +14,7 @@ extract_profile_id() {
         "$storage_file"
 }
 
-# 对 profiles_dir 下的每个非 global profile 调用 action 函数，该函数把 profile_name 作为参数
+# 对 $1 下的每个非 global profile 调用 $2 函数，该函数把 profile 的名称作为参数
 for_each_profile() {
     local profiles_dir=$1
     local action=$2
