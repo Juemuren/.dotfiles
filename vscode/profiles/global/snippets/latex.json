@@ -1,23 +1,63 @@
 {
   "mathbb": {
     "prefix": "bb",
-    "body": "\\mathbb{${1}}"
+    "body": "\\mathbb{$1}"
   },
   "mathbf": {
     "prefix": "bf",
-    "body": "\\mathbf{${1}}"
+    "body": "\\mathbf{$1}"
   },
   "mathbm": {
     "prefix": "bm",
-    "body": "\\boldsymbol{${1}}"
+    "body": "\\boldsymbol{$1}"
   },
   "mathcal": {
     "prefix": "cal",
-    "body": "\\mathcal{${1}}"
+    "body": "\\mathcal{$1}"
   },
   "mathrm": {
     "prefix": "rm",
-    "body": "\\mathrm{${1}}"
+    "body": "\\mathrm{$1}"
+  },
+  "auto-round-bracket": {
+    "prefix": ["arb", "a()"],
+    "body": "\\left( $1 \\right)"
+  },
+  "big-round-bracket": {
+    "prefix": ["brb", "b()"],
+    "body": "\\bigl( $1 \\bigr)"
+  },
+  "auto-square-bracket": {
+    "prefix": ["asb", "a[]"],
+    "body": "\\left[ $1 \\right]"
+  },
+  "big-square-bracket": {
+    "prefix": ["bsb", "b[]"],
+    "body": "\\bigl[ $1 \\bigr]"
+  },
+  "auto-curly-bracket": {
+    "prefix": ["acb", "a{}"],
+    "body": "\\left\\{ $1 \\right\\\\}"
+  },
+  "big-curly-bracket": {
+    "prefix": ["bcb", "b{}"],
+    "body": "\\bigl\\{ $1 \\bigr\\\\}"
+  },
+  "angle-bracket": {
+    "prefix": ["angle", "<>"],
+    "body": "\\left\\langle $1 \\right\\rangle"
+  },
+  "single-vert": {
+    "prefix": ["sv", "|"],
+    "body": "\\left\\lvert $1 \\right\\rvert"
+  },
+  "double-vert": {
+    "prefix": ["dv", "||"],
+    "body": "\\left\\lVert $1 \\right\\rVert"
+  },
+  "right-vert": {
+    "prefix": ["rv", ".|"],
+    "body": "\\left. $1 \\right|"
   },
   "matrix": {
     "prefix": "mat",
@@ -104,33 +144,5 @@
   "differentiation": {
     "prefix": "diff",
     "body": "\\mathrm{d}${1:y} = ${3:f} \\mathrm{d}${2:x}"
-  },
-  "round-bracket": {
-    "prefix": ["paren", "rb"],
-    "body": "\\left( $1 \\right)"
-  },
-  "big-round-bracket": {
-    "prefix": ["brb", "big("],
-    "body": "\\bigl( $1 \\bigr)"
-  },
-  "square-bracket": {
-    "prefix": ["brack", "sb"],
-    "body": "\\left[ $1 \\right]"
-  },
-  "curly-bracket": {
-    "prefix": ["brace", "cb"],
-    "body": "\\left\\{ $1 \\right\\\\}"
-  },
-  "angle-bracket": {
-    "prefix": ["angle", "ab"],
-    "body": "\\left\\langle $1 \\right\\rangle"
-  },
-  "single-vert": {
-    "prefix": "vert",
-    "body": "\\left\\lvert $1 \\right\\rvert"
-  },
-  "double-vert": {
-    "prefix": "Vert",
-    "body": "\\left\\lVert $1 \\right\\rVert"
   }
 }
