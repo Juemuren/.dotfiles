@@ -44,11 +44,11 @@ map("n", "<leader>rd", action("workbench.action.debug.selectandstart"), {
 
 -- Find
 map("n", "<leader>ff", action("workbench.action.quickOpen"), {
-  desc = "Find file"
+  desc = "Find File"
 })
 
 map("n", "<leader>ft", action("workbench.action.quickTextSearch"), {
-  desc = "Find text"
+  desc = "Find Text"
 })
 
 map("n", "<leader>fs", action("workbench.action.gotoSymbol"), {
@@ -72,9 +72,25 @@ map("n", "<leader>og", action("workbench.view.scm"), {
   desc = "Open Git View"
 })
 
+map("n", "<leader>op", action("workbench.actions.view.problems"), {
+  desc = "Open Problem View"
+})
+
+map("n", "<leader>oo", action("workbench.action.output.toggleOutput"), {
+  desc = "Open Output View"
+})
+
+map("n", "<leader>ot", action("workbench.action.terminal.toggleTerminal"), {
+  desc = "Open Terminal View"
+})
+
+map("n", "<leader>ob", action("workbench.action.browser.open"), {
+  desc = "Open Browser View"
+})
+
 -- Code Action
-map("n", "<leader>ca", action("editor.action.quickFix"), {
-  desc = "Code Action"
+map("n", "<leader>cx", action("editor.action.quickFix"), {
+  desc = "Code Fix"
 })
 
 map("n", "<leader>cf", action("editor.action.formatDocument"), {
