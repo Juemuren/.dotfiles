@@ -100,3 +100,7 @@ map("n", "<leader>cf", action("editor.action.formatDocument"), {
 map("n", "<leader>cF", action("editor.action.formatDocument.multiple"), {
   desc = "Code Format with selecting a formatter first"
 })
+
+map({"n", "v"}, "<leader>cs", action("editor.action.insertSnippet"), {
+  desc = "Code Snippet"
+})

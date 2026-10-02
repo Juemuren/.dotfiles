@@ -7,10 +7,6 @@
     "prefix": "bf",
     "body": "\\mathbf{$1}"
   },
-  "mathbm": {
-    "prefix": "bm",
-    "body": "\\boldsymbol{$1}"
-  },
   "mathcal": {
     "prefix": "cal",
     "body": "\\mathcal{$1}"
@@ -18,6 +14,30 @@
   "mathrm": {
     "prefix": "rm",
     "body": "\\mathrm{$1}"
+  },
+  "wrap-align-environment": {
+    "prefix": "wae",
+    "body": [
+      "\\begin{align}",
+      "  ${TM_SELECTED_TEXT}",
+      "\\end{align}"
+    ]
+  },
+  "wrap-align*-environment": {
+    "prefix": "wa*e",
+    "body": [
+      "\\begin{align*}",
+      "  ${TM_SELECTED_TEXT}",
+      "\\end{align*}"
+    ]
+  },
+  "wrap-cases-environment": {
+    "prefix": "wce",
+    "body": [
+      "\\begin{cases}",
+      "  ${TM_SELECTED_TEXT}",
+      "\\end{cases}"
+    ]
   },
   "auto-round-bracket": {
     "prefix": ["arb", "a()"],
