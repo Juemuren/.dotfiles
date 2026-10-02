@@ -57,7 +57,7 @@
   },
   "right-vert": {
     "prefix": ["rv", ".|"],
-    "body": "\\left. $1 \\right\\vert"
+    "body": "\\left. $1 \\right\\rvert"
   },
   "matrix": {
     "prefix": "mat",
