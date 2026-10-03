@@ -65,7 +65,6 @@ echo "$vscode_conf_id"
 - [ ] `build-documents-with-pandoc`：使用 Pandoc 将 Markdown 转为 PDF，并提供模板。
 - [ ] `making-braille-ascii`：使用 ImageMagick 和 chafa 将动漫图片转为盲文 ASCII，用于 fastfetch；需要补充个人审美要求。
 - [ ] `process-pdf`：考虑重命名。需要明确验收要求，有待筛选更精简的工具集。
-- [ ] `data-wrangling`：明确适用场景并筛选工具，优先使用现成工具，减少用 Python / shell 重复实现已有功能。
 
 ### 设计备注：create-scoop-manifest
 
@@ -109,22 +108,6 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
 | OCR                                                | OCRmyPDF        |
 | 上述工具不方便完成的高级操作（Bug 有点多，待考虑） | pdfcpu          |
 | 其它工具无法处理的异常 PDF，作为最后选择           | Ghostscript     |
-
-### 设计备注：data-wrangling
-
-虽然经常使用这些工具，但尚无明确、单一的用途。Agent 大概率已经掌握相关知识，重点是表达工具选择偏好。
-
-以下候选工具仍需精简：
-
-| 定位     | 数据或场景                                    | 工具   |
-| -------- | --------------------------------------------- | ------ |
-| 默认     | JSON / 简单 JSONL                             | jq     |
-| 默认     | YAML / TOML / XML / 配置文件                  | yq     |
-| 默认     | CSV / TSV / 复杂 JSONL / Parquet / 关系型数据 | DuckDB |
-| 专项     | 流式或逐记录转换（没实际用过）                | Miller |
-| 专项     | 高级 CSV 操作（没实际用过）                   | qsv    |
-| 兜底     | 复杂、自定义、多步骤或需要专用库的数据处理    | Python |
-| 受限使用 | 简单纯文本处理                                | awk    |
 
 ## 探索与评估
 

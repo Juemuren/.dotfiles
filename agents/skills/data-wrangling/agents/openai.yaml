@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据处理"
+  short_description: "根据数据格式、规模、模型和操作选择工具，完成查询、清洗、转换、合并与重塑"
+  default_prompt: "使用 $data-wrangling，按识别格式、检查规模、判断模型、明确操作、选择工具的流程处理这些数据。"
