@@ -46,14 +46,16 @@ set dotenv-path := ".local/vscode.env"
 echo "$vscode_conf_id"
 ```
 
-至于转换为 dotter patch，目前的想法是添加 `[variables]` 头（需验证 dotenv 与 TOML 的语法兼容性）：
+至于转换为 dotter patch，目前的想法是使用 `yq`
 
 ```sh
-(printf '[variables]\n'; cat .local/vscode.env) | dotter --patch
+yq -p ini -o toml '{"variables": .}' .local/vscode.env | dotter --patch
 ```
 
-```pwsh
-"[variables]`n$(Get-Content -Raw .local/vscode.env)" | dotter --patch
+当 `.local/*.env` 文件变多时，可以使用 `fd` 和 `cat` 连接文件
+
+```sh
+fd .env .local -X cat | yq -p ini -o toml '{"variables": .}' | dotter --patch
 ```
 
 更好的解决方案是让 dotter 可以直接在配置中声明读取哪些 `.env` 文件。相关 issue 已提交 [issue #228](https://github.com/SuperCuber/dotter/issues/228)。
