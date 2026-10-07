@@ -31,29 +31,6 @@ carapace _carapace powershell | Out-String | Invoke-Expression
 $Global:__OriginalPrompt = $function:Prompt
 $Global:__TerminalLastHistoryId = -1
 
-function Get-TerminalLastExitCode {
-    param(
-        [bool]$CommandSucceeded,
-        [int]$NativeExitCode,
-        $LastHistory
-    )
-
-    if ($CommandSucceeded) {
-        return 0
-    }
-
-    $isPowerShellError =
-    $null -ne $LastHistory -and
-    $Error.Count -gt 0 -and
-    $Error[0].InvocationInfo.HistoryId -eq $LastHistory.Id
-
-    if ($isPowerShellError) {
-        return -1 # PowerShell errors do not have a native process exit code.
-    }
-
-    return $NativeExitCode
-}
-
 function Global:prompt {
     # Capture status before any other statement can overwrite it.
     $commandSucceeded = $?
@@ -67,12 +44,15 @@ function Global:prompt {
         $lastHistory.Id -ne $Global:__TerminalLastHistoryId
 
         if ($hasNewHistoryEntry) {
-            $exitCodeParams = @{
-                CommandSucceeded = $commandSucceeded
-                NativeExitCode   = $nativeExitCode
-                LastHistory      = $lastHistory
+            $exitCode = if ($commandSucceeded) {
+                0
             }
-            $exitCode = Get-TerminalLastExitCode @exitCodeParams
+            elseif ($Error.Count -gt 0 -and $Error[0].InvocationInfo.HistoryId -eq $lastHistory.Id) {
+                -1 # PowerShell errors do not have a native process exit code.
+            }
+            else {
+                $nativeExitCode
+            }
             $commandEnd = "`e]133;D;$exitCode`a"
         }
         else {
