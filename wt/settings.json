@@ -43,6 +43,32 @@
                 "direction": "previous"
             },
             "id": "User.preMark"
+        },
+        {
+            "command": 
+            {
+                "action": "selectOutput",
+                "direction": "prev"
+            },
+            "id": "User.preOutput"
+        },
+        {
+            "command": 
+            {
+                "action": "multipleActions",
+                "actions": 
+                [
+                    {
+                        "action": "selectOutput",
+                        "direction": "prev"
+                    },
+                    {
+                        "action": "copy",
+                        "singleLine": false
+                    }
+                ]
+            },
+            "id": "User.selectAndCopy"
         }
     ],
     "alwaysShowTabs": true,
@@ -76,6 +102,14 @@
         {
             "id": "User.nextMark",
             "keys": "ctrl+down"
+        },
+        {
+            "id": "User.preOutput",
+            "keys": "ctrl+g"
+        },
+        {
+            "id": "User.selectAndCopy",
+            "keys": "ctrl+shift+g"
         }
     ],
     "newTabMenu": 
@@ -91,6 +125,7 @@
     {
         "defaults": 
         {
+            "autoMarkPrompts": true,
             "backgroundImageOpacity": 0.2,
             "bellStyle": "taskbar",
             "closeOnExit": "graceful",
