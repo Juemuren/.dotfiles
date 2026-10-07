@@ -22,6 +22,64 @@ starship init powershell | Out-String | Invoke-Expression
 zoxide init powershell | Out-String | Invoke-Expression
 carapace _carapace powershell | Out-String | Invoke-Expression
 
+# Windows Terminal shell integration
+$Global:__OriginalPrompt = $function:Prompt
+$Global:__TerminalLastHistoryId = -1
+
+$PromptStart   = "`e]133;A`a"
+$PromptEnd     = "`e]133;B`a"
+$CommandEnd    = "`e]133;D`a"
+
+function Get-TerminalLastExitCode {
+    if ($?) {
+        return 0
+    }
+
+    $lastHistory = Get-History -Count 1
+    $isPowerShellError =
+        $null -ne $lastHistory -and
+        $Error.Count -gt 0 -and
+        $Error[0].InvocationInfo.HistoryId -eq $lastHistory.Id
+
+    if ($isPowerShellError) {
+        return -1
+    }
+
+    return $LASTEXITCODE
+}
+
+function Global:prompt {
+    $lastHistory = Get-History -Count 1
+    $output = ""
+
+    # Mark the end of the previous command.
+    if ($Global:__LastHistoryId -ne -1) {
+        $hasNewHistoryEntry =
+            $null -ne $lastHistory -and
+            $lastHistory.Id -ne $Global:__LastHistoryId
+
+        if ($hasNewHistoryEntry) {
+            $exitCode = Get-TerminalLastExitCode
+            $output += "`e]133;D;$exitCode`a"
+        }
+        else {
+            $output += $CommandEnd
+        }
+    }
+
+    $output += $PromptStart
+    $cwd = $ExecutionContext.SessionState.Path.CurrentLocation
+    $output += "`e]9;9;`"$cwd`"`a"
+    $output += $Global:__OriginalPrompt.Invoke()
+    $output += $PromptEnd
+
+    if ($null -ne $lastHistory) {
+        $Global:__LastHistoryId = $lastHistory.Id
+    }
+
+    return $output
+}
+
 # Completions
 # just --completions powershell | Out-String | Invoke-Expression
 # pnpm completion pwsh | Out-String | Invoke-Expression
