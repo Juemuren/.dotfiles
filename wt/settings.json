@@ -47,14 +47,6 @@
         {
             "command": 
             {
-                "action": "selectOutput",
-                "direction": "prev"
-            },
-            "id": "User.preOutput"
-        },
-        {
-            "command": 
-            {
                 "action": "multipleActions",
                 "actions": 
                 [
@@ -102,10 +94,6 @@
         {
             "id": "User.nextMark",
             "keys": "ctrl+down"
-        },
-        {
-            "id": "User.preOutput",
-            "keys": "ctrl+g"
         },
         {
             "id": "User.selectAndCopy",
