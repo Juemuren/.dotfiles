@@ -26,40 +26,48 @@ carapace _carapace powershell | Out-String | Invoke-Expression
 $Global:__OriginalPrompt = $function:Prompt
 $Global:__TerminalLastHistoryId = -1
 
-$PromptStart   = "`e]133;A`a"
-$PromptEnd     = "`e]133;B`a"
-$CommandEnd    = "`e]133;D`a"
+$PromptStart = "`e]133;A`a"
+$PromptEnd = "`e]133;B`a"
+$CommandEnd = "`e]133;D`a"
 
 function Get-TerminalLastExitCode {
-    if ($?) {
+    param(
+        [bool]$CommandSucceeded,
+        [int]$NativeExitCode,
+        $LastHistory
+    )
+
+    if ($CommandSucceeded) {
         return 0
     }
 
-    $lastHistory = Get-History -Count 1
     $isPowerShellError =
-        $null -ne $lastHistory -and
-        $Error.Count -gt 0 -and
-        $Error[0].InvocationInfo.HistoryId -eq $lastHistory.Id
+    $null -ne $LastHistory -and
+    $Error.Count -gt 0 -and
+    $Error[0].InvocationInfo.HistoryId -eq $LastHistory.Id
 
     if ($isPowerShellError) {
-        return -1
+        return -1 # PowerShell errors do not have a native process exit code.
     }
 
-    return $LASTEXITCODE
+    return $NativeExitCode
 }
 
 function Global:prompt {
+    # Capture status before any other statement can overwrite it.
+    $commandSucceeded = $?
+    $nativeExitCode = $LASTEXITCODE
     $lastHistory = Get-History -Count 1
     $output = ""
 
     # Mark the end of the previous command.
-    if ($Global:__LastHistoryId -ne -1) {
+    if ($Global:__TerminalLastHistoryId -ne -1) {
         $hasNewHistoryEntry =
-            $null -ne $lastHistory -and
-            $lastHistory.Id -ne $Global:__LastHistoryId
+        $null -ne $lastHistory -and
+        $lastHistory.Id -ne $Global:__TerminalLastHistoryId
 
         if ($hasNewHistoryEntry) {
-            $exitCode = Get-TerminalLastExitCode
+            $exitCode = Get-TerminalLastExitCode -CommandSucceeded $commandSucceeded -NativeExitCode $nativeExitCode -LastHistory $lastHistory
             $output += "`e]133;D;$exitCode`a"
         }
         else {
@@ -70,12 +78,16 @@ function Global:prompt {
     $output += $PromptStart
     $cwd = $ExecutionContext.SessionState.Path.CurrentLocation
     $output += "`e]9;9;`"$cwd`"`a"
+
+    # Starship reads $? on entry. Restore failure without adding to $Error.
+    if (-not $commandSucceeded) {
+        Write-Error '' -ErrorAction Ignore
+    }
     $output += $Global:__OriginalPrompt.Invoke()
     $output += $PromptEnd
 
-    if ($null -ne $lastHistory) {
-        $Global:__LastHistoryId = $lastHistory.Id
-    }
+    # Zero means the initial prompt was shown, before any command was run.
+    $Global:__TerminalLastHistoryId = if ($null -ne $lastHistory) { $lastHistory.Id } else { 0 }
 
     return $output
 }
