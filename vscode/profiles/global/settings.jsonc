@@ -15,6 +15,7 @@
     "workbench.navigationControl.enabled",
     "workbench.startupEditor",
     "workbench.editor.empty.hint",
+    "terminal.integrated.initialHint",
     "workbench.editor.enablePreview",
     "workbench.editor.highlightModifiedTabs",
     "editor.guides.bracketPairs",
@@ -80,6 +81,7 @@
   // 启动
   "workbench.startupEditor": "none",
   "workbench.editor.empty.hint": "hidden",
+  "terminal.integrated.initialHint": false,
   // 预览
   "workbench.editor.enablePreview": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -109,7 +111,7 @@
   // 集成终端
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.shellIntegration.enabled": false,
+  "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
