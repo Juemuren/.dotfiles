@@ -45,6 +45,7 @@ depends = ["pwsh", "scoop", "winget", "wt"]
 [pwsh.files]
 "pwsh/profile.ps1" = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
 "pwsh/modules" = "~/Documents/PowerShell/Modules"
+"pwsh/integrations" = "~/Documents/PowerShell/integrations"
 "pwsh/scripts" = "~/.local/bin"
 
 [scoop.files]
