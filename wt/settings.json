@@ -113,7 +113,7 @@
     {
         "defaults": 
         {
-            "autoMarkPrompts": true,
+            "autoMarkPrompts": false,
             "backgroundImageOpacity": 0.2,
             "bellStyle": "taskbar",
             "closeOnExit": "graceful",
