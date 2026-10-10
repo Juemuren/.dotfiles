@@ -11,6 +11,10 @@
     "prefix": "cal",
     "body": "\\mathcal{$1}"
   },
+  "mathfrak": {
+    "prefix": "frak",
+    "body": "\\mathfrak{$1}"
+  },
   "mathrm": {
     "prefix": "rm",
     "body": "\\mathrm{$1}"
