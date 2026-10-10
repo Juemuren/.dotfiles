@@ -1,6 +1,9 @@
 [bash.files]
 "bash/wsl.bash" = "~/.bashrc"
 
+[git.files]
+"git/wsl.ini" = "~/.gitconfig"
+
 [mise.files]
 "mise/wsl/config.toml" = "~/.config/mise/config.toml"
 

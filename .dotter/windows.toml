@@ -5,6 +5,9 @@
 "codex/windows/config.toml" = "~/.codex/config.toml"
 "codex/windows/AGENTS.md" = "~/.codex/AGENTS.md"
 
+[git.files]
+"git/windows.ini" = "~/.gitconfig"
+
 [mise.files]
 "mise/windows/config.toml" = "~/.config/mise/config.toml"
 
