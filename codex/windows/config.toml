@@ -1,4 +1,4 @@
-model = "gpt-6-astra"
+model = "gpt-6-sol"
 model_reasoning_effort = "medium"
 
 default_permissions = "dev"
