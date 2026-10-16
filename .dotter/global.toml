@@ -8,6 +8,7 @@ default_target_type = "automatic"
 
 [atuin.files]
 "atuin/config.toml" = "~/.atuin/config.toml"
+"atuin/themes" = "~/.atuin/themes"
 
 [bash.files]
 "bash/scripts" = "~/.local/bin"

@@ -9,9 +9,12 @@ enabled = false
 
 [ui]
 columns = [
-  "directory",
+  { type = "directory", width = 30 },
   "time",
   "duration",
-  "exit",
+  {type = "exit", width = 3 },
   "command",
 ]
+
+[theme]
+name = "catppuccin-mocha"
