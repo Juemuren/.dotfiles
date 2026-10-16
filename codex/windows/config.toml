@@ -45,3 +45,6 @@ status_line = ["model-with-reasoning", "current-dir", "git-branch", "context-rem
 status_line_use_colors = true
 terminal_title = ["activity", "project-name", "run-state", "task-progress"]
 pet = "disabled"
+
+[notice]
+hide_rate_limit_model_nudge = true
