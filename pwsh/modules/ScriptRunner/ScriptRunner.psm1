@@ -102,6 +102,31 @@ function Enable-ScriptPicker {
     }
 }
 
+function Complete-LocalScript {
+    param($wordToComplete, $commandAst, $cursorPosition)
+
+    if ($commandAst.CommandElements.Count -gt 1) {
+        $scriptNameAst = $commandAst.CommandElements[1]
+        $isCompletingScriptName = $cursorPosition -le $scriptNameAst.Extent.EndOffset
+        if (-not $isCompletingScriptName) {
+            return
+        }
+
+        if ($scriptNameAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
+            $wordToComplete = $scriptNameAst.Value
+        }
+    }
+
+    Get-LocalScript | Where-Object {
+        $_.Name.StartsWith($wordToComplete, [StringComparison]::OrdinalIgnoreCase)
+    } | ForEach-Object {
+        $quoted = Convert-ScriptName $_.Name
+        [System.Management.Automation.CompletionResult]::new(
+            $quoted, $_.Name, 'ParameterValue', $_.FullName
+        )
+    }
+}
+
 function Set-ScriptRunner {
     <# .SYNOPSIS
     Enables the script picker and script name completion.
@@ -113,30 +138,7 @@ function Set-ScriptRunner {
     )]
     param([string]$PSReadLineChordScriptPicker = 'Alt+s')
 
-    Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -ScriptBlock {
-        param($wordToComplete, $commandAst, $cursorPosition)
-
-        if ($commandAst.CommandElements.Count -gt 1) {
-            $scriptNameAst = $commandAst.CommandElements[1]
-            $isCompletingScriptName = $cursorPosition -le $scriptNameAst.Extent.EndOffset
-            if (-not $isCompletingScriptName) {
-                return
-            }
-
-            if ($scriptNameAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
-                $wordToComplete = $scriptNameAst.Value
-            }
-        }
-
-        Get-LocalScript | Where-Object {
-            $_.Name.StartsWith($wordToComplete, [StringComparison]::OrdinalIgnoreCase)
-        } | ForEach-Object {
-            $quoted = Convert-ScriptName $_.Name
-            [System.Management.Automation.CompletionResult]::new(
-                $quoted, $_.Name, 'ParameterValue', $_.FullName
-            )
-        }
-    }
+    Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -ScriptBlock ${function:Complete-LocalScript}
 
     Enable-ScriptPicker -Chord $PSReadLineChordScriptPicker
 }
