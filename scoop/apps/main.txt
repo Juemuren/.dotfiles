@@ -2,6 +2,7 @@
 adb
 aria2
 ast-grep
+atuin
 autocorrect
 bat
 bottom
