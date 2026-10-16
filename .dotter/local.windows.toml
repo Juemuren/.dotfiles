@@ -1,6 +1,7 @@
 includes = [".dotter/windows.toml"]
 packages = [
   "agents",
+  "atuin",
   "bash",
   "bat",
   "codex",

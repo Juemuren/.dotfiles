@@ -6,6 +6,9 @@ default_target_type = "automatic"
 [agents.files]
 "agents/skills" = { target = "~/.agents/skills", type = "symbolic", recurse = false }
 
+[atuin.files]
+"atuin/config.toml" = "~/.atuin/config.toml"
+
 [bash.files]
 "bash/scripts" = "~/.local/bin"
 

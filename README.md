@@ -10,6 +10,7 @@
 
 <!-- TOOL:BEGIN -->
 * [agents](./agents)
+* [atuin](./atuin)
 * [bash](./bash)
 * [bat](./bat)
 * [brew](./brew)
@@ -54,6 +55,7 @@ Agents 包含以下 Skill
 <!-- AGENT-SKILL:BEGIN -->
 * [benchmark-with-hyperfine](agents/skills/benchmark-with-hyperfine)
 * [capture-tool-problems](agents/skills/capture-tool-problems)
+* [data-wrangling](agents/skills/data-wrangling)
 * [develop-automation-scripts](agents/skills/develop-automation-scripts)
 <!-- AGENT-SKILL:END -->
 

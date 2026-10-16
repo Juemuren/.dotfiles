@@ -1,0 +1,17 @@
+auto_sync = false
+update_check = false
+inline_height = 0
+search_mode = "fuzzy"
+filter_mode = "global"
+
+[ai]
+enabled = false
+
+[ui]
+columns = [
+  "directory",
+  "time",
+  "duration",
+  "exit",
+  "command",
+]

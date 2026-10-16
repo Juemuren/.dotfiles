@@ -12,7 +12,7 @@ param()
 Set-PSReadLineOption -Colors @{ Selection = $PSStyle.Reverse }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t'
 Import-Module ScriptRunner
 Enable-ScriptPicker
 
@@ -20,6 +20,7 @@ Enable-ScriptPicker
 mise activate pwsh | Out-String | Invoke-Expression
 starship init powershell | Out-String | Invoke-Expression
 zoxide init powershell | Out-String | Invoke-Expression
+atuin init --disable-ai --disable-up-arrow powershell | Out-String | Invoke-Expression
 carapace _carapace powershell | Out-String | Invoke-Expression
 
 # Integrations
