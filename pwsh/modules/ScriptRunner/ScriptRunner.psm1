@@ -78,11 +78,9 @@ function Invoke-LocalScript {
 }
 
 function Enable-ScriptPicker {
-    <# .SYNOPSIS
-    Binds Alt+s to insert an fzf-selected script into the command line.
-    #>
+    param([string]$Chord)
 
-    Set-PSReadLineKeyHandler -Chord 'Alt+s' -BriefDescription 'Select local script' -ScriptBlock {
+    Set-PSReadLineKeyHandler -Chord $Chord -BriefDescription 'Select local script' -ScriptBlock {
         $selected = Get-LocalScript
         | Select-Object -ExpandProperty Name
         | fzf --prompt='script> ' --height=40% --layout=reverse
@@ -104,31 +102,45 @@ function Enable-ScriptPicker {
     }
 }
 
-Set-Alias -Name runs -Value Invoke-LocalScript
+function Set-ScriptRunner {
+    <# .SYNOPSIS
+    Enables the script picker and script name completion.
+    #>
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+        'PSUseShouldProcessForStateChangingFunctions',
+        '',
+        Justification = 'Configures an interactive key binding and completion for the current session.'
+    )]
+    param([string]$PSReadLineChordScriptPicker = 'Alt+s')
 
-Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -ScriptBlock {
-    param($wordToComplete, $commandAst, $cursorPosition)
+    Register-ArgumentCompleter -Native -CommandName Invoke-LocalScript, runs -ScriptBlock {
+        param($wordToComplete, $commandAst, $cursorPosition)
 
-    if ($commandAst.CommandElements.Count -gt 1) {
-        $scriptNameAst = $commandAst.CommandElements[1]
-        $isCompletingScriptName = $cursorPosition -le $scriptNameAst.Extent.EndOffset
-        if (-not $isCompletingScriptName) {
-            return
+        if ($commandAst.CommandElements.Count -gt 1) {
+            $scriptNameAst = $commandAst.CommandElements[1]
+            $isCompletingScriptName = $cursorPosition -le $scriptNameAst.Extent.EndOffset
+            if (-not $isCompletingScriptName) {
+                return
+            }
+
+            if ($scriptNameAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
+                $wordToComplete = $scriptNameAst.Value
+            }
         }
 
-        if ($scriptNameAst -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
-            $wordToComplete = $scriptNameAst.Value
+        Get-LocalScript | Where-Object {
+            $_.Name.StartsWith($wordToComplete, [StringComparison]::OrdinalIgnoreCase)
+        } | ForEach-Object {
+            $quoted = Convert-ScriptName $_.Name
+            [System.Management.Automation.CompletionResult]::new(
+                $quoted, $_.Name, 'ParameterValue', $_.FullName
+            )
         }
     }
 
-    Get-LocalScript | Where-Object {
-        $_.Name.StartsWith($wordToComplete, [StringComparison]::OrdinalIgnoreCase)
-    } | ForEach-Object {
-        $quoted = Convert-ScriptName $_.Name
-        [System.Management.Automation.CompletionResult]::new(
-            $quoted, $_.Name, 'ParameterValue', $_.FullName
-        )
-    }
+    Enable-ScriptPicker -Chord $PSReadLineChordScriptPicker
 }
 
-Export-ModuleMember -Function Invoke-LocalScript, Get-LocalScript, Get-ScriptInterpreter, Enable-ScriptPicker -Alias runs
+Set-Alias -Name runs -Value Invoke-LocalScript
+
+Export-ModuleMember -Function Invoke-LocalScript, Get-LocalScript, Get-ScriptInterpreter, Set-ScriptRunner -Alias runs

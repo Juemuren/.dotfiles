@@ -10,7 +10,7 @@
         'Invoke-LocalScript'
         'Get-LocalScript'
         'Get-ScriptInterpreter'
-        'Enable-ScriptPicker'
+        'Set-ScriptRunner'
     )
     AliasesToExport   = @('runs')
     CmdletsToExport   = @()

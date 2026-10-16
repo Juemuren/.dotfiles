@@ -8,9 +8,9 @@
 Import-Module ScriptRunner
 ```
 
-加载后即可使用 `runs`（`Invoke-LocalScript` 的别名）运行脚本并获取脚本名补全。
+加载后即可使用 `runs`（`Invoke-LocalScript` 的别名）[运行脚本](#运行脚本)。
 
-[fzf 选择器](#fzf-选择器) 需另外启用，详见下文。
+执行 `Set-ScriptRunner` 后，还可使用 [脚本名 Tab 补全](#脚本名-tab-补全)和 [fzf 脚本选择器](#fzf-脚本选择器)。
 
 ## 运行脚本
 
@@ -39,23 +39,27 @@ runs ./tools/example.py --help
 
 ## 补全与选择
 
-### 脚本名补全
+### 脚本名 Tab 补全
 
-`runs` 对裸文件名提供了补全。
+启用 `Set-ScriptRunner` 后，`runs` 对裸文件名提供了补全。
 
 输入 `runs git-p` 后按 Tab，可以补全为 `runs 'git-push.sh'`。候选项来自 `~/.local/bin` 顶层目录中的 `.ps1` 文件和有 shebang 的文件，并按文件名排序。若目录不存在，则候选项为空。
 
 可以运行 `Get-LocalScript` 查看候选文件。
 
-### fzf 选择器
+### fzf 脚本选择器
 
 选择器依赖 fzf 和 PSReadLine，启用此功能需执行：
 
 ```powershell
-Enable-ScriptPicker
+Set-ScriptRunner
 ```
 
-使用 **Alt+s** 打开脚本列表，输入名称筛选，按下回车选择。
+默认使用 **Alt+s** 打开脚本列表，输入名称筛选，按下回车选择。可用 `-PSReadLineChordScriptPicker` 指定其他按键，例如
+
+```powershell
+Set-ScriptRunner -PSReadLineChordScriptPicker 'Ctrl+g'
+```
 
 对于用户输入缓冲区的各种状态，选择后会有不同的行为：
 
