@@ -40,10 +40,10 @@ ${env_var.MSYSTEM}\
 ${env_var.VisualStudioVersion}\
 [](fg:env bg:cmd)\
 $cmd_duration\
-$status\
 [](fg:cmd bg:time)\
 $time\
 [](time)\
+$status\
 $line_break\
 $shlvl\
 $character\
@@ -255,12 +255,12 @@ not_executable_symbol = ""
 not_found_symbol = ""
 sigint_symbol = ""
 signal_symbol = "󰉁"
-success_style = "bg:cmd fg:success"
-failure_style = "bg:cmd fg:error"
+success_style = "fg:success"
+failure_style = "fg:error"
 format = '[ $symbol $status ]($style)'
-pipestatus_separator = '[|](bg:cmd fg:cmd_text)'
+pipestatus_separator = '[|](fg:text)'
 pipestatus_segment_format = '[$status]($style)'
-pipestatus_format = '[\[$pipestatus\] => ](bg:cmd fg:cmd_text)[$symbol $status ]($style)'
+pipestatus_format = '[\[$pipestatus\] => ](fg:text)[$symbol $status ]($style)'
 
 [line_break]
 disabled = false
@@ -294,6 +294,28 @@ tech_text = "#a6e3a1"
 env_text  = "#89dceb"
 cmd_text  = "#89b4fa"
 time_text = "#b4befe"
+text      = "#cdd6f4"
+success   = "#a6e3a1"
+error     = "#f38ba8"
+warning   = "#f9e2af"
+
+[palettes.catppuccin_inverted]
+# Foregrounds use Mocha base's hue and saturation, with lightness stepping from 21% to 9%.
+os        = "#f38ba8"
+dir       = "#fab387"
+git       = "#f9e2af"
+tech      = "#a6e3a1"
+env       = "#89dceb"
+cmd       = "#89b4fa"
+time      = "#b4befe"
+os_text   = "#2a2a41"
+dir_text  = "#242438"
+git_text  = "#1e1e2e"
+tech_text = "#181825"
+env_text  = "#12121c"
+cmd_text  = "#0c0c13"
+time_text = "#060609"
+text      = "#cdd6f4"
 success   = "#a6e3a1"
 error     = "#f38ba8"
 warning   = "#f9e2af"
