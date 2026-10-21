@@ -246,16 +246,21 @@ style = "bg:cmd fg:text"
 format = '[ 󰔟 $duration ]($style)'
 
 [status]
-disabled = true
+disabled = false
+map_symbol = true
+pipestatus = true
 symbol = ""
 success_symbol = ""
 not_executable_symbol = ""
 not_found_symbol = ""
 sigint_symbol = ""
 signal_symbol = "󰉁"
-map_symbol = true
-style = "bg:cmd fg:text"
+success_style = "bg:cmd fg:green"
+failure_style = "bg:cmd fg:red"
 format = '[ $symbol $status ]($style)'
+pipestatus_separator = '[|](bg:cmd fg:text)'
+pipestatus_segment_format = '[$status]($style)'
+pipestatus_format = '[\[$pipestatus\] => ](bg:cmd fg:text)[$symbol $status ]($style)'
 
 [line_break]
 disabled = false
