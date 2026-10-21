@@ -68,16 +68,40 @@
     "body": "\\bigl\\{ $1 \\bigr\\\\}"
   },
   "angle-bracket": {
-    "prefix": ["angle", "<>"],
+    "prefix": ["angle"],
+    "body": "\\langle $1 \\rangle"
+  },
+  "auto-angle-bracket": {
+    "prefix": ["aab", "a<>"],
     "body": "\\left\\langle $1 \\right\\rangle"
   },
+  "big-angle-bracket": {
+    "prefix": ["bab", "b<>"],
+    "body": "\\bigl\\langle $1 \\bigr\\rangle"
+  },
   "single-vert": {
-    "prefix": ["sv", "|"],
+    "prefix": ["vert"],
+    "body": "\\lvert $1 \\rvert"
+  },
+  "auto-single-vert": {
+    "prefix": ["asv", "a|"],
     "body": "\\left\\lvert $1 \\right\\rvert"
   },
+  "big-single-vert": {
+    "prefix": ["bsv", "b|"],
+    "body": "\\bigl\\lvert $1 \\bigr\\rvert"
+  },
   "double-vert": {
-    "prefix": ["dv", "||"],
+    "prefix": ["Vert"],
+    "body": "\\lVert $1 \\rVert"
+  },
+  "auto-double-vert": {
+    "prefix": ["adv", "a||"],
     "body": "\\left\\lVert $1 \\right\\rVert"
+  },
+  "big-double-vert": {
+    "prefix": ["bdv", "b||"],
+    "body": "\\bigl\\lVert $1 \\bigr\\rVert"
   },
   "right-vert": {
     "prefix": ["rv", ".|"],
