@@ -266,13 +266,12 @@ pipestatus_format = '[\[$pipestatus\] => ](bg:cmd fg:text)[$symbol $status ]($st
 disabled = false
 
 [shlvl]
-disabled = true
-threshold = 0
+disabled = false
+repeat = true
+repeat_offset = 1
 symbol = ""
 style = "bold fg:yellow"
 format = "[$symbol]($style)"
-repeat = true
-repeat_offset = 1
 
 [character]
 disabled = false
