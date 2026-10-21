@@ -279,14 +279,14 @@ success_symbol = '[>](bold fg:success)'
 error_symbol = '[>](bold fg:error)'
 
 [palettes.catppuccin]
-# Backgrounds use Mocha base's hue and saturation, with lightness stepping from 39% to 21%.
-os        = "#4f4f78"
-dir       = "#49496f"
-git       = "#424266"
-tech      = "#3c3c5d"
-env       = "#363653"
-cmd       = "#30304a"
-time      = "#2a2a41"
+# Backgrounds use Mocha base's hue and saturation, with lightness stepping from 30% to 18%.
+os        = "#3c3c5d"
+dir       = "#383856"
+git       = "#343450"
+tech      = "#30304a"
+env       = "#2c2c44"
+cmd       = "#28283e"
+time      = "#242438"
 os_text   = "#f38ba8"
 dir_text  = "#fab387"
 git_text  = "#f9e2af"
@@ -300,7 +300,7 @@ error     = "#f38ba8"
 warning   = "#f9e2af"
 
 [palettes.catppuccin_inverted]
-# Foregrounds use Mocha base's hue and saturation, with lightness stepping from 21% to 9%.
+# Foregrounds use Mocha base's hue and saturation, with lightness stepping from 12% to 6%.
 os        = "#f38ba8"
 dir       = "#fab387"
 git       = "#f9e2af"
@@ -308,13 +308,13 @@ tech      = "#a6e3a1"
 env       = "#89dceb"
 cmd       = "#89b4fa"
 time      = "#b4befe"
-os_text   = "#2a2a41"
-dir_text  = "#242438"
-git_text  = "#1e1e2e"
-tech_text = "#181825"
-env_text  = "#12121c"
-cmd_text  = "#0c0c13"
-time_text = "#060609"
+os_text   = "#181825"
+dir_text  = "#161622"
+git_text  = "#14141f"
+tech_text = "#12121c"
+env_text  = "#101019"
+cmd_text  = "#0e0e16"
+time_text = "#0c0c13"
 text      = "#cdd6f4"
 success   = "#a6e3a1"
 error     = "#f38ba8"
