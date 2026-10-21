@@ -269,24 +269,24 @@ disabled = false
 disabled = false
 repeat = true
 repeat_offset = 1
-symbol = ""
+symbol = ">"
 style = "bold fg:warning"
 format = "[$symbol]($style)"
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:success)'
-error_symbol = '[](bold fg:error)'
+success_symbol = '[>](bold fg:success)'
+error_symbol = '[>](bold fg:error)'
 
 [palettes.catppuccin]
-# Backgrounds mix each accent at 20% with Mocha base (#1e1e2e).
-os        = "#493446"
-dir       = "#4a3c40"
-git       = "#4a4548"
-tech      = "#394545"
-env       = "#334454"
-cmd       = "#333c57"
-time      = "#3c3e58"
+# Backgrounds use Mocha base's hue and saturation, with lightness stepping from 39% to 21%.
+os        = "#4f4f78"
+dir       = "#49496f"
+git       = "#424266"
+tech      = "#3c3c5d"
+env       = "#363653"
+cmd       = "#30304a"
+time      = "#2a2a41"
 os_text   = "#f38ba8"
 dir_text  = "#fab387"
 git_text  = "#f9e2af"
@@ -297,22 +297,3 @@ time_text = "#b4befe"
 success   = "#a6e3a1"
 error     = "#f38ba8"
 warning   = "#f9e2af"
-
-[palettes.blueblack]
-os        = "#5e7ab5"
-dir       = "#5568a3"
-git       = "#4e6082"
-tech      = "#495270"
-env       = "#394260"
-cmd       = "#212736"
-time      = "#1d2230"
-os_text   = "#e6edff"
-dir_text  = "#e6edff"
-git_text  = "#e6edff"
-tech_text = "#e6edff"
-env_text  = "#e6edff"
-cmd_text  = "#e6edff"
-time_text = "#e6edff"
-success   = "green"
-error     = "red"
-warning   = "yellow"
