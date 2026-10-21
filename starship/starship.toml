@@ -49,11 +49,11 @@ $shlvl\
 $character\
 """
 
-palette = 'blueblack'
+palette = 'catppuccin'
 
 [os]
 disabled = false
-style = "bg:os fg:text"
+style = "bg:os fg:os_text"
 format = "[ $symbol ]($style)"
 
 [os.symbols]
@@ -66,8 +66,8 @@ Android = ""
 [username]
 disabled = false
 show_always = true
-style_user = "bg:os fg:text"
-style_root = "bg:os fg:text"
+style_user = "bg:os fg:os_text"
+style_root = "bg:os fg:os_text"
 format = '[ $user ]($style)'
 
 [shell]
@@ -77,172 +77,172 @@ powershell_indicator = ""
 zsh_indicator = "󰬇"
 fish_indicator = ""
 nu_indicator = "󰫻"
-style = "bg:os fg:text"
+style = "bg:os fg:os_text"
 format = '[ $indicator ]($style)'
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-style = "bg:dir fg:text"
+style = "bg:dir fg:dir_text"
 format = "[ $path ]($style)"
 
 [git_branch]
 symbol = ""
-style = "bg:git fg:text"
+style = "bg:git fg:git_text"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:git fg:text"
+style = "bg:git fg:git_text"
 format = '[($all_status$ahead_behind )]($style)'
 
 [c]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version-$name )]($style)'
 
 [cpp]
 disabled = false
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version-$name )]($style)'
 
 [dotnet]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [golang]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [vlang]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [zig]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [swift]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [java]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [erlang]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [elixir]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [lua]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [ruby]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [julia]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [rlang]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )]($style)'
 
 [python]
 symbol = ""
-style = "bg:tech fg:text"
+style = "bg:tech fg:tech_text"
 format = '[ $symbol ($version )(\(#$virtualenv\) )]($style)'
 
 [container]
 symbol = ""
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = '[ $symbol ($name )]($style)'
 
 [docker_context]
 symbol = ""
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = '[ $symbol ($context )]($style)'
 
 [conda]
 ignore_base = false
 symbol = ""
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = '[ $symbol ($environment )]($style)'
 
 [pixi]
 symbol = ""
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = '[ $symbol ($environment )]($style)'
 
 [mise]
 disabled = true
 symbol = ""
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = "[ $symbol $health ]($style)"
 
 [env_var.MSYSTEM]
 disabled = false
 description = "The current MSYS environment"
 symbol = "󰫺"
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = '[ $symbol ($env_value )]($style)'
 
 [env_var.VisualStudioVersion]
 disabled = false
 description = "The current VS version"
 symbol = ""
-style = "bg:env fg:text"
+style = "bg:env fg:env_text"
 format = '[ $symbol ($env_value )]($style)'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:time fg:text"
+style = "bg:time fg:time_text"
 format = '[  $time ]($style)'
 
 [cmd_duration]
 disabled = false
 show_milliseconds = true
 min_time = 100
-style = "bg:cmd fg:text"
+style = "bg:cmd fg:cmd_text"
 format = '[ 󰔟 $duration ]($style)'
 
 [status]
@@ -255,12 +255,12 @@ not_executable_symbol = ""
 not_found_symbol = ""
 sigint_symbol = ""
 signal_symbol = "󰉁"
-success_style = "bg:cmd fg:green"
-failure_style = "bg:cmd fg:red"
+success_style = "bg:cmd fg:success"
+failure_style = "bg:cmd fg:error"
 format = '[ $symbol $status ]($style)'
-pipestatus_separator = '[|](bg:cmd fg:text)'
+pipestatus_separator = '[|](bg:cmd fg:cmd_text)'
 pipestatus_segment_format = '[$status]($style)'
-pipestatus_format = '[\[$pipestatus\] => ](bg:cmd fg:text)[$symbol $status ]($style)'
+pipestatus_format = '[\[$pipestatus\] => ](bg:cmd fg:cmd_text)[$symbol $status ]($style)'
 
 [line_break]
 disabled = false
@@ -270,40 +270,49 @@ disabled = false
 repeat = true
 repeat_offset = 1
 symbol = ""
-style = "bold fg:yellow"
+style = "bold fg:warning"
 format = "[$symbol]($style)"
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:green)'
-error_symbol = '[](bold fg:red)'
+success_symbol = '[](bold fg:success)'
+error_symbol = '[](bold fg:error)'
 
 [palettes.catppuccin]
-os   = "#f38ba8"
-dir  = "#fab387"
-git  = "#f9e2af"
-tech = "#a6e3a1"
-env  = "#89dceb"
-cmd  = "#89b4fa"
-time = "#b4befe"
-text = "#11111b"
-
-[palettes.tokyonight]
-os   = "#f7768e"
-dir  = "#ff9e64"
-git  = "#e0af68"
-tech = "#73daca"
-env  = "#7dcfff"
-cmd  = "#7aa2f7"
-time = "#bb9af7"
-text = "#414868"
+# Backgrounds mix each accent at 20% with Mocha base (#1e1e2e).
+os        = "#493446"
+dir       = "#4a3c40"
+git       = "#4a4548"
+tech      = "#394545"
+env       = "#334454"
+cmd       = "#333c57"
+time      = "#3c3e58"
+os_text   = "#f38ba8"
+dir_text  = "#fab387"
+git_text  = "#f9e2af"
+tech_text = "#a6e3a1"
+env_text  = "#89dceb"
+cmd_text  = "#89b4fa"
+time_text = "#b4befe"
+success   = "#a6e3a1"
+error     = "#f38ba8"
+warning   = "#f9e2af"
 
 [palettes.blueblack]
-os   = "#5e7ab5"
-dir  = "#5568a3"
-git  = "#4e6082"
-tech = "#495270"
-env  = "#394260"
-cmd  = "#212736"
-time = "#1d2230"
-text = "#e6edff"
+os        = "#5e7ab5"
+dir       = "#5568a3"
+git       = "#4e6082"
+tech      = "#495270"
+env       = "#394260"
+cmd       = "#212736"
+time      = "#1d2230"
+os_text   = "#e6edff"
+dir_text  = "#e6edff"
+git_text  = "#e6edff"
+tech_text = "#e6edff"
+env_text  = "#e6edff"
+cmd_text  = "#e6edff"
+time_text = "#e6edff"
+success   = "green"
+error     = "red"
+warning   = "yellow"
