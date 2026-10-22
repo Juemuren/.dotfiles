@@ -111,10 +111,10 @@ Pwsh 包含以下 Module
 4. 预览部署结果
 
     ```sh
-   just preview
+    just preview
     ```
 
-5. 如果部署失败，显示 `ERROR`，那么通常是一些文件的目标路径需要动态获取。请在 `.local/xxx.env` 中填写对应的变量，或者运行 `just yyy::xxx::bootstrap` 来自动填写变量。目前这类软件、对应的 `*.env` 文件以及自动填写的命令分别为
+5. 如果部署失败，显示 `ERROR`，那么通常是一些文件的目标路径需要动态获取。请在 `.local/*.env` 中填写对应的变量，或者运行 `just *::*::bootstrap` 来自动填写变量。目前这类工具、对应的环境变量文件以及自动填写的命令分别为
 
     - vscode - `.local/vscode.env` - `just common::vscode::bootstrap`
 
