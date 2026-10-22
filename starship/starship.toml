@@ -1,16 +1,16 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](os)\
+[](os_bg)\
 $os\
 $username\
 $shell\
-[](fg:os bg:dir)\
+[](fg:os_bg bg:dir_bg)\
 $directory\
-[](fg:dir bg:git)\
+[](fg:dir_bg bg:git_bg)\
 $git_branch\
 $git_status\
-[](fg:git bg:tech)\
+[](fg:git_bg bg:tech_bg)\
 $c\
 $cpp\
 $dotnet\
@@ -30,7 +30,7 @@ $julia\
 $rlang\
 $nodejs\
 $python\
-[](fg:tech bg:env)\
+[](fg:tech_bg bg:env_bg)\
 $container\
 $docker_context\
 $conda\
@@ -38,11 +38,11 @@ $pixi\
 $mise\
 ${env_var.MSYSTEM}\
 ${env_var.VisualStudioVersion}\
-[](fg:env bg:cmd)\
+[](fg:env_bg bg:cmd_bg)\
 $cmd_duration\
-[](fg:cmd bg:time)\
+[](fg:cmd_bg bg:time_bg)\
 $time\
-[](time)\
+[](time_bg)\
 $status\
 $line_break\
 $shlvl\
@@ -53,7 +53,7 @@ palette = 'catppuccin'
 
 [os]
 disabled = false
-style = "bg:os fg:os_text"
+style = "bg:os_bg fg:os_fg"
 format = "[ $symbol ]($style)"
 
 [os.symbols]
@@ -66,8 +66,8 @@ Android = ""
 [username]
 disabled = false
 show_always = true
-style_user = "bg:os fg:os_text"
-style_root = "bg:os fg:os_text"
+style_user = "bg:os_bg fg:os_fg"
+style_root = "bg:os_bg fg:os_fg"
 format = '[ $user ]($style)'
 
 [shell]
@@ -77,172 +77,172 @@ powershell_indicator = ""
 zsh_indicator = "󰬇"
 fish_indicator = ""
 nu_indicator = "󰫻"
-style = "bg:os fg:os_text"
+style = "bg:os_bg fg:os_fg"
 format = '[ $indicator ]($style)'
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-style = "bg:dir fg:dir_text"
+style = "bg:dir_bg fg:dir_fg"
 format = "[ $path ]($style)"
 
 [git_branch]
 symbol = ""
-style = "bg:git fg:git_text"
+style = "bg:git_bg fg:git_fg"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:git fg:git_text"
+style = "bg:git_bg fg:git_fg"
 format = '[($all_status$ahead_behind )]($style)'
 
 [c]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version-$name )]($style)'
 
 [cpp]
 disabled = false
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version-$name )]($style)'
 
 [dotnet]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [golang]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [vlang]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [zig]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [swift]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [java]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [erlang]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [elixir]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [lua]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [ruby]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [julia]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [rlang]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
 [python]
 symbol = ""
-style = "bg:tech fg:tech_text"
+style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )(\(#$virtualenv\) )]($style)'
 
 [container]
 symbol = ""
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = '[ $symbol ($name )]($style)'
 
 [docker_context]
 symbol = ""
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = '[ $symbol ($context )]($style)'
 
 [conda]
 ignore_base = false
 symbol = ""
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = '[ $symbol ($environment )]($style)'
 
 [pixi]
 symbol = ""
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = '[ $symbol ($environment )]($style)'
 
 [mise]
 disabled = true
 symbol = ""
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = "[ $symbol $health ]($style)"
 
 [env_var.MSYSTEM]
 disabled = false
 description = "The current MSYS environment"
 symbol = "󰫺"
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = '[ $symbol ($env_value )]($style)'
 
 [env_var.VisualStudioVersion]
 disabled = false
 description = "The current VS version"
 symbol = ""
-style = "bg:env fg:env_text"
+style = "bg:env_bg fg:env_fg"
 format = '[ $symbol ($env_value )]($style)'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:time fg:time_text"
+style = "bg:time_bg fg:time_fg"
 format = '[  $time ]($style)'
 
 [cmd_duration]
 disabled = false
 show_milliseconds = true
 min_time = 100
-style = "bg:cmd fg:cmd_text"
+style = "bg:cmd_bg fg:cmd_fg"
 format = '[ 󰔟 $duration ]($style)'
 
 [status]
@@ -278,44 +278,46 @@ disabled = false
 success_symbol = '[>](bold fg:success)'
 error_symbol = '[>](bold fg:error)'
 
+# https://catppuccin.com/palette
+
 [palettes.catppuccin]
 # Backgrounds use Mocha base's hue and saturation, with lightness stepping from 30% to 18%.
-os        = "#3c3c5d"
-dir       = "#383856"
-git       = "#343450"
-tech      = "#30304a"
-env       = "#2c2c44"
-cmd       = "#28283e"
-time      = "#242438"
-os_text   = "#f38ba8"
-dir_text  = "#fab387"
-git_text  = "#f9e2af"
-tech_text = "#a6e3a1"
-env_text  = "#89dceb"
-cmd_text  = "#89b4fa"
-time_text = "#b4befe"
-text      = "#cdd6f4"
-success   = "#a6e3a1"
-error     = "#f38ba8"
-warning   = "#f9e2af"
+os_bg   = "#3c3c5d"
+dir_bg  = "#383856"
+git_bg  = "#343450"
+tech_bg = "#30304a"
+env_bg  = "#2c2c44"
+cmd_bg  = "#28283e"
+time_bg = "#242438"
+os_fg   = "#f38ba8" # Red
+dir_fg  = "#fab387" # Peach
+git_fg  = "#f9e2af" # Yellow
+tech_fg = "#a6e3a1" # Green
+env_fg  = "#94e2d5" # Teal
+cmd_fg  = "#89b4fa" # Blue
+time_fg = "#cba6f7" # Mauve
+text    = "#cdd6f4"
+success = "#a6e3a1"
+error   = "#f38ba8"
+warning = "#f9e2af"
 
 [palettes.catppuccin_inverted]
 # Foregrounds use Mocha base's hue and saturation, with lightness stepping from 12% to 6%.
-os        = "#f38ba8"
-dir       = "#fab387"
-git       = "#f9e2af"
-tech      = "#a6e3a1"
-env       = "#89dceb"
-cmd       = "#89b4fa"
-time      = "#b4befe"
-os_text   = "#181825"
-dir_text  = "#161622"
-git_text  = "#14141f"
-tech_text = "#12121c"
-env_text  = "#101019"
-cmd_text  = "#0e0e16"
-time_text = "#0c0c13"
-text      = "#cdd6f4"
-success   = "#a6e3a1"
-error     = "#f38ba8"
-warning   = "#f9e2af"
+os_bg   = "#f38ba8" # Red
+dir_bg  = "#fab387" # Peach
+git_bg  = "#f9e2af" # Yellow
+tech_bg = "#a6e3a1" # Green
+env_bg  = "#94e2d5" # Teal
+cmd_bg  = "#89b4fa" # Blue
+time_bg = "#cba6f7" # Mauve
+os_fg   = "#181825"
+dir_fg  = "#161622"
+git_fg  = "#14141f"
+tech_fg = "#12121c"
+env_fg  = "#101019"
+cmd_fg  = "#0e0e16"
+time_fg = "#0c0c13"
+text    = "#cdd6f4"
+success = "#a6e3a1"
+error   = "#f38ba8"
+warning = "#f9e2af"

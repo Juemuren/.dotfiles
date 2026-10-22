@@ -1,4 +1,4 @@
-"""Generate Catppuccin Mocha prompt backgrounds by varying base lightness."""
+"""Generate Catppuccin Mocha prompt colors by varying base lightness."""
 
 import argparse
 import colorsys
@@ -44,6 +44,12 @@ def main() -> None:
     parser.add_argument(
         "--toml", action="store_true", help="print pasteable Starship palette entries"
     )
+    parser.add_argument(
+        "--suffix",
+        choices=("bg", "fg"),
+        default="bg",
+        help="palette key suffix (default: bg)",
+    )
     args = parser.parse_args()
     if not 0 <= args.end <= args.start <= 100:
         parser.error("lightness must satisfy 0 <= end <= start <= 100")
@@ -51,18 +57,22 @@ def main() -> None:
     rows = palette(args.start, args.end)
     if args.toml:
         for name, _, rgb in rows:
-            print(f'{name:10}= "#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"')
+            color_name = f"{name}_{args.suffix}"
+            print(f'{color_name:10}= "#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"')
         return
 
-    print(f"{'module':<8} {'lightness':>9}  {'hex':<7}  {'rgb':<15} preview")
+    print(f"{'color':<8} {'lightness':>9}  {'hex':<7}  {'rgb':<15} preview")
     for name, lightness, rgb in rows:
+        color_name = f"{name}_{args.suffix}"
         hex_color = f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
         preview = (
             f"\x1b[48;2;{rgb[0]};{rgb[1]};{rgb[2]}m    \x1b[0m"
             if sys.stdout.isatty()
             else ""
         )
-        print(f"{name:<8} {lightness:>8.2f}%  {hex_color:<7}  {rgb!s:<15} {preview}")
+        print(
+            f"{color_name:<8} {lightness:>8.2f}%  {hex_color:<7}  {rgb!s:<15} {preview}"
+        )
 
 
 if __name__ == "__main__":
