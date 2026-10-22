@@ -255,12 +255,12 @@ not_executable_symbol = ""
 not_found_symbol = ""
 sigint_symbol = ""
 signal_symbol = "󰉁"
-success_style = "fg:success"
-failure_style = "fg:error"
+success_style = "bold fg:success"
+failure_style = "bold fg:error"
 format = '[ $symbol $status ]($style)'
-pipestatus_separator = '[|](fg:text)'
+pipestatus_separator = '[|](dimmed fg:text)'
 pipestatus_segment_format = '[$status]($style)'
-pipestatus_format = '[\[$pipestatus\] => ](fg:text)[$symbol $status ]($style)'
+pipestatus_format = '[ \[$pipestatus\] => ](fg:text)[$symbol $status ]($style)'
 
 [line_break]
 disabled = false
