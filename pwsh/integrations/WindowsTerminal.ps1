@@ -1,3 +1,5 @@
+# https://learn.microsoft.com/en-us/windows/terminal/tutorials/shell-integration
+
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
     'PSAvoidGlobalVars',
     '',
