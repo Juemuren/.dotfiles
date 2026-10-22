@@ -25,21 +25,24 @@ def palette(start: float, end: float) -> list[tuple[str, float, tuple[int, int, 
     return rows
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
     parser.add_argument(
         "start",
         type=float,
         nargs="?",
         default=39,
-        help="first lightness percentage (default: 39)",
+        help="first lightness percentage",
     )
     parser.add_argument(
         "end",
         type=float,
         nargs="?",
         default=21,
-        help="last lightness percentage (default: 21)",
+        help="last lightness percentage",
     )
     parser.add_argument(
         "--toml", action="store_true", help="print pasteable Starship palette entries"
@@ -48,12 +51,16 @@ def main() -> None:
         "--suffix",
         choices=("bg", "fg"),
         default="bg",
-        help="palette key suffix (default: bg)",
+        help="palette key suffix",
     )
     args = parser.parse_args()
     if not 0 <= args.end <= args.start <= 100:
         parser.error("lightness must satisfy 0 <= end <= start <= 100")
+    return args
 
+
+def main() -> None:
+    args = parse_args()
     rows = palette(args.start, args.end)
     if args.toml:
         for name, _, rgb in rows:
