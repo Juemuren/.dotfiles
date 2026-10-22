@@ -4,16 +4,16 @@
     "actions": 
     [
         {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
         },
         {
             "command": "paste",
@@ -47,38 +47,34 @@
         {
             "command": 
             {
-                "action": "multipleActions",
-                "actions": 
-                [
-                    {
-                        "action": "selectOutput",
-                        "direction": "prev"
-                    },
-                    {
-                        "action": "copy",
-                        "singleLine": false
-                    }
-                ]
+                "action": "selectCommand",
+                "direction": "next"
             },
-            "id": "User.copyOutput"
+            "id": "User.nextCommand"
         },
         {
             "command": 
             {
-                "action": "multipleActions",
-                "actions": 
-                [
-                    {
-                        "action": "selectCommand",
-                        "direction": "prev"
-                    },
-                    {
-                        "action": "copy",
-                        "singleLine": false
-                    }
-                ]
+                "action": "selectOutput",
+                "direction": "next"
             },
-            "id": "User.copyCommand"
+            "id": "User.nextOutput"
+        },
+        {
+            "command": 
+            {
+                "action": "selectOutput",
+                "direction": "prev"
+            },
+            "id": "User.preOutput"
+        },
+        {
+            "command": 
+            {
+                "action": "selectCommand",
+                "direction": "prev"
+            },
+            "id": "User.preCommand"
         }
     ],
     "alwaysShowTabs": true,
@@ -90,36 +86,44 @@
     "keybindings": 
     [
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": "User.find",
             "keys": "ctrl+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": "User.copy",
             "keys": "ctrl+c"
         },
         {
-            "id": "User.copyOutput",
-            "keys": "ctrl+shift+o"
-        },
-        {
             "id": "User.preMark",
             "keys": "ctrl+up"
-        },
-        {
-            "id": "User.splitPane.auto",
-            "keys": "ctrl+shift+s"
         },
         {
             "id": "User.nextMark",
             "keys": "ctrl+down"
         },
         {
-            "id": "User.copyCommand",
-            "keys": "ctrl+shift+c"
+            "id": "User.preOutput",
+            "keys": "ctrl+shift+up"
+        },
+        {
+            "id": "User.preCommand",
+            "keys": "ctrl+alt+up"
+        },
+        {
+            "id": "User.nextOutput",
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "id": "User.nextCommand",
+            "keys": "ctrl+alt+down"
+        },
+        {
+            "id": "User.splitPane.auto",
+            "keys": "ctrl+shift+s"
         }
     ],
     "newTabMenu": 
