@@ -60,7 +60,25 @@
                     }
                 ]
             },
-            "id": "User.selectAndCopy"
+            "id": "User.copyOutput"
+        },
+        {
+            "command": 
+            {
+                "action": "multipleActions",
+                "actions": 
+                [
+                    {
+                        "action": "selectCommand",
+                        "direction": "prev"
+                    },
+                    {
+                        "action": "copy",
+                        "singleLine": false
+                    }
+                ]
+            },
+            "id": "User.copyCommand"
         }
     ],
     "alwaysShowTabs": true,
@@ -84,6 +102,10 @@
             "keys": "ctrl+c"
         },
         {
+            "id": "User.copyOutput",
+            "keys": "ctrl+shift+o"
+        },
+        {
             "id": "User.preMark",
             "keys": "ctrl+up"
         },
@@ -96,8 +118,8 @@
             "keys": "ctrl+down"
         },
         {
-            "id": "User.selectAndCopy",
-            "keys": "ctrl+shift+g"
+            "id": "User.copyCommand",
+            "keys": "ctrl+shift+c"
         }
     ],
     "newTabMenu": 
@@ -113,7 +135,7 @@
     {
         "defaults": 
         {
-            "autoMarkPrompts": false,
+            "autoMarkPrompts": true,
             "backgroundImageOpacity": 0.2,
             "bellStyle": "taskbar",
             "closeOnExit": "graceful",
