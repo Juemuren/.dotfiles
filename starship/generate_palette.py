@@ -31,7 +31,17 @@ def palette(
     return rows
 
 
-def parse_args() -> argparse.Namespace:
+class Args(argparse.Namespace):
+    start: float
+    end: float
+    toml: bool
+    suffix: str
+    modules: Sequence[str]
+    hue: float
+    saturation: float
+
+
+def parse_args() -> Args:
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -80,7 +90,7 @@ def parse_args() -> argparse.Namespace:
         default=BASE_SATURATION,
         help="base saturation percentage",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(namespace=Args())
     if not 0 <= args.end <= args.start <= 100:
         parser.error("lightness must satisfy 0 <= end <= start <= 100")
     if not 0 <= args.hue <= 360:
