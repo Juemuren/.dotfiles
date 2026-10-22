@@ -62,7 +62,6 @@ pdf2svg
 pdfcpu
 pi-coding-agent
 poppler
-prek
 qpdf
 radare2
 rcedit
