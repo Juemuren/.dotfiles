@@ -9,7 +9,6 @@ mod windows '.scripts/windows'
 mod unix '.scripts/unix'
 
 mod checks '.scripts/checks'
-mod docs '.scripts/docs'
 
 [windows]
 record: windows::record common::record

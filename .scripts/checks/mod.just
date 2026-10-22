@@ -1,5 +1,6 @@
 set default-list := true
 
+mod docs 'docs'
 mod pwsh 'pwsh'
 mod sh 'sh'
 mod py 'py'
