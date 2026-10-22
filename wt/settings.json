@@ -75,6 +75,15 @@
                 "direction": "prev"
             },
             "id": "User.preCommand"
+        },
+        {
+            "command": 
+            { 
+                "action": "showSuggestions",
+                "source": "all",
+                "useCommandline": true
+            },
+            "id": "User.showSuggestions"
         }
     ],
     "alwaysShowTabs": true,
@@ -124,6 +133,10 @@
         {
             "id": "User.splitPane.auto",
             "keys": "ctrl+shift+s"
+        },
+        {
+            "id": "User.showSuggestions",
+            "keys": "ctrl+s"
         }
     ],
     "newTabMenu": 
@@ -145,6 +158,7 @@
             "closeOnExit": "graceful",
             "colorScheme": "Catppuccin Mocha",
             "cursorShape": "filledBox",
+            "experimental.rightClickContextMenu": true,
             "font": 
             {
                 "face": "Maple Mono NF CN",
