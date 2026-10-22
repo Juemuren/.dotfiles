@@ -1,3 +1,4 @@
+# shellcheck disable=SC1091
 # Interactively
 [[ "$-" != *i* ]] && return
 
@@ -9,3 +10,8 @@ eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
+# Windows Terminal
+if [[ -n ${WT_SESSION-} && ${TERM_PROGRAM-} != vscode ]]; then
+    source "$HOME/.config/bash/integrations/WindowsTerminal.bash"
+fi

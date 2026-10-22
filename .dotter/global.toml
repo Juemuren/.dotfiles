@@ -12,6 +12,7 @@ default_target_type = "automatic"
 
 [bash.files]
 "bash/scripts" = "~/.local/bin"
+"bash/integrations" = "~/.config/bash/integrations"
 
 [bat.files]
 "bat/config.txt" = "$BAT_CONFIG_DIR/config"
