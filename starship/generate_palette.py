@@ -3,6 +3,7 @@
 import argparse
 import colorsys
 import sys
+from collections.abc import Sequence
 
 MODULES = ("os", "dir", "git", "tech", "env", "cmd", "time")
 BASE_HUE = 240
@@ -19,12 +20,12 @@ def rgb_for_lightness(
 
 
 def palette(
-    start: float, end: float, hue: float, saturation: float
+    start: float, end: float, hue: float, saturation: float, modules: Sequence[str]
 ) -> list[PaletteRow]:
     """Return evenly spaced lightness levels and their RGB colors."""
-    step = (start - end) / (len(MODULES) - 1)
+    step = (start - end) / (len(modules) - 1) if len(modules) > 1 else 0
     rows = []
-    for index, name in enumerate(MODULES):
+    for index, name in enumerate(modules):
         lightness = start - index * step
         rows.append((name, lightness, rgb_for_lightness(lightness, hue, saturation)))
     return rows
@@ -39,14 +40,14 @@ def parse_args() -> argparse.Namespace:
         "start",
         type=float,
         nargs="?",
-        default=39,
+        default=30,
         help="first lightness percentage",
     )
     parser.add_argument(
         "end",
         type=float,
         nargs="?",
-        default=21,
+        default=18,
         help="last lightness percentage",
     )
     parser.add_argument(
@@ -59,6 +60,13 @@ def parse_args() -> argparse.Namespace:
         choices=("bg", "fg"),
         default="bg",
         help="palette key suffix",
+    )
+    parser.add_argument(
+        "--modules",
+        nargs="+",
+        default=MODULES,
+        metavar="NAME",
+        help="module names in palette order",
     )
     parser.add_argument(
         "--hue",
@@ -79,6 +87,8 @@ def parse_args() -> argparse.Namespace:
         parser.error("hue must satisfy 0 <= hue <= 360")
     if not 0 <= args.saturation <= 100:
         parser.error("saturation must satisfy 0 <= saturation <= 100")
+    if any(not name for name in args.modules):
+        parser.error("module names must not be empty")
     return args
 
 
@@ -129,8 +139,8 @@ def print_table(rows: list[PaletteRow], suffix: str, name_width: int) -> None:
 
 def main() -> None:
     args = parse_args()
-    rows = palette(args.start, args.end, args.hue, args.saturation)
-    name_width = max(len(name) for name in MODULES) + len(args.suffix) + 1
+    rows = palette(args.start, args.end, args.hue, args.saturation, args.modules)
+    name_width = max(len(name) for name in args.modules) + len(args.suffix) + 1
     if args.toml:
         print_toml(rows, args.suffix, name_width)
     else:
