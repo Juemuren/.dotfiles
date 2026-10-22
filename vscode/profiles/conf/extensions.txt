@@ -1,5 +1,8 @@
 adguard.adblock
+astral-sh.ty
 beaglefoot.awk-ide-vscode
+charliermarsh.ruff
+denoland.vscode-deno
 dummy.vscode-jq
 esbenp.prettier-vscode
 mads-hartmann.bash-ide-vscode
