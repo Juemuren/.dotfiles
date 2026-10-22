@@ -10,4 +10,5 @@
 .bin
 
 # local variables
-.local
+.local/*
+!.local/*.example.env
