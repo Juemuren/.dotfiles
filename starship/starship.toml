@@ -4,6 +4,7 @@ format = """
 [](os_bg)\
 $os\
 $username\
+$hostname\
 $shell\
 [](fg:os_bg bg:dir_bg)\
 $directory\
@@ -73,10 +74,16 @@ Android = ""
 
 [username]
 disabled = false
-show_always = true
+show_always = false
 style_user = "bg:os_bg fg:os_fg"
-style_root = "bg:os_bg fg:os_fg"
+style_root = "bold bg:os_bg fg:os_fg"
 format = '[ $user ]($style)'
+
+[hostname]
+disabled = false
+ssh_only = true
+style = "bg:os_bg fg:os_fg"
+format = '[ $hostname ]($style)'
 
 [shell]
 disabled = false
