@@ -26,10 +26,14 @@ $erlang\
 $elixir\
 $lua\
 $ruby\
+$nodejs\
+$deno\
+$bun\
+$python\
 $julia\
 $rlang\
-$nodejs\
-$python\
+$typst\
+$quarto\
 [](fg:tech_bg bg:env_bg)\
 $container\
 $docker_context\
@@ -58,9 +62,13 @@ format = "[ $symbol ]($style)"
 
 [os.symbols]
 Windows = ""
+Cygwin = "󰫰"
 Ubuntu = "󰕈"
+Fedora = ""
 Arch = "󰣇"
+NixOS = ""
 Macos = ""
+Ios = ""
 Android = ""
 
 [username]
@@ -73,9 +81,11 @@ format = '[ $user ]($style)'
 [shell]
 disabled = false
 bash_indicator = ""
-powershell_indicator = ""
-zsh_indicator = "󰬇"
+zsh_indicator = ""
 fish_indicator = ""
+powershell_indicator = ""
+pwsh_indicator = ""
+cmd_indicator = ""
 nu_indicator = "󰫻"
 style = "bg:os_bg fg:os_fg"
 format = '[ $indicator ]($style)'
@@ -171,6 +181,26 @@ symbol = ""
 style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
+[nodejs]
+symbol = ""
+style = "bg:tech_bg fg:tech_fg"
+format = '[ $symbol ($version )]($style)'
+
+[deno]
+symbol = ""
+style = "bg:tech_bg fg:tech_fg"
+format = '[ $symbol ($version )]($style)'
+
+[bun]
+symbol = ""
+style = "bg:tech_bg fg:tech_fg"
+format = '[ $symbol ($version )]($style)'
+
+[python]
+symbol = ""
+style = "bg:tech_bg fg:tech_fg"
+format = '[ $symbol ($version )(\(#$virtualenv\) )]($style)'
+
 [julia]
 symbol = ""
 style = "bg:tech_bg fg:tech_fg"
@@ -181,15 +211,15 @@ symbol = ""
 style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
-[nodejs]
-symbol = ""
+[typst]
+symbol = ""
 style = "bg:tech_bg fg:tech_fg"
 format = '[ $symbol ($version )]($style)'
 
-[python]
-symbol = ""
+[quarto]
+symbol = "󰐗"
 style = "bg:tech_bg fg:tech_fg"
-format = '[ $symbol ($version )(\(#$virtualenv\) )]($style)'
+format = '[ $symbol ($version )]($style)'
 
 [container]
 symbol = ""
