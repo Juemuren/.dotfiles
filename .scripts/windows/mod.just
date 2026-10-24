@@ -1,3 +1,8 @@
 set default-list := true
+set script-interpreter := ["pwsh", "-NoProfile", "-File"]
+set default-script := true
 
-bootstrap:
+env:
+    & '{{ source_directory() }}/env.ps1'
+
+bootstrap: env

@@ -2,12 +2,18 @@ set default-list
 
 mod tex 'tex'
 mod vscode 'vscode'
+
+[windows]
+mod msvc 'msvc'
+[windows]
+mod wsl 'wsl'
 [windows]
 mod scoop 'scoop'
 [windows]
 mod pwsh 'pwsh'
 [windows]
 mod msys 'msys'
+
 [unix]
 mod brew 'brew'
 
