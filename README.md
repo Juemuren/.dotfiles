@@ -99,31 +99,41 @@ mise trust
 
 #### 2. 填写机器变量
 
-可以根据提示自动填写变量
+机器变量分为两类：
+
+- 手动填写的变量。目前包含手动填写变量的工具有
+
+    - git
+    - pnpm
+    - scoop
+
+- 自动填写的变量。目前包含自动填写变量的工具有
+
+    - vscode
+
+对于手动填写的变量，可以根据提示逐个填写
 
 ```sh
 mise vars prompt
 ```
 
-也可以直接在对应的工具目录中创建 `mise.local.toml`，然后手动填写变量
+也可以直接编辑对应的 `mise.local.toml` 文件，这种方式的优先级更高
 
 ```sh
+# 把 app 换成对应的工具名
 vim app/mise.local.toml
 ```
 
-手动填写的优先级更高。
+对于自动填写的变量，可以用对应的 `just` 命令自动修改 `mise.local.toml`
 
-目前需要填写变量的工具有
-
-<!-- TODO 考虑自动更新这部分文档 -->
-
-- git
-- pnpm
-- scoop
+```sh
+# 把 app 换成对应的工具名
+just common::app::bootstrap
+```
 
 #### 3. 部署
 
-部署分为两阶段
+部署分为两阶段：
 
 - 在一阶段部署时，根目录 `mise.toml` 把各工具目录链接到 `~/.config/mise/conf.d/` 下。
 - 在二阶段部署时，由各工具目录中的 `mise.toml` 和 `mise.os.toml` 声明点文件的位置。

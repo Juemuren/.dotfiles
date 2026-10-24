@@ -9,9 +9,7 @@
 
 ## 迁移到 mise
 
-- [ ] `Justfile` 更新，然后删除 dotter 的残留
 - [ ] `.scripts` 目录下的脚本考虑是否迁移到对应的应用下
-- [ ] 迁移 vscode，并且考虑 `.local` 下的机器变量是否有更适合 mise 的管理方案
 
 ## Agent Skills
 

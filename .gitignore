@@ -1,16 +1,6 @@
-# dotter
-.dotter/local.toml
-.dotter/cache.toml
-.dotter/cache
-
 # vscode
 .vscode
 
-# binary
-.bin
-
 # local variables
-.local/*
-!.local/*.example.env
 /*/mise.local.toml
 /*/mise.*.local.toml

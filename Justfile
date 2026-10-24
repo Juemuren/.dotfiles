@@ -25,11 +25,8 @@ bootstrap: windows::bootstrap
 [unix]
 bootstrap: unix::bootstrap
 
-watch:
-    ./.bin/dotter watch --dry-run --force
-
 preview:
-    ./.bin/dotter deploy --dry-run --force
+    mise dot apply --dry-run
 
 deploy:
-    ./.bin/dotter deploy --verbose --force --noconfirm
+    mise dot apply
