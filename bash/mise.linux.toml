@@ -1,2 +1,2 @@
 [dotfiles]
-"~/.bashrc" = { source = "wsl.bash", mode = "symlink" }
+"~/.bashrc" = { source = "linux.bash", mode = "symlink" }

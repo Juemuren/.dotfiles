@@ -1,2 +1,2 @@
 [dotfiles]
-"~/.config/mise/config.toml" = { source = "wsl/config.toml", mode = "symlink" }
+"~/.config/mise/config.toml" = { source = "linux/config.toml", mode = "symlink" }
