@@ -12,7 +12,7 @@ columns = [
   { type = "directory", width = 30 },
   "time",
   "duration",
-  {type = "exit", width = 3 },
+  { type = "exit", width = 3 },
   "command",
 ]
 

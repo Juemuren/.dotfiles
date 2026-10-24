@@ -99,7 +99,7 @@
       },
       "group": "build"
     },
-{
+    {
       "label": "Haskell (ghc): Compile Current File",
       "type": "process",
       "command": "ghc",

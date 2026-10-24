@@ -24,8 +24,8 @@
     "command": "-vscode-neovim.escape"
   },
   {
-      "key": "ctrl+'",
-      "command": "workbench.action.showAllEditors"
+    "key": "ctrl+'",
+    "command": "workbench.action.showAllEditors"
   },
   {
     "key": "ctrl+shift+.",
