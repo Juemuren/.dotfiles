@@ -1,0 +1,8 @@
+[vars]
+git_name = "Your git name"
+git_email = "Your git email"
+
+[dotfile_groups.git-scripts]
+root = "git/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"

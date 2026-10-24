@@ -1,5 +1,5 @@
 {
-  "root_path": "{{scoop_root}}",
+  "root_path": "{{ vars.scoop_root }}",
   "scoop_repo": "https://github.com/ScoopInstaller/Scoop",
   "scoop_branch": "master",
   "use_isolated_path": true,

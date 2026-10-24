@@ -1,0 +1,3 @@
+[dotfiles]
+"~/.pi/agent/themes" = { source = "themes", mode = "symlink" }
+"~/.pi/agent/settings.json" = { source = "windows/settings.json", mode = "template" }

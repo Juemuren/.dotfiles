@@ -1,0 +1,7 @@
+[dotfiles]
+"~/.config/scoop/config.json" = { source = "config.json", mode = "template" }
+
+[dotfile_groups.scoop-scripts]
+root = "scoop/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"

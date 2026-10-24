@@ -1,0 +1,8 @@
+[dotfiles]
+"~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" = { source = "settings.json", mode = "symlink" }
+"~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/pwsh.ico" = { source = "icons/pwsh.ico", mode = "symlink" }
+
+[dotfile_groups.wt-scripts]
+root = "wt/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"

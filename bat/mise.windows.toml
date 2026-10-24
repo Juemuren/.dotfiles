@@ -1,0 +1,2 @@
+[dotfiles]
+"bat-config" = { source = "config.txt", mode = "symlink", variants = [{ os = "windows", target = "{{ env.BAT_CONFIG_DIR }}/config" }] }

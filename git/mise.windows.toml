@@ -1,0 +1,2 @@
+[dotfiles]
+"~/.gitconfig" = { source = "windows.ini", mode = "template" }

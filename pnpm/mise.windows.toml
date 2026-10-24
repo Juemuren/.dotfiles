@@ -1,0 +1,2 @@
+[dotfiles]
+"~/AppData/Local/pnpm/config/config.yaml" = { source = "config.yaml", mode = "template" }

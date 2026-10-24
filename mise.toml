@@ -1,0 +1,23 @@
+[dotfiles]
+"~/.config/mise/conf.d/agents" = { source = "agents" }
+"~/.config/mise/conf.d/atuin" = { source = "atuin" }
+"~/.config/mise/conf.d/bash" = { source = "bash" }
+"~/.config/mise/conf.d/bat" = { source = "bat" }
+"~/.config/mise/conf.d/codex" = { source = "codex" }
+"~/.config/mise/conf.d/conda" = { source = "conda" }
+"~/.config/mise/conf.d/fastfetch" = { source = "fastfetch" }
+"~/.config/mise/conf.d/git" = { source = "git" }
+"~/.config/mise/conf.d/mise" = { source = "mise" }
+"~/.config/mise/conf.d/neovim" = { source = "neovim" }
+"~/.config/mise/conf.d/npm" = { source = "npm" }
+"~/.config/mise/conf.d/pi" = { source = "pi" }
+"~/.config/mise/conf.d/pixi" = { source = "pixi" }
+"~/.config/mise/conf.d/pnpm" = { source = "pnpm" }
+"~/.config/mise/conf.d/pwsh" = { source = "pwsh" }
+"~/.config/mise/conf.d/scoop" = { source = "scoop" }
+"~/.config/mise/conf.d/starship" = { source = "starship" }
+"~/.config/mise/conf.d/uv" = { source = "uv" }
+"~/.config/mise/conf.d/vim" = { source = "vim" }
+"~/.config/mise/conf.d/winget" = { source = "winget" }
+"~/.config/mise/conf.d/wt" = { source = "wt" }
+"~/.config/mise/conf.d/zsh" = { source = "zsh" }

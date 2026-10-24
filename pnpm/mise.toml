@@ -1,0 +1,2 @@
+[vars]
+pnpm_store = "~/.local/share/pnpm/store"

@@ -1,1 +1,1 @@
-storeDir: {{pnpm_store}}
+storeDir: {{ vars.pnpm_store }}

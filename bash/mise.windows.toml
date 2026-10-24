@@ -1,0 +1,2 @@
+[dotfiles]
+"~/.bashrc" = { source = "windows.bash", mode = "symlink" }

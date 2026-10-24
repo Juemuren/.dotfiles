@@ -12,3 +12,4 @@
 # local variables
 .local/*
 !.local/*.example.env
+/*/mise.local.toml

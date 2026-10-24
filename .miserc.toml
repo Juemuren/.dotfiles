@@ -1,0 +1,2 @@
+# Load mise.windows.toml and mise.linux.toml fragments for this checkout.
+auto_env = true

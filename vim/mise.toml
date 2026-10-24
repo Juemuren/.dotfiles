@@ -1,0 +1,2 @@
+[dotfiles]
+"~/.vimrc" = { source = "config.vim", mode = "symlink" }

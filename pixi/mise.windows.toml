@@ -1,0 +1,3 @@
+[dotfiles]
+"pixi-config" = { source = "config.toml", mode = "symlink", variants = [{ os = "windows", target = "{{ env.PIXI_HOME }}/config.toml" }] }
+"pixi-global" = { source = "pixi-global.toml", mode = "symlink", variants = [{ os = "windows", target = "{{ env.PIXI_HOME }}/manifests/pixi-global.toml" }] }

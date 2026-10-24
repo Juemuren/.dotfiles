@@ -1,0 +1,2 @@
+[dotfiles]
+"~/.zshrc" = { source = "wsl.zsh", mode = "symlink" }

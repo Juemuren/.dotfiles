@@ -1,0 +1,7 @@
+[dotfiles]
+"~/.config/bash/integrations" = { source = "integrations", mode = "symlink" }
+
+[dotfile_groups.bash-scripts]
+root = "bash/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"
