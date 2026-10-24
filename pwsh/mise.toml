@@ -1,0 +1,4 @@
+[dotfile_groups.pwsh-scripts]
+root = "pwsh/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"

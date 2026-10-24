@@ -2,11 +2,4 @@
 "~/AppData/Roaming/Code/User/keybindings.json" = { source = "profiles/global/keybindings.jsonc", mode = "symlink" }
 "~/AppData/Roaming/Code/User/settings.json" = { source = "profiles/global/settings.jsonc", mode = "symlink" }
 "~/AppData/Roaming/Code/User/tasks.json" = { source = "profiles/global/tasks.jsonc", mode = "symlink" }
-"~/AppData/Roaming/Code/User/snippets/doc.code-snippets" = { source = "profiles/global/snippets/doc.code-snippets", mode = "symlink" }
-"~/AppData/Roaming/Code/User/snippets/latex.json" = { source = "profiles/global/snippets/latex.json", mode = "symlink" }
-"~/AppData/Roaming/Code/User/snippets/web.code-snippets" = { source = "profiles/global/snippets/web.code-snippets", mode = "symlink" }
-
-[dotfile_groups.vscode-scripts]
-root = "vscode/scripts"
-target = "~/.local/bin"
-mode = "symlink-each"
+"~/AppData/Roaming/Code/User/snippets/*" = { source = "profiles/global/snippets/*", mode = "symlink" }

@@ -1,0 +1,8 @@
+[dotfiles]
+"~/.codex/rules/*" = { source = "rules/*", mode = "symlink" }
+"~/.codex/pets/*" = { source = "pets/*", mode = "symlink" }
+
+[dotfile_groups.codex-scripts]
+root = "codex/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"

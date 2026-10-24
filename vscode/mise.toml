@@ -1,0 +1,4 @@
+[dotfile_groups.vscode-scripts]
+root = "vscode/scripts"
+target = "~/.local/bin"
+mode = "symlink-each"
