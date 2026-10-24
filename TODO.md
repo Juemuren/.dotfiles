@@ -7,58 +7,11 @@
 - [ ] 用 Scoop 管理 VSCode 安装。我自己的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
 - [ ] 配置 Windows 开发卷，并研究一下有没有可自动化的方法。
 
-## 配置部署与机器差异
+## 迁移到 mise
 
-- [ ] 考虑使用 `*.env` 文件作为机器变量的唯一权威源。
-
-### 方案草稿：机器变量的唯一权威源
-
-目前 `.dotter/local.toml` 中的 `variables` 只有当配置作为模板文件时才能读，要运行的脚本不能读，目标文件的路径也不能读。变量还可能在 `global.toml`、`os.toml`、`local.example.toml`、`local.toml` 中重复维护。
-
-考虑使用外部 `*.env` 文件作为机器变量权威源：
-
-- 在部署前通过 `just` 加载到环境变量中，从而可以在路径中使用环境变量。
-- 脚本也可以更方便地读取或修改 `*.env` 文件。
-- 通过 `dotter --patch` 读取这些内容，可以让其变成 `veriables` 变量，从而可以在模板文件里使用。
-
-例如，将权威源文件放在 `.local/vscode.env`：
-
-```env
-vscode_conf_id="114514"
-```
-
-通过根目录 `Justfile` 在部署前将其加载为环境变量：
-
-```just
-set dotenv-path := ".local/vscode.env"
-```
-
-从而 `.dotter/windows.toml` 中目标文件的路径里可以使用：
-
-```toml
-[vscode.files]
-"vscode/profiles/conf/settings.jsonc" = "~/AppData/Roaming/Code/User/profiles/$vscode_conf_id/settings.json"
-```
-
-并且脚本 `.scripts/common/vscode/record.sh` 里也可以使用
-
-```sh
-echo "$vscode_conf_id"
-```
-
-至于转换为 dotter patch，目前的想法是使用 `yq`
-
-```sh
-yq -p ini -o toml '{"variables": .}' .local/vscode.env | dotter --patch
-```
-
-当 `.local/*.env` 文件变多时，可以使用 `fd` 和 `cat` 连接文件
-
-```sh
-fd .env .local -X cat | yq -p ini -o toml '{"variables": .}' | dotter --patch
-```
-
-更好的解决方案是让 dotter 可以直接在配置中声明读取哪些 `.env` 文件。相关 issue 已提交 [issue #228](https://github.com/SuperCuber/dotter/issues/228)。
+- [ ] `Justfile` 更新，然后删除 dotter 的残留
+- [ ] `.scripts` 目录下的脚本考虑是否迁移到对应的应用下
+- [ ] 迁移 vscode，并且考虑 `.local` 下的机器变量是否有更适合 mise 的管理方案
 
 ## Agent Skills
 
@@ -110,11 +63,6 @@ chafa -f symbols --symbols braille -c none input.jpg > output.txt
 | OCR                                                | OCRmyPDF        |
 | 上述工具不方便完成的高级操作（Bug 有点多，待考虑） | pdfcpu          |
 | 其它工具无法处理的异常 PDF，作为最后选择           | Ghostscript     |
-
-## 探索与评估
-
-- [ ] 尝试在 WSL 中使用 Nix。
-- [ ] 评估迁移到 chezmoi。
 
 ## 日用脚本编写
 

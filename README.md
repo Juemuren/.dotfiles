@@ -85,43 +85,72 @@ Pwsh 包含以下 Module
 
 ### 部署点文件
 
-本仓库使用 [dotter](https://github.com/SuperCuber/dotter) 管理点文件，使用 [just](https://github.com/casey/just) 运行任务。
+本仓库使用 [mise](https://mise.jdx.dev/dotfiles.html) 管理点文件。
 
-参考下面的方法把仓库中的点文件部署到本机的对应位置：
+参考下面的方法把仓库中的点文件部署到本机的对应位置。
 
-1. 克隆仓库
+#### 1. 克隆仓库
 
-    ```sh
-    git clone https://github.com/Juemuren/.dotfiles
-    cd .dotfiles
-    ```
+```sh
+git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles
+cd ~/.dotfiles
+mise trust
+```
 
-2. 复制配置示例（可以任选一个 `.dotter/local.*.toml` 作为示例文件）
+#### 2. 填写机器变量
 
-    ```sh
-    cp .dotter/local.windows.toml .dotter/local.toml
-    ```
+可以根据提示自动填写变量
 
-3. 根据需要修改 `.dotter/local.toml`
+```sh
+mise vars prompt
+```
 
-    ```sh
-    vim .dotter/local.toml
-    ```
+也可以直接在对应的工具目录中创建 `mise.local.toml`，然后手动填写变量
 
-4. 预览部署结果
+```sh
+vim app/mise.local.toml
+```
 
-    ```sh
-    just preview
-    ```
+手动填写的优先级更高。
 
-5. 如果部署失败，显示 `ERROR`，那么通常是一些文件的目标路径需要动态获取。请在 `.local/*.env` 中填写对应的变量，或者运行 `just *::*::bootstrap` 来自动填写变量。目前这类工具、对应的环境变量文件以及自动填写的命令分别为
+目前需要填写变量的工具有
 
-    - vscode - `.local/vscode.env` - `just common::vscode::bootstrap`
+<!-- TODO 考虑自动更新这部分文档 -->
 
-6. （可选）如果显示 `WARN`，那么通常是目标位置已经存在文件。建议进行备份，因为下一步原位置的文件将被删除。
+- git
+- pnpm
+- scoop
 
-7. 部署点文件
+#### 3. 部署
 
-    ```sh
-    just deploy
-    ```
+部署分为两阶段
+
+- 在一阶段部署时，根目录 `mise.toml` 把各工具目录链接到 `~/.config/mise/conf.d/` 下。
+- 在二阶段部署时，由各工具目录中的 `mise.toml` 和 `mise.os.toml` 声明点文件的位置。
+
+预览并完成一阶段部署
+
+```sh
+mise dot apply --dry-run
+mise dot apply
+```
+
+预览并完成二阶段部署
+
+```sh
+mise dot apply --dry-run
+mise dot apply
+```
+
+如果部署时显示 `ERROR`，那么检查目标路径是否已有文件或目录。可以在备份后强制部署
+
+```sh
+mise dot apply --force
+```
+
+两阶段部署都完成后，可以检查最终状态
+
+```sh
+mise dot status
+mise dot diff
+```
