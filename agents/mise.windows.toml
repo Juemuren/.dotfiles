@@ -1,2 +1,2 @@
 [dotfiles]
-"~/.agents/skills" = { source = "skills", mode = "symlink" }
+"~/.agents/skills/*" = { source = "skills/*", mode = "symlink" }
