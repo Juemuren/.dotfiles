@@ -2,32 +2,19 @@
 
 ## 系统初始化与软件恢复
 
-- [ ] Windows：编写新系统初始化脚本，放入 `.scripts/windows`，并在 just 的 windows 模块中调用。目前已经完成了部分，但可能需要提取一下 helper 函数从而复用代码。并且 MSVC 的组件配置不应该放在 `.scripts/` 下。
-- [ ] Unix：编写新系统初始化脚本，放入 `.scripts/unix`，并在 just 的 unix 模块中调用。
 - [ ] 用 Scoop 管理 VSCode 安装。我自己的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
 - [ ] 配置 Windows 开发卷，并研究一下有没有可自动化的方法。
 
 ## 迁移到 mise
 
 - [ ] `.scripts` 目录下的脚本考虑是否迁移到对应的应用下
+- [ ] 考虑用 mise 的 bootstrap 功能实现机器初始化
 
 ## Agent Skills
 
 - [ ] `transform-media-with-ffmpeg`：考虑重命名。主要用于将 MP4 视频转为 WebP，以便在 GitHub 等网站的 README 中展示；需要补充个人审美要求。
-- [ ] `create-scoop-manifest`：说明如何使用 `scoop search` 查找软件，并在缺失时向自己的 bucket 添加 manifest。
 - [ ] `build-documents-with-pandoc`：使用 Pandoc 将 Markdown 转为 PDF，并提供模板。
-- [ ] `making-braille-ascii`：使用 ImageMagick 和 chafa 将动漫图片转为盲文 ASCII，用于 fastfetch；需要补充个人审美要求。
 - [ ] `process-pdf`：考虑重命名。需要明确验收要求，有待筛选更精简的工具集。
-
-### 设计备注：create-scoop-manifest
-
-个人偏好：
-
-- 能不写脚本就不写脚本。
-- 需要脚本时，放到 `scripts` 目录，在 JSON 中调用文件，避免内嵌转义的 Pwsh 脚本。
-- `_common` 目录用于通用脚本或辅助脚本。
-
-这些要求可能更适合放到 bucket 仓库的 `AGENTS.md` 中，skill 引用即可。
 
 ### 设计备注：build-documents-with-pandoc
 
@@ -36,16 +23,6 @@ PDF 生成路径的优先顺序：
 1. Typst。
 2. LaTeX（tectonic / xelatex）。
 3. HTML（weasyprint / headless chrome）。
-
-### 设计备注：making-braille-ascii
-
-命令示例：
-
-```sh
-chafa -f symbols --symbols braille -c none input.jpg > output.txt
-```
-
-考虑是否要让 agent 自己去 Pixiv 等网站找图。
 
 ### 设计备注：process-pdf
 
