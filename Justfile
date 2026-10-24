@@ -1,8 +1,16 @@
 set default-list
-mod common '.scripts/common'
+
+mod tex 'tex'
 mod vscode 'vscode'
 [windows]
 mod scoop 'scoop'
+[windows]
+mod pwsh 'pwsh'
+[windows]
+mod msys 'msys'
+[unix]
+mod brew 'brew'
+
 [windows]
 mod windows '.scripts/windows'
 [unix]
@@ -11,16 +19,16 @@ mod unix '.scripts/unix'
 mod checks '.scripts/checks'
 
 [windows]
-record: windows::record common::record scoop::record vscode::record
+record: pwsh::record msys::record tex::record scoop::record vscode::record
 
 [unix]
-record: unix::record common::record vscode::record
+record: brew::record tex::record vscode::record
 
 [windows]
-restore: windows::restore common::restore scoop::restore vscode::restore
+restore: pwsh::restore msys::restore tex::restore scoop::restore vscode::restore
 
 [unix]
-restore: unix::restore common::restore vscode::restore
+restore: brew::restore tex::restore vscode::restore
 
 [windows]
 bootstrap: windows::bootstrap
