@@ -43,7 +43,7 @@ bootstrap: windows::bootstrap
 bootstrap: unix::bootstrap
 
 preview:
-    mise dot apply --dry-run
+    mise dot diff | delta
 
 deploy:
-    mise dot apply
+    mise dot apply --force --yes
