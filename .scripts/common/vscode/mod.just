@@ -4,7 +4,7 @@ set default-list := true
 
 [windows]
 bootstrap:
-    ./bootstrap.sh "{{ justfile_directory() }}/vscode/profiles" "{{ justfile_directory() }}/.local/vscode.env"
+    ./bootstrap.sh "{{ justfile_directory() }}/vscode/profiles" "{{ justfile_directory() }}/vscode/mise.windows.local.toml"
 
 record profile="all":
     ./record.sh "{{ justfile_directory() }}/vscode/profiles" "{{ profile }}"

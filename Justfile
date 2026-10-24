@@ -1,7 +1,4 @@
 set default-list
-set dotenv-path := ".local/vscode.env"
-set dotenv-override
-
 mod common '.scripts/common'
 [windows]
 mod windows '.scripts/windows'

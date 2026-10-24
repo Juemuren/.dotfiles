@@ -13,3 +13,4 @@
 .local/*
 !.local/*.example.env
 /*/mise.local.toml
+/*/mise.*.local.toml

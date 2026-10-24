@@ -18,6 +18,7 @@
 "~/.config/mise/conf.d/starship" = { source = "starship" }
 "~/.config/mise/conf.d/uv" = { source = "uv" }
 "~/.config/mise/conf.d/vim" = { source = "vim" }
+"~/.config/mise/conf.d/vscode" = { source = "vscode" }
 "~/.config/mise/conf.d/winget" = { source = "winget" }
 "~/.config/mise/conf.d/wt" = { source = "wt" }
 "~/.config/mise/conf.d/zsh" = { source = "zsh" }

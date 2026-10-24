@@ -2,20 +2,23 @@
 
 set -eu
 
-SCRIPT_DIR=$(dirname "$0")
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 # shellcheck source-path=SCRIPTDIR
 source "$SCRIPT_DIR/helper/profiles.sh"
 
 PROFILES_DIR=$1
-ENV_FILE=$2
+OUTPUT_FILE=$2
+: > "$OUTPUT_FILE"
 
-generate_profile_env() {
+write_profile_config() {
     local profile_name=$1
     local profile_id
     profile_id=$(extract_profile_id "$profile_name") || return
-    printf 'vscode_%s_id="%s"\n' "$profile_name" "$profile_id"
+    local key
+    key="dotfiles.\"~/AppData/Roaming/Code/User/profiles/$profile_id/settings.json\""
+
+    mise config set --file "$OUTPUT_FILE" "$key.source" "profiles/$profile_name/settings.jsonc"
+    mise config set --file "$OUTPUT_FILE" "$key.mode" symlink
 }
 
-env_content=$(for_each_profile "$PROFILES_DIR" generate_profile_env)
-mkdir -p "$(dirname "$ENV_FILE")"
-printf '%s\n' "$env_content" > "$ENV_FILE"
+for_each_profile "$PROFILES_DIR" write_profile_config
