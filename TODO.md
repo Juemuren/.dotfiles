@@ -7,7 +7,6 @@
 
 ## 迁移到 mise
 
-- [ ] `.scripts` 目录下的脚本考虑是否迁移到对应的应用下
 - [ ] 考虑用 mise 的 bootstrap 功能实现机器初始化
 
 ## Agent Skills

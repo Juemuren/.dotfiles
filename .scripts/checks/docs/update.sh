@@ -19,7 +19,7 @@ update_section() {
 get_dirs() {
     local path=$1
 
-    fd -d 1 -t dir --search-path "$path" --format '* [{/.}]({})'
+    fd -d 1 -t dir --search-path "$path" --format '* [{/.}]({.})'
 }
 
 get_dirs . |
