@@ -1,8 +1,7 @@
 set default-list := true
 
-mod vscode "vscode"
 mod tex "tex"
 
-record: vscode::record tex::record
+record: tex::record
 
-restore: vscode::restore tex::restore
+restore: tex::restore

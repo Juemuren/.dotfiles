@@ -124,11 +124,11 @@ mise vars prompt
 vim app/mise.local.toml
 ```
 
-对于自动填写的变量，可以用对应的 `just` 命令自动修改 `mise.local.toml`
+对于自动填写的变量，可以用对应的 `just` 命令自动修改 `mise.local.toml` 文件
 
 ```sh
 # 把 app 换成对应的工具名
-just common::app::bootstrap
+just app::bootstrap
 ```
 
 #### 3. 部署
