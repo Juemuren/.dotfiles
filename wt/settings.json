@@ -4,16 +4,16 @@
     "actions": 
     [
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": "paste",
@@ -32,17 +32,17 @@
             "command": 
             {
                 "action": "scrollToMark",
-                "direction": "next"
+                "direction": "previous"
             },
-            "id": "User.nextMark"
+            "id": "User.preMark"
         },
         {
             "command": 
             {
                 "action": "scrollToMark",
-                "direction": "previous"
+                "direction": "next"
             },
-            "id": "User.preMark"
+            "id": "User.nextMark"
         },
         {
             "command": 
@@ -51,14 +51,6 @@
                 "direction": "next"
             },
             "id": "User.nextCommand"
-        },
-        {
-            "command": 
-            {
-                "action": "selectOutput",
-                "direction": "next"
-            },
-            "id": "User.nextOutput"
         },
         {
             "command": 
@@ -78,7 +70,15 @@
         },
         {
             "command": 
-            { 
+            {
+                "action": "selectOutput",
+                "direction": "next"
+            },
+            "id": "User.nextOutput"
+        },
+        {
+            "command": 
+            {
                 "action": "showSuggestions",
                 "source": "all",
                 "useCommandline": true
@@ -95,12 +95,12 @@
     "keybindings": 
     [
         {
-            "id": "User.find",
-            "keys": "ctrl+f"
-        },
-        {
             "id": "User.paste",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+f"
         },
         {
             "id": "User.copy",
@@ -119,12 +119,12 @@
             "keys": "ctrl+shift+up"
         },
         {
-            "id": "User.preCommand",
-            "keys": "ctrl+alt+up"
-        },
-        {
             "id": "User.nextOutput",
             "keys": "ctrl+shift+down"
+        },
+        {
+            "id": "User.preCommand",
+            "keys": "ctrl+alt+up"
         },
         {
             "id": "User.nextCommand",
@@ -158,12 +158,12 @@
             "closeOnExit": "graceful",
             "colorScheme": "Catppuccin Mocha",
             "cursorShape": "filledBox",
-            "experimental.rightClickContextMenu": true,
             "font": 
             {
                 "face": "Maple Mono NF CN",
                 "size": 16
             },
+            "rightClickContextMenu": true,
             "showMarksOnScrollbar": true
         },
         "list": 
