@@ -1,6 +1,6 @@
 [vars]
-git_name = "Your git name"
-git_email = "Your git email"
+git_name = { prompt = "Git name", required = "Please set git_name" }
+git_email = { prompt = "Git email", required = "Please set git_email" }
 
 [dotfile_groups.git-scripts]
 root = "git/scripts"

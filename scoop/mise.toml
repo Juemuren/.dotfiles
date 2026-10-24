@@ -1,2 +1,2 @@
 [vars]
-scoop_root = "~/scoop"
+scoop_root = { default = "~/scoop", prompt = "Scoop root" }

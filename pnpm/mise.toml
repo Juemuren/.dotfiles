@@ -1,2 +1,2 @@
 [vars]
-pnpm_store = "~/.local/share/pnpm/store"
+pnpm_store = { default = "~/.local/share/pnpm/store", prompt = "Pnpm store" }
