@@ -81,23 +81,46 @@ Pwsh 包含以下 Module
 
 ### 机器初始化
 
-<!-- TODO 完善机器初始化
-
-vscode::bootstrap 可以在初始化阶段运行，不需要等到部署阶段才运行
-
-工具链之间的依赖有点麻烦，后续可以慢慢处理
-
--->
-
 本仓库使用 [just](https://just.systems/) + [mise](https://mise.jdx.dev/bootstrap.html) 以及 Bash / PowerShell 脚本来实现机器初始化。
 
-`mise bootstrap` 的步骤为
+参考下面的方法完成机器的初始化。
 
-1. 安装 `[bootstrap.packages]` 中的系统软件
-2. 应用 dotfiles
-3. 配置 Shell 激活
-4. 安装 `[tools]`
-5. 执行 `[tasks.bootstrap]`
+#### 1 克隆仓库
+
+在初始化前需要已有 `git` 和 `mise`
+
+```sh
+git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles
+cd ~/.dotfiles
+mise trust
+```
+
+#### 2 安装工具
+
+工具分为 mise 管理的工具和系统管理的工具。
+
+安装 mise 管理的工具。这些工具写在根目录 `mise.toml` 的 `tools` 中
+
+```sh
+mise bootstrap --only tools
+```
+
+安装系统管理的工具
+
+```sh
+mise bootstrap --only packages
+```
+
+- 在 Linux 上要求已有 `bash`，此时会安装 `brew`
+- 在 Windows 上要求已有 `winget` 和 `powershell`，此时会安装 `scoop` / `pwsh` / `vscode`
+
+#### 3 恢复软件环境
+
+重新打开终端并进入仓库目录，确保新安装的工具进入了 PATH 环境变量，然后进行最终的环境恢复
+
+```sh
+mise bootstrap --only task
+```
 
 ### 部署点文件
 
@@ -106,6 +129,8 @@ vscode::bootstrap 可以在初始化阶段运行，不需要等到部署阶段�
 参考下面的方法把仓库中的点文件部署到本机的对应位置。
 
 #### 1 克隆仓库
+
+如果已在机器初始化时完成此步骤，那么可以跳过
 
 ```sh
 git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles

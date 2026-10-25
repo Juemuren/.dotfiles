@@ -31,16 +31,16 @@ record: pwsh::record msys::record tex::record scoop::record vscode::record
 record: brew::record tex::record vscode::record
 
 [windows]
-restore: pwsh::restore msys::restore tex::restore scoop::restore vscode::restore
+restore: scoop::restore pwsh::restore msys::restore tex::restore vscode::restore
 
 [unix]
 restore: brew::restore tex::restore vscode::restore
 
 [windows]
-bootstrap: windows::bootstrap vscode::bootstrap
+bootstrap: windows::bootstrap restore
 
 [unix]
-bootstrap: unix::bootstrap
+bootstrap: unix::bootstrap restore
 
 preview:
     mise dot diff | delta
