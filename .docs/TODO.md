@@ -1,14 +1,5 @@
 # TODO
 
-## 系统初始化与软件恢复
-
-- [ ] 考虑如何管理 VSCode 安装。使用 Scoop 或者 Winget。
-- [ ] 配置 Windows 开发卷 https://learn.microsoft.com/en-us/windows/dev-drive/ 并研究是否可以自动化
-
-## 迁移到 mise
-
-- [ ] 考虑用 mise 的 bootstrap 功能实现机器初始化
-
 ## Agent Skills
 
 - [ ] `transform-media-with-ffmpeg`：考虑重命名。主要用于将 MP4 视频转为 WebP，以便在 GitHub 等网站的 README 中展示；需要补充个人审美要求。
