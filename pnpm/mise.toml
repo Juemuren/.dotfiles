@@ -1,2 +1,10 @@
 [vars]
 pnpm_store = { default = "~/.local/share/pnpm/store", prompt = "Pnpm store" }
+
+[dotfiles.pnpm-config]
+source = "config.yaml"
+mode = "template"
+variants = [
+  { os = "linux", target = "~/.config/pnpm/config.yaml" },
+  { os = "windows", target = "~/AppData/Local/pnpm/config/config.yaml" },
+]

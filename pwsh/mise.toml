@@ -1,4 +1,27 @@
-[dotfile_groups.pwsh-scripts]
-root = "pwsh/scripts"
-target = "~/.local/bin"
-mode = "symlink-each"
+[dotfiles.pwsh-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]
+
+[dotfiles.pwsh-profile]
+source = "profile.ps1"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" },
+]
+
+[dotfiles.pwsh-modules]
+source = "modules/*"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/Documents/PowerShell/Modules/*" },
+]
+
+[dotfiles.pwsh-integrations]
+source = "integrations/*"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/Documents/PowerShell/integrations/*" },
+]

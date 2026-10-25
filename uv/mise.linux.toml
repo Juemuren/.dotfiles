@@ -1,2 +1,0 @@
-[dotfiles]
-"~/.config/uv/uv.toml" = { source = "uv.toml", mode = "symlink" }

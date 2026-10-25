@@ -2,7 +2,23 @@
 "~/.codex/rules/*" = { source = "rules/*", mode = "symlink" }
 "~/.codex/pets/*" = { source = "pets/*", mode = "symlink" }
 
-[dotfile_groups.codex-scripts]
-root = "codex/scripts"
-target = "~/.local/bin"
-mode = "symlink-each"
+[dotfiles.codex-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]
+
+[dotfiles.codex-config]
+source = "windows/config.toml"
+mode = "template"
+variants = [
+  { os = "windows", target = "~/.codex/config.toml" },
+]
+
+[dotfiles.codex-agents]
+source = "windows/AGENTS.md"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/.codex/AGENTS.md" },
+]

@@ -1,0 +1,7 @@
+[dotfiles.uv-config]
+source = "uv.toml"
+mode = "symlink"
+variants = [
+  { os = "linux", target = "~/.config/uv/uv.toml" },
+  { os = "windows", target = "~/AppData/Roaming/uv/uv.toml" },
+]

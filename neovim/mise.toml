@@ -1,0 +1,13 @@
+[dotfiles.neovim]
+source = "nvim"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/AppData/Local/nvim" },
+]
+
+[dotfiles.vscode-neovim]
+source = "vscode-neovim"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/AppData/Local/vscode-neovim" },
+]

@@ -1,3 +1,0 @@
-[dotfiles]
-"~/AppData/Local/nvim" = { source = "nvim", mode = "symlink" }
-"~/AppData/Local/vscode-neovim" = { source = "vscode-neovim", mode = "symlink" }

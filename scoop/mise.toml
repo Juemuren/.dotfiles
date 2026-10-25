@@ -1,2 +1,16 @@
 [vars]
 scoop_root = { default = "~/scoop", prompt = "Scoop root" }
+
+[dotfiles.scoop-config]
+source = "config.json"
+mode = "template"
+variants = [
+  { os = "windows", target = "~/.config/scoop/config.json" },
+]
+
+[dotfiles.scoop-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]

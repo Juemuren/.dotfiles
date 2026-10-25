@@ -1,4 +1,0 @@
-[dotfile_groups.winget-scripts]
-root = "winget/scripts"
-target = "~/.local/bin"
-mode = "symlink-each"

@@ -1,5 +1,0 @@
-[dotfiles]
-"~/AppData/Roaming/Code/User/keybindings.json" = { source = "profiles/global/keybindings.jsonc", mode = "symlink" }
-"~/AppData/Roaming/Code/User/settings.json" = { source = "profiles/global/settings.jsonc", mode = "symlink" }
-"~/AppData/Roaming/Code/User/tasks.json" = { source = "profiles/global/tasks.jsonc", mode = "symlink" }
-"~/AppData/Roaming/Code/User/snippets/*" = { source = "profiles/global/snippets/*", mode = "symlink" }

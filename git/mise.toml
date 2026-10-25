@@ -2,7 +2,9 @@
 git_name = { prompt = "Git name", required = "Please set git_name" }
 git_email = { prompt = "Git email", required = "Please set git_email" }
 
-[dotfile_groups.git-scripts]
-root = "git/scripts"
-target = "~/.local/bin"
-mode = "symlink-each"
+[dotfiles.git-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]

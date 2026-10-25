@@ -1,2 +1,0 @@
-[dotfiles]
-"~/AppData/Roaming/uv/uv.toml" = { source = "uv.toml", mode = "symlink" }

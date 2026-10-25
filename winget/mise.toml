@@ -1,0 +1,6 @@
+[dotfiles.winget-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]

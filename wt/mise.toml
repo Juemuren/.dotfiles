@@ -1,0 +1,20 @@
+[dotfiles.wt-settings]
+source = "settings.json"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" },
+]
+
+[dotfiles.wt-icons]
+source = "icons/*"
+mode = "symlink"
+variants = [
+  { os = "windows", target = "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/*" },
+]
+
+[dotfiles.wt-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]

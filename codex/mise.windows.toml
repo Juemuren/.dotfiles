@@ -1,3 +1,0 @@
-[dotfiles]
-"~/.codex/config.toml" = { source = "windows/config.toml", mode = "template" }
-"~/.codex/AGENTS.md" = { source = "windows/AGENTS.md", mode = "symlink" }

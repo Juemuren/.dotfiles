@@ -1,4 +1,0 @@
-[dotfiles]
-"~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" = { source = "profile.ps1", mode = "symlink" }
-"~/Documents/PowerShell/Modules/*" = { source = "modules/*", mode = "symlink" }
-"~/Documents/PowerShell/integrations/*" = { source = "integrations/*", mode = "symlink" }

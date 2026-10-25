@@ -1,2 +1,0 @@
-[dotfiles]
-"~/.config/pnpm/config.yaml" = { source = "config.yaml", mode = "template" }

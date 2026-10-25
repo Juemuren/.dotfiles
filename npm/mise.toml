@@ -1,7 +1,9 @@
 [dotfiles]
 "~/.npmrc" = { source = "config.ini", mode = "symlink" }
 
-[dotfile_groups.npm-scripts]
-root = "npm/scripts"
-target = "~/.local/bin"
-mode = "symlink-each"
+[dotfiles.npm-scripts]
+source = "scripts/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.local/bin/*" },
+]

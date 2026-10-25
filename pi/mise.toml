@@ -1,2 +1,9 @@
 [dotfiles]
 "~/.pi/agent/themes/*" = { source = "themes/*", mode = "symlink" }
+
+[dotfiles.pi-settings]
+source = "windows/settings.json"
+mode = "template"
+variants = [
+  { os = "windows", target = "~/.pi/agent/settings.json" },
+]
