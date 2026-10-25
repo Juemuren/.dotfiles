@@ -47,3 +47,10 @@ preview:
 
 deploy:
     mise dot apply --force --yes
+
+[windows]
+undeploy: windows::undeploy
+
+[unix]
+undeploy:
+    mise dot unapply
