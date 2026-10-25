@@ -4,7 +4,7 @@ set default-list := true
 
 lint:
     cd "{{ justfile_directory() }}"
-    fd -e sh -e bash -e zsh -x shellcheck
+    fd -e sh -e bash -e zsh -x shellcheck -x
 
 fmt:
     cd "{{ justfile_directory() }}"
