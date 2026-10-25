@@ -2,6 +2,7 @@
 .vscode
 
 # local
+/.miserc.local.toml
 /mise.local.toml
 /*/mise.local.toml
 /*/mise.*.local.toml

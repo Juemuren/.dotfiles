@@ -4,14 +4,6 @@ just = "latest"
 [tasks.bootstrap]
 run = "just bootstrap"
 
-[bootstrap.hooks.pre-packages]
-run = 'bash "{{ config_root }}/brew/automation/bootstrap.sh" "{{ system_brew_prefix }}"'
-run_windows = 'powershell -NoProfile -File "{{ config_root }}/scoop/automation/bootstrap/install.ps1"'
-
-[bootstrap.packages]
-"winget:Microsoft.PowerShell" = { os = "windows" }
-"winget:Microsoft.VisualStudioCode" = { os = "windows" }
-
 [settings.dotfiles]
 root = "~/.dotfiles"
 default_mode = "symlink"

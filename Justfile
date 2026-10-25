@@ -37,10 +37,18 @@ restore: scoop::restore pwsh::restore msys::restore tex::restore vscode::restore
 restore: brew::restore tex::restore vscode::restore
 
 [windows]
-bootstrap: windows::bootstrap restore
+bootstrap: windows::bootstrap restore-selected
 
 [unix]
-bootstrap: unix::bootstrap restore
+bootstrap: unix::bootstrap restore-selected
+
+[windows]
+restore-selected:
+    & '{{ justfile_directory() }}/.scripts/windows/restore-selected.ps1'
+
+[unix]
+restore-selected:
+    '{{ justfile_directory() }}/.scripts/unix/restore-selected.sh'
 
 preview:
     mise dot diff | delta

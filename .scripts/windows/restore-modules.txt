@@ -1,0 +1,5 @@
+scoop
+pwsh
+msys
+tex
+vscode

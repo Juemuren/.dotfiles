@@ -1,0 +1,2 @@
+[bootstrap.hooks.pre-packages]
+run = 'bash "{{ config_root }}/brew/automation/bootstrap.sh" "{{ system_brew_prefix }}"'

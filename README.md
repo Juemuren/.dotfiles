@@ -99,24 +99,39 @@ mise trust
 
 工具分为 mise 管理的工具和系统管理的工具。
 
-安装 mise 管理的工具。这些工具写在根目录 `mise.toml` 的 `tools` 中
+对于 mise 管理的工具，列表写在根目录 `mise.toml` 的 `tools` 中。这些工具后续的步骤需要使用，务必完成安装
 
 ```sh
 mise bootstrap --only tools
 ```
 
-安装系统管理的工具
+对于系统管理的工具，可以选择需要安装的部分。在仓库根目录新建 `.miserc.local.toml`，然后填写需要的工具名
+
+```toml
+env = [
+  "scoop",
+  "pwsh",
+  "vscode",
+]
+```
+
+- Windows 上可选的工具详见 [.scripts\windows\restore-modules.txt](.scripts\windows\restore-modules.txt)
+- Linux 上可选的工具详见 [.scripts\unix\restore-modules.txt](.scripts\unix\restore-modules.txt)
+
+如果没填写 `env`，默认不安装任何工具。
+
+选择完要安装的工具后，进行安装
 
 ```sh
 mise bootstrap --only packages
 ```
 
-- 在 Linux 上要求已有 `curl` 和 `bash`，此时会安装 `brew`
-- 在 Windows 上要求已有 `winget` 和 `powershell`，此时会安装 `scoop` / `pwsh` / `vscode`
+- 在 Linux 上要求已有 `curl` 和 `bash`
+- 在 Windows 上要求已有 `winget` 和 `powershell`
 
-#### 3 恢复软件环境
+#### 3 恢复环境
 
-重新打开终端并进入仓库目录，确保新安装的工具进入了 PATH 环境变量，然后进行最终的环境恢复
+重新打开终端并进入仓库目录，确保新安装的工具进入了 PATH 环境变量，然后进行环境恢复
 
 ```sh
 mise bootstrap --only task
@@ -157,7 +172,7 @@ dotfile_groups = [
 ]
 ```
 
-如果没填写 `dotfile_groups` 时，mise 会默认链接所有工具目录。
+如果没填写 `dotfile_groups`，默认链接所有工具目录。
 
 选择完需要的工具后，进行一阶段部署
 
