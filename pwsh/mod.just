@@ -1,6 +1,5 @@
-set script-interpreter := ["pwsh", "-NoProfile", "-File"]
-set default-script := true
 set default-list := true
+set shell := ["pwsh", "-NoProfile", "-Command"]
 
 record:
     & '{{ source_directory() }}/automation/record.ps1' -Destination '{{ source_directory() }}/modules.txt'

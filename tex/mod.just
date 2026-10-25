@@ -1,11 +1,7 @@
 set default-list := true
-set default-script := true
-
-[unix]
-set script-interpreter := ["sh", "-eu"]
 
 [windows]
-set script-interpreter := ["pwsh", "-NoProfile", "-File"]
+set shell := ["pwsh", "-NoProfile", "-Command"]
 
 record os=os():
     tlmgr info --list --only-installed --data name > "{{ source_directory() }}/{{ os }}/packages.txt"

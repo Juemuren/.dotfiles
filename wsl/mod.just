@@ -1,6 +1,5 @@
-set script-interpreter := ["pwsh", "-NoProfile", "-File"]
-set default-script := true
 set default-list := true
+set shell := ["pwsh", "-NoProfile", "-Command"]
 
 bootstrap:
     & '{{ source_directory() }}/automation/bootstrap.ps1'
