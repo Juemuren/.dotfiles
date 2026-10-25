@@ -1,8 +1,8 @@
 [dotfiles.codex-pets]
-source = "pets"
-mode = "symlink-each"
+source = "pets/*"
+mode = "symlink"
 variants = [
-  { default = true, target = "~/.codex/pets" },
+  { default = true, target = "~/.codex/pets/*" },
 ]
 
 [dotfiles.codex-rules]

@@ -2,8 +2,8 @@
 
 ## 系统初始化与软件恢复
 
-- [ ] 用 Scoop 管理 VSCode 安装。我自己的 bucket 在另一个仓库中，可以考虑把 manifest 符号链接进来。
-- [ ] 配置 Windows 开发卷，并研究一下有没有可自动化的方法。
+- [ ] 考虑如何管理 VSCode 安装。使用 Scoop 或者 Winget。
+- [ ] 配置 Windows 开发卷 https://learn.microsoft.com/en-us/windows/dev-drive/ 并研究是否可以自动化
 
 ## 迁移到 mise
 

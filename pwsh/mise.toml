@@ -13,10 +13,10 @@ variants = [
 ]
 
 [dotfiles.pwsh-modules]
-source = "modules"
-mode = "symlink-each"
+source = "modules/*"
+mode = "symlink"
 variants = [
-  { os = "windows", target = "~/Documents/PowerShell/Modules" },
+  { os = "windows", target = "~/Documents/PowerShell/Modules/*" },
 ]
 
 [dotfiles.pwsh-integrations]
