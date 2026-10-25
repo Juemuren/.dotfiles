@@ -79,11 +79,25 @@ Pwsh 包含以下 Module
 - **恢复时保证配置完全相同，但不保证软件版本完全相同。** 如前所述，软件版本被刻意排除出记录。由于我喜欢使用最新稳定版的软件，因此恢复时出现版本漂移是预期行为。
 - **记录与恢复分别维护。** 记录脚本把当前软件写入清单，恢复脚本根据清单恢复软件。可以单独记录，也可以单独恢复，不强制同步。
 
-<!-- TODO ### 机器初始化
+### 机器初始化
 
-本仓库使用 [just](https://github.com/casey/just) 和一众 Bash / PowerShell 脚本来实现机器初始化。
+<!-- TODO 完善机器初始化
+
+vscode::bootstrap 可以在初始化阶段运行，不需要等到部署阶段才运行
+
+工具链之间的依赖有点麻烦，后续可以慢慢处理
 
 -->
+
+本仓库使用 [just](https://just.systems/) + [mise](https://mise.jdx.dev/bootstrap.html) 以及 Bash / PowerShell 脚本来实现机器初始化。
+
+`mise bootstrap` 的步骤为
+
+1. 安装 `[bootstrap.packages]` 中的系统软件
+2. 应用 dotfiles
+3. 配置 Shell 激活
+4. 安装 `[tools]`
+5. 执行 `[tasks.bootstrap]`
 
 ### 部署点文件
 

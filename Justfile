@@ -37,7 +37,7 @@ restore: pwsh::restore msys::restore tex::restore scoop::restore vscode::restore
 restore: brew::restore tex::restore vscode::restore
 
 [windows]
-bootstrap: windows::bootstrap
+bootstrap: windows::bootstrap vscode::bootstrap
 
 [unix]
 bootstrap: unix::bootstrap

@@ -1,3 +1,18 @@
+[tools]
+just = "latest"
+
+[tasks.bootstrap]
+run = [
+  "just bootstrap",
+  "just restore",
+]
+
+[bootstrap.packages]
+"winget:Microsoft.PowerShell" = { os = "windows" }
+
+[bootstrap.hooks.pre-dotfiles]
+run_windows = 'powershell.exe -NoProfile -File "{{ config_root }}/scoop/automation/bootstrap/install.ps1"'
+
 [settings.dotfiles]
 root = "~/.dotfiles"
 default_mode = "symlink"
