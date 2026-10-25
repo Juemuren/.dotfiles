@@ -3,6 +3,7 @@ source = "nvim"
 mode = "symlink"
 variants = [
   { os = "windows", target = "~/AppData/Local/nvim" },
+  { os = "linux", target = "~/.config/nvim" },
 ]
 
 [dotfiles.vscode-neovim]
