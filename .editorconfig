@@ -22,21 +22,3 @@ indent_size = 4
 
 [{Justfile,*.just}]
 indent_size = 4
-
-[{codex/*/config.toml,codex/rules/*.rules}]
-indent_size = 4
-
-[git/*.ini]
-indent_style = tab
-trim_trailing_whitespace = false
-
-[wt/settings.json]
-trim_trailing_whitespace = false
-insert_final_newline = false
-indent_size = 4
-
-[pi/*/settings.json]
-insert_final_newline = false
-
-[fastfetch/logos/*.txt]
-insert_final_newline = false
