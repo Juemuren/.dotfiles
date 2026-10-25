@@ -109,6 +109,7 @@ mise trust
 一阶段部署可以选择需要链接的工具目录。在仓库根目录新建 `mise.local.toml`，然后填写需要的工具名
 
 ```toml
+# mise.local.toml
 [bootstrap]
 dotfile_groups = [
   "git",
@@ -117,37 +118,19 @@ dotfile_groups = [
 ]
 ```
 
-没有设置 `dotfile_groups` 时，默认链接所有工具目录。
+如果没填写 `dotfile_groups` 时，mise 会默认链接所有工具目录。
 
-预览并完成一阶段部署
+选择完需要的工具后，进行一阶段部署
 
 ```sh
-mise dot apply --dry-run
 mise dot apply
 ```
 
-修改 `dotfile_groups` 后，预览并完成对一阶段部署的修改
-
-```sh
-mise dot apply --dry-run --prune
-mise dot apply --prune
-```
-
-由于添加了 `--prune` 参数，会自动移除 `dotfile_groups` 中删去的链接。
+一阶段部署完成时，mise 会自动尝试进行二阶段部署。如果有需要填写的机器变量，那么二阶段部署会自动失败。
 
 #### 3 填写机器变量
 
-机器变量分为两类：
-
-- 手动填写的变量。目前包含手动填写变量的工具有
-
-    - git
-    - pnpm
-    - scoop
-
-- 自动填写的变量。目前包含自动填写变量的工具有
-
-    - vscode
+机器变量分为手动填写的变量和自动填写的变量。
 
 对于手动填写的变量，可以根据提示逐个填写
 
@@ -157,24 +140,34 @@ mise vars prompt
 
 也可以直接编辑对应的 `mise.local.toml` 文件，这种方式的优先级更高
 
-```sh
-# 把 app 换成对应的工具名
-vim app/mise.local.toml
+```toml
+# git/mise.local.toml
+[vars]
+git_name = "Your name"
+git_email = "Your email"
 ```
 
-对于自动填写的变量，可以用对应的 `just` 命令自动修改 `mise.local.toml` 文件
+目前包含手动填写变量的工具有
+
+- git
+- pnpm
+- scoop
+
+对于自动填写的变量，可以用对应的 `just` 命令自动修改工具目录下的 `mise.local.toml` 文件
 
 ```sh
-# 把 app 换成对应的工具名
-just app::bootstrap
+just vscode::bootstrap
 ```
+
+目前包含自动填写变量的工具有
+
+- vscode
 
 #### 4 二阶段部署
 
-预览并完成二阶段部署
+填写完所有需要的机器变量后，可以进行二阶段部署
 
 ```sh
-mise dot apply --dry-run
 mise dot apply
 ```
 
@@ -188,5 +181,26 @@ mise dot apply --force
 
 ```sh
 mise dot status
+```
+
+#### 5 重新部署
+
+修改工具的配置文件后，如果部署方式不是符号链接，那么可能需要再次部署。此时可以先查看差异，再进行部署。这是二阶段的重新部署
+
+```sh
 mise dot diff
+mise dot apply
+```
+
+如果需要修改选择的工具，那么要进行一阶段的重新部署。在 `mise.local.toml` 中修改 `dotfile_groups` 后，进行一阶段的重新部署
+
+```sh
+mise dot apply --prune
+```
+
+由于添加了 `--prune` 参数，会自动删除 `dotfile_groups` 中已撤销的目录链接。但此时二阶段部署的文件仍然存在，只是指向了已删除的目录。如果希望彻底清除死链接，可以取消部署后再重新完整地部署一次
+
+```sh
+mise dot unapply
+msie dot apply
 ```
