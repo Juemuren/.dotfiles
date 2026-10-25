@@ -91,7 +91,7 @@ Pwsh 包含以下 Module
 
 参考下面的方法把仓库中的点文件部署到本机的对应位置。
 
-#### 1. 克隆仓库
+#### 1 克隆仓库
 
 ```sh
 git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles
@@ -99,7 +99,43 @@ cd ~/.dotfiles
 mise trust
 ```
 
-#### 2. 填写机器变量
+#### 2 一阶段部署
+
+部署分为两阶段：
+
+- 一阶段部署，根目录 `mise.toml` 把各工具目录链接到 `~/.config/mise/conf.d/` 下。
+- 二阶段部署，由各工具目录中的 `mise.toml` 和 `mise.os.toml` 声明点文件的位置。
+
+一阶段部署可以选择需要链接的工具目录。在仓库根目录新建 `mise.local.toml`，然后填写需要的工具名
+
+```toml
+[bootstrap]
+dotfile_groups = [
+  "git",
+  "vscode",
+  "zsh",
+]
+```
+
+没有设置 `dotfile_groups` 时，默认链接所有工具目录。
+
+预览并完成一阶段部署
+
+```sh
+mise dot apply --dry-run
+mise dot apply
+```
+
+修改 `dotfile_groups` 后，预览并完成对一阶段部署的修改
+
+```sh
+mise dot apply --dry-run --prune
+mise dot apply --prune
+```
+
+由于添加了 `--prune` 参数，会自动移除 `dotfile_groups` 中删去的链接。
+
+#### 3 填写机器变量
 
 机器变量分为两类：
 
@@ -133,19 +169,7 @@ vim app/mise.local.toml
 just app::bootstrap
 ```
 
-#### 3. 部署
-
-部署分为两阶段：
-
-- 在一阶段部署时，根目录 `mise.toml` 把各工具目录链接到 `~/.config/mise/conf.d/` 下。
-- 在二阶段部署时，由各工具目录中的 `mise.toml` 和 `mise.os.toml` 声明点文件的位置。
-
-预览并完成一阶段部署
-
-```sh
-mise dot apply --dry-run
-mise dot apply
-```
+#### 4 二阶段部署
 
 预览并完成二阶段部署
 
@@ -160,7 +184,7 @@ mise dot apply
 mise dot apply --force
 ```
 
-两阶段部署都完成后，可以检查最终状态
+二阶段部署完成后，可以检查最终的状态
 
 ```sh
 mise dot status

@@ -1,6 +1,7 @@
 # vscode
 .vscode
 
-# local variables
+# local
+/mise.local.toml
 /*/mise.local.toml
 /*/mise.*.local.toml

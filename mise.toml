@@ -1,24 +1,114 @@
-[dotfiles]
-"~/.config/mise/conf.d/agents" = { source = "agents" }
-"~/.config/mise/conf.d/atuin" = { source = "atuin" }
-"~/.config/mise/conf.d/bash" = { source = "bash" }
-"~/.config/mise/conf.d/bat" = { source = "bat" }
-"~/.config/mise/conf.d/codex" = { source = "codex" }
-"~/.config/mise/conf.d/conda" = { source = "conda" }
-"~/.config/mise/conf.d/fastfetch" = { source = "fastfetch" }
-"~/.config/mise/conf.d/git" = { source = "git" }
-"~/.config/mise/conf.d/mise" = { source = "mise" }
-"~/.config/mise/conf.d/neovim" = { source = "neovim" }
-"~/.config/mise/conf.d/npm" = { source = "npm" }
-"~/.config/mise/conf.d/pi" = { source = "pi" }
-"~/.config/mise/conf.d/pixi" = { source = "pixi" }
-"~/.config/mise/conf.d/pnpm" = { source = "pnpm" }
-"~/.config/mise/conf.d/pwsh" = { source = "pwsh" }
-"~/.config/mise/conf.d/scoop" = { source = "scoop" }
-"~/.config/mise/conf.d/starship" = { source = "starship" }
-"~/.config/mise/conf.d/uv" = { source = "uv" }
-"~/.config/mise/conf.d/vim" = { source = "vim" }
-"~/.config/mise/conf.d/vscode" = { source = "vscode" }
-"~/.config/mise/conf.d/winget" = { source = "winget" }
-"~/.config/mise/conf.d/wt" = { source = "wt" }
-"~/.config/mise/conf.d/zsh" = { source = "zsh" }
+[dotfile_groups.agents]
+root = "agents"
+target = "~/.config/mise/conf.d/agents"
+mode = "symlink"
+
+[dotfile_groups.atuin]
+root = "atuin"
+target = "~/.config/mise/conf.d/atuin"
+mode = "symlink"
+
+[dotfile_groups.bash]
+root = "bash"
+target = "~/.config/mise/conf.d/bash"
+mode = "symlink"
+
+[dotfile_groups.bat]
+root = "bat"
+target = "~/.config/mise/conf.d/bat"
+mode = "symlink"
+
+[dotfile_groups.codex]
+root = "codex"
+target = "~/.config/mise/conf.d/codex"
+mode = "symlink"
+
+[dotfile_groups.conda]
+root = "conda"
+target = "~/.config/mise/conf.d/conda"
+mode = "symlink"
+
+[dotfile_groups.fastfetch]
+root = "fastfetch"
+target = "~/.config/mise/conf.d/fastfetch"
+mode = "symlink"
+
+[dotfile_groups.git]
+root = "git"
+target = "~/.config/mise/conf.d/git"
+mode = "symlink"
+
+[dotfile_groups.mise]
+root = "mise"
+target = "~/.config/mise/conf.d/mise"
+mode = "symlink"
+
+[dotfile_groups.neovim]
+root = "neovim"
+target = "~/.config/mise/conf.d/neovim"
+mode = "symlink"
+
+[dotfile_groups.npm]
+root = "npm"
+target = "~/.config/mise/conf.d/npm"
+mode = "symlink"
+
+[dotfile_groups.pi]
+root = "pi"
+target = "~/.config/mise/conf.d/pi"
+mode = "symlink"
+
+[dotfile_groups.pixi]
+root = "pixi"
+target = "~/.config/mise/conf.d/pixi"
+mode = "symlink"
+
+[dotfile_groups.pnpm]
+root = "pnpm"
+target = "~/.config/mise/conf.d/pnpm"
+mode = "symlink"
+
+[dotfile_groups.pwsh]
+root = "pwsh"
+target = "~/.config/mise/conf.d/pwsh"
+mode = "symlink"
+
+[dotfile_groups.scoop]
+root = "scoop"
+target = "~/.config/mise/conf.d/scoop"
+mode = "symlink"
+
+[dotfile_groups.starship]
+root = "starship"
+target = "~/.config/mise/conf.d/starship"
+mode = "symlink"
+
+[dotfile_groups.uv]
+root = "uv"
+target = "~/.config/mise/conf.d/uv"
+mode = "symlink"
+
+[dotfile_groups.vim]
+root = "vim"
+target = "~/.config/mise/conf.d/vim"
+mode = "symlink"
+
+[dotfile_groups.vscode]
+root = "vscode"
+target = "~/.config/mise/conf.d/vscode"
+mode = "symlink"
+
+[dotfile_groups.winget]
+root = "winget"
+target = "~/.config/mise/conf.d/winget"
+mode = "symlink"
+
+[dotfile_groups.wt]
+root = "wt"
+target = "~/.config/mise/conf.d/wt"
+mode = "symlink"
+
+[dotfile_groups.zsh]
+root = "zsh"
+target = "~/.config/mise/conf.d/zsh"
+mode = "symlink"
