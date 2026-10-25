@@ -153,7 +153,7 @@ git_email = "Your email"
 - pnpm
 - scoop
 
-对于自动填写的变量，可以用对应的 `just` 命令自动修改工具目录下的 `mise.local.toml` 文件
+对于自动填写的变量，可以用仓库提供的 `just` 命令自动修改对应工具目录下的 `mise.local.toml` 文件
 
 ```sh
 just vscode::bootstrap
@@ -198,9 +198,17 @@ mise dot apply
 mise dot apply --prune
 ```
 
-由于添加了 `--prune` 参数，会自动删除 `dotfile_groups` 中已撤销的目录链接。但此时二阶段部署的文件仍然存在，只是指向了已删除的目录。如果希望彻底清除死链接，可以取消部署后再重新完整地部署一次
+由于添加了 `--prune` 参数，会自动删除 `dotfile_groups` 中已撤销的目录链接。但此时二阶段部署的文件仍然存在，只是指向了已删除的目录。
+
+如果希望彻底清除死链接，那么请不要运行 `mise dot apply --prune`，而是取消部署后再重新完整地部署一次
 
 ```sh
 mise dot unapply
 msie dot apply
+```
+
+在 Windows 上，`mise dot unapply` 可能会遇到问题。可以使用仓库提供的 `just` 命令取消部署
+
+```sh
+just undeploy
 ```
