@@ -1,3 +1,12 @@
+[settings.dotfiles]
+root = "~/.dotfiles"
+default_mode = "symlink"
+windows_symlinks = true
+
+[dotfiles."~/.config/mise/miserc.toml"]
+source = ".miserc.toml"
+mode = "symlink"
+
 [dotfile_groups.agents]
 root = "agents"
 target = "~/.config/mise/conf.d/agents"
