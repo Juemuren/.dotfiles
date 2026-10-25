@@ -1,3 +1,9 @@
 [dotfiles]
 "~/.config/fastfetch/config.jsonc" = { source = "config.jsonc", mode = "symlink" }
-"~/.local/share/fastfetch/logos/*" = { source = "logos/*", mode = "symlink" }
+
+[dotfiles.fastfetch-logos]
+source = "logos"
+mode = "symlink-each"
+variants = [
+  { default = true, target = "~/.local/share/fastfetch/logos" },
+]

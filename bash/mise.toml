@@ -1,9 +1,13 @@
-[dotfiles]
-"~/.config/bash/integrations/*" = { source = "integrations/*", mode = "symlink" }
+[dotfiles.bash-integrations]
+source = "integrations"
+mode = "symlink-each"
+variants = [
+  { default = true, target = "~/.config/bash/integrations" },
+]
 
 [dotfiles.bash-scripts]
-source = "scripts/*"
-mode = "symlink"
+source = "scripts"
+mode = "symlink-each"
 variants = [
-  { default = true, target = "~/.local/bin/*" },
+  { default = true, target = "~/.local/bin" },
 ]

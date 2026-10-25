@@ -1,2 +1,6 @@
-[dotfiles]
-"~/.pi/agent/themes/*" = { source = "themes/*", mode = "symlink" }
+[dotfiles.pi-themes]
+source = "themes"
+mode = "symlink-each"
+variants = [
+  { default = true, target = "~/.pi/agent/themes" },
+]
