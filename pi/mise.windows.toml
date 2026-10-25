@@ -1,0 +1,2 @@
+[dotfiles]
+"~/.pi/agent/settings.json" = { source = "windows/settings.json", mode = "template" }
