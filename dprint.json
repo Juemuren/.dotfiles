@@ -6,6 +6,7 @@
   "toml": {},
   "excludes": [
     "wt/settings.json",
+    "scoop/config.json",
     "pi/*/settings.json",
     "starship/starship.toml",
     "README.md"
