@@ -111,7 +111,7 @@ mise bootstrap --only tools
 mise bootstrap --only packages
 ```
 
-- 在 Linux 上要求已有 `bash`，此时会安装 `brew`
+- 在 Linux 上要求已有 `curl` 和 `bash`，此时会安装 `brew`
 - 在 Windows 上要求已有 `winget` 和 `powershell`，此时会安装 `scoop` / `pwsh` / `vscode`
 
 #### 3 恢复软件环境
@@ -243,7 +243,7 @@ mise dot apply --prune
 
 ```sh
 mise dot unapply
-msie dot apply
+mise dot apply
 ```
 
 在 Windows 上，`mise dot unapply` 可能会遇到问题。可以使用仓库提供的 `just` 命令取消部署
