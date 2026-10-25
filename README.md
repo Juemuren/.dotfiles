@@ -212,3 +212,7 @@ msie dot apply
 ```sh
 just undeploy
 ```
+
+## 开发文档
+
+参考 [ARCHITECTURE.md](.docs/ARCHITECTURE.md)
