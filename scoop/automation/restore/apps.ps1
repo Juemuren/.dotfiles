@@ -4,6 +4,8 @@ param(
     [string]$Source
 )
 
+$ErrorActionPreference = 'Stop'
+
 Get-ChildItem -LiteralPath $Source -Filter '*.txt' -File
 | ForEach-Object {
     $bucket = $_.BaseName
@@ -12,4 +14,7 @@ Get-ChildItem -LiteralPath $Source -Filter '*.txt' -File
         | ForEach-Object { "$bucket/$_" }
     )
     scoop install @apps
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to install Scoop apps from '$($_.Name)' (exit code $LASTEXITCODE)."
+    }
 }
