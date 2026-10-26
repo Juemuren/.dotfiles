@@ -6,18 +6,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# wsl --list output is unreliable when redirected.
-$registryPath = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss'
-$distributions = @(
-    if (Test-Path -LiteralPath $registryPath) {
-        Get-ChildItem -LiteralPath $registryPath |
-            ForEach-Object {
-                (Get-ItemProperty -LiteralPath $_.PSPath).DistributionName
-            } |
-            Where-Object { $_ } |
-            Sort-Object -Unique
-    }
-)
+$distributions = @(& "$PSScriptRoot/helper/registered-distributions.ps1")
 
 $content = if ($distributions.Count) { ($distributions -join "`n") + "`n" } else { '' }
 

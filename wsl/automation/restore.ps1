@@ -13,27 +13,17 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# Read the same per-user registrations used by record.ps1.
-$registryPath = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss'
-$installed = @(
-    if (Test-Path -LiteralPath $registryPath) {
-        Get-ChildItem -LiteralPath $registryPath |
-            ForEach-Object {
-                (Get-ItemProperty -LiteralPath $_.PSPath).DistributionName
-            } |
-            Where-Object { $_ }
-    }
+$installed = @(& "$PSScriptRoot/helper/registered-distributions.ps1")
+$seen = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+$requested = @(
+    Get-Content -LiteralPath $Source -Encoding UTF8 |
+        ForEach-Object { $_.Trim() } |
+        Where-Object {
+            $_ -and -not $_.StartsWith('#') -and $_ -notin $installed -and $seen.Add($_)
+        }
 )
-$requested = @()
 
-foreach ($line in Get-Content -LiteralPath $Source -Encoding UTF8) {
-    $distribution = $line.Trim()
-    if (-not $distribution -or $distribution.StartsWith('#') -or
-        $distribution -in $installed -or $distribution -in $requested) {
-        continue
-    }
-    $requested += $distribution
-
+foreach ($distribution in $requested) {
     if (-not $PSCmdlet.ShouldProcess($distribution, 'Install WSL distribution')) {
         continue
     }
@@ -45,5 +35,4 @@ foreach ($line in Get-Content -LiteralPath $Source -Encoding UTF8) {
     elseif ($LASTEXITCODE -ne 0) {
         throw "WSL distribution installation failed for '$distribution' with exit code $LASTEXITCODE."
     }
-    $installed += $distribution
 }
