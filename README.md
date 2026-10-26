@@ -115,8 +115,8 @@ env = [
 ]
 ```
 
-- Windows 上可选的工具详见 [.scripts\windows\restore-modules.txt](.scripts\windows\restore-modules.txt)
-- Linux 上可选的工具详见 [.scripts\unix\restore-modules.txt](.scripts\unix\restore-modules.txt)
+- Windows 上可选的工具详见 [restore-modules.txt](.scripts/windows/restore-modules.txt)
+- Linux 上可选的工具详见 [restore-modules.txt](.scripts/unix/restore-modules.txt)
 
 如果没填写 `env`，默认不安装任何工具。
 
