@@ -1,4 +1,2 @@
-include = ["./config.pwsh.toml"]
-
 [bootstrap.hooks.pre-packages]
 run_windows = 'mise exec -- just --justfile "{{ config_root }}/Justfile" wsl::install'

@@ -93,7 +93,12 @@ mise trust
 mise bootstrap --only tools
 ```
 
-对于系统管理的工具，可以选择需要安装的部分。在仓库根目录新建 `.miserc.local.toml`，然后填写需要的工具名
+对于系统管理的工具，分为必须安装的工具和可选安装的工具
+
+- Windows 上必须安装的工具详见 [mise.windows.toml](mise.windows.toml)；所有可安装的工具详见 [restore-modules.txt](.scripts/windows/restore-modules.txt)
+- Linux 上必须安装的工具详见 [mise.linux.toml](mise.linux.toml)；所有可安装的工具详见 [restore-modules.txt](.scripts/unix/restore-modules.txt)
+
+在根目录新建 `.miserc.local.toml`，然后填写需要的工具名
 
 ```toml
 env = [
@@ -103,23 +108,21 @@ env = [
 ]
 ```
 
-- Windows 上可选的工具详见 [restore-modules.txt](.scripts/windows/restore-modules.txt)
-- Linux 上可选的工具详见 [restore-modules.txt](.scripts/unix/restore-modules.txt)
+如果没填写 `env`，默认不安装可选的工具。
 
-如果没填写 `env`，默认不安装任何工具。
-
-选择完要安装的工具后，进行安装
+选择完要安装的工具后，运行
 
 ```sh
 mise bootstrap --only packages
 ```
 
-- 在 Linux 上要求已有 `curl` 和 `bash`
-- 在 Windows 上要求已有 `winget` 和 `powershell`
-
 #### 3 恢复环境
 
-重新打开终端并进入仓库目录，确保新安装的工具进入了 PATH 环境变量，然后进行环境恢复
+需要恢复环境的工具也写在 `.miserc.local.toml` 中。部分必须安装的工具也可以恢复环境，如果未写入 `env` 则默认不恢复环境。
+
+在安装完工具后，需要重新打开终端并进入仓库目录，以确保新安装的工具进入了 PATH 环境变量。部分工具可能还要求重启系统。
+
+准备完成后，可以进行环境恢复
 
 ```sh
 mise bootstrap --only task
