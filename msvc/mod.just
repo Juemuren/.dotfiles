@@ -1,5 +1,8 @@
 set default-list := true
 set shell := ["pwsh", "-NoProfile", "-Command"]
 
-bootstrap:
-    & '{{ source_directory() }}/automation/bootstrap/index.ps1'
+install:
+    & '{{ source_directory() }}/automation/install.ps1'
+
+configure:
+    & '{{ source_directory() }}/automation/configure.ps1'

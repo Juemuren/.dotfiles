@@ -14,7 +14,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$config = (Resolve-Path (Join-Path $PSScriptRoot '../../.vsconfig')).Path
+$config = (Resolve-Path (Join-Path $PSScriptRoot '../.vsconfig')).Path
 $installerDirectory = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer'
 $vswhere = Join-Path $installerDirectory 'vswhere.exe'
 $instance = $null

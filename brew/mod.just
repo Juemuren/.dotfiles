@@ -1,8 +1,8 @@
 set default-list := true
 
 [script("bash")]
-bootstrap prefix:
-    "{{ source_directory() }}/automation/bootstrap.sh" "{{ prefix }}"
+install prefix:
+    "{{ source_directory() }}/automation/install.sh" "{{ prefix }}"
 
 record os=os():
     "{{ source_directory() }}/automation/record.sh" "{{ source_directory() }}/{{ os }}"

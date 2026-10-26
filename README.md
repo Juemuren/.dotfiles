@@ -210,7 +210,7 @@ git_email = "Your email"
 对于自动填写的变量，可以用仓库提供的 `just` 命令自动修改对应工具目录下的 `mise.local.toml` 文件
 
 ```sh
-just vscode::bootstrap
+just vscode::configure
 ```
 
 目前包含自动填写变量的工具有

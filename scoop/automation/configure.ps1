@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'Stop'
+
 $SCOOP_HOME = Resolve-Path $(scoop prefix scoop)
 [System.Environment]::SetEnvironmentVariable(
     'SCOOP_HOME',

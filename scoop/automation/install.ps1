@@ -10,6 +10,8 @@ param(
     [string]$ScoopDir = $(if ($env:SCOOP) { $env:SCOOP } else { Join-Path $env:USERPROFILE 'scoop' })
 )
 
+$ErrorActionPreference = 'Stop'
+
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Output 'Scoop is already installed.'
     return

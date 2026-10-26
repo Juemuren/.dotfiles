@@ -17,7 +17,8 @@
 ```txt
 app
 ├── automation        # 自动化脚本
-│   ├── bootstrap     # 初始化脚本
+│   ├── install       # 安装脚本
+│   ├── configure     # 配置脚本
 │   ├── record        # 环境记录脚本
 │   └── restore       # 环境恢复脚本
 ├── mod.just          # 自动化脚本入口
@@ -30,10 +31,10 @@ app
 
 ### 自动化脚本的目录结构
 
-自动化脚本包含每个模块中 `automation` 下的脚本和根目录中 `.scripts` 下的脚本
+自动化脚本包含各模块专用的脚本和跨模块共用的脚本
 
-- 每个模块中的 `automation` 下包含 `bootstrap` / `record` / `restore` 三类命令，由模块的 `mod.just` 封装命令
-- `.scripts` 下的脚本按用途分类，每类还可以继续分子类。每个子类用 `mod.just` 封装命令，父类用 `mod.just` 组合子类的命令
+- 各模块专用的脚本保存在每个模块的 `automation` 下。各模块按需编写 `install` / `configure` / `record` / `restore` 等命令，并由 `mod.just` 进行封装
+- 跨模块共用的脚本保存在根目录的 `.scripts` 下。共用脚本按用途进行分类，每类还可以继续分子类。各子类用 `mod.just` 封装命令，父类用 `mod.just` 组合子类的命令
 - 根目录的 `Justfile` 编排命令
 
 自动化脚本的目录结构为
@@ -45,7 +46,8 @@ app
 │       └── mod.just  # 各类脚本的入口
 ├── app
 │   ├── automation    # 各模块专用的脚本
-│   │   ├── bootstrap # 初始化脚本
+│   │   ├── install   # 安装脚本
+│   │   ├── configure # 配置脚本
 │   │   ├── record    # 环境记录脚本
 │   │   └── restore   # 环境恢复脚本
 │   └── mod.just      # 各模块脚本的入口
@@ -56,13 +58,15 @@ app
 
 对于各模块专用的脚本
 
-- 如果脚本较为简单，可以直接写在 `*.sh` 或 `*.ps1` 中；如果脚本较为复杂，拆分后放在 `*` 目录下，并在 `*/index.sh` 或 `*/index.ps1` 中统一调用。这里的 `*` 包含 `bootstrap` / `record` / `restore`
-- `mod.just` 中封装模块的自动化脚本，对外提供 `bootstrap` / `record` / `restore` 三个命令，并在根目录 `Justfile` 中编排命令
+- 如果脚本较为简单，可以直接写在 `*.sh` / `*.ps1` 中；如果脚本较为复杂，拆分后放在 `*` 目录下，并由 `*/index.sh` / `*/index.ps1` 进行调用
+- `mod.just` 按实际需要封装 `install` / `configure` / `record` / `restore` 等命令
+- 根目录 `Justfile` 只编排模块 `mod.just` 暴露的命令，不要侵入各模块的内部实现
 - 外部调用的命令只能使用根目录 `Justfile` 提供的入口，不要侵入各模块的内部实现
 
 对于跨模块共用的脚本
 
-- 如果类中的脚本较多，可以再拆分子类。子类用 `mod.just` 封装命令，父类在 `mod.just` 组合命令子类提供的命令，根目录 `Justfile` 中编排父类的命令，不要跨越层级破坏封装
+- 如果类中的脚本较多，可以再拆分子类。子类用 `mod.just` 封装命令，父类在 `mod.just` 组合命令子类提供的命令
+- 根目录 `Justfile` 只编排顶级类 `mod.just` 暴露的命令，不要侵入各类的内部实现
 - 外部调用的命令只能使用根目录 `Justfile` 提供的入口，不要侵入各类的内部实现
 
 ## 映射配置
@@ -135,7 +139,7 @@ app
   mode = "symlink"
   ```
 
-  不过，通常这种情况都需要由 `bootstrap` 命令自动填写机器相关的映射
+  不过，通常这种情况都需要由模块的 `configure` 命令自动填写机器相关的映射
 
 ### 区分共用源路径和专用源路径
 
