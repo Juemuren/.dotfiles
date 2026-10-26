@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 [System.Environment]::SetEnvironmentVariable(
     'HOME',
     "$HOME",

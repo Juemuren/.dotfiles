@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
 Checks PowerShell syntax with the PowerShell parser.

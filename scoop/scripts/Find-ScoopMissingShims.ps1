@@ -1,4 +1,5 @@
-﻿<#
+﻿#Requires -Version 7.0
+<#
 .SYNOPSIS
 查找应用中未声明为 Scoop shim 的可执行文件。
 .DESCRIPTION

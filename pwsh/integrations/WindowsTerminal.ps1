@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 # https://learn.microsoft.com/en-us/windows/terminal/tutorials/shell-integration
 
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute(

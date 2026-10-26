@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 $ErrorActionPreference = 'Stop'
 
 $SCOOP_HOME = Resolve-Path $(scoop prefix scoop)
