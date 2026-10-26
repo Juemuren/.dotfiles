@@ -6,6 +6,12 @@ Install WSL itself; choose and initialize a distribution separately.
 [CmdletBinding(SupportsShouldProcess)]
 param()
 
+wsl.exe --status *> $null
+if ($LASTEXITCODE -eq 0) {
+    Write-Output 'WSL is already installed.'
+    return
+}
+
 $ErrorActionPreference = 'Stop'
 
 if (-not $PSCmdlet.ShouldProcess('WSL', 'Install without a Linux distribution')) {

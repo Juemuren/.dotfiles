@@ -1,4 +1,6 @@
 scoop
+msvc
+wsl
 pwsh
 msys
 tex

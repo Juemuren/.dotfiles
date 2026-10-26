@@ -1,68 +1,50 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-Install Visual Studio Build Tools or add items from .vsconfig to an existing installation.
+Install the base Visual Studio Build Tools product without additional components.
 .PARAMETER InstallPath
 Installation directory for a new installation. Existing installations keep their current directory.
-.PARAMETER ConfigPath
-Path to the Visual Studio configuration file.
 .EXAMPLE
-./install.ps1 -ConfigPath '.vsconfig' -InstallPath 'D:\Microsoft Visual Studio\BuildTools'
+./install.ps1 -InstallPath 'D:\Microsoft Visual Studio\BuildTools'
 #>
 [CmdletBinding(SupportsShouldProcess)]
 param(
-    [Parameter(Mandatory)]
-    [string]$ConfigPath,
-
     [ValidateNotNullOrEmpty()]
     [string]$InstallPath
 )
 
 $ErrorActionPreference = 'Stop'
-$config = (Resolve-Path -LiteralPath $ConfigPath).Path
+
 $installerDirectory = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer'
 $vswhere = Join-Path $installerDirectory 'vswhere.exe'
-$instance = $null
 
 if (Test-Path $vswhere) {
     $instance = & $vswhere -latest -products Microsoft.VisualStudio.Product.BuildTools -format json | ConvertFrom-Json
     if ($LASTEXITCODE -ne 0) {
         throw "Visual Studio Build Tools detection failed with exit code $LASTEXITCODE."
     }
+    if ($instance) {
+        Write-Output 'Visual Studio Build Tools is already installed.'
+        return
+    }
 }
 
-if (-not $PSCmdlet.ShouldProcess('Visual Studio Build Tools', "Apply $config")) {
+if (-not $PSCmdlet.ShouldProcess('Visual Studio Build Tools', 'Install base product')) {
     return
 }
 
-if ($instance) {
-    $setup = Join-Path $installerDirectory 'setup.exe'
-    $arguments = @(
-        'modify'
-        '--installPath', ('"' + $instance.installationPath + '"')
-        '--channelId', $instance.channelId
-        '--config', ('"' + $config + '"')
-        '--quiet',
-        '--norestart'
-    )
-    $process = Start-Process -FilePath $setup -ArgumentList $arguments `
-        -Verb RunAs -WindowStyle Hidden -Wait -PassThru
-    $exitCode = $process.ExitCode
+$override = '--quiet --wait --norestart'
+if ($InstallPath) {
+    $override += ' --installPath "' + $InstallPath.TrimEnd('\') + '"'
 }
-else {
-    $override = '--quiet --wait --norestart --config ' + '"' + $config + '"'
-    if ($InstallPath) {
-        $override += ' --installPath "' + $InstallPath.TrimEnd('\') + '"'
-    }
-    # PowerShell 5.1 and Legacy mode need escaped quotes for native commands.
-    if ($PSVersionTable.PSVersion -lt [version]'7.3' -or $PSNativeCommandArgumentPassing -eq 'Legacy') {
-        $override = $override.Replace('"', '\"')
-    }
-    winget install --id Microsoft.VisualStudio.BuildTools --exact --source winget `
-        --disable-interactivity --silent --accept-package-agreements --accept-source-agreements `
-        --override $override
-    $exitCode = $LASTEXITCODE
+# PowerShell 5.1 and Legacy mode need escaped quotes for native commands.
+if ($PSVersionTable.PSVersion -lt [version]'7.3' -or $PSNativeCommandArgumentPassing -eq 'Legacy') {
+    $override = $override.Replace('"', '\"')
 }
+winget install --id Microsoft.VisualStudio.BuildTools --exact --source winget `
+    --disable-interactivity --silent --accept-package-agreements --accept-source-agreements `
+    --override $override
+$exitCode = $LASTEXITCODE
 
 if ($exitCode -eq 3010) {
     # Installation succeeded; restart required.
