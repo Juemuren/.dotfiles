@@ -4,17 +4,22 @@
 Install Visual Studio Build Tools or add items from .vsconfig to an existing installation.
 .PARAMETER InstallPath
 Installation directory for a new installation. Existing installations keep their current directory.
+.PARAMETER ConfigPath
+Path to the Visual Studio configuration file.
 .EXAMPLE
-./install.ps1 -InstallPath 'D:\Microsoft Visual Studio\BuildTools'
+./install.ps1 -ConfigPath '.vsconfig' -InstallPath 'D:\Microsoft Visual Studio\BuildTools'
 #>
 [CmdletBinding(SupportsShouldProcess)]
 param(
+    [Parameter(Mandatory)]
+    [string]$ConfigPath,
+
     [ValidateNotNullOrEmpty()]
     [string]$InstallPath
 )
 
 $ErrorActionPreference = 'Stop'
-$config = (Resolve-Path (Join-Path $PSScriptRoot '../.vsconfig')).Path
+$config = (Resolve-Path -LiteralPath $ConfigPath).Path
 $installerDirectory = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer'
 $vswhere = Join-Path $installerDirectory 'vswhere.exe'
 $instance = $null

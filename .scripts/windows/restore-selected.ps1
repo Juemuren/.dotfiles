@@ -1,10 +1,17 @@
+param(
+    [Parameter(Mandatory)]
+    [string]$ConfigDir,
+
+    [Parameter(Mandatory)]
+    [string]$HelperDir
+)
+
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 
 $modulesFile = Join-Path $PSScriptRoot 'restore-modules.txt'
-$hasIncludeQuery = Join-Path $PSScriptRoot '../helper/has-include.jq'
-$queryFile = Join-Path $PSScriptRoot '../helper/restore-selected.jq'
-$configDir = Join-Path $PSScriptRoot '../../.mise'
+$hasIncludeQuery = Join-Path $HelperDir 'has-include.jq'
+$queryFile = Join-Path $HelperDir 'restore-selected.jq'
 
 $includes = foreach ($module in Get-Content $modulesFile) {
     $configFile = Join-Path $configDir "config.$module.toml"

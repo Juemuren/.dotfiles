@@ -3,10 +3,12 @@
 set -eu
 
 script_dir=$(dirname "$0")
+config_dir=$1
+helper_dir=$2
+
 modules_file=$script_dir/restore-modules.txt
-has_include_query=$script_dir/../helper/has-include.jq
-query_file=$script_dir/../helper/restore-selected.jq
-config_dir=$script_dir/../../.mise
+has_include_query=$helper_dir/has-include.jq
+query_file=$helper_dir/restore-selected.jq
 
 includes=$(
     while IFS= read -r module; do
@@ -22,10 +24,10 @@ includes=$(
 
 modules=$(
     printf '%s\n' "$includes" |
-    jq -R -s -r \
-        --arg selected "${MISE_ENV-}" \
-        --rawfile available "$modules_file" \
-        -f "$query_file"
+        jq -R -s -r \
+            --arg selected "${MISE_ENV-}" \
+            --rawfile available "$modules_file" \
+            -f "$query_file"
 )
 
 while IFS= read -r module; do

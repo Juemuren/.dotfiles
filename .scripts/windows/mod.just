@@ -4,7 +4,7 @@ set shell := ["pwsh", "-NoProfile", "-Command"]
 bootstrap: env restore-selected
 
 restore-selected:
-    & '{{ source_directory() }}/restore-selected.ps1'
+    & '{{ source_directory() }}/restore-selected.ps1' -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
 
 env:
     & '{{ source_directory() }}/env.ps1'
