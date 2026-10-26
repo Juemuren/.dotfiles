@@ -3,6 +3,7 @@ source = "profiles/global/keybindings.jsonc"
 mode = "symlink"
 variants = [
   { os = "windows", target = "~/AppData/Roaming/Code/User/keybindings.json" },
+  { os = "linux", target = "~/.config/Code/User/keybindings.json" },
 ]
 
 [dotfiles.vscode-settings]
@@ -10,6 +11,7 @@ source = "profiles/global/settings.jsonc"
 mode = "symlink"
 variants = [
   { os = "windows", target = "~/AppData/Roaming/Code/User/settings.json" },
+  { os = "linux", target = "~/.config/Code/User/settings.json" },
 ]
 
 [dotfiles.vscode-tasks]
@@ -17,6 +19,7 @@ source = "profiles/global/tasks.jsonc"
 mode = "symlink"
 variants = [
   { os = "windows", target = "~/AppData/Roaming/Code/User/tasks.json" },
+  { os = "linux", target = "~/.config/Code/User/tasks.json" },
 ]
 
 [dotfiles.vscode-snippets]
@@ -24,6 +27,7 @@ source = "profiles/global/snippets/*"
 mode = "symlink"
 variants = [
   { os = "windows", target = "~/AppData/Roaming/Code/User/snippets/*" },
+  { os = "linux", target = "~/.config/Code/User/snippets/*" },
 ]
 
 [dotfiles.vscode-scripts]

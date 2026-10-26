@@ -15,7 +15,7 @@ write_profile_config() {
     local profile_id
     profile_id=$(extract_profile_id "$profile_name") || return
     local key
-    key="dotfiles.\"~/AppData/Roaming/Code/User/profiles/$profile_id/settings.json\""
+    key="dotfiles.\"$VSCODE_USER_TARGET/profiles/$profile_id/settings.json\""
 
     mise config set --file "$OUTPUT_FILE" "$key.source" "profiles/$profile_name/settings.jsonc"
     mise config set --file "$OUTPUT_FILE" "$key.mode" symlink

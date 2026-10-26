@@ -12,7 +12,7 @@ GLOBAL_EXTENSIONS_FILE="$HOME/.vscode/extensions/extensions.json"
 extract_profile_extensions() {
     local profile_name=$1
     local extensions_file
-    extensions_file="$APPDATA/Code/User/profiles/$(extract_profile_id "$profile_name")/extensions.json"
+    extensions_file="$VSCODE_USER_DIR/profiles/$(extract_profile_id "$profile_name")/extensions.json"
 
     jq -br \
         --slurpfile global_extensions "$GLOBAL_EXTENSIONS_FILE" \

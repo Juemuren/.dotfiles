@@ -2,11 +2,28 @@
 
 VSCODE_HELPER_DIR=$(dirname "${BASH_SOURCE[0]}")
 GLOBAL_PROFILE_NAME="global"
+# Keep ~ literal in targets.
+VSCODE_HOME_TARGET='~'
+
+case "$(uname -s)" in
+    Linux)
+        export VSCODE_USER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/Code/User"
+        export VSCODE_USER_TARGET="${XDG_CONFIG_HOME:-$VSCODE_HOME_TARGET/.config}/Code/User"
+        ;;
+    MINGW* | MSYS* | CYGWIN*)
+        export VSCODE_USER_DIR="$APPDATA/Code/User"
+        export VSCODE_USER_TARGET="$VSCODE_HOME_TARGET/AppData/Roaming/Code/User"
+        ;;
+    *)
+        echo "Unsupported platform: $(uname -s)" >&2
+        return 1
+        ;;
+esac
 
 # 提取 $1 的 location
 extract_profile_id() {
     local profile_name=$1
-    local storage_file="$APPDATA/Code/User/globalStorage/storage.json"
+    local storage_file="$VSCODE_USER_DIR/globalStorage/storage.json"
 
     jq -ber \
         --arg profile_name "$profile_name" \
