@@ -1,3 +1,6 @@
 set default-list := true
 
-bootstrap:
+bootstrap: restore-selected
+
+restore-selected:
+    '{{ source_directory() }}/restore-selected.sh'

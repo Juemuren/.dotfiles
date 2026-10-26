@@ -1,7 +1,10 @@
 set default-list := true
 set shell := ["pwsh", "-NoProfile", "-Command"]
 
-bootstrap: env
+bootstrap: env restore-selected
+
+restore-selected:
+    & '{{ source_directory() }}/restore-selected.ps1'
 
 env:
     & '{{ source_directory() }}/env.ps1'
