@@ -8,7 +8,8 @@
 ├── .scripts          # 跨模块共用的脚本
 ├── app               # 各模块的目录
 ├── mise.local.toml   # 启用的模块
-└── mise.toml         # 各模块顶层目录的映射
+├── mise.toml         # 各模块顶层目录的映射
+└── Justfile          # 编排命令
 ```
 
 在每个模块的目录中
@@ -29,27 +30,48 @@ app
 
 ### 自动化脚本的目录结构
 
-每个模块中 `automation` 目录下的脚本是自动化脚本，`mod.just` 提供入口。整体的目录结构为
+自动化脚本包含每个模块中 `automation` 下的脚本和根目录中 `.scripts` 下的脚本
+
+- 每个模块中的 `automation` 下包含 `bootstrap` / `record` / `restore` 三类命令，由模块的 `mod.just` 封装命令
+- `.scripts` 下的脚本按用途分类，每类还可以继续分子类。每个子类用 `mod.just` 封装命令，父类用 `mod.just` 组合子类的命令
+- 根目录的 `Justfile` 编排命令
+
+自动化脚本的目录结构为
 
 ```txt
-app
-├── automation      # 自动化脚本
-│   ├── bootstrap   # 初始化脚本
-│   ├── record      # 环境记录脚本
-│   └── restore     # 环境恢复脚本
-└── mod.just        # 自动化脚本入口
+.
+├── .scripts          # 跨模块共用的脚本
+│   └── class
+│       └── mod.just  # 各类脚本的入口
+├── app
+│   ├── automation    # 各模块专用的脚本
+│   │   ├── bootstrap # 初始化脚本
+│   │   ├── record    # 环境记录脚本
+│   │   └── restore   # 环境恢复脚本
+│   └── mod.just      # 各模块脚本的入口
+└── Justfile          # 编排命令
 ```
 
 ### 自动化脚本的入口规范
 
-- 如果脚本较为简单，可以直接写在 `xxx.sh` 或 `xxx.ps1` 中；如果脚本较为复杂，拆分后放在 `xxx` 目录下，并在 `xxx/index.sh` 或 `xxx/index.ps1` 中统一调用。这里的 `xxx` 包含 `bootstrap` / `record` / `restore`
-- `mod.just` 中封装模块的自动化脚本，对外提供 `bootstrap` / `record` / `restore` 三个命令
+对于各模块专用的脚本
+
+- 如果脚本较为简单，可以直接写在 `*.sh` 或 `*.ps1` 中；如果脚本较为复杂，拆分后放在 `*` 目录下，并在 `*/index.sh` 或 `*/index.ps1` 中统一调用。这里的 `*` 包含 `bootstrap` / `record` / `restore`
+- `mod.just` 中封装模块的自动化脚本，对外提供 `bootstrap` / `record` / `restore` 三个命令，并在根目录 `Justfile` 中编排命令
+- 外部调用的命令只能使用根目录 `Justfile` 提供的入口，不要侵入各模块的内部实现
+
+对于跨模块共用的脚本
+
+- 如果类中的脚本较多，可以再拆分子类。子类用 `mod.just` 封装命令，父类在 `mod.just` 组合命令子类提供的命令，根目录 `Justfile` 中编排父类的命令，不要跨越层级破坏封装
+- 外部调用的命令只能使用根目录 `Justfile` 提供的入口，不要侵入各类的内部实现
 
 ## 映射配置
 
 ### 映射配置的目录结构
 
-每个模块中 `mise.toml` / `mise.os.toml` / `mise.local.toml` 定义文件或目录映射。整体的目录结构为
+映射配置包含每个模块中的 `mise.toml` / `mise.os.toml` / `mise.local.toml` 文件。
+
+映射配置的目录结构为
 
 ```txt
 app
