@@ -7,7 +7,6 @@ Installation directory.
 Defaults to ~/scoop.
 if set SCOOP_ROOT, defaults to SCOOP_ROOT.
 #>
-[CmdletBinding(SupportsShouldProcess)]
 param(
     [string]$ScoopDir = $(
         if ($env:SCOOP_ROOT) { $env:SCOOP_ROOT }

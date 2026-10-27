@@ -73,9 +73,33 @@ Pwsh 包含以下 Module
 
 参考下面的方法完成机器的初始化。
 
-#### 1 克隆仓库
+#### 0 准备工具
 
-在初始化前需要已有 `git` 和 `mise`
+在初始化前需要已有 `git` 和 `mise`。
+
+如果缺少工具，可以使用仓库提供的脚本进行安装
+
+- 在 Windows 上使用 Scoop 安装 git + mise
+
+```pwsh
+# 自定义 Scoop 安装位置，默认为 ~/scoop
+$env:SCOOP_ROOT = "D:\Scoop"
+irm https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.ps1 | iex
+```
+
+- 在 Linux 上使用 Homebrew 安装 git + mise
+
+<!-- TODO linux stage 0
+
+```sh
+# 自定义 Homebrew 安装位置，默认为 /home/linuxbrew
+$env:BREW_ROOT = "D:\Scoop"
+curl https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh | bash
+```
+
+-->
+
+#### 1 克隆仓库
 
 ```sh
 git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles
@@ -194,9 +218,12 @@ git_email = "Your email"
 
 目前包含手动填写变量的工具有
 
+<!-- TODO 考虑自动更新 -->
+
 - git
 - pnpm
 - scoop
+- pi
 
 对于自动填写的变量，可以用仓库提供的 `just` 命令自动修改对应工具目录下的 `mise.local.toml` 文件
 
