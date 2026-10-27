@@ -3,6 +3,9 @@ $ErrorActionPreference = 'Stop'
 
 $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer/vswhere.exe'
 $VS_ROOT = & $vswhere -latest -products '*' -property installationPath
+if (-not $VS_ROOT) {
+    throw 'No Visual Studio installation found.'
+}
 [System.Environment]::SetEnvironmentVariable(
     'VS_ROOT',
     "$VS_ROOT",

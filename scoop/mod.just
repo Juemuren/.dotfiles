@@ -11,5 +11,5 @@ configure-machine-env:
 record:
     & '{{ source_directory() }}/automation/record/index.ps1' -Destination '{{ source_directory() }}'
 
-restore:
+restore: configure-machine-env
     & '{{ source_directory() }}/automation/restore/index.ps1' -Source '{{ source_directory() }}'

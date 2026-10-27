@@ -10,5 +10,5 @@ configure-machine-env:
 
 record:
 
-restore:
+restore: configure-machine-env
     & '{{ source_directory() }}/automation/restore.ps1' -ConfigPath '{{ source_directory() }}/.vsconfig'

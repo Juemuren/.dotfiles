@@ -154,7 +154,7 @@ env = [
 mise bootstrap --only packages
 ```
 
-在安装完成后可能需要重新打开终端。部分工具还可能要求重启系统。
+安装完成后一些工具要求重新打开终端。部分工具还可能要求重启系统。
 
 ### stage 2 恢复环境
 
@@ -176,6 +176,8 @@ RESTORE_MODULES=msys,tex
 ```sh
 mise bootstrap --only task
 ```
+
+配置的全局环境变量在新终端中生效。
 
 ### stage 3 部署点文件
 

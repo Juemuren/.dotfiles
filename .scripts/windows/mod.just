@@ -1,7 +1,10 @@
 set default-list := true
 set shell := ["pwsh", "-NoProfile", "-Command"]
 
-bootstrap: env restore-bootstrap
+bootstrap: set-env restore-bootstrap
+
+set-env:
+    & '{{ source_directory() }}/env.ps1'
 
 restore-bootstrap:
     & '{{ source_directory() }}/run-selected.ps1' \
@@ -21,9 +24,6 @@ record-selected $MODULES="":
         -Action record \
         -Selected $env:MODULES \
         -HelperDir '{{ justfile_directory() }}/.scripts/helper'
-
-env:
-    & '{{ source_directory() }}/env.ps1'
 
 undeploy:
     & '{{ source_directory() }}/undeploy.ps1' '{{ justfile_directory() }}'
