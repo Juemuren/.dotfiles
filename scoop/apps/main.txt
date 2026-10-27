@@ -43,7 +43,6 @@ hyperfine
 imagemagick
 innounp
 jc
-jq
 just-lsp
 less
 llvm
@@ -56,6 +55,7 @@ mingw
 miniserve
 mmdr
 navi
+openssh
 openssl
 pandoc
 pdf2svg
