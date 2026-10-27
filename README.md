@@ -77,25 +77,27 @@ Pwsh 包含以下 Module
 
 后续步骤需要 `git` 和 `mise`。
 
-如果缺少工具，可以使用仓库提供的脚本进行安装
+如果缺少工具，可以使用仓库提供的脚本进行安装。这些脚本会首先安装一个包管理器，而 stage 1 中仍然可以单独安装这个包管理器
 
 - 在 Windows 上，通过 Scoop 安装 git + mise
 
-```pwsh
-# 可选：自定义 Scoop 安装位置。默认为 ~/scoop
-# $env:SCOOP_ROOT = "D:\Scoop"
-irm https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.ps1 | iex
-```
+  ```pwsh
+  # 可选：自定义 Scoop 安装位置。默认为 ~/scoop
+  # $env:SCOOP_ROOT = "D:\Scoop"
+  irm https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.ps1 | iex
+  ```
 
-- 在 Linux 上，先用发行版包管理器安装 git，然后通过 Homebrew 安装 mise
+- 在 Linux 上，通过 Homebrew 安装 mise。
 
-```sh
-# 可选：自定义 Homebrew 安装位置。默认为 /home/linuxbrew/.linuxbrew
-# export BREW_ROOT=/opt/brew
-curl -fsSL https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh | bash
-```
+  由于安装 Homebrew 需要 git，因此运行脚本前需要有 git
 
-安装完成后可能需要重新打开终端。
+  ```sh
+  # 可选：自定义 Homebrew 安装位置。默认为 /home/linuxbrew/.linuxbrew
+  # export BREW_ROOT=/opt/brew
+  curl -fsSL https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh | bash
+  ```
+
+  安装后需根据提示配置 `brew shellenv`，然后重新打开终端。
 
 ### stage 1 安装工具
 
@@ -120,7 +122,7 @@ mise trust
 mise bootstrap --only tools
 ```
 
-#### 1.3 二阶段安装
+#### 1.3 修改工具清单
 
 对于系统管理的工具，分为必须安装的工具和可选安装的工具
 
@@ -131,12 +133,20 @@ mise bootstrap --only tools
 
 ```toml
 env = [
+  "scoop",
   "pwsh",
   "vscode",
 ]
 ```
 
 如果没填写 `env`，默认不安装可选的工具。
+
+特别地
+
+- 对于 `scoop`，可以通过环境变量 `SCOOP_ROOT` 修改要安装的路径。默认为 `~/scoop`
+- 对于 `brew`，可以通过环境变量 `BREW_ROOT` 修改要安装的路径。默认为 `/home/linuxbrew/.linuxbrew`
+
+#### 1.4 二阶段安装
 
 选择完要安装的工具后，运行
 
