@@ -1,6 +1,6 @@
 # dotfiles
 
-这个仓库最初只用于管理我使用的点文件，但现在已经开始越来越多的承担新的功能：[环境记录与恢复](#环境记录与恢复)。
+这个仓库最初只用于管理我使用的点文件，但现在已经开始越来越多的承担新的功能：[机器初始化](#机器初始化)。
 
 如果你只需要参考配置，那么到 [工具列表](#工具列表) 中找到你需要的工具，然后进入目录浏览文件即可。
 
@@ -99,6 +99,11 @@ curl -fsSL https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh |
 
 ### stage 1 安装工具
 
+安装分为两阶段：
+
+- 一阶段由 mise 进行安装
+- 二阶段由系统包管理器进行安装
+
 #### 1.1 克隆仓库
 
 ```sh
@@ -107,20 +112,20 @@ cd ~/.dotfiles
 mise trust
 ```
 
-#### 1.2 安装工具
+#### 1.2 一阶段安装
 
-工具分为 mise 管理的工具和系统管理的工具。
-
-对于 mise 管理的工具，列表写在根目录 `mise.toml` 的 `tools` 中。这些工具后续的步骤需要使用
+对于 mise 管理的工具，列表写在根目录 `mise.toml` 的 `tools` 中
 
 ```sh
 mise bootstrap --only tools
 ```
 
+#### 1.3 二阶段安装
+
 对于系统管理的工具，分为必须安装的工具和可选安装的工具
 
-- Windows 上必须安装的工具详见 [mise.windows.toml](mise.windows.toml)；所有可安装的工具详见 [modules.txt](.scripts/windows/modules.txt)
-- Linux 上必须安装的工具详见 [mise.linux.toml](mise.linux.toml)；所有可安装的工具详见 [modules.txt](.scripts/unix/modules.txt)
+- 必装的工具详见根目录下的 `mise.os.toml` 文件
+- 可选的工具详见 [.mise](.mise) 目录下的文件
 
 在根目录新建 `.miserc.local.toml`，然后填写需要的工具名
 
@@ -139,30 +144,31 @@ env = [
 mise bootstrap --only packages
 ```
 
-在安装完工具后，可能需要重新打开终端。部分工具还可能要求重启系统。
+在安装完成后可能需要重新打开终端。部分工具还可能要求重启系统。
 
-#### 1.3 恢复环境
+### stage 2 恢复环境
 
-需要恢复环境的工具也写在 `.miserc.local.toml` 中。部分必须安装的工具也可以恢复环境，如果未写入 `env` 则默认不恢复环境。
+根据清单恢复部分工具声明的插件、扩展、宏包、组件等，以及恢复包管理器声明的软件包
 
-准备完成后，可以进行环境恢复
+- Windows 可恢复环境的软件有 [modules.txt](.scripts/windows/modules.txt)
+- Unix 可恢复环境的软件有 [modules.txt](.scripts/unix/modules.txt)
+
+需要恢复环境的工具也写在 `.miserc.local.toml` 中。
+
+准备完成后，运行
 
 ```sh
 mise bootstrap --only task
 ```
 
-### stage 2 部署点文件
-
-本仓库使用 [mise](https://mise.jdx.dev/dotfiles.html) 管理点文件。
-
-参考下面的方法完成点文件的部署。
-
-#### 2.1 一阶段部署
+### stage 3 部署点文件
 
 部署分为两阶段：
 
 - 一阶段部署，根目录 `mise.toml` 把各工具目录链接到 `~/.config/mise/conf.d/` 下。
 - 二阶段部署，由各工具目录中的 `mise.toml` 和 `mise.os.toml` 声明点文件的位置。
+
+#### 2.1 一阶段部署
 
 一阶段部署可以选择需要链接的工具目录。在仓库根目录新建 `mise.local.toml`，然后填写需要的工具名
 
@@ -244,7 +250,13 @@ mise dot apply --force
 mise dot status
 ```
 
-### stage 3 持续维护
+## 持续维护
+
+### 重新记录软件清单
+
+<!-- TODO 重新记录软件清单 -->
+
+### 重新部署点文件
 
 修改工具的配置文件后，如果部署方式不是符号链接，那么可能需要再次部署。此时可以先查看差异，再进行部署。这是二阶段的重新部署
 
