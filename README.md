@@ -210,15 +210,22 @@ mise dot apply
 
 #### 2.2 填写机器变量
 
-机器变量分为手动填写的变量和自动填写的变量。
+部分工具的点文件中存在机器相关的变量。目前这样的工具有
 
-对于手动填写的变量，可以根据提示逐个填写
+<!-- MACHINE-VARS:BEGIN -->
+- git
+- pi
+- pnpm
+- scoop
+<!-- MACHINE-VARS:END -->
+
+机器变量可以根据提示逐个填写
 
 ```sh
 mise vars prompt
 ```
 
-也可以直接编辑对应的 `mise.local.toml` 文件，这种方式的优先级更高
+也可以直接编辑对应的 `mise.local.toml` 文件
 
 ```toml
 # git/mise.local.toml
@@ -227,26 +234,34 @@ git_name = "Your name"
 git_email = "Your email"
 ```
 
-目前包含手动填写变量的工具有
+后一种方式的优先级更高。
 
-<!-- TODO 考虑自动更新 -->
+#### 2.3 生成路径映射
 
-- git
-- pnpm
-- scoop
-- pi
+部分工具的路径映射需要动态生成。目前这样的工具有
 
-对于自动填写的变量，可以用仓库提供的 `just` 命令自动修改对应工具目录下的 `mise.local.toml` 文件
+<!-- PATH-MAPPINGS:BEGIN -->
+- vscode
+<!-- PATH-MAPPINGS:END -->
+
+可以用仓库提供的 `just` 命令自动生成映射
 
 ```sh
-just vscode::configure
+just vscode::generate-path-mappings
 ```
 
-目前包含自动填写变量的工具有
+也可以直接编辑对应的 `mise.local.toml` 文件
 
-- vscode
+```toml
+# vscode/mise.local.toml
+[dotfiles."~/AppData/Roaming/Code/User/profiles/114514/settings.json"]
+source = "profiles/web/settings.jsonc"
+mode = "symlink"
+```
 
-#### 2.3 二阶段部署
+这两种方式的效果相同。
+
+#### 2.4 二阶段部署
 
 填写完所有需要的机器变量后，可以进行二阶段部署
 

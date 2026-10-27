@@ -1,7 +1,7 @@
 set default-list := true
 
-configure:
-    "{{ source_directory() }}/automation/configure.sh" "{{ source_directory() }}/profiles" "{{ source_directory() }}/mise.local.toml"
+generate-path-mappings:
+    "{{ source_directory() }}/automation/generate-path-mappings.sh" "{{ source_directory() }}/profiles" "{{ source_directory() }}/mise.local.toml"
 
 record profile="all":
     "{{ source_directory() }}/automation/record.sh" "{{ source_directory() }}/profiles" "{{ profile }}"
