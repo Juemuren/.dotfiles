@@ -1,21 +1,23 @@
 # 初始化流程
 
-本文讨论机器初始化的流程，分为非自举阶段和可自举阶段。
+本文讨论机器初始化的流程设计，不讨论具体实现。具体操作方式请参考 [README.md](../README.md#机器初始化)
 
-## stage 0
+目前初始化分为四个阶段。
 
-stage 0 无法自举。目标是根据初始依赖安装自举需要的工具。
+## 0 完成自举
+
+此阶段的目标是根据初始依赖安装自举需要的工具。
 
 对于 Windows
 
 - 依赖：`powershell`
-- 产物：`scoop` / `git` / `mise`
+- 产物：`scoop` + `git` + `mise`
 - 脚本：[seed.ps1](../seed.ps1)
 
 对于 Linux
 
-- 依赖：`curl` / `bash`
-- 产物：`brew` / `git` / `mise`
+- 依赖：`curl` + `bash` + `git`
+- 产物：`brew` + `mise`
 - 脚本：[seed.sh](../seed.sh)
 
 流程为
@@ -23,26 +25,51 @@ stage 0 无法自举。目标是根据初始依赖安装自举需要的工具。
 ```mermaid
 flowchart TD
   T0["初始依赖"]
-    --> T1["用初始依赖装 scoop / brew"]
-    --> T2["用 scoop / brew 装 git + mise"]
+    --> T1["安装 scoop / brew"]
+    --> T2["安装 mise / git"]
 ```
 
-## stage 1
+## 1 安装工具
 
-stage 1 可以自举。
+此阶段的目标是用已有的 `git` + `mise` 和包管理器安装工具
+
+- 对于 Windows，包管理器为 `scoop` + `winget`
+- 对于 Linux，包管理器为 `brew`
 
 流程为
 
 ```mermaid
 flowchart TD
-  U0["git clone + mise trust"]
-    --> U1[".miserc.local.tom"]
-    --> U2["mise bootstrap --only tools"]
-    --> U3["mise bootstrap --only packages"]
-    --> U4["mise bootstrap --only task"]
+  T0["克隆仓库"]
+    --> T1["安装 mise 管理的工具"]
+    --> T2["修改系统管理的工具清单"]
+    --> T3["安装系统管理的工具"]
 ```
 
-### 改动清单
+## 2 恢复环境
 
-- [ ] README 里增加一段通过 raw URL 执行 `seed.ps1` / `seed.sh` 的说明
-- [ ] `.mise/config.{scoop,wsl,msvc,brew}.toml` 的 `pre-packages` hook 改为直接调脚本，不再依赖 just（有待考虑）
+此阶段的目标是对部分已安装的工具，根据仓库中的清单，恢复需要用到的插件、扩展等。这步需要网络。
+
+流程为
+
+```mermaid
+flowchart TD
+  T0["修改需要恢复环境的工具清单"]
+    --> T1["恢复环境"]
+```
+
+## 3 部署点文件
+
+此阶段的目标是对部分已安装的工具，根据仓库中的配置，部署需要用到的点文件。这步不需要网络。
+
+流程为
+
+```mermaid
+flowchart TD
+  T0["修改需要部署点文件的工具清单"]
+    --> T1["一阶段部署"]
+    --> T2["填写机器变量"]
+    --> T3["二阶段部署"]
+```
+
+至此初始化完成，进入持续维护阶段。

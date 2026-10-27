@@ -73,7 +73,7 @@ Pwsh 包含以下 Module
 
 参考下面的方法完成机器的初始化。
 
-#### 0 准备工具
+### stage 0 完成自举
 
 后续步骤需要 `git` 和 `mise`。
 
@@ -95,9 +95,11 @@ irm https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.ps1 | iex
 curl -fsSL https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh | bash
 ```
 
-安装完成后重新打开终端，再继续克隆仓库。
+安装完成后可能需要重新打开终端。
 
-#### 1 克隆仓库
+### stage 1 安装工具
+
+#### 1.1 克隆仓库
 
 ```sh
 git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles
@@ -105,11 +107,11 @@ cd ~/.dotfiles
 mise trust
 ```
 
-#### 2 安装工具
+#### 1.2 安装工具
 
 工具分为 mise 管理的工具和系统管理的工具。
 
-对于 mise 管理的工具，列表写在根目录 `mise.toml` 的 `tools` 中。这些工具后续的步骤需要使用，务必完成安装
+对于 mise 管理的工具，列表写在根目录 `mise.toml` 的 `tools` 中。这些工具后续的步骤需要使用
 
 ```sh
 mise bootstrap --only tools
@@ -124,7 +126,6 @@ mise bootstrap --only tools
 
 ```toml
 env = [
-  "scoop",
   "pwsh",
   "vscode",
 ]
@@ -140,7 +141,7 @@ mise bootstrap --only packages
 
 在安装完工具后，可能需要重新打开终端。部分工具还可能要求重启系统。
 
-#### 3 恢复环境
+#### 1.3 恢复环境
 
 需要恢复环境的工具也写在 `.miserc.local.toml` 中。部分必须安装的工具也可以恢复环境，如果未写入 `env` 则默认不恢复环境。
 
@@ -150,23 +151,13 @@ mise bootstrap --only packages
 mise bootstrap --only task
 ```
 
-## 部署点文件
+### stage 2 部署点文件
 
 本仓库使用 [mise](https://mise.jdx.dev/dotfiles.html) 管理点文件。
 
 参考下面的方法完成点文件的部署。
 
-#### 1 克隆仓库
-
-如果已在机器初始化时完成此步骤，那么可以跳过
-
-```sh
-git clone https://github.com/Juemuren/.dotfiles ~/.dotfiles
-cd ~/.dotfiles
-mise trust
-```
-
-#### 2 一阶段部署
+#### 2.1 一阶段部署
 
 部署分为两阶段：
 
@@ -195,7 +186,7 @@ mise dot apply
 
 一阶段部署完成时，mise 会自动尝试进行二阶段部署。如果有需要填写的机器变量，那么二阶段部署会自动失败。
 
-#### 3 填写机器变量
+#### 2.2 填写机器变量
 
 机器变量分为手动填写的变量和自动填写的变量。
 
@@ -233,7 +224,7 @@ just vscode::configure
 
 - vscode
 
-#### 4 二阶段部署
+#### 2.3 二阶段部署
 
 填写完所有需要的机器变量后，可以进行二阶段部署
 
@@ -253,7 +244,7 @@ mise dot apply --force
 mise dot status
 ```
 
-#### 5 重新部署
+### stage 3 持续维护
 
 修改工具的配置文件后，如果部署方式不是符号链接，那么可能需要再次部署。此时可以先查看差异，再进行部署。这是二阶段的重新部署
 
