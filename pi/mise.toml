@@ -1,3 +1,13 @@
+[vars]
+deepseek_apikey = { prompt = "DeepSeek API key", required = "Please set deepseek_apikey" }
+
+[dotfiles.pi-models]
+source = "models.json"
+mode = "template"
+variants = [
+  { default = true, target = "~/.pi/agent/models.json" },
+]
+
 [dotfiles.pi-themes]
 source = "themes"
 mode = "symlink-each"
