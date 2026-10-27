@@ -1,4 +1,6 @@
 set default-list
+set dotenv-load := true
+set dotenv-path := ".restore.local.env"
 
 mod tex 'tex'
 mod vscode 'vscode'
@@ -25,16 +27,16 @@ mod unix '.scripts/unix'
 mod checks '.scripts/checks'
 
 [windows]
-record: windows::record-selected
+record *modules: (windows::record-selected modules)
 
 [unix]
-record: unix::record-selected
+record *modules: (unix::record-selected modules)
 
 [windows]
-restore: windows::restore-selected
+restore *modules: (windows::restore-selected modules)
 
 [unix]
-restore: unix::restore-selected
+restore *modules: (unix::restore-selected modules)
 
 [windows]
 bootstrap: windows::bootstrap

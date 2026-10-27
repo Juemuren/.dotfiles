@@ -1,13 +1,23 @@
 set default-list := true
 set shell := ["pwsh", "-NoProfile", "-Command"]
 
-bootstrap: env restore-selected
+bootstrap: env restore-bootstrap
 
-restore-selected:
-    & '{{ source_directory() }}/run-selected.ps1' -Action restore -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
+restore-bootstrap:
+    & '{{ source_directory() }}/run-selected.ps1' \
+        -Action restore \
+        -Selected ([string]$env:RESTORE_MODULES) \
+        -HelperDir '{{ justfile_directory() }}/.scripts/helper' \
+        -Bootstrap
 
-record-selected:
-    & '{{ source_directory() }}/run-selected.ps1' -Action record -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
+restore-selected $MODULES="":
+    & '{{ source_directory() }}/run-selected.ps1' \
+        -Action restore \
+        -Selected $env:MODULES \
+        -HelperDir '{{ justfile_directory() }}/.scripts/helper'
+
+record-selected $MODULES="":
+    & '{{ source_directory() }}/run-selected.ps1' -Action record -Selected $env:MODULES -HelperDir '{{ justfile_directory() }}/.scripts/helper'
 
 env:
     & '{{ source_directory() }}/env.ps1'

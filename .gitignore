@@ -3,6 +3,7 @@
 
 # local
 /.miserc.local.toml
+/.restore.local.env
 /mise.local.toml
 /*/mise.local.toml
 /*/mise.*.local.toml

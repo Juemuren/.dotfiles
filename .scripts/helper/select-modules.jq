@@ -1,46 +1,25 @@
-# Input lines are <module><tab><JSON include array>.
-# - $selected is MISE_ENV
-# - $available is modules.txt
+# Input is modules.json
+# - $bootstrap is boolean
+# - $selected is x,y,z
 
-def nonempty_lines:
-  split("\n")
-  | map(rtrimstr("\r")
-  | select(length > 0));
+# The manifest's module order is the execution order, with dependencies first.
+def expand($dependencies):
+  [ .[] | recurse(($dependencies[.] // [])[]) ] | unique;
 
-def module_from_config_path:
-  split("/")[-1]
-  | ltrimstr("config.")
-  | rtrimstr(".toml");
-
-def dependencies($selected_modules):
-  [ nonempty_lines[]
-    | split("\t") as [$module, $includes_json]
-    | select($selected_modules | index($module))
-    | $includes_json
-    | fromjson[]
-    | module_from_config_path
-  ] | unique;
-
-def in_order($names; $available_modules):
-  $available_modules[]
-  | select(
-    . as $module
-    | $names
-    | index($module)
-  );
-
-($available | nonempty_lines) as $available_modules
+. as $manifest
+| ($selected | gsub(","; " ") | split(" ") | map(select(length > 0)) | unique) as $selected_modules
 | (
-  $selected
-  | split(",")
-  | map(select(length > 0))
-  | unique
-) as $selected_modules
-| dependencies($selected_modules) as $dependency_modules
-| ($selected_modules - $available_modules) as $unknown
+  if $bootstrap then
+    $selected_modules
+    | expand($manifest.dependencies)
+  else
+    $selected_modules
+  end
+) as $modules
+| ($modules - $manifest.modules) as $unknown
 | if $unknown != [] then
     error("unknown modules: " + ($unknown | join(", ")))
   else
-    in_order($dependency_modules; $available_modules),
-    in_order($selected_modules - $dependency_modules; $available_modules)
+    $manifest.modules[]
+    | select(. as $module | $modules | index($module))
   end

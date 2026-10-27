@@ -1,9 +1,22 @@
 set default-list := true
 
-bootstrap: restore-selected
+bootstrap: restore-bootstrap
 
-restore-selected:
-    '{{ source_directory() }}/run-selected.sh' restore '{{ justfile_directory() }}/.mise' '{{ justfile_directory() }}/.scripts/helper'
+restore-bootstrap:
+    '{{ source_directory() }}/run-selected.sh' \
+        restore \
+        "${RESTORE_MODULES-}" \
+        '{{ justfile_directory() }}/.scripts/helper' \
+        true
 
-record-selected:
-    '{{ source_directory() }}/run-selected.sh' record '{{ justfile_directory() }}/.mise' '{{ justfile_directory() }}/.scripts/helper'
+restore-selected $MODULES="":
+    '{{ source_directory() }}/run-selected.sh' \
+        restore \
+        "$MODULES" \
+        '{{ justfile_directory() }}/.scripts/helper'
+
+record-selected $MODULES="":
+    '{{ source_directory() }}/run-selected.sh' \
+        record \
+        "$MODULES" \
+        '{{ justfile_directory() }}/.scripts/helper'

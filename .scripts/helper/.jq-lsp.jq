@@ -1,2 +1,2 @@
-def $available: empty;
+def $bootstrap: empty;
 def $selected: empty;

@@ -150,10 +150,16 @@ mise bootstrap --only packages
 
 根据清单恢复部分工具声明的插件、扩展、宏包、组件等，以及恢复包管理器声明的软件包
 
-- Windows 可恢复环境的软件有 [modules.txt](.scripts/windows/modules.txt)
-- Unix 可恢复环境的软件有 [modules.txt](.scripts/unix/modules.txt)
+- Windows 的可恢复模块及依赖关系见 [modules.json](.scripts/windows/modules.json)
+- Unix 的可恢复模块及依赖关系见 [modules.json](.scripts/unix/modules.json)
 
-需要恢复环境的工具也写在 `.miserc.local.toml` 中。
+在仓库根目录新建 `.restore.local.env`，填写需要恢复的模块
+
+```env
+RESTORE_MODULES=msys,tex
+```
+
+如果没填写 `RESTORE_MODULES`，默认不恢复任何模块。
 
 准备完成后，运行
 
@@ -252,9 +258,21 @@ mise dot status
 
 ## 持续维护
 
-### 重新记录软件清单
+### 重新记录或恢复软件清单
 
-<!-- TODO 重新记录软件清单 -->
+记录环境
+
+```sh
+just record scoop tex
+```
+
+恢复环境
+
+```sh
+just restore tex
+```
+
+此时不会根据 `modules.json` 自动展开依赖。默认的 `just record` 和 `just restore` 不会记录会恢复任何模块的环境。
 
 ### 重新部署点文件
 

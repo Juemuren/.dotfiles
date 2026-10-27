@@ -1,7 +1,0 @@
-scoop
-msvc
-wsl
-pwsh
-msys
-tex
-vscode

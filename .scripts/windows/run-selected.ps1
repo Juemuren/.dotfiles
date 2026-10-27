@@ -5,22 +5,24 @@ param(
     [ValidateSet('record', 'restore')]
     [string]$Action,
 
-    [Parameter(Mandatory)]
-    [string]$ConfigDir,
+    [AllowEmptyString()]
+    [string]$Selected = '',
 
     [Parameter(Mandatory)]
-    [string]$HelperDir
+    [string]$HelperDir,
+
+    [switch]$Bootstrap
 )
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 
-$modulesFile = Join-Path $PSScriptRoot 'modules.txt'
 $modules = @(
     & (Join-Path $PSScriptRoot 'select-modules.ps1') `
-        -ConfigDir $ConfigDir `
+        -Selected $Selected `
+        -ModulesFile (Join-Path $PSScriptRoot 'modules.json') `
         -HelperDir $HelperDir `
-        -ModulesFile $modulesFile
+        -Bootstrap $Bootstrap.IsPresent
 )
 
 foreach ($module in $modules) {

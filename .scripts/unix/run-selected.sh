@@ -4,8 +4,9 @@ set -eu
 
 script_dir=$(dirname "$0")
 action=$1
-config_dir=$2
+selected=$2
 helper_dir=$3
+bootstrap=${4-false}
 
 case "$action" in
     record | restore) ;;
@@ -17,9 +18,10 @@ esac
 
 modules=$(
     "$script_dir/select-modules.sh" \
-        "$config_dir" \
+        "$selected" \
+        "$script_dir/modules.json" \
         "$helper_dir" \
-        "$script_dir/modules.txt"
+        "$bootstrap"
 )
 
 printf '%s\n' "$modules" | while IFS= read -r module; do

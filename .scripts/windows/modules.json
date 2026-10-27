@@ -1,0 +1,7 @@
+{
+  "modules": ["scoop", "msvc", "wsl", "pwsh", "msys", "tex", "vscode"],
+  "dependencies": {
+    "msys": ["scoop"],
+    "tex": ["scoop"]
+  }
+}
