@@ -17,7 +17,10 @@ restore-selected $MODULES="":
         -HelperDir '{{ justfile_directory() }}/.scripts/helper'
 
 record-selected $MODULES="":
-    & '{{ source_directory() }}/run-selected.ps1' -Action record -Selected $env:MODULES -HelperDir '{{ justfile_directory() }}/.scripts/helper'
+    & '{{ source_directory() }}/run-selected.ps1' \
+        -Action record \
+        -Selected $env:MODULES \
+        -HelperDir '{{ justfile_directory() }}/.scripts/helper'
 
 env:
     & '{{ source_directory() }}/env.ps1'
