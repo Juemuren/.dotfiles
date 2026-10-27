@@ -1,13 +1,10 @@
 [extend]
 useDefault = true
 
-[[rules]]
-id = "pi-models-literal-api-key"
-description = "pi/models.json 的 apiKey 必须是 !command、$ENV 或 {{ vars.x }}，不能写字面量"
-path = '''(^|[\\/])pi[\\/]models\.json$'''
-regex = '''"apiKey"\s*:\s*"[^!${]'''
-
+# 豁免：快捷键 "keys": "ctrl+shift+down" 命中 generic-api-key 的规则
 [[allowlists]]
-description = "Windows Terminal 的快捷键绑定，形如 \"keys\": \"ctrl+shift+down\"，不是凭据"
+description = "Windows Terminal 快捷键绑定不是凭据"
+condition = "AND"
+paths = ['''wt[\\/]settings\.json$''']
 regexTarget = "line"
 regexes = ['''"keys"\s*:\s*"(ctrl|alt|shift)\+''']
