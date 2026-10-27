@@ -2,6 +2,10 @@
 
 param(
     [Parameter(Mandatory)]
+    [ValidateSet('record', 'restore')]
+    [string]$Action,
+
+    [Parameter(Mandatory)]
     [string]$ConfigDir,
 
     [Parameter(Mandatory)]
@@ -13,7 +17,7 @@ $PSNativeCommandUseErrorActionPreference = $true
 
 $modulesFile = Join-Path $PSScriptRoot 'modules.txt'
 $modules = @(
-    & (Join-Path $HelperDir 'modules.ps1') `
+    & (Join-Path $PSScriptRoot 'select-modules.ps1') `
         -ConfigDir $ConfigDir `
         -HelperDir $HelperDir `
         -ModulesFile $modulesFile
@@ -21,6 +25,6 @@ $modules = @(
 
 foreach ($module in $modules) {
     if ($module) {
-        just "${module}::restore"
+        just "${module}::$Action"
     }
 }

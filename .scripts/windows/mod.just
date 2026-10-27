@@ -4,10 +4,10 @@ set shell := ["pwsh", "-NoProfile", "-Command"]
 bootstrap: env restore-selected
 
 restore-selected:
-    & '{{ source_directory() }}/restore-selected.ps1' -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
+    & '{{ source_directory() }}/run-selected.ps1' -Action restore -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
 
 record-selected:
-    & '{{ source_directory() }}/record-selected.ps1' -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
+    & '{{ source_directory() }}/run-selected.ps1' -Action record -ConfigDir '{{ justfile_directory() }}/.mise' -HelperDir '{{ justfile_directory() }}/.scripts/helper'
 
 env:
     & '{{ source_directory() }}/env.ps1'
