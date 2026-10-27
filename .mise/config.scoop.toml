@@ -1,2 +1,1 @@
-[bootstrap.hooks.pre-packages]
-run_windows = 'mise exec -- just --justfile "{{ config_root }}/Justfile" scoop::install'
+# marker for restore-selected module discovery

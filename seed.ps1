@@ -16,9 +16,11 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# https://github.com/ScoopInstaller/Install
-$installer = Invoke-RestMethod https://get.scoop.sh
-& ([scriptblock]::Create($installer)) -ScoopDir $ScoopDir
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+    # https://github.com/ScoopInstaller/Install
+    $installer = Invoke-RestMethod https://get.scoop.sh
+    & ([scriptblock]::Create($installer)) -ScoopDir $ScoopDir
+}
 
 $raw_scoop_bucket = "https://raw.githubusercontent.com/Juemuren/ScoopBucket/master/bucket"
 scoop install "$raw_scoop_bucket/git.json"

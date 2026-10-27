@@ -75,29 +75,27 @@ Pwsh 包含以下 Module
 
 #### 0 准备工具
 
-在初始化前需要已有 `git` 和 `mise`。
+后续步骤需要 `git` 和 `mise`。
 
 如果缺少工具，可以使用仓库提供的脚本进行安装
 
-- 在 Windows 上使用 Scoop 安装 git + mise
+- 在 Windows 上，通过 Scoop 安装 git + mise
 
 ```pwsh
-# 自定义 Scoop 安装位置，默认为 ~/scoop
-$env:SCOOP_ROOT = "D:\Scoop"
+# 可选：自定义 Scoop 安装位置。默认为 ~/scoop
+# $env:SCOOP_ROOT = "D:\Scoop"
 irm https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.ps1 | iex
 ```
 
-- 在 Linux 上使用 Homebrew 安装 git + mise
-
-<!-- TODO linux stage 0
+- 在 Linux 上，先用发行版包管理器安装 git，然后通过 Homebrew 安装 mise
 
 ```sh
-# 自定义 Homebrew 安装位置，默认为 /home/linuxbrew
-$env:BREW_ROOT = "D:\Scoop"
-curl https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh | bash
+# 可选：自定义 Homebrew 安装位置。默认为 /home/linuxbrew/.linuxbrew
+# export BREW_ROOT=/opt/brew
+curl -fsSL https://raw.githubusercontent.com/Juemuren/.dotfiles/master/seed.sh | bash
 ```
 
--->
+安装完成后重新打开终端，再继续克隆仓库。
 
 #### 1 克隆仓库
 
@@ -140,11 +138,11 @@ env = [
 mise bootstrap --only packages
 ```
 
+在安装完工具后，可能需要重新打开终端。部分工具还可能要求重启系统。
+
 #### 3 恢复环境
 
 需要恢复环境的工具也写在 `.miserc.local.toml` 中。部分必须安装的工具也可以恢复环境，如果未写入 `env` 则默认不恢复环境。
-
-在安装完工具后，需要重新打开终端并进入仓库目录，以确保新安装的工具进入了 PATH 环境变量。部分工具可能还要求重启系统。
 
 准备完成后，可以进行环境恢复
 

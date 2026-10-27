@@ -1,2 +1,1 @@
-[bootstrap.hooks.pre-packages]
-run = 'mise exec -- just --justfile "{{ config_root }}/Justfile" brew::install "{{ system_brew_prefix }}"'
+# marker for restore-selected module discovery
