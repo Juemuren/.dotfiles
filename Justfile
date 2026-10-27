@@ -25,16 +25,16 @@ mod unix '.scripts/unix'
 mod checks '.scripts/checks'
 
 [windows]
-record: pwsh::record msys::record tex::record scoop::record vscode::record wsl::record
+record: windows::record-selected
 
 [unix]
-record: brew::record tex::record vscode::record
+record: unix::record-selected
 
 [windows]
-restore: scoop::restore pwsh::restore msys::restore tex::restore vscode::restore msvc::restore wsl::restore
+restore: windows::restore-selected
 
 [unix]
-restore: brew::restore tex::restore vscode::restore
+restore: unix::restore-selected
 
 [windows]
 bootstrap: windows::bootstrap

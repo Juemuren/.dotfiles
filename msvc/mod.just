@@ -8,5 +8,7 @@ install:
 configure:
     & '{{ source_directory() }}/automation/configure.ps1'
 
+record:
+
 restore:
     & '{{ source_directory() }}/automation/restore.ps1' -ConfigPath '{{ source_directory() }}/.vsconfig'

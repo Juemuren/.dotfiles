@@ -1,6 +1,6 @@
 # Input lines are <module><tab><JSON include array>.
 # - $selected is MISE_ENV
-# - $available is restore-modules.txt
+# - $available is modules.txt
 
 def nonempty_lines:
   split("\n")

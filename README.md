@@ -117,8 +117,8 @@ mise bootstrap --only tools
 
 对于系统管理的工具，分为必须安装的工具和可选安装的工具
 
-- Windows 上必须安装的工具详见 [mise.windows.toml](mise.windows.toml)；所有可安装的工具详见 [restore-modules.txt](.scripts/windows/restore-modules.txt)
-- Linux 上必须安装的工具详见 [mise.linux.toml](mise.linux.toml)；所有可安装的工具详见 [restore-modules.txt](.scripts/unix/restore-modules.txt)
+- Windows 上必须安装的工具详见 [mise.windows.toml](mise.windows.toml)；所有可安装的工具详见 [modules.txt](.scripts/windows/modules.txt)
+- Linux 上必须安装的工具详见 [mise.linux.toml](mise.linux.toml)；所有可安装的工具详见 [modules.txt](.scripts/unix/modules.txt)
 
 在根目录新建 `.miserc.local.toml`，然后填写需要的工具名
 
