@@ -1,0 +1,4 @@
+interface:
+  display_name: "先讨论再修改"
+  short_description: "在修改代码前先讨论方案"
+  default_prompt: "使用 $discuss-before-edit 评估当前解决方案的问题。"

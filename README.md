@@ -59,6 +59,7 @@ Agents 包含以下 Skill
 * [capture-tool-problems](agents/skills/capture-tool-problems)
 * [data-wrangling](agents/skills/data-wrangling)
 * [develop-automation-scripts](agents/skills/develop-automation-scripts)
+* [discuss-before-edit](agents/skills/discuss-before-edit)
 <!-- AGENT-SKILL:END -->
 
 Pwsh 包含以下 Module
