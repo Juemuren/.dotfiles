@@ -54,6 +54,10 @@ $shlvl\
 $character\
 """
 
+add_newline = true
+scan_timeout = 50
+command_timeout = 1000
+
 palette = 'catppuccin'
 
 [os]
