@@ -10,6 +10,7 @@
     "terminal.integrated.fontFamily",
     "terminal.integrated.fontLigatures.enabled",
     "files.simpleDialog.enable",
+    "window.density.layout",
     "workbench.editor.useModal",
     "workbench.layoutControl.enabled",
     "workbench.navigationControl.enabled",
@@ -30,6 +31,7 @@
     "editor.snippetSuggestions",
     "diffEditor.ignoreTrimWhitespace",
     "diffEditor.hideUnchangedRegions.enabled",
+    "workbench.browser.showInTitleBar",
     "workbench.browser.openLocalhostLinks",
     "terminal.integrated.minimumContrastRatio",
     "terminal.integrated.cursorBlinking",
@@ -48,7 +50,8 @@
     "vscode-neovim.ctrlKeysForInsertMode",
     "github.copilot.enable",
     "git.addAICoAuthor",
-    "git.untrackedChanges"
+    "git.untrackedChanges",
+    "json.schemaDownload.trustedDomains"
   ],
   /********** 自动同步 **********/
   // 通知
@@ -75,6 +78,7 @@
   "terminal.integrated.fontLigatures.enabled": true,
   // 界面
   "files.simpleDialog.enable": true,
+  "window.density.layout": "compact",
   "workbench.editor.useModal": "off",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
@@ -107,6 +111,7 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
   // 集成浏览器
+  "workbench.browser.showInTitleBar": false,
   "workbench.browser.openLocalhostLinks": false,
   // 集成终端
   "terminal.integrated.minimumContrastRatio": 1,
@@ -274,6 +279,10 @@
   // git
   "git.addAICoAuthor": "off",
   "git.untrackedChanges": "separate",
+  // json
+  "json.schemaDownload.trustedDomains": {
+    "*": true
+  },
   // julia
   "julia.symbolCacheDownload": true
 }
