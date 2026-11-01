@@ -7,7 +7,7 @@
   "editor.wordWrap": "on",
   "files.autoSave": "afterDelay",
   // markdown
-  "markdown.preview.scrollEditorWithPreview": true,
+  "markdown.preview.scrollEditorWithPreview": false,
   "markdown.preview.scrollPreviewWithEditor": true,
   "markdown.updateLinksOnFileMove.enabled": "prompt",
   "markdown.validate.enabled": false,

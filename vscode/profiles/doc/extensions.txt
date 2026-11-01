@@ -2,6 +2,8 @@ adpyke.codesnap
 alensiljak.abcjs-vscode
 antfu.slidev
 astro-build.astro-vscode
+bierner.emojisense
+bpruitt-goddard.mermaid-markdown-syntax-highlighting
 budparr.language-hugo-vscode
 curlybrackets.markdown-word-count
 davidanson.vscode-markdownlint
@@ -9,9 +11,7 @@ esbenp.prettier-vscode
 foam.foam-vscode
 gera2ld.markmap-vscode
 james-yu.latex-workshop
-ltex-plus.vscode-ltex-plus
 marp-team.marp-vscode
-mermaidchart.vscode-mermaid-chart
 myriad-dreamin.tinymist
 nefrob.vscode-just-syntax
 pomdtr.excalidraw-editor
