@@ -1,5 +1,5 @@
 map(
-  select(.metadata.isApplicationScoped == true)
+  select(.metadata.isApplicationScoped == true and .metadata.source == "gallery")
   | .identifier.id
 )
 | sort[]
