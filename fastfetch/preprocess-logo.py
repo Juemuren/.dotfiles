@@ -6,7 +6,9 @@ import itertools
 import re
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 
 def expand_range(spec: str) -> list[int]:
@@ -16,7 +18,7 @@ def expand_range(spec: str) -> list[int]:
         start, end, step = map(int, match.groups())
         if step > 0 and start <= end:
             return list(range(start, end + 1, step))
-    raise argparse.ArgumentTypeError(f"Invalid range: {spec}")
+    raise argparse.ArgumentTypeError(f"Expected N or START:END:STEP: {spec}")
 
 
 def percent(value: str) -> int:
@@ -25,27 +27,117 @@ def percent(value: str) -> int:
     return int(value)
 
 
-def parse_args() -> argparse.Namespace:
+def geometry(value: str) -> str:
+    if not re.fullmatch(r"[0-9]+x[0-9]+[+-][0-9]+[+-][0-9]+", value):
+        raise argparse.ArgumentTypeError(f"Expected WIDTHxHEIGHT+X+Y: {value}")
+    return value
+
+
+class RangeDefault(list[int]):
+    def __str__(self) -> str:
+        return ":".join(map(str, self))
+
+
+@dataclass(init=False, slots=True)
+class Args:
+    input: Path
+    output_dir: Path
+    contrast: list[int]
+    saturation: list[int]
+    line_strength: list[int]
+    line_width: list[int]
+    crop: str | None
+    midpoint: int
+    edge_scale: int
+    canny_low: int
+    canny_high: int
+    preview: Literal["braille", "block", "both", "none"]
+
+
+def parse_args() -> Args:
     parser = argparse.ArgumentParser(
         description=__doc__,
-        epilog="Pick a PNG, then run convert-logo.py to save the chosen logo. "
-        "Ranges accept N or START:END:STEP (inclusive).",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("input", type=Path)
-    parser.add_argument("output_dir", type=Path)
-    parser.add_argument("--contrast", type=expand_range, default=[4])
-    parser.add_argument("--saturation", type=expand_range, default=[125])
-    parser.add_argument("--line-strength", type=expand_range, default=[25])
-    parser.add_argument("--line-width", type=expand_range, default=[1])
-    parser.add_argument("--crop", help="ImageMagick crop, e.g. 1350x1350+260+180")
-    parser.add_argument("--midpoint", type=percent, default=72)
-    parser.add_argument("--edge-scale", type=percent, default=30)
-    parser.add_argument("--canny-low", type=percent, default=10)
-    parser.add_argument("--canny-high", type=percent, default=30)
     parser.add_argument(
-        "--preview", choices=("braille", "block", "both", "none"), default="block"
+        "input",
+        type=Path,
+        help="Source image to tune",
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        "output_dir",
+        type=Path,
+        help="Directory to write candidates into (must not exist)",
+    )
+    parser.add_argument(
+        "--contrast",
+        type=expand_range,
+        default=RangeDefault([4]),
+        metavar="RANGE",
+        help="Sigmoidal contrast amount; 0 disables",
+    )
+    parser.add_argument(
+        "--saturation",
+        type=expand_range,
+        default=RangeDefault([125]),
+        metavar="RANGE",
+        help="Saturation percentage; 100 keeps the original",
+    )
+    parser.add_argument(
+        "--line-strength",
+        type=expand_range,
+        default=RangeDefault([25]),
+        metavar="RANGE",
+        help="How much detected edges darken the image (0-100); 0 disables",
+    )
+    parser.add_argument(
+        "--line-width",
+        type=expand_range,
+        default=RangeDefault([1]),
+        metavar="RANGE",
+        help="Dilation radius in px for detected edges; 0 leaves them thin",
+    )
+    parser.add_argument(
+        "--crop",
+        type=geometry,
+        metavar="GEOMETRY",
+        help="ImageMagick crop, e.g. 1350x1350+260+180",
+    )
+    parser.add_argument(
+        "--midpoint",
+        type=percent,
+        default=72,
+        metavar="PCT",
+        help="Midpoint of the sigmoidal contrast curve",
+    )
+    parser.add_argument(
+        "--edge-scale",
+        type=percent,
+        default=30,
+        metavar="PCT",
+        help="Scale used for edge detection before scaling back to the original",
+    )
+    parser.add_argument(
+        "--canny-low",
+        type=percent,
+        default=10,
+        metavar="PCT",
+        help="Canny lower threshold",
+    )
+    parser.add_argument(
+        "--canny-high",
+        type=percent,
+        default=30,
+        metavar="PCT",
+        help="Canny upper threshold",
+    )
+    parser.add_argument(
+        "--preview",
+        choices=("braille", "block", "both", "none"),
+        default="block",
+        help="Also render each candidate with Chafa",
+    )
+    args = parser.parse_args(namespace=Args())
 
     if any(strength > 100 for strength in args.line_strength):
         parser.error("Line strength must be 0-100")
@@ -57,8 +149,6 @@ def parse_args() -> argparse.Namespace:
         or args.canny_low >= args.canny_high
     ):
         parser.error("Invalid midpoint, edge scale, or Canny thresholds")
-    if args.crop and not re.fullmatch(r"[0-9]+x[0-9]+[+-][0-9]+[+-][0-9]+", args.crop):
-        parser.error(f"Crop must be WIDTHxHEIGHT+X+Y: {args.crop}")
     return args
 
 
@@ -151,7 +241,7 @@ def main() -> None:
             )
             manifest.flush()
             print(
-                f"{output}  contrast={contrast} saturation={saturation} "
+                f"{output} contrast={contrast} saturation={saturation} "
                 f"line={strength} width={width}",
                 flush=True,
             )
