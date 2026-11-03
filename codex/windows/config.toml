@@ -23,6 +23,7 @@ extends = ":workspace"
 "~/AppData/Local/uv/cache" = "write"
 "~/AppData/Local/npm-cache" = "write"
 "{{ vars.pnpm_store }}" = "write"
+"{{ vars.scoop_root }}" = "write"
 "~/AppData/Local/pnpm-cache" = "write"
 
 [permissions.dev.network]
