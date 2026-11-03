@@ -23,6 +23,7 @@ shfmt = "latest"
 ty = "latest"
 typos = "latest"
 uv = "latest"
+prettier = "latest"
 
 [tools.python]
 version = "latest"
