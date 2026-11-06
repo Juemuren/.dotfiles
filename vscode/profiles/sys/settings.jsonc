@@ -59,5 +59,7 @@
   "[cpp]": {
     "editor.stickyScroll.defaultModel": "foldingProviderModel",
     "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
-  }
+  },
+  // haskell
+  "haskell.manageHLS": "PATH"
 }
