@@ -5,6 +5,9 @@
 # History
 export PROMPT_COMMAND="history -a"
 
+# Readline
+bind '"\ee": edit-and-execute-command'
+
 # Integration
 eval "$(mise activate bash)"
 eval "$(fzf --bash)"

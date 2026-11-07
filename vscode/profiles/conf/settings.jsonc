@@ -31,6 +31,10 @@
   // pwsh
   "powershell.integratedConsole.startInBackground": true,
   "powershell.integratedConsole.showOnStartup": false,
+  // bash
+  "files.associations": {
+    "bash-fc.*": "shellscript"
+  },
   // just
   "[just]": {
     "editor.tabSize": 4,
