@@ -12,6 +12,35 @@ param()
 # Modules
 Set-PSReadLineOption -Colors @{ Selection = $PSStyle.Reverse }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Chord "Alt+e" -ScriptBlock {
+    $line = $null
+    $cursor = 0
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState(
+        [ref]$line,
+        [ref]$cursor
+    )
+
+    $file = Join-Path $env:TEMP (
+        [System.IO.Path]::GetRandomFileName() + ".ps1"
+    )
+
+    try {
+        [System.IO.File]::WriteAllText($file, $line)
+
+        $quotedFile = "'" + $file.Replace("'", "''") + "'"
+        Invoke-Expression "& $env:VISUAL $quotedFile"
+
+        $newLine = [System.IO.File]::ReadAllText($file)
+        [Microsoft.PowerShell.PSConsoleReadLine]::Replace(
+            0,
+            $line.Length,
+            $newLine
+        )
+    }
+    finally {
+        Remove-Item -LiteralPath $file -ErrorAction SilentlyContinue
+    }
+}
 
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t'
