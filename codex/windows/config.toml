@@ -1,5 +1,6 @@
 model = "gpt-6-sol"
 model_reasoning_effort = "medium"
+service_tier = "default"
 
 default_permissions = "dev"
 approval_policy = "on-request"
