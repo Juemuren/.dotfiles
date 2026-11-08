@@ -22,19 +22,20 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  // python
+  "ty.experimental.useUv": "on",
   // shell
   "[shellscript]": {
     "files.eol": "\n",
     "editor.tabSize": 4,
     "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
   },
-  // pwsh
-  "powershell.integratedConsole.startInBackground": true,
-  "powershell.integratedConsole.showOnStartup": false,
-  // bash
   "files.associations": {
     "bash-fc.*": "shellscript"
   },
+  // pwsh
+  "powershell.integratedConsole.startInBackground": true,
+  "powershell.integratedConsole.showOnStartup": false,
   // just
   "[just]": {
     "editor.tabSize": 4,
