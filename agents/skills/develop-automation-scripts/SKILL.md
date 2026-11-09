@@ -21,8 +21,8 @@ description: 创建、修改、测试、检查并格式化可复用的 POSIX she
 
 ### Python 脚本
 
-- 优先使用标准库和项目现有依赖。
-- 当标准库能力不足时，且项目中不存在任何依赖时，优先考虑通过子进程调用合适的工具，而不是自己造轮子。
+- 优先使用标准库和项目现有依赖，其次考虑通过子进程调用合适的工具。
+- 如果要为脚本添加依赖，优先考虑通过脚本元数据声明依赖。
 - 为函数参数和返回值添加有意义的类型标注，便于类型检查。
 
 ### 函数式风格
@@ -47,7 +47,7 @@ description: 创建、修改、测试、检查并格式化可复用的 POSIX she
 
 - 对于 POSIX shell 和 Bash 脚本，使用 `sh -n` 进行语法检查，使用 `shellcheck` 进行静态检查。
 - 对于 PowerShell 和 Pwsh 脚本，使用 `Invoke-ScriptAnalyzer` 进行静态检查。优先直接运行 PATH 中封装好的脚本 `Run-Lint.ps1 example.ps1`。`Run-Lint` 可以指定多个文件 `Run-Lint.ps1 -Path a.ps1, b.ps1`，同时支持管道 `fd -e ps1 -e psm1 | Run-Lint.ps1`。获取 `Run-Lint` 的完整说明请使用 `Get-Help Run-Lint.ps1 -Full`。
-- 对于 Python 脚本，使用 `ruff check` 进行静态检查，使用 `ty check` 进行类型检查。
+- 对于 Python 脚本，使用 `ruff check` 进行静态检查，使用 `ty check` 进行类型检查。如果脚本元数据中包含依赖，使用 `$env:TY_UV = 'scripts'; ty check` 进行类型检查。
 
 ## 格式化
 
