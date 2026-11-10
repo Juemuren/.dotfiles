@@ -48,7 +48,7 @@ VISUAL = { default = "code --wait" }
 EDITOR = { default = "code --wait" }
 LANG = { default = "zh_CN.UTF-8" }
 
-LESS = { default = "-RXFX" }
+LESS = { default = "-FRX" }
 
 GOTOOLCHAIN = "local"
 PNPM_CONFIG_PM_ON_FAIL = "ignore"
