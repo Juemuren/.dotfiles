@@ -1,0 +1,6 @@
+[dotfiles.glow-config]
+source = "config.yml"
+mode = "template"
+variants = [
+  { os = "windows", target = "~/AppData/Local/glow/Config/glow.yml" },
+]

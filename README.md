@@ -18,6 +18,7 @@
 * [conda](conda)
 * [fastfetch](fastfetch)
 * [git](git)
+* [glow](glow)
 * [mise](mise)
 * [msvc](msvc)
 * [msys](msys)

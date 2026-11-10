@@ -54,6 +54,11 @@ root = "git"
 target = "~/.config/mise/conf.d/git"
 mode = "symlink"
 
+[dotfile_groups.glow]
+root = "glow"
+target = "~/.config/mise/conf.d/glow"
+mode = "symlink"
+
 [dotfile_groups.mise]
 root = "mise"
 target = "~/.config/mise/conf.d/mise"

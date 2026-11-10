@@ -1,0 +1,11 @@
+style: '{{ mise_config_dir }}/conf.d/glow/themes/catppuccin-mocha.json'
+
+pager: false
+tui: true
+
+width: 0
+all: false
+
+mouse: true
+showLineNumbers: false
+preserveNewLines: false
