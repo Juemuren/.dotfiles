@@ -27,7 +27,7 @@ prettier = "latest"
 
 [tools.python]
 version = "latest"
-postinstall = 'python -m pip install -r "{{config_root}}/.config/mise/python.txt"'
+postinstall = 'python -m pip install -r "{{config_root}}/.config/mise/conf.d/mise/windows/python.txt"'
 
 [settings]
 idiomatic_version_file_enable_tools = ["python", "node", "pnpm", "go"]
