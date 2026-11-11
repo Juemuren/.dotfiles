@@ -21,11 +21,13 @@ extends = ":workspace"
 [permissions.dev.filesystem]
 "~/.config/**" = "read"
 "~/.cache" = "write"
-"~/AppData/Local/uv/cache" = "write"
+"~/AppData/Local/deno" = "write"
+"~/AppData/Local/ty" = "write"
+"~/AppData/Local/uv" = "write"
 "~/AppData/Local/npm-cache" = "write"
+"~/AppData/Local/pnpm-cache" = "write"
 "{{ vars.pnpm_store }}" = "write"
 "{{ vars.scoop_root }}" = "write"
-"~/AppData/Local/pnpm-cache" = "write"
 
 [permissions.dev.network]
 enabled = true
