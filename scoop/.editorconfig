@@ -1,2 +1,5 @@
 [config.json]
 end_of_line = crlf
+
+[buckets.json]
+end_of_line = crlf

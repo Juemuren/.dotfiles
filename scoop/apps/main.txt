@@ -43,6 +43,7 @@ hyperfine
 imagemagick
 innounp
 jc
+jsonschema
 just-lsp
 less
 llvm
@@ -83,6 +84,7 @@ usql
 watchexec
 weasyprint
 which
+witr
 xq
 yazi
 yq
