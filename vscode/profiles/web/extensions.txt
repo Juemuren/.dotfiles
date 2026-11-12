@@ -1,8 +1,10 @@
 antfu.iconify
+astro-build.astro-vscode
 biomejs.biome
 bradlc.vscode-tailwindcss
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
+denoland.vscode-deno
 esbenp.prettier-vscode
 funkyremi.vscode-google-translate
 humao.rest-client

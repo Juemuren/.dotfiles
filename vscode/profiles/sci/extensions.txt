@@ -6,7 +6,10 @@ ms-python.debugpy
 ms-python.python
 ms-toolsai.datawrangler
 ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
 nefrob.vscode-just-syntax
 quarto.quarto
 tomoki1207.pdf

@@ -1,3 +1,4 @@
 ms-vscode.cpptools
 ms-vscode.hexeditor
+mshr-h.veriloghdl
 platformio.platformio-ide

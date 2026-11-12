@@ -4,6 +4,7 @@ beaglefoot.awk-ide-vscode
 charliermarsh.ruff
 denoland.vscode-deno
 esbenp.prettier-vscode
+iliazeus.vscode-ansi
 mads-hartmann.bash-ide-vscode
 mechatroner.rainbow-csv
 ms-azuretools.vscode-containers
