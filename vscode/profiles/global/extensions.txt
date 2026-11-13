@@ -5,6 +5,7 @@ editorconfig.editorconfig
 fanaticpythoner.better-todo-tree
 github.vscode-github-actions
 github.vscode-pull-request-github
+mhutchie.git-graph
 ms-ceintl.vscode-language-pack-zh-hans
 ms-vscode-remote.remote-wsl
 oderwat.indent-rainbow
@@ -12,5 +13,6 @@ openai.chatgpt
 pkief.material-icon-theme
 pkief.material-product-icons
 redhat.vscode-yaml
+ryu1kn.partial-diff
 tamasfe.even-better-toml
 usernamehw.errorlens
