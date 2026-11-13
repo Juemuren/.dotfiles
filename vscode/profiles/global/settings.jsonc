@@ -31,6 +31,7 @@
     "editor.snippetSuggestions",
     "diffEditor.ignoreTrimWhitespace",
     "diffEditor.hideUnchangedRegions.enabled",
+    "diffEditor.experimental.showMoves",
     "workbench.browser.showInTitleBar",
     "workbench.browser.openLocalhostLinks",
     "terminal.integrated.minimumContrastRatio",
@@ -110,6 +111,7 @@
   // 差异编辑器
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.experimental.showMoves": true,
   // 集成浏览器
   "workbench.browser.showInTitleBar": false,
   "workbench.browser.openLocalhostLinks": false,
