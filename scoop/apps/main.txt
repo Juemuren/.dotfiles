@@ -15,6 +15,7 @@ d2
 dark
 delta
 devd
+difftastic
 duckdb
 dust
 elan
