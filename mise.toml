@@ -44,6 +44,11 @@ root = "conda"
 target = "~/.config/mise/conf.d/conda"
 mode = "symlink"
 
+[dotfile_groups.delta]
+root = "delta"
+target = "~/.config/mise/conf.d/delta"
+mode = "symlink"
+
 [dotfile_groups.fastfetch]
 root = "fastfetch"
 target = "~/.config/mise/conf.d/fastfetch"

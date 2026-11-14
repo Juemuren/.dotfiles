@@ -1,0 +1,6 @@
+[dotfiles.delta-themes]
+source = "themes/*"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.config/delta/*" },
+]

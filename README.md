@@ -16,6 +16,7 @@
 * [brew](brew)
 * [codex](codex)
 * [conda](conda)
+* [delta](delta)
 * [fastfetch](fastfetch)
 * [git](git)
 * [glow](glow)

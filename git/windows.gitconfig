@@ -16,9 +16,12 @@
 	selected = manager
 [init]
 	defaultBranch = main
+[include]
+	path = ~/.config/delta/catppuccin.gitconfig
 [delta]
 	navigate = true
 	side-by-side = true
+	features = catppuccin-mocha
 [diff]
 	tool = vscode
 [difftool "vscode"]
