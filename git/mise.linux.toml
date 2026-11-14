@@ -1,2 +1,2 @@
 [dotfiles]
-"~/.gitconfig" = { source = "linux.ini", mode = "template" }
+"~/.gitconfig" = { source = "linux.gitconfig", mode = "template" }
