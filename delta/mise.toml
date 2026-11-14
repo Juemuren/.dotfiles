@@ -1,6 +1,13 @@
+[dotfiles.delta-config]
+source = "delta.gitconfig"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.config/delta/delta.gitconfig" },
+]
+
 [dotfiles.delta-themes]
 source = "themes/*"
 mode = "symlink"
 variants = [
-  { default = true, target = "~/.config/delta/*" },
+  { default = true, target = "~/.config/delta/themes/*" },
 ]

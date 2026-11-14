@@ -1,0 +1,10 @@
+[include]
+	path = ~/.config/delta/themes/catppuccin.gitconfig
+
+[core]
+	pager = delta
+
+[delta]
+	navigate = true
+	side-by-side = true
+	features = catppuccin-mocha

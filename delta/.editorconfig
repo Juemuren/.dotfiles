@@ -1,0 +1,3 @@
+[*.gitconfig]
+indent_style = tab
+trim_trailing_whitespace = false

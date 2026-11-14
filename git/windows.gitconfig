@@ -1,6 +1,5 @@
 [core]
 	editor = code --wait
-	pager = delta
 	quotepath = false
 	excludesFile = ~/.config/git/ignore
 	longpaths = true
@@ -17,11 +16,7 @@
 [init]
 	defaultBranch = main
 [include]
-	path = ~/.config/delta/catppuccin.gitconfig
-[delta]
-	navigate = true
-	side-by-side = true
-	features = catppuccin-mocha
+	path = ~/.config/delta/delta.gitconfig
 [diff]
 	tool = vscode
 [difftool "vscode"]
