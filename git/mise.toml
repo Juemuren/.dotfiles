@@ -2,6 +2,13 @@
 git_name = { prompt = "Git name", required = "Please set git_name" }
 git_email = { prompt = "Git email", required = "Please set git_email" }
 
+[dotfiles.git-ignore]
+source = "global.gitignore"
+mode = "symlink"
+variants = [
+  { default = true, target = "~/.config/git/ignore" },
+]
+
 [dotfiles.git-scripts]
 source = "scripts/*"
 mode = "symlink"
