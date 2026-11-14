@@ -4,22 +4,18 @@ set -euo pipefail
 
 cd -- "$1"
 
-update_section() {
-    local file=$1
-    local marker=$2
-    local content
-    content=$(cat)
-
-    sd -A -f s \
-        "<!-- $marker:BEGIN -->.*<!-- $marker:END -->" \
-        "<!-- $marker:BEGIN -->\n$content\n<!-- $marker:END -->" \
-        "$file"
-}
+. .scripts/checks/sections.sh
 
 get_dirs() {
     local path=$1
+    local dir
 
-    fd -d 1 -t dir --search-path "$path" --format '* [{/.}]({.})'
+    for dir in "$path"/*/; do
+        [ -d "$dir" ] || continue
+        dir=${dir%/}
+        dir=${dir#./}
+        printf '* [%s](%s)\n' "${dir##*/}" "$dir"
+    done
 }
 
 get_var_dirs() {

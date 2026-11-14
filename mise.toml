@@ -14,6 +14,7 @@ windows_symlinks = true
 source = ".miserc.toml"
 mode = "symlink"
 
+# TOOL:BEGIN
 [dotfile_groups.agents]
 root = "agents"
 target = "~/.config/mise/conf.d/agents"
@@ -138,3 +139,4 @@ mode = "symlink"
 root = "zsh"
 target = "~/.config/mise/conf.d/zsh"
 mode = "symlink"
+# TOOL:END
