@@ -19,7 +19,7 @@ sandbox = "elevated"
 extends = ":workspace"
 
 [permissions.dev.filesystem]
-"~/.config/**" = "read"
+"~/.config" = "read"
 "~/.cache" = "write"
 "~/AppData/Local/deno" = "write"
 "~/AppData/Local/ty" = "write"
