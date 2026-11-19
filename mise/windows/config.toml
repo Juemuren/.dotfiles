@@ -1,5 +1,4 @@
 [tools]
-aube = "latest"
 biome = "latest"
 cspell = "latest"
 deno = "latest"
@@ -10,6 +9,7 @@ jq = "latest"
 just = "latest"
 lefthook = "latest"
 node = "lts"
+"npm:@mermaid-js/mermaid-cli" = { version = "latest", install_env = { PUPPETEER_SKIP_DOWNLOAD = "true" } }
 "npm:@wechatsync/cli" = "latest"
 "pipx:fonttools" = "latest"
 "pipx:ocrmypdf" = "latest"
@@ -41,7 +41,7 @@ uv_venv_auto = "source"
 uvx = true
 
 [settings.npm]
-package_manager = "aube"
+package_manager = "pnpm"
 
 [env]
 VISUAL = { default = "code --wait" }
@@ -49,6 +49,7 @@ EDITOR = { default = "code --wait" }
 LANG = { default = "zh_CN.UTF-8" }
 
 LESS = { default = "-FRX" }
+PUPPETEER_EXECUTABLE_PATH = { default = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" }
 
 GOTOOLCHAIN = "local"
 PNPM_CONFIG_PM_ON_FAIL = "ignore"
