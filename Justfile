@@ -45,7 +45,7 @@ bootstrap: windows::bootstrap
 bootstrap: unix::bootstrap
 
 preview:
-    mise dot diff | delta
+    mise dot diff | awk '!/^dotfile differs: / && !/^  content differs: /' | delta
 
 deploy:
     mise dot apply --force --yes
