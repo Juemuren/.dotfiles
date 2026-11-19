@@ -55,7 +55,6 @@ microsoft-coreutils
 miller
 mingw
 miniserve
-mmdr
 navi
 openssh
 openssl
