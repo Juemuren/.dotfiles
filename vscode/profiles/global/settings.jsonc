@@ -44,6 +44,7 @@
     "explorer.fileNesting.enabled",
     "explorer.fileNesting.expand",
     "scm.repositories.selectionMode",
+    "files.associations",
     "chat.disableAIFeatures",
     "extensions.experimental.affinity",
     "vscode-neovim.NVIM_APPNAME",
@@ -230,6 +231,11 @@
   "explorer.fileNesting.expand": false,
   // 源代码管理器
   "scm.repositories.selectionMode": "single",
+  // 文件关联
+  "files.associations": {
+    "bash-fc.*": "shellscript",
+    "git-error-*": "ansi"
+  },
   // 聊天
   "chat.disableAIFeatures": true,
   /********** 手动同步/插件相关 **********/
