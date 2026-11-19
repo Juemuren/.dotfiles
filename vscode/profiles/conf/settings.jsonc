@@ -36,6 +36,7 @@
   // pwsh
   "powershell.integratedConsole.startInBackground": true,
   "powershell.integratedConsole.showOnStartup": false,
+  "powershell.promptToUpdatePowerShell": false,
   // just
   "[just]": {
     "editor.tabSize": 4,

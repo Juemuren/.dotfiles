@@ -17,6 +17,7 @@ nefrob.vscode-just-syntax
 pomdtr.excalidraw-editor
 shd101wyy.markdown-preview-enhanced
 streetsidesoftware.code-spell-checker
+takumii.markdowntable
 tekumara.typos-vscode
 unifiedjs.vscode-mdx
 yzhang.markdown-all-in-one
