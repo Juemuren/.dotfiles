@@ -2,7 +2,9 @@
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Settings
 
 # Path
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
 # >>> oh my zsh >>>
 export ZSH="$HOME/.oh-my-zsh"
