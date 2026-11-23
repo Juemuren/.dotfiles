@@ -7,6 +7,7 @@ bpruitt-goddard.mermaid-markdown-syntax-highlighting
 budparr.language-hugo-vscode
 curlybrackets.markdown-word-count
 davidanson.vscode-markdownlint
+denoland.vscode-deno
 esbenp.prettier-vscode
 foam.foam-vscode
 gera2ld.markmap-vscode
