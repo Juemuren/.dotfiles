@@ -3,6 +3,7 @@ eza
 fastfetch
 fd
 fzf
+ghcup
 git-delta
 jq
 just
