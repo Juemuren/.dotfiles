@@ -1,5 +1,8 @@
 [tools]
 deno = "latest"
+dprint = "latest"
+gitleaks = "latest"
+lefthook = "latest"
 node = "latest"
 pnpm = "latest"
 python = "latest"
