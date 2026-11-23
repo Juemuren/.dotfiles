@@ -1,7 +1,7 @@
 [core]
 	editor = code --wait
-	pager = delta
 	quotepath = false
+	excludesFile = ~/.config/git/ignore
 [user]
 	name = {{ vars.git_name }}
 	email = {{ vars.git_email }}
@@ -10,9 +10,8 @@
 	sslCAInfo = ~/.certs/git-ca-bundle.crt
 [init]
 	defaultBranch = main
-[delta]
-	navigate = true
-	side-by-side = true
+[include]
+	path = ~/.config/delta/delta.gitconfig
 [diff]
 	tool = vscode
 [difftool "vscode"]
