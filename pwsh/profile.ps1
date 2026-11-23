@@ -49,10 +49,10 @@ Import-Module ScriptRunner
 Set-ScriptRunner -PSReadLineChordScriptPicker 'Alt+s'
 
 # Tools
+carapace _carapace powershell | Out-String | Invoke-Expression
 mise activate pwsh | Out-String | Invoke-Expression
 starship init powershell | Out-String | Invoke-Expression
 zoxide init powershell | Out-String | Invoke-Expression
-carapace _carapace powershell | Out-String | Invoke-Expression
 atuin init powershell --disable-ai --disable-up-arrow | Out-String | Invoke-Expression
 
 # Integrations
