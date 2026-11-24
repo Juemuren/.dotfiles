@@ -11,8 +11,9 @@ lefthook = "latest"
 node = "lts"
 "npm:@mermaid-js/mermaid-cli" = { version = "latest", install_env = { PUPPETEER_SKIP_DOWNLOAD = "true" } }
 "npm:@wechatsync/cli" = "latest"
-"pipx:fonttools" = "latest"
-"pipx:ocrmypdf" = "latest"
+"pypi:fonttools" = "latest"
+"pypi:mineru" = { version = "latest", python = "3.14", extras = "all" }
+"pypi:ocrmypdf" = "latest"
 playwright = "latest"
 pnpm = "latest"
 prek = "latest"
