@@ -5,6 +5,7 @@ eza
 fastfetch
 fd
 fzf
+gh
 ghcup
 git-delta
 jq
