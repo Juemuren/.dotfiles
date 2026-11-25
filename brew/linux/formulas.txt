@@ -1,4 +1,6 @@
+atuin
 bat
+carapace
 eza
 fastfetch
 fd
