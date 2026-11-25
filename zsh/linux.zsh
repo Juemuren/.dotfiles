@@ -31,3 +31,6 @@ source "$ZSH/oh-my-zsh.sh"
 
 # carapace
 source <(carapace _carapace)
+
+# atuin
+source <(atuin init zsh --disable-up-arrow)
