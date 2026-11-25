@@ -6,6 +6,7 @@ lefthook = "latest"
 node = "latest"
 pnpm = "latest"
 python = "latest"
+ty = "latest"
 uv = "latest"
 
 [settings]
