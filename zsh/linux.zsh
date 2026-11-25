@@ -3,11 +3,15 @@
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# carapace
+source <(carapace _carapace)
 
 # >>> oh my zsh >>>
 export ZSH="$HOME/.oh-my-zsh"
@@ -28,9 +32,6 @@ plugins=(
 zstyle ':omz:*' aliases no
 source "$ZSH/oh-my-zsh.sh"
 # <<< oh my zsh <<<
-
-# carapace
-source <(carapace _carapace)
 
 # atuin
 source <(atuin init zsh --disable-up-arrow)
