@@ -3,6 +3,7 @@ biome = "latest"
 cspell = "latest"
 deno = "latest"
 dprint = "latest"
+"github:agda/agda" = { version = "latest", asset_pattern = "Agda-v*-win64.zip" }
 gitleaks = "latest"
 go = "latest"
 jq = "latest"
