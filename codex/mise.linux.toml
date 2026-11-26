@@ -1,2 +1,2 @@
 [dotfiles]
-"~/.codex/config.toml" = { source = "linux/config.toml", mode = "symlink" }
+"~/.codex/config.toml" = { source = "linux/config.toml", mode = "template" }
