@@ -29,6 +29,8 @@ pre-commit:
 
     - name: python-lint
       glob: "**/*.py"
+      env:
+        TY_UV: scripts
       run: ruff check -- {staged_files} && ty check -- {staged_files}
 
     - name: dprint-check
