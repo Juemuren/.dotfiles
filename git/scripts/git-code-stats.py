@@ -9,6 +9,7 @@ import json
 import subprocess
 from collections import Counter
 from collections.abc import Collection
+from operator import itemgetter
 from pathlib import Path
 from typing import Literal, TypedDict
 
@@ -55,18 +56,19 @@ def parse_args() -> Args:
         "--metric",
         choices=("lines", "bytes", "files"),
         default="lines",
-        help="Count lines (including comments and blanks), bytes, or files",
+        help="Unit of measurement (lines include comments and blanks)",
     )
     parser.add_argument(
         "--chart",
         choices=("donut", "bar"),
         default="donut",
+        help="Chart type",
     )
     parser.add_argument(
         "--output",
         type=Path,
         metavar="PATH",
-        help="Save the chart (png or svg)",
+        help="Save the chart as a file (png or svg)",
     )
     for name, description in (
         ("lang", "language names"),
@@ -103,21 +105,27 @@ def summarize(languages: list[LanguageStats], args: Args) -> list[tuple[str, int
     exclude_dirs = {Path(path.replace("\\", "/")) for path in args.exclude_dir}
     include_exts = {ext.removeprefix(".").casefold() for ext in args.include_ext}
     exclude_exts = {ext.removeprefix(".").casefold() for ext in args.exclude_ext}
+
+    files = (
+        (language["Name"], file)
+        for language in languages
+        if not (include_langs or exclude_langs)
+        or allowed((language["Name"].casefold(),), include_langs, exclude_langs)
+        for file in language["Files"]
+        if not (include_exts or exclude_exts)
+        or allowed((file["Extension"].casefold(),), include_exts, exclude_exts)
+        if not (include_dirs or exclude_dirs)
+        or allowed(Path(file["Location"]).parents, include_dirs, exclude_dirs)
+    )
+
     counts: Counter[str] = Counter()
-    for language in languages:
-        name = language["Name"]
-        if not allowed((name.casefold(),), include_langs, exclude_langs):
-            continue
-        for file in language["Files"]:
-            if not allowed(Path(file["Location"]).parents, include_dirs, exclude_dirs):
-                continue
-            if not allowed((file["Extension"].casefold(),), include_exts, exclude_exts):
-                continue
-            counts[name] += {
-                "lines": file["Lines"],
-                "bytes": file["Bytes"],
-                "files": 1,
-            }[args.metric]
+    get_metric = {
+        "lines": itemgetter("Lines"),
+        "bytes": itemgetter("Bytes"),
+        "files": lambda _: 1,
+    }[args.metric]
+    for name, file in files:
+        counts[name] += get_metric(file)
     return sorted(counts.items(), key=lambda item: (-item[1], item[0]))
 
 
