@@ -26,7 +26,6 @@ ty = "latest"
 typos = "latest"
 uv = "latest"
 prettier = "latest"
-
 [tools."github:rocq-prover/platform"]
 version = "latest"
 asset_pattern = "signed_Rocq-Platform-release-*-Windows-x86_64.exe"
@@ -34,7 +33,6 @@ bin_path = "bin"
 postinstall = '''
 pwsh -NoProfile -File "{{ config_root }}/.config/mise/conf.d/mise/windows/install/rocq.ps1"
 '''
-
 [tools.python]
 version = "latest"
 postinstall = '''
@@ -45,13 +43,10 @@ python -m pip install -r "{{config_root}}/.config/mise/conf.d/mise/windows/packa
 idiomatic_version_file_enable_tools = ["python", "node", "pnpm", "go"]
 auto_install = false
 not_found_auto_install = false
-
 [settings.python]
 uv_venv_auto = "source"
-
-[settings.pipx]
+[settings.pypi]
 uvx = true
-
 [settings.npm]
 package_manager = "pnpm"
 
